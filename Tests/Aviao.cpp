@@ -8,7 +8,9 @@ Aviao::Aviao(string m, unsigned int c, unsigned int nlr){
 }
 
 string Aviao::getMatricula() const {return matricula; }
+
 unsigned int Aviao::getCapacidade() const {return capacidade; }
+
 unsigned int Aviao::getNumLugaresReservados() const {return numLugaresReservados; }
 
 void Aviao::setMatricula(string m) {
