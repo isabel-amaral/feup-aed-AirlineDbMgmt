@@ -1,6 +1,16 @@
 #include "Voo.h"
 using namespace std;
 
+//isabel: tive de implementar o construtor defualt para conseguir fazer build
+Voo::Voo() {
+    num = 0;
+    partida = "";
+    chegada = "";
+    duracao = "";
+    origem = "";
+    destino = "";
+}
+
 Voo::Voo(int n, string o, string p, string d, string c, string dur) {
     this->num = n;
     this->origem = o;

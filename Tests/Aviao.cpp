@@ -1,6 +1,13 @@
 #include "Aviao.h"
 using namespace std;
 
+//isabel: tive de implementar o construtor defualt para conseguir fazer build
+Aviao::Aviao() {
+    matricula = "";
+    capacidade = 0;
+    numLugaresReservados = 0;
+}
+
 Aviao::Aviao(string m, unsigned int c, unsigned int nlr){
     this->matricula=m;
     this->capacidade=c;
