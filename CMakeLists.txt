@@ -4,4 +4,4 @@ project(AirlineDatabaseManagement)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(AirlineDatabaseManagement main.cpp Tests/Aviao.h Tests/Aviao.cpp Tests/Voo.h Tests/Voo.cpp
-                                         Tests/Servico.h Tests/Servico.cpp Tests/Passageiro.h Tests/Passageiro.cpp)
+        Tests/Servico.h Tests/Servico.cpp Tests/Passageiro.h Tests/Passageiro.cpp Tests/Bilhete.h Tests/Bilhete.cpp)
