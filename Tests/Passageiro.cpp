@@ -37,6 +37,10 @@ void Passageiro::mostrarBilehtesAdquiridos() const {
         //data do voo
         cout << "Partida presvista às " << it->getVoo().getPartida() << " com chegada prevista às " << it->getVoo().getChegada() << endl;
         cout << "A duração do voo será aproximadamente " << it->getVoo().getDuracao() << endl;
+        if (it->temBagagemDeMao())
+            cout << this->nome << " tem direito a levar bagagem de mão" << endl;
+        else
+            cout << this->nome << " não tem direito a levar bagagem de mão" << endl;
         cout << endl;
     }
 }
