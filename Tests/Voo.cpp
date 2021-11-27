@@ -7,17 +7,29 @@ Voo::Voo() {
     partida = "";
     chegada = "";
     duracao = "";
-    origem = "";
-    destino = "";
+    origem = Aeroporto();
+    destino = Aeroporto();
+    aviao = Aviao();
 }
 
-Voo::Voo(int n, string o, string p, string d, string c, string dur) {
+Voo::Voo(unsigned int n, Aeroporto ao, string p, Aeroporto ad, string c, string d, Aviao a) {
     this->num = n;
-    this->origem = o;
+    this->origem = ao;
     this->partida = p;
-    this->destino = d;
+    this->destino = ad;
     this->chegada = c;
-    this->duracao = dur;
+    this->duracao = d;
+    this->aviao = a;
+}
+
+Voo::Voo(const Voo &v2) {
+    this->num = v2.num;
+    this->origem = v2.origem;
+    this->partida = v2.partida;
+    this->destino = v2.destino;
+    this->chegada = v2.chegada;
+    this->duracao = v2.duracao;
+    this->aviao = v2.aviao;
 }
 
 int Voo::getNum() const {
@@ -36,36 +48,42 @@ string Voo::getDuracao() const {
     return duracao;
 }
 
-string Voo::getOrigem() const {
+Aeroporto Voo::getOrigem() const {
     return origem;
 }
 
-string Voo::getDestino() const {
+Aeroporto Voo::getDestino() const {
     return destino;
 }
 
-void Voo::setNum(const int &n) {
+Aviao Voo::getAviao() const {
+    return aviao;
+}
+
+void Voo::setNum(const unsigned int &n) {
     num = n;
 }
 
-void Voo::setOrigem(const string &o) {
-    origem = o;
+void Voo::setOrigem(const Aeroporto &ao) {
+    origem = ao;
 }
 
 void Voo::setPartida(const string &p) {
     partida = p;
 }
 
-void Voo::setDestino(const string &d) {
-    destino = d;
+void Voo::setDestino(const Aeroporto &ad) {
+    destino = ad;
 }
 
 void Voo::setChegada(const string &c) {
     chegada = c;
 }
 
-void Voo::setDuracao(const string &dur) {
-    duracao = dur;
+void Voo::setDuracao(const string &d) {
+    duracao = d;
 }
 
-
+void Voo::setAviao(const Aviao &a) {
+    this->aviao = a;
+}
