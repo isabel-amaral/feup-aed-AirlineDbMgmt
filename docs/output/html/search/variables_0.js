@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['data_0',['data',['../class_servico.html#a1157dd5e44c0cf7f84c67cebe7e82546',1,'Servico']]]
+  ['bagagemdemao_0',['bagagemDeMao',['../class_bilhete.html#ae0e2863a15ec4937b7a9c74d43fbb534',1,'Bilhete']]],
+  ['bilhetesadquiridos_1',['bilhetesAdquiridos',['../class_passageiro.html#adcfaa81f5ff722eab284df44829fc140',1,'Passageiro']]]
 ];

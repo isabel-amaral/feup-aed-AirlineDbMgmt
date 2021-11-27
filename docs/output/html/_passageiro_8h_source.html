@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AirlineDatabaseManagement: C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/Passageiro.h Source File</title>
+<title>AirlineDatabaseManagement: C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/AirlineDatabaseManagement/Tests/Passageiro.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,20 +80,36 @@ $(function() {
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_passageiro.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="class_passageiro.html">Passageiro</a> {</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">string</span> nome;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">int</span> id;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    list&lt;Bilhete&gt; bilhetesAdquiridos;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_class" href="class_passageiro.html">Passageiro</a>(<span class="keywordtype">string</span> n, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">string</span> getNome() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">int</span> getId() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> adquirirBilhete(<a class="code hl_class" href="class_bilhete.html">Bilhete</a>&amp; bilhete);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>};</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif </span><span class="comment">//_PASSAGEIRO_H</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_passageiro.html#a08faebe098c42dbbe8bc4f4d48f4941b">   14</a></span>    <span class="keywordtype">string</span> <a class="code hl_variable" href="class_passageiro.html#a08faebe098c42dbbe8bc4f4d48f4941b">nome</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_passageiro.html#aa8e0c8d33b61d163a91f8bd60a0ce69c">   18</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_passageiro.html#aa8e0c8d33b61d163a91f8bd60a0ce69c">id</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="class_passageiro.html#a2fbf24c9718e5e0d1842aaeef333db96">   22</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="class_passageiro.html#a2fbf24c9718e5e0d1842aaeef333db96">idade</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="class_passageiro.html#a26cd33f97c4f2e0c80904681f4205abc">   26</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_passageiro.html#a26cd33f97c4f2e0c80904681f4205abc">menorNaoAcompanhado</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_passageiro.html#adcfaa81f5ff722eab284df44829fc140">   31</a></span>    list&lt;Bilhete&gt; <a class="code hl_variable" href="class_passageiro.html#adcfaa81f5ff722eab284df44829fc140">bilhetesAdquiridos</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_class" href="class_passageiro.html">Passageiro</a>(<span class="keywordtype">string</span> n, <span class="keywordtype">unsigned</span> <span class="keywordtype">id</span>, <span class="keywordtype">unsigned</span> i, <span class="keywordtype">bool</span> menor);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">string</span> <a class="code hl_function" href="class_passageiro.html#a3600dc54e613120680ccb5a1937c3543">getNome</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_passageiro.html#a0ddc7648b7ba1e35a212bcc0d13418fe">getId</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="class_passageiro.html#accc58a695d43065bc73c993497e77243">getIdade</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_passageiro.html#acfb3f789b3c3cae1a1139ac5e0c79dda">isMenorNaoAcompanhado</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_passageiro.html#a30bb77bb07df4994ea26a807beed0735">mostrarBilehtesAdquiridos</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_passageiro.html#aec6df5378f6b5adff12ff2ed6f1d5024">adquirirBilhete</a>(<a class="code hl_class" href="class_bilhete.html">Bilhete</a>&amp; bilhete);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#endif </span><span class="comment">//_PASSAGEIRO_H</span></div>
 <div class="ttc" id="aclass_bilhete_html"><div class="ttname"><a href="class_bilhete.html">Bilhete</a></div><div class="ttdef"><b>Definition:</b> Bilhete.h:6</div></div>
 <div class="ttc" id="aclass_passageiro_html"><div class="ttname"><a href="class_passageiro.html">Passageiro</a></div><div class="ttdef"><b>Definition:</b> Passageiro.h:9</div></div>
+<div class="ttc" id="aclass_passageiro_html_a08faebe098c42dbbe8bc4f4d48f4941b"><div class="ttname"><a href="class_passageiro.html#a08faebe098c42dbbe8bc4f4d48f4941b">Passageiro::nome</a></div><div class="ttdeci">string nome</div><div class="ttdef"><b>Definition:</b> Passageiro.h:14</div></div>
+<div class="ttc" id="aclass_passageiro_html_a0ddc7648b7ba1e35a212bcc0d13418fe"><div class="ttname"><a href="class_passageiro.html#a0ddc7648b7ba1e35a212bcc0d13418fe">Passageiro::getId</a></div><div class="ttdeci">int getId() const</div><div class="ttdef"><b>Definition:</b> Passageiro.cpp:18</div></div>
+<div class="ttc" id="aclass_passageiro_html_a26cd33f97c4f2e0c80904681f4205abc"><div class="ttname"><a href="class_passageiro.html#a26cd33f97c4f2e0c80904681f4205abc">Passageiro::menorNaoAcompanhado</a></div><div class="ttdeci">bool menorNaoAcompanhado</div><div class="ttdef"><b>Definition:</b> Passageiro.h:26</div></div>
+<div class="ttc" id="aclass_passageiro_html_a2fbf24c9718e5e0d1842aaeef333db96"><div class="ttname"><a href="class_passageiro.html#a2fbf24c9718e5e0d1842aaeef333db96">Passageiro::idade</a></div><div class="ttdeci">unsigned int idade</div><div class="ttdef"><b>Definition:</b> Passageiro.h:22</div></div>
+<div class="ttc" id="aclass_passageiro_html_a30bb77bb07df4994ea26a807beed0735"><div class="ttname"><a href="class_passageiro.html#a30bb77bb07df4994ea26a807beed0735">Passageiro::mostrarBilehtesAdquiridos</a></div><div class="ttdeci">void mostrarBilehtesAdquiridos() const</div><div class="ttdef"><b>Definition:</b> Passageiro.cpp:31</div></div>
+<div class="ttc" id="aclass_passageiro_html_a3600dc54e613120680ccb5a1937c3543"><div class="ttname"><a href="class_passageiro.html#a3600dc54e613120680ccb5a1937c3543">Passageiro::getNome</a></div><div class="ttdeci">string getNome() const</div><div class="ttdef"><b>Definition:</b> Passageiro.cpp:14</div></div>
+<div class="ttc" id="aclass_passageiro_html_aa8e0c8d33b61d163a91f8bd60a0ce69c"><div class="ttname"><a href="class_passageiro.html#aa8e0c8d33b61d163a91f8bd60a0ce69c">Passageiro::id</a></div><div class="ttdeci">unsigned int id</div><div class="ttdef"><b>Definition:</b> Passageiro.h:18</div></div>
+<div class="ttc" id="aclass_passageiro_html_accc58a695d43065bc73c993497e77243"><div class="ttname"><a href="class_passageiro.html#accc58a695d43065bc73c993497e77243">Passageiro::getIdade</a></div><div class="ttdeci">unsigned int getIdade() const</div><div class="ttdef"><b>Definition:</b> Passageiro.cpp:23</div></div>
+<div class="ttc" id="aclass_passageiro_html_acfb3f789b3c3cae1a1139ac5e0c79dda"><div class="ttname"><a href="class_passageiro.html#acfb3f789b3c3cae1a1139ac5e0c79dda">Passageiro::isMenorNaoAcompanhado</a></div><div class="ttdeci">bool isMenorNaoAcompanhado() const</div><div class="ttdef"><b>Definition:</b> Passageiro.cpp:27</div></div>
+<div class="ttc" id="aclass_passageiro_html_adcfaa81f5ff722eab284df44829fc140"><div class="ttname"><a href="class_passageiro.html#adcfaa81f5ff722eab284df44829fc140">Passageiro::bilhetesAdquiridos</a></div><div class="ttdeci">list&lt; Bilhete &gt; bilhetesAdquiridos</div><div class="ttdef"><b>Definition:</b> Passageiro.h:31</div></div>
+<div class="ttc" id="aclass_passageiro_html_aec6df5378f6b5adff12ff2ed6f1d5024"><div class="ttname"><a href="class_passageiro.html#aec6df5378f6b5adff12ff2ed6f1d5024">Passageiro::adquirirBilhete</a></div><div class="ttdeci">void adquirirBilhete(Bilhete &amp;bilhete)</div><div class="ttdef"><b>Definition:</b> Passageiro.cpp:48</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

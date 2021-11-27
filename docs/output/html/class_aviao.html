@@ -73,9 +73,18 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3bb48ed9d269fbc66126858db6ea75f4"><td class="memItemLeft" align="right" valign="top"><a id="a3bb48ed9d269fbc66126858db6ea75f4" name="a3bb48ed9d269fbc66126858db6ea75f4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Aviao</b> (string m, unsigned int c, unsigned int nlr)</td></tr>
-<tr class="separator:a3bb48ed9d269fbc66126858db6ea75f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61808e55d8615049f39622daa6733553"><td class="memItemLeft" align="right" valign="top"><a id="a61808e55d8615049f39622daa6733553" name="a61808e55d8615049f39622daa6733553"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Aviao</b> (string m, unsigned int c, unsigned int nlr, list&lt; <a class="el" href="class_voo.html">Voo</a> &gt; &amp;planVoo, queue&lt; <a class="el" href="class_servico.html">Servico</a> &gt; &amp;sRealizados, queue&lt; <a class="el" href="class_servico.html">Servico</a> &gt; &amp;sPorRealizar)</td></tr>
+<tr class="separator:a61808e55d8615049f39622daa6733553"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b65efb307f19337f3ba9e5b2c25d6b7"><td class="memItemLeft" align="right" valign="top"><a id="a7b65efb307f19337f3ba9e5b2c25d6b7" name="a7b65efb307f19337f3ba9e5b2c25d6b7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMatricula</b> (const string &amp;m)</td></tr>
+<tr class="separator:a7b65efb307f19337f3ba9e5b2c25d6b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a499fc6e1f5778fabd9100fa0282f4b"><td class="memItemLeft" align="right" valign="top"><a id="a0a499fc6e1f5778fabd9100fa0282f4b" name="a0a499fc6e1f5778fabd9100fa0282f4b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setCapacidade</b> (const unsigned int &amp;c)</td></tr>
+<tr class="separator:a0a499fc6e1f5778fabd9100fa0282f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a416afa69087a39bb063b0ea8bfc66b1b"><td class="memItemLeft" align="right" valign="top"><a id="a416afa69087a39bb063b0ea8bfc66b1b" name="a416afa69087a39bb063b0ea8bfc66b1b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setNumLugaresReservados</b> (const unsigned int &amp;lugares)</td></tr>
+<tr class="separator:a416afa69087a39bb063b0ea8bfc66b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80c3658c222299133e4584cfdcd1d00f"><td class="memItemLeft" align="right" valign="top"><a id="a80c3658c222299133e4584cfdcd1d00f" name="a80c3658c222299133e4584cfdcd1d00f"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>getMatricula</b> () const</td></tr>
 <tr class="separator:a80c3658c222299133e4584cfdcd1d00f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -85,15 +94,21 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getCapacidade
 <tr class="memitem:a02094ca860cfd971484db1eb3ce214a1"><td class="memItemLeft" align="right" valign="top"><a id="a02094ca860cfd971484db1eb3ce214a1" name="a02094ca860cfd971484db1eb3ce214a1"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumLugaresReservados</b> () const</td></tr>
 <tr class="separator:a02094ca860cfd971484db1eb3ce214a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d9a2a3dbb8a242bbe89a9f115d8a7d1"><td class="memItemLeft" align="right" valign="top"><a id="a3d9a2a3dbb8a242bbe89a9f115d8a7d1" name="a3d9a2a3dbb8a242bbe89a9f115d8a7d1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMatricula</b> (string m)</td></tr>
-<tr class="separator:a3d9a2a3dbb8a242bbe89a9f115d8a7d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2fce5934b6bf19d594b5976e130f32d"><td class="memItemLeft" align="right" valign="top"><a id="aa2fce5934b6bf19d594b5976e130f32d" name="aa2fce5934b6bf19d594b5976e130f32d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCapacidade</b> (unsigned c)</td></tr>
-<tr class="separator:aa2fce5934b6bf19d594b5976e130f32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1663e6de08c434f8f5f23ba1e8325939"><td class="memItemLeft" align="right" valign="top"><a id="a1663e6de08c434f8f5f23ba1e8325939" name="a1663e6de08c434f8f5f23ba1e8325939"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNumLugaresReservados</b> (unsigned int lugares)</td></tr>
-<tr class="separator:a1663e6de08c434f8f5f23ba1e8325939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cd20a55231fa7f7101d2a2e3b41d5f2"><td class="memItemLeft" align="right" valign="top"><a id="a1cd20a55231fa7f7101d2a2e3b41d5f2" name="a1cd20a55231fa7f7101d2a2e3b41d5f2"></a>
+queue&lt; <a class="el" href="class_servico.html">Servico</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getServicosRealizados</b> () const</td></tr>
+<tr class="separator:a1cd20a55231fa7f7101d2a2e3b41d5f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4d6999a640f17c2a7d2c7cac19344e9"><td class="memItemLeft" align="right" valign="top"><a id="aa4d6999a640f17c2a7d2c7cac19344e9" name="aa4d6999a640f17c2a7d2c7cac19344e9"></a>
+queue&lt; <a class="el" href="class_servico.html">Servico</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getServicosPorRealizar</b> () const</td></tr>
+<tr class="separator:aa4d6999a640f17c2a7d2c7cac19344e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa642ae9b1f61decdedbcd312623a5e4f"><td class="memItemLeft" align="right" valign="top"><a id="aa642ae9b1f61decdedbcd312623a5e4f" name="aa642ae9b1f61decdedbcd312623a5e4f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addVoo</b> (const <a class="el" href="class_voo.html">Voo</a> &amp;voo)</td></tr>
+<tr class="separator:aa642ae9b1f61decdedbcd312623a5e4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5567add4fb9f2d7c6904f59f6b38f07b"><td class="memItemLeft" align="right" valign="top"><a id="a5567add4fb9f2d7c6904f59f6b38f07b" name="a5567add4fb9f2d7c6904f59f6b38f07b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addServico</b> (const <a class="el" href="class_servico.html">Servico</a> &amp;servico)</td></tr>
+<tr class="separator:a5567add4fb9f2d7c6904f59f6b38f07b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ce2ff4ba87aa128f395a94f0a2d8028"><td class="memItemLeft" align="right" valign="top"><a id="a6ce2ff4ba87aa128f395a94f0a2d8028" name="a6ce2ff4ba87aa128f395a94f0a2d8028"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addServicoRealizado</b> (const <a class="el" href="class_servico.html">Servico</a> &amp;srvico)</td></tr>
+<tr class="separator:a6ce2ff4ba87aa128f395a94f0a2d8028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -106,10 +121,19 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>capacidade</b
 <tr class="memitem:a43365de80c69524c330f720191c7557c"><td class="memItemLeft" align="right" valign="top"><a id="a43365de80c69524c330f720191c7557c" name="a43365de80c69524c330f720191c7557c"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>numLugaresReservados</b></td></tr>
 <tr class="separator:a43365de80c69524c330f720191c7557c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedb4fe87bdafdc55e6e59b0e8c4ee8c0"><td class="memItemLeft" align="right" valign="top"><a id="aedb4fe87bdafdc55e6e59b0e8c4ee8c0" name="aedb4fe87bdafdc55e6e59b0e8c4ee8c0"></a>
+list&lt; <a class="el" href="class_voo.html">Voo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>planoDeVoo</b></td></tr>
+<tr class="separator:aedb4fe87bdafdc55e6e59b0e8c4ee8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b5cd208e9388ef1f38ed84150eece6d"><td class="memItemLeft" align="right" valign="top"><a id="a6b5cd208e9388ef1f38ed84150eece6d" name="a6b5cd208e9388ef1f38ed84150eece6d"></a>
+queue&lt; <a class="el" href="class_servico.html">Servico</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>servicosRealizados</b></td></tr>
+<tr class="separator:a6b5cd208e9388ef1f38ed84150eece6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1e8d00dbe60ab19eeab80e7e14723ac"><td class="memItemLeft" align="right" valign="top"><a id="ae1e8d00dbe60ab19eeab80e7e14723ac" name="ae1e8d00dbe60ab19eeab80e7e14723ac"></a>
+queue&lt; <a class="el" href="class_servico.html">Servico</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>servicosPorRealizar</b></td></tr>
+<tr class="separator:ae1e8d00dbe60ab19eeab80e7e14723ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/<a class="el" href="_aviao_8h_source.html">Aviao.h</a></li>
-<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/Aviao.cpp</li>
+<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/AirlineDatabaseManagement/Tests/<a class="el" href="_aviao_8h_source.html">Aviao.h</a></li>
+<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/AirlineDatabaseManagement/Tests/Aviao.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
