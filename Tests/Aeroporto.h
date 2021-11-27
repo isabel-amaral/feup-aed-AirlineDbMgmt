@@ -14,6 +14,7 @@ public:
     Aeroporto(string n, string c);
     string getNome() const;
     string getCidade() const;
+    //isabel: acho que não precisamos de setters nesta classe, o que acham?
     void setNome(const string &nome);
     void setCidade(const string &cidade);
 

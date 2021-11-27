@@ -6,13 +6,15 @@ using namespace std;
 
 class Voo {
 private:
-    int num; // unsigned?
+    int num; // unsigned? isabel: sim unsigned e acho que ficava melhor se o nome da variável fosse qualuqer coisa como numeroDeVoo
+    //isabel: essa partida e chegada são a data? se sim, tudo bem
     string partida;
     string chegada;
     string duracao; // string?
+    //isabel: acho que a origem e o destino deviam ser alteradas para um aeroporto pq assim podemos aceder tanto ao nome do aeroporto como ao nome da cidade
     string origem;
     string destino;
-    // hora de partida e chegada?
+    // hora de partida e chegada? isabel: acho que as horas devíamos representar em float
 public:
     Voo();
     Voo(int n, string o, string p, string d, string c, string dur);
