@@ -1,5 +1,5 @@
-#ifndef AIRLINEDATABASEMANAGEMENT_VOO_H
-#define AIRLINEDATABASEMANAGEMENT_VOO_H
+#ifndef _VOO_H
+#define _VOO_H
 
 #include <string>
 using namespace std;
@@ -30,4 +30,4 @@ public:
     void setDuracao(const string &dur);
 };
 
-#endif //AIRLINEDATABASEMANAGEMENT_VOO_H
+#endif //_VOO_H
