@@ -25,9 +25,9 @@ public:
     string getTipoServico();
     string getData();
     string getFuncionarioResponsavel();
-    void setTipoServico(string tipo);
-    void setData(string d);
-    void setFuncionarioResponsavel(string funcionario);
+    void setTipoServico(string& tipo);
+    void setData(string& d);
+    void setFuncionarioResponsavel(string& funcionario);
 };
 
 #endif //_SERVICO_H

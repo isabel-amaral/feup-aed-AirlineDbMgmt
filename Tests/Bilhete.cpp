@@ -1,14 +1,14 @@
 #include "Bilhete.h"
 
 Bilhete::Bilhete(Voo v, bool bagagem) {
-    voo = v;
-    bagagemDeMao = bagagem;
+    this->voo = v;
+    this->bagagemDeMao = bagagem;
 }
 
 Voo Bilhete::getVoo() const {
-    return voo;
+    return this->voo;
 }
 
 bool Bilhete::temBagagemDeMao() const {
-    return bagagemDeMao;
+    return this->bagagemDeMao;
 }
