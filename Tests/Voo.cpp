@@ -1,7 +1,6 @@
 #include "Voo.h"
 using namespace std;
 
-//isabel: tive de implementar o construtor defualt para conseguir fazer build
 Voo::Voo() {
     num = 0;
     partida = "";
@@ -10,9 +9,10 @@ Voo::Voo() {
     origem = Aeroporto();
     destino = Aeroporto();
     aviao = Aviao();
+    numLugaresReservados = 0;
 }
 
-Voo::Voo(unsigned int n, Aeroporto ao, string p, Aeroporto ad, string c, string d, Aviao a) {
+Voo::Voo(unsigned int n, Aeroporto ao, string p, Aeroporto ad, string c, string d, Aviao a, unsigned int nlr) {
     this->num = n;
     this->origem = ao;
     this->partida = p;
@@ -20,6 +20,7 @@ Voo::Voo(unsigned int n, Aeroporto ao, string p, Aeroporto ad, string c, string 
     this->chegada = c;
     this->duracao = d;
     this->aviao = a;
+    this->numLugaresReservados = nlr;
 }
 
 Voo::Voo(const Voo &v2) {
@@ -32,6 +33,8 @@ Voo::Voo(const Voo &v2) {
     this->aviao = v2.aviao;
 }
 
+
+//-------------------------------------------------------------------------------------------------------
 int Voo::getNum() const {
     return num;
 }
@@ -60,6 +63,12 @@ Aviao Voo::getAviao() const {
     return aviao;
 }
 
+unsigned int Voo::getNumLugaresReservados() const {
+    return numLugaresReservados;
+}
+
+
+//-------------------------------------------------------------------------------------------------------
 void Voo::setNum(const unsigned int &n) {
     num = n;
 }
@@ -86,4 +95,8 @@ void Voo::setDuracao(const string &d) {
 
 void Voo::setAviao(const Aviao &a) {
     this->aviao = a;
+}
+
+void Voo::setNumLugaresReservados(const unsigned int &lr) {
+    this->numLugaresReservados = lr;
 }

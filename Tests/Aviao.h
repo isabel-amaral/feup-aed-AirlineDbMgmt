@@ -14,20 +14,15 @@ private:
      * matricula do avião
      */
     string matricula;
-
     //isabel: não acaham que os atributos capacidade de numLugaresReservados faz mais sentido ir para a classe voo?
     /**
      * capacidade do avião
      */
     unsigned int capacidade;
     /**
-     * número de lugares reservados(ocupados) no avião
-     */
-    unsigned int numLugaresReservados;
-    /**
      * todos os voos que o avião tem agendados/por realizar
      */
-    list<Voo> planoDeVoo;
+    list<Voo> planoDeVoo; // sofia: nao acham que deviamos dizer a lista tem os voos por exemplo do mês e que vai sendo atualizada mensalmente?
     /**
     * todos os serviços aos quais o avião está sujeito
     */
@@ -40,38 +35,7 @@ private:
 
 public:
     Aviao();
-    Aviao(string m, unsigned int c, unsigned int nlr,list<Voo> &planVoo, queue <Servico> &servRealizados, queue <Servico> &servPorRealizar);
-    /**
-    * modifica a matrícula do avião
-    * @param m é a matricula do aviao
-    */
-    void setMatricula(const string &m);
-    /**
-    * modifica a capacidade do avião
-    * @param c é a capacidade do aviao
-    */
-    void setCapacidade(const unsigned int &c);
-    /**
-    * define o  número de lugares reservados(ocupados) no avião
-    * @param lugares é o número de lugares ocupados
-    */
-    void setNumLugaresReservados(const unsigned int &lugares);
-    /**
-    * atribui a lista de voos que o avião tem por realizar
-    * @param pVoo é o plano de voos do avião
-    */
-    void setPlanoDeVoo(const list<Voo> &pVoo);
-    /**
-    * define os serviços aos quais o avião está sujeito
-    * @param servPorRealizar são os serviços a realizar
-    */
-    void setServicosPorRealizar(const queue<Servico> &servPorRealizar);
-    /**
-    * define os serviços concluídos
-    * @param servRealizados são os serviços realizados
-    */
-    void setServicosRealizados(const queue<Servico> &servRealizados);
-
+    Aviao(string m, unsigned int c, list<Voo> &planVoo, queue <Servico> &servRealizados, queue <Servico> &servPorRealizar);
 
     /**
      *
@@ -83,11 +47,6 @@ public:
      * @return capacidade do avião
      */
     unsigned int getCapacidade() const;
-    /**
-     *
-     * @return numero de lugares reservados(ocupados) no avião
-     */
-    unsigned int getNumLugaresReservados() const;
     /**
     *
     * @return todos os voos que o avião tem agendados/por realizar
@@ -122,5 +81,30 @@ public:
      */
     void realizarServico ();
 
+    /**
+    * modifica a matrícula do avião
+    * @param m é a matricula do aviao
+    */
+    void setMatricula(const string &m);
+    /**
+    * modifica a capacidade do avião
+    * @param c é a capacidade do aviao
+    */
+    void setCapacidade(const unsigned int &c);
+    /**
+    * atribui a lista de voos que o avião tem por realizar
+    * @param pVoo é o plano de voos do avião
+    */
+    void setPlanoDeVoo(const list<Voo> &pVoo);
+    /**
+    * define os serviços aos quais o avião está sujeito
+    * @param servPorRealizar são os serviços a realizar
+    */
+    void setServicosPorRealizar(const queue<Servico> &servPorRealizar);
+    /**
+    * define os serviços concluídos
+    * @param servRealizados são os serviços realizados
+    */
+    void setServicosRealizados(const queue<Servico> &servRealizados);
 };
 #endif //_AVIAO_H

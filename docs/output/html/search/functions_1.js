@@ -1,10 +1,26 @@
 var searchData=
 [
-  ['getdata_0',['getData',['../class_servico.html#a0a007bdff9456339e6ff1eb252f6aa61',1,'Servico']]],
-  ['getfuncionarioresponsavel_1',['getFuncionarioResponsavel',['../class_servico.html#ab27c6076721c37d1d2838622002b6cf6',1,'Servico']]],
-  ['getid_2',['getId',['../class_passageiro.html#a0ddc7648b7ba1e35a212bcc0d13418fe',1,'Passageiro']]],
-  ['getidade_3',['getIdade',['../class_passageiro.html#accc58a695d43065bc73c993497e77243',1,'Passageiro']]],
-  ['getnome_4',['getNome',['../class_passageiro.html#a3600dc54e613120680ccb5a1937c3543',1,'Passageiro']]],
-  ['gettiposervico_5',['getTipoServico',['../class_servico.html#a0f6aa1a6e7b2ca709b99d84ac248e4f5',1,'Servico']]],
-  ['getvoo_6',['getVoo',['../class_bilhete.html#ac68c5d6583d6a29985e1c82cd6806011',1,'Bilhete']]]
+  ['getaviao_0',['getAviao',['../class_voo.html#a265c5700fe9ddef1288250beb89878c2',1,'Voo']]],
+  ['getcapacidade_1',['getCapacidade',['../class_aviao.html#ad4055e289ef4f6af7b9142c1d31df65b',1,'Aviao']]],
+  ['getchegada_2',['getChegada',['../class_voo.html#a8dd19d0970b9b9e73b48573c54e63418',1,'Voo']]],
+  ['getcidade_3',['getCidade',['../class_aeroporto.html#a222a4ff75168f6cd658538739ca4cb36',1,'Aeroporto']]],
+  ['getdata_4',['getData',['../class_servico.html#a0a007bdff9456339e6ff1eb252f6aa61',1,'Servico']]],
+  ['getdestino_5',['getDestino',['../class_voo.html#ae49630ba53ada7f549abacb1c9c19228',1,'Voo']]],
+  ['getduracao_6',['getDuracao',['../class_voo.html#a1dcc4995e3ba599a2b36069af601310a',1,'Voo']]],
+  ['getfuncionarioresponsavel_7',['getFuncionarioResponsavel',['../class_servico.html#ab27c6076721c37d1d2838622002b6cf6',1,'Servico']]],
+  ['getid_8',['getId',['../class_passageiro.html#a0ddc7648b7ba1e35a212bcc0d13418fe',1,'Passageiro']]],
+  ['getidade_9',['getIdade',['../class_passageiro.html#accc58a695d43065bc73c993497e77243',1,'Passageiro']]],
+  ['getmatricula_10',['getMatricula',['../class_aviao.html#a80c3658c222299133e4584cfdcd1d00f',1,'Aviao']]],
+  ['getnome_11',['getNome',['../class_aeroporto.html#a23f806b5b9765396d4cdee50f0ce6ebd',1,'Aeroporto::getNome()'],['../class_passageiro.html#a3600dc54e613120680ccb5a1937c3543',1,'Passageiro::getNome()']]],
+  ['getnum_12',['getNum',['../class_voo.html#aaed24bffe2b69df53db4fb5692a11bf6',1,'Voo']]],
+  ['getnumlugaresreservados_13',['getNumLugaresReservados',['../class_voo.html#acf46360d5366fb22fc864f0409213a04',1,'Voo']]],
+  ['getorigem_14',['getOrigem',['../class_voo.html#a07b4f2c7f15530224193680ede9dc170',1,'Voo']]],
+  ['getpartida_15',['getPartida',['../class_voo.html#a5e228eafe0d3856dc08e124d0f310804',1,'Voo']]],
+  ['getplanodevoo_16',['getPlanoDeVoo',['../class_aviao.html#ada29b518a8b9f400be22f02f054ecb20',1,'Aviao']]],
+  ['getservicosporrealizar_17',['getServicosPorRealizar',['../class_aviao.html#aa4d6999a640f17c2a7d2c7cac19344e9',1,'Aviao']]],
+  ['getservicosrealizados_18',['getServicosRealizados',['../class_aviao.html#a1cd20a55231fa7f7101d2a2e3b41d5f2',1,'Aviao']]],
+  ['gettiposervico_19',['getTipoServico',['../class_servico.html#a0f6aa1a6e7b2ca709b99d84ac248e4f5',1,'Servico']]],
+  ['getvoo_20',['getVoo',['../class_bilhete.html#ac68c5d6583d6a29985e1c82cd6806011',1,'Bilhete']]],
+  ['getvooschegada_21',['getVoosChegada',['../class_aeroporto.html#a275c5adfb30a24e3521eb88e1c9453a5',1,'Aeroporto']]],
+  ['getvoospartida_22',['getVoosPartida',['../class_aeroporto.html#a97e8b0949e7cf171762015604a8a2091',1,'Aeroporto']]]
 ];

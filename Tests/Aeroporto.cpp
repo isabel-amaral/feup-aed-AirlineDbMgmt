@@ -4,14 +4,19 @@ using namespace std;
 Aeroporto::Aeroporto() {
     this->nome = "";
     this->cidade = "";
-    this->voos = {};
+    voosPartida.clear();
+    voosChegada.clear();
 }
 
-Aeroporto::Aeroporto(string n, string c) {
+Aeroporto::Aeroporto(string n, string c, list<Voo> vp, list<Voo> vc) {
     this->nome = n;
     this->cidade = c;
+    voosPartida = vp;
+    voosChegada = vc;
 }
 
+
+//-------------------------------------------------------------------------------------------------------
 string Aeroporto::getNome() const {
     return nome;
 }
@@ -20,10 +25,16 @@ string Aeroporto::getCidade() const {
     return cidade;
 }
 
-list<Voo> Aeroporto::getVoos() const {
-    return voos;
+list<Voo> Aeroporto::getVoosPartida() const {
+    return voosPartida;
 }
 
+list<Voo> Aeroporto::getVoosChegada() const {
+    return voosChegada;
+}
+
+
+/*
 void Aeroporto::setNome(const string &n) {
     this->nome = nome;
 }
@@ -32,6 +43,11 @@ void Aeroporto::setCidade(const string &c) {
     this->cidade = c;
 }
 
-void Aeroporto::setVoos(const list<Voo> &v) {
-    this->voos = v;
+void Aeroporto::setVoosPartida(const list<Voo> &v) {
+    this->voosPartida = v;
 }
+
+void Aeroporto::setVoosChegada(const list<Voo> &v) {
+    this->voosChegada = v;
+}
+ */
