@@ -24,7 +24,7 @@ private:
      * todos os voos que têm como origem o aeroporto e que estão agendados/por realizar
      *//*
     list<Voo> voosPartida;
-    *//**
+    /**
      * todos os voos que têm como destino o aeroporto e que estão agendados/por realizar
      *//*
     list<Voo> voosChegada;
@@ -33,7 +33,7 @@ private:
     //sofia: list<LocalTransporte> quando a classe estiver criada
 public:
     Aeroporto();
-    Aeroporto(string n, string c);
+    Aeroporto(const string& n, const string& c);
     /**
      *
      * @return nome do aeroporto
@@ -51,7 +51,7 @@ public:
     * @return todos os voos que partem do aeroporto e que estão agendados/por realizar
     *//*
     list<Voo> getVoosPartida() const;
-    *//**
+    /**
     *
     * @return todos os voos que chegam ao aeroporto e que estão agendados/por realizar
     *//*

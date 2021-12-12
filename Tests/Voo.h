@@ -11,7 +11,7 @@ private:
     /**
      * número que identifica o voo
      */
-    unsigned int numeroVoo;
+    unsigned numeroVoo;
     /**
  * aeroporto de onde parte o voo
  */
@@ -39,22 +39,22 @@ private:
     /**
      * número de lugares reservados(ocupados) no avião onde será realizado o voo
      */
-    unsigned int numLugaresReservados;
+    unsigned numLugaresReservados;
 
 public:
     Voo();
-    Voo(unsigned int n, Aeroporto& ao, Aeroporto& ad, float hp, float hc, float d, Aviao& a, unsigned int nlr);
+    Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, float hp, float hc, float d, const Aviao& a, unsigned nlr);
     Voo(const Voo& v);
     /**
     *
     * @return número do voo
     */
-    int getNum() const;
+    unsigned getNum() const;
     /**
     *
     * @return origem do voo
     */
-    Aeroporto getOrigem() const;
+    const Aeroporto& getOrigem() const;
     /**
     *
     * @return hora de partida do voo
@@ -64,7 +64,7 @@ public:
     *
     * @return destino do voo
     */
-    Aeroporto getDestino() const;
+    const Aeroporto& getDestino() const;
     /**
     *
     * @return hora de chegada do voo
@@ -79,17 +79,17 @@ public:
     *
     * @return aviao onde será feito voo
     */
-    Aviao getAviao() const;
+    const Aviao& getAviao() const;
     /**
      *
      * @return numero de lugares reservados(ocupados) no avião
      */
-    unsigned int getNumLugaresReservados() const;
+    unsigned getNumLugaresReservados() const;
     /**
     * atribui um número ao voo
     * @param n é o número do voo
     */
-    void setNum(const unsigned int& n);
+    void setNum(unsigned n);
     /**
     * modifica a origem do voo
     * @param ao é a origem do voo
@@ -99,7 +99,7 @@ public:
     * modifica a hora de partida do voo
     * @param p é a partida do voo
     */
-    void setHoraPartida(const float p);
+    void setHoraPartida(float p);
     /**
     * modifica o destino do voo
     * @param ad é a destino do voo
@@ -109,12 +109,12 @@ public:
     * modifica a hora de chegada do voo
     * @param c é a chegada do voo
     */
-    void setHoraChegada(const float c);
+    void setHoraChegada(float c);
     /**
     * modifica a duração do voo
     * @param d é a origem do voo
     */
-    void setDuracao(const float d);
+    void setDuracao(float d);
     /**
     * define o avião onde será feito o voo
     * @param a é o avião
@@ -124,7 +124,7 @@ public:
     * modifica o  número de lugares reservados(ocupados) no avião
     * @param lr é o número de lugares ocupados
     */
-    void setNumLugaresReservados(const unsigned int& lr);
+    void setNumLugaresReservados(unsigned lr);
 };
 
 #endif //_VOO_H

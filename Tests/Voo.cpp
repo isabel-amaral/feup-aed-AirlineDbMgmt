@@ -12,7 +12,7 @@ Voo::Voo() {
     numLugaresReservados = 0;
 }
 
-Voo::Voo(unsigned int n, Aeroporto& ao, Aeroporto& ad, float hp, float hc, float d, Aviao& a, unsigned int nlr) {
+Voo::Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, float hp, float hc, float d, const Aviao& a, unsigned nlr) {
     this->numeroVoo = n;
     this->origem = ao;
     this->destino = ad;
@@ -33,7 +33,7 @@ Voo::Voo(const Voo& v) {
     this->aviao = v.aviao;
 }
 
-int Voo::getNum() const {
+unsigned Voo::getNum() const {
     return numeroVoo;
 }
 
@@ -49,23 +49,23 @@ float Voo::getDuracao() const {
     return duracao;
 }
 
-Aeroporto Voo::getOrigem() const {
+const Aeroporto& Voo::getOrigem() const {
     return origem;
 }
 
-Aeroporto Voo::getDestino() const {
+const Aeroporto& Voo::getDestino() const {
     return destino;
 }
 
-Aviao Voo::getAviao() const {
+const Aviao& Voo::getAviao() const {
     return aviao;
 }
 
-unsigned int Voo::getNumLugaresReservados() const {
+unsigned Voo::getNumLugaresReservados() const {
     return numLugaresReservados;
 }
 
-void Voo::setNum(const unsigned int& n) {
+void Voo::setNum(unsigned n) {
     numeroVoo = n;
 }
 
@@ -73,7 +73,7 @@ void Voo::setOrigem(const Aeroporto& ao) {
     origem = ao;
 }
 
-void Voo::setHoraPartida(const float p) {
+void Voo::setHoraPartida(float p) {
     horaPartida = p;
 }
 
@@ -81,11 +81,11 @@ void Voo::setDestino(const Aeroporto& ad) {
     destino = ad;
 }
 
-void Voo::setHoraChegada(const float c) {
+void Voo::setHoraChegada(float c) {
     horaChegada = c;
 }
 
-void Voo::setDuracao(const float d) {
+void Voo::setDuracao(float d) {
     duracao = d;
 }
 
@@ -93,6 +93,6 @@ void Voo::setAviao(const Aviao& a) {
     this->aviao = a;
 }
 
-void Voo::setNumLugaresReservados(const unsigned int& lr) {
+void Voo::setNumLugaresReservados(unsigned lr) {
     this->numLugaresReservados = lr;
 }

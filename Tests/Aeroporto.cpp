@@ -10,7 +10,7 @@ Aeroporto::Aeroporto() {
      */
 }
 
-Aeroporto::Aeroporto(string n, string c) {
+Aeroporto::Aeroporto(const string& n, const string& c) {
     this->nome = n;
     this->cidade = c;
     /*
@@ -19,8 +19,6 @@ Aeroporto::Aeroporto(string n, string c) {
      */
 }
 
-
-//-------------------------------------------------------------------------------------------------------
 string Aeroporto::getNome() const {
     return nome;
 }
