@@ -1,6 +1,7 @@
 #ifndef _SERVICO_H
 #define _SERVICO_H
 
+#include "Funcionario.h"
 #include <string>
 using namespace std;
 

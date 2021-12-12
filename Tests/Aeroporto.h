@@ -16,7 +16,7 @@ private:
      * cidade onde o aeroporto se localiza
      */
     string cidade;
-    
+
     //sofia: dividi os voos do aeroporto em partida e chegada mas nao sei se vai dar jeito assim dps
     //isabel: para já comentei pq tbm n sei se vai dar jeito. a ideia de termos uma classe aeroporto era para associarmos cada voo a um aeroporto, não o contrário
     /*
