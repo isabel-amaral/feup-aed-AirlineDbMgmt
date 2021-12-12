@@ -10,7 +10,7 @@ Bilhete::Bilhete(const Voo& v, bool bagagem) {
     this->bagagemDeMao = bagagem;
 }
 
-Voo& Bilhete::getVoo() const {
+const Voo& Bilhete::getVoo() const {
     return this->voo;
 }
 

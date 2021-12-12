@@ -38,7 +38,7 @@ public:
      *
      * @return nome do funcionário responsável pelo serviço
      */
-    Funcionario& getFuncionarioResponsavel();
+    const Funcionario& getFuncionarioResponsavel();
     /**
      * altera o tipo de serviço agendado para uma determinada data
      * @param tipo é o tipo do serviço a ser alterado
@@ -53,7 +53,7 @@ public:
      * altera o funcionário responsável pelo serviço
      * @param funcionario é o nome do funcionário responsável pelo serviço
      */
-    void setFuncionarioResponsavel(Funcionario& f);
+    void setFuncionarioResponsavel(const Funcionario& f);
 };
 
 #endif //_SERVICO_H

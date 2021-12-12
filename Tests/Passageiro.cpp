@@ -27,7 +27,7 @@ unsigned Passageiro::getId() const {
 }
 
 
-unsigned int Passageiro::getIdade() const {
+unsigned Passageiro::getIdade() const {
     return idade;
 }
 
@@ -52,6 +52,6 @@ void Passageiro::mostrarBilehtesAdquiridos() const {
     }
 }
 
-void Passageiro::adquirirBilhete(Bilhete& bilhete) {
+void Passageiro::adquirirBilhete(const Bilhete& bilhete) {
     this->bilhetesAdquiridos.push_back(bilhete);
 }

@@ -20,7 +20,7 @@ public:
      *
      * @return voo para o qual o bilhete foi adquirido
      */
-    Voo& getVoo() const;
+    const Voo& getVoo() const;
     /**
      *
      * @return true se o passageiro tem direito a levar bagagem de mão, falso caso contrário

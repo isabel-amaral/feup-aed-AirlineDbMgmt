@@ -20,7 +20,7 @@ string Servico::getData() {
     return this->data;
 }
 
-Funcionario& Servico::getFuncionarioResponsavel() {
+const Funcionario& Servico::getFuncionarioResponsavel() {
     return this->funcionarioResponsavel;
 }
 
@@ -31,6 +31,6 @@ void Servico::setTipoServico(string& tipo) {
 void Servico::setData(string& d) {
     this->data = d;
 }
-void Servico::setFuncionarioResponsavel(Funcionario& f) {
+void Servico::setFuncionarioResponsavel(const Funcionario& f) {
     this->funcionarioResponsavel = f;
 }

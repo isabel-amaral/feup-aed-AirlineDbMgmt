@@ -47,7 +47,7 @@ public:
      *
      * @return idade do passageiro
      */
-    unsigned int getIdade() const;
+    unsigned getIdade() const;
     /**
      *
      * @return true se o passageiro for menor de idade e estiver a vaigem sem um adulto responsável, falso caso contrário
@@ -62,7 +62,7 @@ public:
      * não é possível adquirir um bilhete para um voo num data passada
      * @param bilhete é o bilhete que o passageiro pretende adquirir
      */
-    void adquirirBilhete(Bilhete& bilhete);
+    void adquirirBilhete(const Bilhete& bilhete);
 };
 
 #endif //_PASSAGEIRO_H
