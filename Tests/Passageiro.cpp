@@ -1,7 +1,14 @@
 #include "Passageiro.h"
 #include <iostream>
 
-Passageiro::Passageiro(string n, unsigned id, unsigned i, bool menor) {
+Passageiro::Passageiro() {
+    this->nome = "";
+    this->id = 0;
+    this->idade = 0;
+    this->menorNaoAcompanhado = false;
+}
+
+Passageiro::Passageiro(const string& n, unsigned id, unsigned i, bool menor) {
     this->nome = n;
     this->id = id;
     this->idade = i;
@@ -15,7 +22,7 @@ string Passageiro::getNome() const {
     return this->nome;
 }
 
-int Passageiro::getId() const {
+unsigned Passageiro::getId() const {
     return this->id;
 }
 
@@ -29,19 +36,19 @@ bool Passageiro::isMenorNaoAcompanhado() const {
 }
 
 void Passageiro::mostrarBilehtesAdquiridos() const {
-/*    list<Bilhete>::const_iterator it;
+    list<Bilhete>::const_iterator it;
     for (it = bilhetesAdquiridos.begin(); it != bilhetesAdquiridos.end(); it++) {
         //necessário alterar depois da classe aeroporto estar associada à classe voo
-        cout << "Bilhete para " << it->getVoo().getDestino() << " com partida de " << it->getVoo().getOrigem() << endl;
+        cout << "Bilhete para " << it->getVoo().getDestino().getNome() << " com partida de " << it->getVoo().getOrigem().getNome() << endl;
         cout << "Voo número " << it->getVoo().getNum() << endl;
         //data do voo
-        cout << "Partida presvista às " << it->getVoo().getPartida() << " com chegada prevista às " << it->getVoo().getChegada() << endl;
+        cout << "Partida presvista às " << it->getVoo().getHoraPartida() << " com chegada prevista às " << it->getVoo().getHoraChegada() << endl;
         cout << "A duração do voo será aproximadamente " << it->getVoo().getDuracao() << endl;
         if (it->temBagagemDeMao())
             cout << this->nome << " tem direito a levar bagagem de mão" << endl;
         else
             cout << this->nome << " não tem direito a levar bagagem de mão" << endl;
-        cout << endl;*/
+        cout << endl;
     }
 }
 

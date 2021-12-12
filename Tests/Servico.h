@@ -20,9 +20,10 @@ private:
     /**
      * nome do funcionário responsável pelo serviço
      */
-    string funcionarioResponsavel; //classe funcionário?
+    Funcionario funcionarioResponsavel;
 public:
-    Servico(string tipo, string d, string funcionario);
+    Servico();
+    Servico(string tipo, string d, Funcionario& funcionario);
     /**
      *
      * @return tipo do serviço
@@ -37,7 +38,7 @@ public:
      *
      * @return nome do funcionário responsável pelo serviço
      */
-    string getFuncionarioResponsavel();
+    Funcionario& getFuncionarioResponsavel();
     /**
      * altera o tipo de serviço agendado para uma determinada data
      * @param tipo é o tipo do serviço a ser alterado
@@ -52,7 +53,7 @@ public:
      * altera o funcionário responsável pelo serviço
      * @param funcionario é o nome do funcionário responsável pelo serviço
      */
-    void setFuncionarioResponsavel(string& funcionario);
+    void setFuncionarioResponsavel(Funcionario& f);
 };
 
 #endif //_SERVICO_H

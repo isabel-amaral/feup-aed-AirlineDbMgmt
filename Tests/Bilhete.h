@@ -14,12 +14,13 @@ private:
      */
     bool bagagemDeMao;
 public:
-    Bilhete(Voo v, bool bagagem);
+    Bilhete();
+    Bilhete(const Voo& v, bool bagagem);
     /**
      *
      * @return voo para o qual o bilhete foi adquirido
      */
-    Voo getVoo() const;
+    Voo& getVoo() const;
     /**
      *
      * @return true se o passageiro tem direito a levar bagagem de mão, falso caso contrário

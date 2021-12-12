@@ -31,7 +31,8 @@ private:
     list<Bilhete> bilhetesAdquiridos;
 
 public:
-    Passageiro(string n, unsigned id, unsigned i, bool menor);
+    Passageiro();
+    Passageiro(const string& n, unsigned id, unsigned i, bool menor);
     /**
      *
      * @return nome do passageiro
@@ -41,7 +42,7 @@ public:
      *
      * @return número de identificação do passageiro
      */
-    int getId() const;
+    unsigned getId() const;
     /**
      *
      * @return idade do passageiro
