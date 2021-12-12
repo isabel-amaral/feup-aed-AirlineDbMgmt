@@ -11,28 +11,27 @@ private:
     /**
      * número que identifica o voo
      */
-    unsigned int num; //isabel: acho que ficava melhor se o nome da variável fosse qualuqer coisa como numeroDeVoo
-    // sofia: cm estamos na classe voo ja ano é obvio que o numero e o de voo? dps quando usarmos voo.numerodeVoo nao fica um bocado repetitivo?
+    unsigned int numeroVoo;
     /**
-     * horário de partida na cidade do aeroporto de origem do voo
-     */
-    string partida;
-    /**
-     * horário de chegada na cidade do aeroporto de destino do voo
-     */
-    string chegada;
-    /**
-     * duração do voo em horas e minutos
-     */
-    string duracao; // sofia: string?
-    /**
-     * aeroporto de onde parte o voo
-     */
+ * aeroporto de onde parte o voo
+ */
     Aeroporto origem;
     /**
      * aeroporto aonde acaba o voo
      */
     Aeroporto destino;
+    /**
+     * horário de partida na cidade do aeroporto de origem do voo
+     */
+    float horaPartida;
+    /**
+     * horário de chegada na cidade do aeroporto de destino do voo
+     */
+    float horaChegada;
+    /**
+     * duração do voo em horas e minutos
+     */
+    float duracao; // sofia: string?; isabel: mudei tudo o q era horas para float (igual àquele ex das plataformas dos comboios)
     /**
      * aviao onde será realizado o voo
      */
@@ -41,12 +40,11 @@ private:
      * número de lugares reservados(ocupados) no avião onde será realizado o voo
      */
     unsigned int numLugaresReservados;
-    // hora de partida e chegada? isabel: acho que as horas devíamos representar em float
+
 public:
     Voo();
-    Voo(unsigned int n, Aeroporto ao, string p, Aeroporto ad, string c, string d, Aviao a, unsigned int nlr);
-    Voo(const Voo &v2);
-
+    Voo(unsigned int n, Aeroporto& ao, Aeroporto& ad, float hp, float hc, float d, Aviao& a, unsigned int nlr);
+    Voo(const Voo& v);
     /**
     *
     * @return número do voo
@@ -61,7 +59,7 @@ public:
     *
     * @return hora de partida do voo
     */
-    string getPartida() const;
+    float getHoraPartida() const;
     /**
     *
     * @return destino do voo
@@ -71,12 +69,12 @@ public:
     *
     * @return hora de chegada do voo
     */
-    string getChegada() const;
+    float getHoraChegada() const;
     /**
     *
     * @return duração do voo
     */
-    string getDuracao() const;
+    float getDuracao() const;
     /**
     *
     * @return aviao onde será feito voo
@@ -87,47 +85,46 @@ public:
      * @return numero de lugares reservados(ocupados) no avião
      */
     unsigned int getNumLugaresReservados() const;
-
     /**
     * atribui um número ao voo
     * @param n é o número do voo
     */
-    void setNum(const unsigned int &n);
+    void setNum(const unsigned int& n);
     /**
     * modifica a origem do voo
     * @param ao é a origem do voo
     */
-    void setOrigem(const Aeroporto &ao);
+    void setOrigem(const Aeroporto& ao);
     /**
     * modifica a hora de partida do voo
     * @param p é a partida do voo
     */
-    void setPartida(const string &p);
+    void setHoraPartida(const float p);
     /**
     * modifica o destino do voo
     * @param ad é a destino do voo
     */
-    void setDestino(const Aeroporto &ad);
+    void setDestino(const Aeroporto& ad);
     /**
     * modifica a hora de chegada do voo
     * @param c é a chegada do voo
     */
-    void setChegada(const string &c);
+    void setHoraChegada(const float c);
     /**
     * modifica a duração do voo
     * @param d é a origem do voo
     */
-    void setDuracao(const string &d);
+    void setDuracao(const float d);
     /**
     * define o avião onde será feito o voo
     * @param a é o avião
     */
-    void setAviao(const Aviao &a);
+    void setAviao(const Aviao& a);
     /**
     * modifica o  número de lugares reservados(ocupados) no avião
     * @param lr é o número de lugares ocupados
     */
-    void setNumLugaresReservados(const unsigned int &lr);
+    void setNumLugaresReservados(const unsigned int& lr);
 };
 
 #endif //_VOO_H

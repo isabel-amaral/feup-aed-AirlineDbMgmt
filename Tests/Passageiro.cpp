@@ -29,7 +29,7 @@ bool Passageiro::isMenorNaoAcompanhado() const {
 }
 
 void Passageiro::mostrarBilehtesAdquiridos() const {
-    list<Bilhete>::const_iterator it;
+/*    list<Bilhete>::const_iterator it;
     for (it = bilhetesAdquiridos.begin(); it != bilhetesAdquiridos.end(); it++) {
         //necessário alterar depois da classe aeroporto estar associada à classe voo
         cout << "Bilhete para " << it->getVoo().getDestino() << " com partida de " << it->getVoo().getOrigem() << endl;
@@ -41,7 +41,7 @@ void Passageiro::mostrarBilehtesAdquiridos() const {
             cout << this->nome << " tem direito a levar bagagem de mão" << endl;
         else
             cout << this->nome << " não tem direito a levar bagagem de mão" << endl;
-        cout << endl;
+        cout << endl;*/
     }
 }
 

@@ -5,24 +5,24 @@ Aviao::Aviao() {
     matricula = "";
     capacidade = 0;
     //milena: fiquei na duvida destas tres linhas de codigo; vi no fivheiro da TP5 (game()) e nao sei se é uma boa pratica
-    //ou algo do genero; nao sei se é necessario colocar ou nao
+    //ou algo do genero; nao sei se é necessario colocar ou nao isabel: parece-me bem
     planoDeVoo.clear();
-    // esvaziar servicosPorRealizar;
-    //esvaziar servicosRealizados;
-
+    while(!servicosPorRealizar.empty()) {
+        servicosPorRealizar.pop();
+    }
+    while (!servicosRealizados.empty()) {
+        servicosRealizados.pop();
+    }
 }
 
-Aviao::Aviao(string m, unsigned int c,list<Voo> &planVoo, queue <Servico> &servRealizados, queue <Servico> &servPorRealizar ){
+Aviao::Aviao(string m, unsigned int c,list<Voo>& planVoo, queue<Servico>& servRealizados, queue<Servico>& servPorRealizar) {
     this->matricula = m;
     this->capacidade = c;
-    this->planoDeVoo=planVoo;
-    this->servicosPorRealizar=servPorRealizar;
-    this->servicosRealizados=servRealizados;
-
+    this->planoDeVoo = planVoo;
+    this->servicosPorRealizar = servPorRealizar;
+    this->servicosRealizados = servRealizados;
 }
 
-
-//-------------------------------------------------------------------------------------------------------
 string Aviao::getMatricula() const {
     return this-> matricula;
 }
@@ -32,7 +32,7 @@ unsigned int Aviao::getCapacidade() const {
 }
 
 const list<Voo> &Aviao::getPlanoDeVoo() const {
-    return planoDeVoo;
+    return this->planoDeVoo;
 }
 
 queue <Servico> Aviao::getServicosPorRealizar() const {
@@ -43,44 +43,37 @@ queue <Servico> Aviao::getServicosRealizados() const{
     return this->servicosRealizados;
 }
 
-
-//-------------------------------------------------------------------------------------------------------
 void Aviao::setMatricula(const string &m) {
-    this->matricula=m;
+    this->matricula=matricula;
 }
 
 void Aviao::setCapacidade(const unsigned int &c) {
-    this->capacidade=c;
+    this->capacidade=capacidade;
 }
 
-void Aviao::setPlanoDeVoo(const list<Voo> &pVoo) {
-    this->planoDeVoo = pVoo;
+void Aviao::setPlanoDeVoo(const list<Voo> &planVoo) {
+    this->planoDeVoo = planoDeVoo;
 }
 
 void Aviao::setServicosPorRealizar(const queue<Servico> &servPorRealizar) {
-    this->servicosPorRealizar = servPorRealizar;
+    this->servicosPorRealizar = servicosPorRealizar;
 }
 
 void Aviao::setServicosRealizados(const queue<Servico> &servRealizados) {
-    this->servicosRealizados = servRealizados;
+    this->servicosRealizados = servicosRealizados;
 }
 
-
-//TO DO:-------------------------------------------------------------------------
 void Aviao:: addVoo(const Voo &voo){
     this->planoDeVoo.push_back(voo);
 }
 
-void Aviao::addServicoporRealizar(const Servico &servico) {
-    this-> servicosPorRealizar.push(servico);
+void Aviao::addServicoPorRealizar(const Servico &servico) {
+    this->servicosPorRealizar.push(servico);
 }
 
 //milena: nao sei se o codigo esta certo e se devia ser passado algum parametro
+//isabel: acho que está bem
 void Aviao::realizarServico (){
     this->servicosRealizados.push(servicosPorRealizar.front());
     this->servicosPorRealizar.pop();
 }
-
-
-
-

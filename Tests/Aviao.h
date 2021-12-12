@@ -8,13 +8,12 @@
 #include <queue>
 using namespace std;
 
-class Aviao{
+class Aviao {
 private:
     /**
      * matricula do avião
      */
     string matricula;
-    //isabel: não acaham que os atributos capacidade de numLugaresReservados faz mais sentido ir para a classe voo?
     /**
      * capacidade do avião
      */
@@ -32,11 +31,9 @@ private:
     */
     queue <Servico> servicosRealizados;
 
-
 public:
     Aviao();
-    Aviao(string m, unsigned int c, list<Voo> &planVoo, queue <Servico> &servRealizados, queue <Servico> &servPorRealizar);
-
+    Aviao(tring m, unsigned int c,list<Voo>& planVoo, queue<Servico>& servRealizados, queue<Servico>& servPorRealizar);
     /**
      *
      * @return matricula do avião
@@ -63,29 +60,10 @@ public:
     */
     queue <Servico> getServicosRealizados() const;
     /**
-     *
-     * acrescenta mais um voo aos demais voos que o avião tem como agendados
-     * @param voo é o novo voo que o avião deverá realizar
-     */
-    void addVoo(const Voo &voo);
-    /**
-     *
-     * acrescenta um novo serviço a realizar
-     * @param servico é o servico a ser adicionado
-     */
-    void addServicoporRealizar (const Servico &servico);
-    /**
-     *
-     * marca um serviço da lista dos serviços agendados (por realizar) como concluído, ou seja, remove-o da lista dos
-     * agendados e acrescenta na dos realizados.
-     */
-    void realizarServico ();
-
-    /**
-    * modifica a matrícula do avião
-    * @param m é a matricula do aviao
-    */
-    void setMatricula(const string &m);
+* modifica a matrícula do avião
+* @param m é a matricula do aviao
+*/
+    void setMatricula(const string &ma);
     /**
     * modifica a capacidade do avião
     * @param c é a capacidade do aviao
@@ -95,7 +73,7 @@ public:
     * atribui a lista de voos que o avião tem por realizar
     * @param pVoo é o plano de voos do avião
     */
-    void setPlanoDeVoo(const list<Voo> &pVoo);
+    void setPlanoDeVoo(const list<Voo> &planVoo);
     /**
     * define os serviços aos quais o avião está sujeito
     * @param servPorRealizar são os serviços a realizar
@@ -106,5 +84,23 @@ public:
     * @param servRealizados são os serviços realizados
     */
     void setServicosRealizados(const queue<Servico> &servRealizados);
+    /**
+     *
+     * acrescenta mais um voo aos demais voos que o avião tem como agendados
+     * @param voo é o novo voo que o avião deverá realizar
+     */
+    void addVoo(const Voo &voo);
+    /**
+     *
+     * acrescenta um novo serviço a realizar
+     * @param servico é o servico a ser adicionado
+     */
+    void addServicoPorRealizar(const Servico &servico);
+    /**
+     *
+     * marca um serviço da lista dos serviços agendados (por realizar) como concluído, ou seja, remove-o da lista dos
+     * agendados e acrescenta na dos realizados.
+     */
+    void realizarServico();
 };
 #endif //_AVIAO_H
