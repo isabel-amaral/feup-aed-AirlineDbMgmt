@@ -1,8 +1,9 @@
 #ifndef _VOO_H
 #define _VOO_H
 
-#include "Aeroporto.h"
 #include "Aviao.h"
+#include "Aeroporto.h"
+#include "Passageiro.h"
 #include <string>
 using namespace std;
 
@@ -13,8 +14,8 @@ private:
      */
     unsigned numeroVoo;
     /**
- * aeroporto de onde parte o voo
- */
+     * aeroporto de onde parte o voo
+     */
     Aeroporto origem;
     /**
      * aeroporto aonde acaba o voo
@@ -40,6 +41,7 @@ private:
      * número de lugares reservados(ocupados) no avião onde será realizado o voo
      */
     unsigned numLugaresReservados;
+    list<Passageiro> passageiros;
 
 public:
     Voo();
@@ -49,7 +51,7 @@ public:
     *
     * @return número do voo
     */
-    unsigned getNum() const;
+    unsigned getNumeroVoo() const;
     /**
     *
     * @return origem do voo
@@ -85,11 +87,12 @@ public:
      * @return numero de lugares reservados(ocupados) no avião
      */
     unsigned getNumLugaresReservados() const;
+    const list<Passageiro>& getPassageiros() const;
     /**
     * atribui um número ao voo
     * @param n é o número do voo
     */
-    void setNum(unsigned n);
+    void setNumeroVoo(unsigned n);
     /**
     * modifica a origem do voo
     * @param ao é a origem do voo
@@ -125,6 +128,7 @@ public:
     * @param lr é o número de lugares ocupados
     */
     void setNumLugaresReservados(unsigned lr);
+    bool addPassageiro(const Passageiro& p);
 };
 
 #endif //_VOO_H
