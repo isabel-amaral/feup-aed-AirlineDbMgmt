@@ -35,6 +35,6 @@ bool Bilhete::operator< (const Bilhete& b) {
     if (this->passageiro.getNome() < b.passageiro.getNome())
         return true;
     if (this->passageiro.getNome() == b.passageiro.getNome())
-        return this->getVoo().getNum() < this->getVoo().getNum();
+        return this->getVoo().getNumeroVoo() < this->getVoo().getNumeroVoo();
     return false;
 }
