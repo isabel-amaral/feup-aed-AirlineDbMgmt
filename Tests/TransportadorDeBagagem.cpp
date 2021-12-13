@@ -1,5 +1,13 @@
 #include "TransportadorDeBagagem.h"
 
+TransportadorDeBagagm::TransportadorDeBagagm() {
+    this->numCarruagens = 0;
+    this->numPilhas = 0;
+    this->numMalas = 0;
+    this->tapeteRolante = queue<Bagagem*>();
+    this->carrinho = list<list<stack<Bagagem*>>>();
+}
+
 TransportadorDeBagagm::TransportadorDeBagagm(unsigned int c, unsigned int n, unsigned m) {
     this->numCarruagens = c;
     this->numPilhas = n;

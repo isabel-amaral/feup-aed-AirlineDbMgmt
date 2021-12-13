@@ -16,6 +16,7 @@ private:
     list<list<stack<Bagagem*>>> carrinho;
 
 public:
+    TransportadorDeBagagm();
     TransportadorDeBagagm(unsigned c, unsigned n, unsigned m);
     void adicionarAoTapete(Bagagem* bagagem);
     void despejarTapete();
