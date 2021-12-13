@@ -22,6 +22,7 @@ Voo::Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, float hp, float h
     this->aviao = a;
     this->numLugaresReservados = nlr;
     this->passageiros = list<Passageiro>();
+    this->passageirosCheckedIn = list<Passageiro>();
 }
 
 Voo::Voo(const Voo& v) {
@@ -32,6 +33,7 @@ Voo::Voo(const Voo& v) {
     this->horaChegada = v.horaChegada;
     this->duracao = v.duracao;
     this->aviao = v.aviao;
+    //numLugaresReservados?
 }
 
 unsigned Voo::getNumeroVoo() const {
@@ -66,6 +68,10 @@ unsigned Voo::getNumLugaresReservados() const {
     return numLugaresReservados;
 }
 
+const list<Passageiro>& Voo::getPassageiros() const {
+    return passageiros;
+}
+
 void Voo::setNumeroVoo(unsigned n) {
     numeroVoo = n;
 }
@@ -98,8 +104,9 @@ void Voo::setNumLugaresReservados(unsigned lr) {
     this->numLugaresReservados = lr;
 }
 
-const list<Passageiro>& Voo::getPassageiros() const {
-    return passageiros;
+//transportador apenas será requisitado no dia do voo
+void Voo::setTransportador(unsigned int c, unsigned int n, unsigned int m) {
+    this->transportador = TransportadorDeBagagem(c, n, m);
 }
 
 bool Voo::addPassageiro(const Passageiro& p) {
@@ -107,4 +114,13 @@ bool Voo::addPassageiro(const Passageiro& p) {
         return false;
     passageiros.push_back(p);
     return true;
+}
+
+void Voo::realizarCheckIn(const Passageiro& p) {
+    //acrescentar restrições de peso, o que acontece se o passageiro tiver bagagem de mão e o seu bilhete não permitir?
+    list<Bagagem*>::const_iterator it;
+    for (it = p.getBagagem().begin(); it != p.getBagagem().end(); it++)
+        if (!(*it)->isBagaemDeMao() && (*it)->isCheckInAutomatico())
+            transportador.adicionarAoTapete(*it);
+    passageirosCheckedIn.push_back(p);
 }

@@ -4,6 +4,7 @@
 #include "Aviao.h"
 #include "Aeroporto.h"
 #include "Passageiro.h"
+#include "TransportadorDeBagagem.h"
 #include <string>
 using namespace std;
 
@@ -21,6 +22,7 @@ private:
      * aeroporto aonde acaba o voo
      */
     Aeroporto destino;
+    //acrescentar data de partida: atributo da classe Date
     /**
      * horário de partida na cidade do aeroporto de origem do voo
      */
@@ -42,6 +44,8 @@ private:
      */
     unsigned numLugaresReservados;
     list<Passageiro> passageiros;
+    list<Passageiro> passageirosCheckedIn;
+    TransportadorDeBagagem transportador;
 
 public:
     Voo();
@@ -128,7 +132,9 @@ public:
     * @param lr é o número de lugares ocupados
     */
     void setNumLugaresReservados(unsigned lr);
+    void setTransportador(unsigned c, unsigned n, unsigned m);
     bool addPassageiro(const Passageiro& p);
+    void realizarCheckIn(const Passageiro& p);
 };
 
 #endif //_VOO_H

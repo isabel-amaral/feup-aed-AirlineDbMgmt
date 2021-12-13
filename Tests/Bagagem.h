@@ -5,13 +5,14 @@ class Bagagem {
 private:
     float peso;
     bool bagaemDeMao;
-    bool checkedIn;
+    bool checkInAutomatico;
 
 public:
     Bagagem();
     Bagagem(float p, bool bagagem);
     float getPeso() const;
     bool isBagaemDeMao() const;
+    bool isCheckInAutomatico() const;
 };
 
 #endif //_BAGAGEM_H
