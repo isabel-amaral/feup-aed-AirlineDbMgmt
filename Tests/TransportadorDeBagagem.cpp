@@ -1,6 +1,6 @@
 #include "TransportadorDeBagagem.h"
 
-TransportadorDeBagagm::TransportadorDeBagagm() {
+TransportadorDeBagagem::TransportadorDeBagagem() {
     this->numCarruagens = 0;
     this->numPilhas = 0;
     this->numMalas = 0;
@@ -8,7 +8,7 @@ TransportadorDeBagagm::TransportadorDeBagagm() {
     this->carrinho = list<list<stack<Bagagem*>>>();
 }
 
-TransportadorDeBagagm::TransportadorDeBagagm(unsigned int c, unsigned int n, unsigned m) {
+TransportadorDeBagagem::TransportadorDeBagagem(unsigned c, unsigned n, unsigned m) {
     this->numCarruagens = c;
     this->numPilhas = n;
     this->numMalas = m;
@@ -24,25 +24,25 @@ TransportadorDeBagagm::TransportadorDeBagagm(unsigned int c, unsigned int n, uns
     }
 }
 
-void TransportadorDeBagagm::adicionarAoTapete(Bagagem* bagagem) {
+void TransportadorDeBagagem::adicionarAoTapete(Bagagem* bagagem) {
     tapeteRolante.push(bagagem);
 }
 
-void TransportadorDeBagagm::despejarTapete() {
+void TransportadorDeBagagem::despejarTapete() {
     while (!tapeteRolante.empty()) {
         adicionarAoCarrinho(tapeteRolante.front());
         tapeteRolante.pop();
     }
 }
 
-void TransportadorDeBagagm::despejarTapete(unsigned int n) {
+void TransportadorDeBagagem::despejarTapete(unsigned int n) {
     for (int i = 0; i < n && !tapeteRolante.empty(); i++) {
         adicionarAoCarrinho(tapeteRolante.front());
         tapeteRolante.pop();
     }
 }
 
-void TransportadorDeBagagm::adicionarAoCarrinho(Bagagem* bagagem){
+void TransportadorDeBagagem::adicionarAoCarrinho(Bagagem* bagagem){
     bool adicionado = false;
     list<list<stack<Bagagem*>>>::iterator it1;
     list<stack<Bagagem*>>::iterator it2;
@@ -60,7 +60,7 @@ void TransportadorDeBagagm::adicionarAoCarrinho(Bagagem* bagagem){
     }
 }
 
-void TransportadorDeBagagm::despejarCarrinho() {
+void TransportadorDeBagagem::despejarCarrinho() {
     list<list<stack<Bagagem*>>>::iterator it1;
     list<stack<Bagagem*>>::iterator it2;
 

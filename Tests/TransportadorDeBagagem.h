@@ -7,7 +7,7 @@
 #include <stack>
 using namespace std;
 
-class TransportadorDeBagagm {
+class TransportadorDeBagagem {
 private:
     unsigned numCarruagens;
     unsigned numPilhas;
@@ -16,8 +16,8 @@ private:
     list<list<stack<Bagagem*>>> carrinho;
 
 public:
-    TransportadorDeBagagm();
-    TransportadorDeBagagm(unsigned c, unsigned n, unsigned m);
+    TransportadorDeBagagem();
+    TransportadorDeBagagem(unsigned c, unsigned n, unsigned m);
     void adicionarAoTapete(Bagagem* bagagem);
     void despejarTapete();
     void despejarTapete(unsigned n);
