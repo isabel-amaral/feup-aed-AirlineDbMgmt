@@ -51,17 +51,6 @@ public:
     bool isMenorNaoAcompanhado() const;
     const list<Bagagem*>& getBagagem() const;
     void setBagagem(const list<Bagagem*>& b);
-
-/*    *//**
-     * este método mostra (efetua print) os bilhetes adquiridos pelo passageiro
-     *//*
-    void mostrarBilehtesAdquiridos() const;*/
-/*    *//**
-     * este método acrescenta um novo bilhete aos bilhetes adquiridos do passageiro,
-     * não é possível adquirir um bilhete para um voo num data passada
-     * @param bilhete é o bilhete que o passageiro pretende adquirir
-     *//*
-    void adquirirBilhete(const Bilhete& bilhete);*/
 };
 
 #endif //_PASSAGEIRO_H

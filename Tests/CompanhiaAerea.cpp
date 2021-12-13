@@ -1,4 +1,5 @@
 #include "CompanhiaAerea.h"
+#include <iostream>
 #include <algorithm>
 
 CompanhiaAerea::CompanhiaAerea() {
@@ -10,9 +11,25 @@ const vector<Bilhete>& CompanhiaAerea::getBilhetesVendidos() const {
 }
 
 //TODO
-const vector<Bilhete>& CompanhiaAerea::getBilhetesFromPassageiro() const {
+const vector<Bilhete>& CompanhiaAerea::getBilhetesFromPassageiro(const Passageiro& p) const {
     vector<Bilhete> bilhetes;
     return bilhetes;
+}
+
+void CompanhiaAerea::mostrarBilhetesFromPassageiro(const Passageiro &p) const {
+    vector<Bilhete> bilhetes = getBilhetesFromPassageiro(p);
+    for (Bilhete b: bilhetes) {
+        cout << "Bilhete para " << b.getVoo().getDestino().getNome() << " com partida de " << b.getVoo().getOrigem().getNome() << endl;
+        cout << "Voo número " << b.getVoo().getNumeroVoo() << endl;
+        //acrescentar data do voo
+        cout << "Partida presvista às " << b.getVoo().getHoraPartida() << " com chegada prevista às " << b.getVoo().getHoraChegada() << endl;
+        cout << "A duração do voo será aproximadamente " << b.getVoo().getDuracao() << endl;
+        if (b.temBagagemDeMao())
+            cout << p.getNome() << " tem direito a levar bagagem de mão" << endl;
+        else
+            cout << p.getNome() << " não tem direito a levar bagagem de mão" << endl;
+        cout << endl;
+    }
 }
 
 bool CompanhiaAerea::adquiriBilhete(const Passageiro& p, Voo& v, bool bagagem) {
