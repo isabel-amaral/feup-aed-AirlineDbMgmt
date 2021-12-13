@@ -24,11 +24,6 @@ private:
      * se o passageiro é um menor não acompanhado
      */
     bool menorNaoAcompanhado;
-    /**
-     * todos os bilhetes adquiridos pelo passageiro,
-     * cada passageiro pode ter várias viagem planeadas
-     */
-    list<Bilhete> bilhetesAdquiridos;
 
 public:
     Passageiro();
@@ -53,16 +48,16 @@ public:
      * @return true se o passageiro for menor de idade e estiver a vaigem sem um adulto responsável, falso caso contrário
      */
     bool isMenorNaoAcompanhado() const;
-    /**
+/*    *//**
      * este método mostra (efetua print) os bilhetes adquiridos pelo passageiro
-     */
-    void mostrarBilehtesAdquiridos() const;
-    /**
+     *//*
+    void mostrarBilehtesAdquiridos() const;*/
+/*    *//**
      * este método acrescenta um novo bilhete aos bilhetes adquiridos do passageiro,
      * não é possível adquirir um bilhete para um voo num data passada
      * @param bilhete é o bilhete que o passageiro pretende adquirir
-     */
-    void adquirirBilhete(const Bilhete& bilhete);
+     *//*
+    void adquirirBilhete(const Bilhete& bilhete);*/
 };
 
 #endif //_PASSAGEIRO_H
