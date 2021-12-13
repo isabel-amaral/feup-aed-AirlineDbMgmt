@@ -51,7 +51,7 @@ public:
     void setData(string& d);
     /**
      * altera o funcionário responsável pelo serviço
-     * @param funcionario é o nome do funcionário responsável pelo serviço
+     * @param f é o nome do funcionário responsável pelo serviço
      */
     void setFuncionarioResponsavel(const Funcionario& f);
 };

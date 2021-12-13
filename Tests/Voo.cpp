@@ -8,18 +8,16 @@ Voo::Voo() {
     duracao = 0.0;
     origem = Aeroporto();
     destino = Aeroporto();
-    aviao = Aviao();
     numLugaresReservados = 0;
 }
 
-Voo::Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, float hp, float hc, float d, const Aviao& a, unsigned nlr) {
+Voo::Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, float hp, float hc, float d, unsigned nlr) {
     this->numeroVoo = n;
     this->origem = ao;
     this->destino = ad;
     this->horaPartida = hp;
     this->horaChegada = hc;
     this->duracao = d;
-    this->aviao = a;
     this->numLugaresReservados = nlr;
     this->passageiros = list<Passageiro>();
     this->passageirosCheckedIn = list<Passageiro>();
@@ -32,7 +30,6 @@ Voo::Voo(const Voo& v) {
     this->destino = v.destino;
     this->horaChegada = v.horaChegada;
     this->duracao = v.duracao;
-    this->aviao = v.aviao;
     //numLugaresReservados?
 }
 
@@ -58,10 +55,6 @@ const Aeroporto& Voo::getOrigem() const {
 
 const Aeroporto& Voo::getDestino() const {
     return destino;
-}
-
-const Aviao& Voo::getAviao() const {
-    return aviao;
 }
 
 unsigned Voo::getNumLugaresReservados() const {
@@ -96,10 +89,6 @@ void Voo::setDuracao(float d) {
     duracao = d;
 }
 
-void Voo::setAviao(const Aviao& a) {
-    this->aviao = a;
-}
-
 void Voo::setNumLugaresReservados(unsigned lr) {
     this->numLugaresReservados = lr;
 }
@@ -109,11 +98,9 @@ void Voo::setTransportador(unsigned int c, unsigned int n, unsigned int m) {
     this->transportador = TransportadorDeBagagem(c, n, m);
 }
 
-bool Voo::addPassageiro(const Passageiro& p) {
-    if (numLugaresReservados == aviao.getCapacidade)
-        return false;
+void Voo::addPassageiro(const Passageiro& p) {
     passageiros.push_back(p);
-    return true;
+    numLugaresReservados++;
 }
 
 void Voo::realizarCheckIn(const Passageiro& p) {

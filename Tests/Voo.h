@@ -1,7 +1,6 @@
 #ifndef _VOO_H
 #define _VOO_H
 
-#include "Aviao.h"
 #include "Aeroporto.h"
 #include "Passageiro.h"
 #include "TransportadorDeBagagem.h"
@@ -36,10 +35,6 @@ private:
      */
     float duracao; // sofia: string?; isabel: mudei tudo o q era horas para float (igual àquele ex das plataformas dos comboios)
     /**
-     * aviao onde será realizado o voo
-     */
-    Aviao aviao;
-    /**
      * número de lugares reservados(ocupados) no avião onde será realizado o voo
      */
     unsigned numLugaresReservados;
@@ -49,7 +44,7 @@ private:
 
 public:
     Voo();
-    Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, float hp, float hc, float d, const Aviao& a, unsigned nlr);
+    Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, float hp, float hc, float d, unsigned nlr);
     Voo(const Voo& v);
     /**
     *
@@ -81,11 +76,6 @@ public:
     * @return duração do voo
     */
     float getDuracao() const;
-    /**
-    *
-    * @return aviao onde será feito voo
-    */
-    const Aviao& getAviao() const;
     /**
      *
      * @return numero de lugares reservados(ocupados) no avião
@@ -123,17 +113,12 @@ public:
     */
     void setDuracao(float d);
     /**
-    * define o avião onde será feito o voo
-    * @param a é o avião
-    */
-    void setAviao(const Aviao& a);
-    /**
     * modifica o  número de lugares reservados(ocupados) no avião
     * @param lr é o número de lugares ocupados
     */
     void setNumLugaresReservados(unsigned lr);
     void setTransportador(unsigned c, unsigned n, unsigned m);
-    bool addPassageiro(const Passageiro& p);
+    void addPassageiro(const Passageiro& p);
     void realizarCheckIn(const Passageiro& p);
 };
 

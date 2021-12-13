@@ -63,7 +63,7 @@ public:
     * modifica a matrícula do avião
     * @param m é a matricula do aviao
     */
-    void setMatricula(const string& ma);
+    void setMatricula(const string& m);
     /**
     * modifica a capacidade do avião
     * @param c é a capacidade do aviao
@@ -71,7 +71,7 @@ public:
     void setCapacidade(const unsigned& c);
     /**
     * atribui a lista de voos que o avião tem por realizar
-    * @param pVoo é o plano de voos do avião
+    * @param planVoo é o plano de voos do avião
     */
     void setPlanoDeVoo(const list<Voo>& planVoo);
     /**

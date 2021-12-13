@@ -33,10 +33,10 @@ void CompanhiaAerea::mostrarBilhetesFromPassageiro(const Passageiro &p) const {
 }
 
 bool CompanhiaAerea::adquiriBilhete(const Passageiro& p, Voo& v, bool bagagem) {
-    if (!v.addPassageiro(p))
-        return false;
+    //arranjar forma de gararantir q o avião não está cheio
     Bilhete b(v, bagagem, p);
     bilhetesVendidos.push_back(b);
+    v.addPassageiro(p);
     sort(bilhetesVendidos.begin(), bilhetesVendidos.end());
     return true;
 }
