@@ -8,7 +8,7 @@ Passageiro::Passageiro() {
     this->menorNaoAcompanhado = false;
 }
 
-Passageiro::Passageiro(const string& n, unsigned id, unsigned i, bool menor) {
+Passageiro::Passageiro(const string& n, unsigned id, unsigned i, bool menor, const list<Bagagem>& b = list<Bagagem>()) {
     this->nome = n;
     this->id = id;
     this->idade = i;
@@ -16,6 +16,7 @@ Passageiro::Passageiro(const string& n, unsigned id, unsigned i, bool menor) {
         this->menorNaoAcompanhado = false;
     else
         this->menorNaoAcompanhado = menor;
+    this->bagagem = b;
 }
 
 string Passageiro::getNome() const {
@@ -35,7 +36,15 @@ bool Passageiro::isMenorNaoAcompanhado() const {
     return menorNaoAcompanhado;
 }
 
-void Passageiro::mostrarBilehtesAdquiridos() const {
+const list<Bagagem>& Passageiro::getBagagem() const {
+    return bagagem;
+}
+
+void Passageiro::setBagagem(const list<Bagagem>& b) {
+    this->bagagem = b;
+}
+
+/*void Passageiro::mostrarBilehtesAdquiridos() const {
     list<Bilhete>::const_iterator it;
     for (it = bilhetesAdquiridos.begin(); it != bilhetesAdquiridos.end(); it++) {
         //necessário alterar depois da classe aeroporto estar associada à classe voo
@@ -50,8 +59,8 @@ void Passageiro::mostrarBilehtesAdquiridos() const {
             cout << this->nome << " não tem direito a levar bagagem de mão" << endl;
         cout << endl;
     }
-}
+}*/
 
-void Passageiro::adquirirBilhete(const Bilhete& bilhete) {
+/*void Passageiro::adquirirBilhete(const Bilhete& bilhete) {
     this->bilhetesAdquiridos.push_back(bilhete);
-}
+}*/
