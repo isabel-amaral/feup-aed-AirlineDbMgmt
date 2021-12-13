@@ -32,6 +32,7 @@ public:
     const Passageiro& getPasssageiro() const;
     void setBagagemDeMao(bool bagagem);
     void setPassageiro(const Passageiro& p);
+    bool operator< (const Bilhete& b);
 };
 
 #endif //_BILHETE_H

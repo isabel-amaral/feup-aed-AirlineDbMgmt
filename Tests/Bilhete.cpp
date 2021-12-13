@@ -30,3 +30,11 @@ void Bilhete::setBagagemDeMao(bool bagagem) {
 void Bilhete::setPassageiro(const Passageiro& p) {
     this->passageiro = p;
 }
+
+bool Bilhete::operator< (const Bilhete& b) {
+    if (this->passageiro.getNome() < b.passageiro.getNome())
+        return true;
+    if (this->passageiro.getNome() == b.passageiro.getNome())
+        return this->getVoo().getNum() < this->getVoo().getNum();
+    return false;
+}
