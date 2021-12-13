@@ -49,11 +49,11 @@ float Voo::getDuracao() const {
     return duracao;
 }
 
-const Aeroporto& Voo::getOrigem() const {
+Aeroporto Voo::getOrigem() const {
     return origem;
 }
 
-const Aeroporto& Voo::getDestino() const {
+Aeroporto Voo::getDestino() const {
     return destino;
 }
 

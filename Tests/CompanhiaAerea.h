@@ -14,7 +14,7 @@ public:
     const vector<Bilhete>& getBilhetesVendidos() const;
     const vector<Bilhete>& getBilhetesFromPassageiro(const Passageiro& p) const;
     void mostrarBilhetesFromPassageiro(const Passageiro& p) const;
-    bool adquiriBilhete(const Passageiro& p, Voo& v, bool bagagem);
+    bool adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem);
     //outros métodos
 };
 
