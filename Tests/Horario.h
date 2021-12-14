@@ -16,7 +16,7 @@ private:
      */
     DiaDaSemana dia;
     /**
-     * Conjunto de horas de disponibilidade nao repetidas
+     * Conjunto de horas não repetidas
      */
     vector<float> horas;
 public:
@@ -31,17 +31,26 @@ public:
      */
     vector<float> getHoras() const;
     /**
-     * acrescenta um novo elemento às horas, caso este ainda não exista no vetor
-     * @param hora é a hora a ser adicionada
+     * Acrescenta um novo elemento às horas, caso este ainda não exista no vetor
+     * @param hora é o elemento a ser adicionado
      */
     void addHora(float &hora);
     /**
-     * modifica/define o dia da semana
+     * Modifica/define o dia da semana
      * @param dia é o dia que será atribuido ao Horario
      */
     void setDia (const DiaDaSemana &d);
-
+    /**
+     * Remove todos os elementos do atributo horas
+     */
+    void clearHoras ();
+    /**
+     * @param hora é o elemento a ser pesquisado no vetor horas
+     * @return
+     */
+    int BinarySearchHora(const float &hora) const;
     bool operator <(const Horario &h2) const;   //Milena: Ha alguma documentacao a escrever em relacao a esta funcao?
+    bool operator ==(const Horario &h2) const;
 };
 
 

@@ -17,9 +17,16 @@ vector<float> Horario::getHoras() const {
 }
 
 void Horario::addHora(float &hora) {
-    if (find(horas.begin(), horas.end(),hora)==horas.end()){
-        horas.push_back(hora);
-        sort(horas.begin(), horas.end());
+    if (horas.empty()) horas.push_back(hora);
+
+    int index= BinarySearchHora(hora);
+
+    if (horas.at(index) == hora) return;
+    else if (horas.at(index)<hora){
+        horas.insert(horas.begin()+index+1,hora);
+    }
+    else{
+        horas.insert(horas.begin()+index,hora);
     }
 }
 
@@ -27,16 +34,17 @@ void Horario::setDia(const DiaDaSemana &d) {
     this->dia=d;
 }
 
-/*
-void Horario::sortHoras() {
-    sort(horas.begin(),horas.end());
+void Horario::clearHoras() {
+    this->horas.clear();
 }
 
-int Horario:: BinarySearch(const string &hora) const {
-    int left = 0, right = horas.size() - 1;
+int Horario:: BinarySearchHora(const float &hora) const {
+    int left = 0;
+    int right = horas.size() - 1;
+    int middle;
 
     while (left <= right) {
-        int middle = (left + right) / 2;
+        middle = (left + right) / 2;
         if (horas.at(middle) < hora)
             left = middle + 1;
         else if (hora < horas.at(middle))
@@ -44,12 +52,20 @@ int Horario:: BinarySearch(const string &hora) const {
         else
             return middle;
     }
-    return -1;
-}*/
+    return middle;
+}
 
 bool Horario::operator<(const Horario &h2) const {
     return this->dia < h2.dia;
 }
+
+bool Horario::operator==(const Horario &h2) const {
+    return this->dia==h2.dia;
+}
+
+
+
+
 
 
 

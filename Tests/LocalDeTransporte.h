@@ -21,12 +21,12 @@ private:
     /**
      * Dia e horas pelos quais o veículo passa pelo local.
      * Este atributo só pode ter, no máximo, 3 elementos e todos eles diferentes entre si, isto é,
-     * cada elemnto tem o atributo dia (da classe Horario) diferente dos restante.
+     * cada elemento tem o atributo dia (da classe Horario) diferente dos restante.
      */
     list<Horario> horarios;
 public:
     LocalDeTransporte();
-    LocalDeTransporte(const float distancia);
+    LocalDeTransporte( float d);
     /**
      * Altera a distância entre o local e o aeroporto a que está associado
      * @param distancia é a nova distância a ser atribuída
@@ -37,16 +37,13 @@ public:
      * @param tipo é o tipo de transporte que circula pelo local
      */
     void setTipo(const tipoTransporte &t);
-
     /**
-     * Atualiza a lista de horários. Caso exista, um horario igual h (com o mesmo dia da semana)
-     *
-     * ainda não exista um horario igual h (com o mesmo dia da semana),
-     * h é simplesmente adicionado a lista, caso
-     * @param h é o horário
-     * @return (true) casp h seja inserido ou (false) caso contrário.
+     * Atualiza a lista de horários. Caso exista, um horario igual a h (com o mesmo dia da semana)
+     * a lista de horas deste elemento é alterada: passa a ser igual à do horário h.
+     * Caso contrário, o horário h é simplesmente adicionado a lista horarios do local de transporte.
+     * @param h é o novo horário
      */
-    bool addHorario(const Horario &h);
+    void updateHorario(const Horario &horario);
     /**
      * @return distância entre o local e o aeroporto
      */
