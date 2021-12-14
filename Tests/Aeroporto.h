@@ -3,6 +3,8 @@
 
 #include <string>
 #include <list>
+#include "LocalDeTransporte.h"
+#include "bst.h"
 using namespace std;
 
 class Aeroporto {
@@ -15,7 +17,10 @@ private:
      * cidade onde o aeroporto se localiza
      */
     string cidade;
-    //sofia: list<LocalTransporte> quando a classe estiver criada
+    /**
+     * transportes disponiveis na cidade onde o aeroporto se localiza
+     */
+     BST<LocalDeTransporte> transportes;
 
 public:
     Aeroporto();
@@ -36,6 +41,19 @@ public:
     void setVoosPartida(const list<Voo> &v);
     void setVoosChegada(const list<Voo> &v);
     */
+
+
+    //list<LocalDeTransporte> getTransportes() const;
+    void addTransporte (const LocalDeTransporte &lp);
+    LocalDeTransporte getMeioTransporteProximo();
+    LocalDeTransporte getMetroProximo();
+    LocalDeTransporte getComboioProximo();
+    LocalDeTransporte getAutocarroProximo();
+
+    void showMeioTransporteProximo();
+    void showMetroProximo();
+    void showComboioProximo();
+    void showAutocarroProximo();
 };
 
 #endif //_AEROPORTO_H

@@ -3,9 +3,11 @@
 
 #include "Voo.h"
 #include "Servico.h"
+#include "LocalDeTransporte.h"
 #include <string>
 #include <list>
 #include <queue>
+
 using namespace std;
 
 class Aviao {
@@ -70,7 +72,7 @@ public:
     */
     void setCapacidade(const unsigned& c);
     /**
-    * atribui a lista de voos que o avião tem por realizar
+    * define a lista de voos que o avião tem por realizar
     * @param planVoo é o plano de voos do avião
     */
     void setPlanoDeVoo(const list<Voo>& planVoo);
