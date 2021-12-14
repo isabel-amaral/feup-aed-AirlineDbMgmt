@@ -39,6 +39,7 @@ private:
      * duração do voo em horas e minutos
      */
     float duracao;
+    unsigned lotacao;
     /**
      * número de lugares reservados(ocupados) no avião onde será realizado o voo
      */
@@ -49,7 +50,7 @@ private:
 
 public:
     Voo();
-    Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, const Data& dp, float hp, float hc, float d, unsigned nlr);
+    Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, const Data& dp, float hp, float hc, float d, unsigned l, unsigned nlr);
     Voo(const Voo& v);
     /**
     *
@@ -86,6 +87,7 @@ public:
     * @return duração do voo
     */
     float getDuracao() const;
+    unsigned int getLotacao() const;
     /**
      *
      * @return numero de lugares reservados(ocupados) no avião
@@ -123,6 +125,7 @@ public:
     * @param d é a origem do voo
     */
     void setDuracao(float d);
+    void setLotacao(unsigned int lotacao);
     /**
     * modifica o  número de lugares reservados(ocupados) no avião
     * @param lr é o número de lugares ocupados

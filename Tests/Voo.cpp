@@ -12,7 +12,7 @@ Voo::Voo() {
     numLugaresReservados = 0;
 }
 
-Voo::Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, const Data& dp, float hp, float hc, float d, unsigned nlr) {
+Voo::Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, const Data& dp, float hp, float hc, float d, unsigned l, unsigned nlr) {
     this->numeroVoo = n;
     this->origem = ao;
     this->destino = ad;
@@ -20,6 +20,7 @@ Voo::Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, const Data& dp, f
     this->horaPartida = hp;
     this->horaChegada = hc;
     this->duracao = d;
+    this->lotacao = l;
     this->numLugaresReservados = nlr;
     this->passageiros = list<Passageiro>();
     this->passageirosCheckedIn = list<Passageiro>();
@@ -28,12 +29,12 @@ Voo::Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, const Data& dp, f
 Voo::Voo(const Voo& v) {
     this->numeroVoo = v.numeroVoo;
     this->origem = v.origem;
-    this->dataPartida = v.dataPartida;
+    //this->dataPartida = v.dataPartida;
     this->horaPartida = v.horaPartida;
     this->destino = v.destino;
     this->horaChegada = v.horaChegada;
     this->duracao = v.duracao;
-    //isabel: numLugaresReservados?
+    //isabel: numLugaresReservados, lotacao?
 }
 
 unsigned Voo::getNumeroVoo() const {
@@ -62,6 +63,10 @@ Aeroporto Voo::getOrigem() const {
 
 Aeroporto Voo::getDestino() const {
     return destino;
+}
+
+unsigned int Voo::getLotacao() const {
+    return lotacao;
 }
 
 unsigned Voo::getNumLugaresReservados() const {
@@ -98,6 +103,10 @@ void Voo::setHoraChegada(float c) {
 
 void Voo::setDuracao(float d) {
     duracao = d;
+}
+
+void Voo::setLotacao(unsigned lotacao) {
+    lotacao = lotacao;
 }
 
 void Voo::setNumLugaresReservados(unsigned lr) {
