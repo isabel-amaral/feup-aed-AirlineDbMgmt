@@ -4,6 +4,7 @@
 #include "Aeroporto.h"
 #include "Passageiro.h"
 #include "TransportadorDeBagagem.h"
+#include "Voo.h"
 #include <string>
 using namespace std;
 
@@ -21,11 +22,14 @@ private:
      * aeroporto aonde acaba o voo
      */
     Aeroporto destino;
-    //acrescentar data de partida: atributo da classe Date
     /**
      * horário de partida na cidade do aeroporto de origem do voo
      */
     float horaPartida;
+    /**
+     * dia de partida do voo;
+     */
+    string dataPartida;
     /**
      * horário de chegada na cidade do aeroporto de destino do voo
      */
@@ -33,7 +37,7 @@ private:
     /**
      * duração do voo em horas e minutos
      */
-    float duracao; // sofia: string?; isabel: mudei tudo o q era horas para float (igual àquele ex das plataformas dos comboios)
+    float duracao;
     /**
      * número de lugares reservados(ocupados) no avião onde será realizado o voo
      */
@@ -55,7 +59,12 @@ public:
     *
     * @return origem do voo
     */
-    const Aeroporto& getOrigem() const;
+    Aeroporto getOrigem() const;
+    /**
+     *
+     * @return data de partida do voo
+     */
+    Data getDataPartida() const;
     /**
     *
     * @return hora de partida do voo
@@ -65,7 +74,7 @@ public:
     *
     * @return destino do voo
     */
-    const Aeroporto& getDestino() const;
+    Aeroporto getDestino() const;
     /**
     *
     * @return hora de chegada do voo
@@ -92,6 +101,7 @@ public:
     * @param ao é a origem do voo
     */
     void setOrigem(const Aeroporto& ao);
+    void setDataPartida(const Data& dp);
     /**
     * modifica a hora de partida do voo
     * @param p é a partida do voo

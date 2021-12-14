@@ -23,7 +23,7 @@ private:
     /**
      * todos os voos que o avião tem agendados/por realizar
      */
-    list<Voo> planoDeVoo; // sofia: nao acham que deviamos dizer a lista tem os voos por exemplo do mês e que vai sendo atualizada mensalmente?
+    list<Voo> planoDeVoo; //sofia: nao acham que deviamos dizer a lista tem os voos por exemplo do mês e que vai sendo atualizada mensalmente?
     /**
     * todos os serviços aos quais o avião está sujeito
     */

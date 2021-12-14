@@ -21,8 +21,7 @@ void CompanhiaAerea::mostrarBilhetesFromPassageiro(const Passageiro &p) const {
     for (Bilhete b: bilhetes) {
         cout << "Bilhete para " << b.getVoo().getDestino().getNome() << " com partida de " << b.getVoo().getOrigem().getNome() << endl;
         cout << "Voo número " << b.getVoo().getNumeroVoo() << endl;
-        //acrescentar data do voo
-        cout << "Partida presvista às " << b.getVoo().getHoraPartida() << " com chegada prevista às " << b.getVoo().getHoraChegada() << endl;
+        cout << "Partida prevista às " << b.getVoo().getHoraPartida() << " com chegada prevista às " << b.getVoo().getHoraChegada() << " no dia " << b.getVoo().getDataPartida() << endl;
         cout << "A duração do voo será aproximadamente " << b.getVoo().getDuracao() << endl;
         if (b.temBagagemDeMao())
             cout << p.getNome() << " tem direito a levar bagagem de mão" << endl;
@@ -32,7 +31,7 @@ void CompanhiaAerea::mostrarBilhetesFromPassageiro(const Passageiro &p) const {
     }
 }
 
-bool CompanhiaAerea::adquiriBilhete(const Passageiro& p, Voo& v, bool bagagem) {
+bool CompanhiaAerea::adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem) {
     //arranjar forma de gararantir q o avião não está cheio
     Bilhete b(v, bagagem, p);
     bilhetesVendidos.push_back(b);

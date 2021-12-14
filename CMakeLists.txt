@@ -11,7 +11,8 @@ add_executable(AirlineDatabaseManagement main.cpp Tests/tests.cpp Tests/Aviao.h 
         Tests/Servico.h Tests/Servico.cpp Tests/Passageiro.h Tests/Passageiro.cpp Tests/Bilhete.h Tests/Bilhete.cpp
         Tests/Aeroporto.h Tests/Aeroporto.cpp Tests/Funcionario.cpp Tests/Funcionario.h Tests/Bagagem.cpp Tests/Bagagem.h
         Tests/CompanhiaAerea.cpp Tests/CompanhiaAerea.h Tests/TransportadorDeBagagem.cpp Tests/TransportadorDeBagagem.h
-        Tests/bst.h Tests/Horario.h Tests/Horario.cpp Tests/LocalDeTransporte.h Tests/LocalDeTransporte.cpp)
+        Tests/Data.h Tests/Data.cpp Tests/Horario.cpp Tests/Horario.h Tests/LocalDeTransporte.cpp Tests/LocalDeTransporte.h
+        Tests/bst.h)
 
 target_link_libraries(AirlineDatabaseManagement gtest gtest_main)
 
