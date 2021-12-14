@@ -10,11 +10,14 @@ private:
     unsigned mes;
     unsigned ano;
     string data;
+    void getStringRepresentation();
 public:
+    Data();
     Data(unsigned d, unsigned m, unsigned a);
     unsigned getDia() const;
     unsigned getMes() const;
     unsigned getAno() const;
+    string getData() const;
     void setDia(unsigned d);
     void setMes(unsigned m);
     void setAno(unsigned a);
