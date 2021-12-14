@@ -25,7 +25,7 @@ void Data::setAno(const int &a) {
     this->ano = a;
 }
 
-bool Data::operator < (const Data &d2) {
+bool Data::operator < (const Data &d2) const{
     if (ano == d2.ano) {
         if (mes == d2.mes) {
             return dia < d2.dia;

@@ -45,15 +45,17 @@ public:
 
     //list<LocalDeTransporte> getTransportes() const;
     void addTransporte (const LocalDeTransporte &lp);
-    LocalDeTransporte getMeioTransporteProximo();
-    LocalDeTransporte getMetroProximo();
-    LocalDeTransporte getComboioProximo();
-    LocalDeTransporte getAutocarroProximo();
+/*
+    LocalDeTransporte* getMeioTransporteProximo();
 
+    LocalDeTransporte* getMetroProximo();
+    LocalDeTransporte* getComboioProximo();
+    LocalDeTransporte* getAutocarroProximo();*/
+/*
     void showMeioTransporteProximo();
     void showMetroProximo();
     void showComboioProximo();
-    void showAutocarroProximo();
+    void showAutocarroProximo();*/
 };
 
 #endif //_AEROPORTO_H

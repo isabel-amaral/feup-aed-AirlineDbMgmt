@@ -13,7 +13,7 @@ public:
     void setDia(const int &d);
     void setMes(const int &m);
     void setAno(const int &a);
-    bool operator < (const Data &d2);
+    bool operator < (const Data &d2) const;
 };
 
 #endif //_DATA_H

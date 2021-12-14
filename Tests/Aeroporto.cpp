@@ -64,10 +64,11 @@ list<LocalDeTransporte> Aeroporto::getTransportes() const {
 void Aeroporto::addTransporte(const LocalDeTransporte &lp) {
     transportes.insert(lp);
 }
-
-LocalDeTransporte Aeroporto::getMeioTransporteProximo()  {
-    return transportes.findMin();
-}
+/*
+LocalDeTransporte* Aeroporto::getMeioTransporteProximo()  {
+    LocalDeTransporte l= transportes.findMin();
+    return &l;
+}*/
 
 /*
 LocalDeTransporte Aeroporto::getMetroProximo() {

@@ -3,6 +3,8 @@
 
 #include "Passageiro.h"
 #include "Bilhete.h"
+#include "Voo.h"
+#include "Data.h"
 
 class CompanhiaAerea {
 private:

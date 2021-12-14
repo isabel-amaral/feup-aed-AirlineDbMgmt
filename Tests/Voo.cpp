@@ -107,7 +107,7 @@ void Voo::realizarCheckIn(const Passageiro& p) {
     //acrescentar restrições de peso, o que acontece se o passageiro tiver bagagem de mão e o seu bilhete não permitir?
     list<Bagagem*>::const_iterator it;
     for (it = p.getBagagem().begin(); it != p.getBagagem().end(); it++)
-        if (!(*it)->isBagaemDeMao() && (*it)->isCheckInAutomatico())
+        if (!(*it)->isBagagemDeMao() && (*it)->isCheckInAutomatico())
             transportador.adicionarAoTapete(*it);
     passageirosCheckedIn.push_back(p);
 }

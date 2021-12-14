@@ -5,6 +5,7 @@
 #include "Passageiro.h"
 #include "TransportadorDeBagagem.h"
 #include "Voo.h"
+#include "Data.h"
 #include <string>
 using namespace std;
 
