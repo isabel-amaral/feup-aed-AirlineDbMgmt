@@ -1,10 +1,15 @@
 #include "Data.h"
+#include <sstream>
 using namespace std;
 
 Data::Data(unsigned int d, unsigned int m, unsigned int a) {
     this->dia = d;
     this->mes = m;
     this->ano = a;
+
+    ostringstream out;
+    out << d << "-" << m << "-" << a;
+    data = out.str();
 }
 
 unsigned Data::getDia() const {
