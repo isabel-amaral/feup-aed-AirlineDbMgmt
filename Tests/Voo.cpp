@@ -3,6 +3,7 @@ using namespace std;
 
 Voo::Voo() {
     numeroVoo = 0;
+    dataPartida = Data();
     horaPartida = 0.0;
     horaChegada = 0.0;
     duracao = 0.0;
@@ -11,10 +12,11 @@ Voo::Voo() {
     numLugaresReservados = 0;
 }
 
-Voo::Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, float hp, float hc, float d, unsigned nlr) {
+Voo::Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, const Data& dp, float hp, float hc, float d, unsigned nlr) {
     this->numeroVoo = n;
     this->origem = ao;
     this->destino = ad;
+    this->dataPartida = dp;
     this->horaPartida = hp;
     this->horaChegada = hc;
     this->duracao = d;
@@ -26,15 +28,20 @@ Voo::Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, float hp, float h
 Voo::Voo(const Voo& v) {
     this->numeroVoo = v.numeroVoo;
     this->origem = v.origem;
+    this->dataPartida = v.dataPartida;
     this->horaPartida = v.horaPartida;
     this->destino = v.destino;
     this->horaChegada = v.horaChegada;
     this->duracao = v.duracao;
-    //numLugaresReservados?
+    //isabel: numLugaresReservados?
 }
 
 unsigned Voo::getNumeroVoo() const {
     return numeroVoo;
+}
+
+Data Voo::getDataPartida() const {
+    return dataPartida;
 }
 
 float Voo::getHoraPartida() const {
@@ -71,6 +78,10 @@ void Voo::setNumeroVoo(unsigned n) {
 
 void Voo::setOrigem(const Aeroporto& ao) {
     origem = ao;
+}
+
+void Voo::setDataPartida(const Data& dp) {
+    dataPartida = dp;
 }
 
 void Voo::setHoraPartida(float p) {

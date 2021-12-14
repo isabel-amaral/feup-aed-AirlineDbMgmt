@@ -24,13 +24,13 @@ private:
      */
     Aeroporto destino;
     /**
+     * dia de partida do voo;
+     */
+    Data dataPartida;
+    /**
      * horário de partida na cidade do aeroporto de origem do voo
      */
     float horaPartida;
-    /**
-     * dia de partida do voo;
-     */
-    string dataPartida;
     /**
      * horário de chegada na cidade do aeroporto de destino do voo
      */
@@ -49,7 +49,7 @@ private:
 
 public:
     Voo();
-    Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, float hp, float hc, float d, unsigned nlr);
+    Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, const Data& dp, float hp, float hc, float d, unsigned nlr);
     Voo(const Voo& v);
     /**
     *
