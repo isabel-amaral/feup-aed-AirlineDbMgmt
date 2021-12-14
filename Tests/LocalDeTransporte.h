@@ -19,7 +19,9 @@ private:
      */
     tipoTransporte tipo;
     /**
-     * Dia e horas pelos quais o veículo passa pelo local
+     * Dia e horas pelos quais o veículo passa pelo local.
+     * Este atributo só pode ter, no máximo, 3 elementos e todos eles diferentes entre si, isto é,
+     * cada elemnto tem o atributo dia (da classe Horario) diferente dos restante.
      */
     list<Horario> horarios;
 public:
@@ -37,10 +39,11 @@ public:
     void setTipo(const tipoTransporte &tipo);
 
     /**
-     * Adiciona um novo horário a lista horários
+     * Adiciona um novo horário a lista horarios caso ainda não exista um igual (com o mesmo dia da semana).
      * @param h é o horário
+     * @return (true) casp h seja inserido ou (false) caso contrário.
      */
-    void addHorario(const Horario &h);
+    bool addHorario(const Horario &h);
     /**
      * @return distância entre o local e o aeroporto
      */
@@ -56,7 +59,7 @@ public:
     /**
      * @return número de vezes que o meio de transporte passa pelo local
      */
-    int disponibilidade() const;
+    int getDisponibilidade() const;
 
     //Milena: Há alguma coisa a dizer sobre estas duas?
     bool operator < (const LocalDeTransporte& l2) const;

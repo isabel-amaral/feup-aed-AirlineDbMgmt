@@ -16,7 +16,16 @@ void LocalDeTransporte::setTipo(const tipoTransporte &tipo) {
     this->tipo=tipo;
 }
 
-void LocalDeTransporte::addHorario(const Horario &h) {
+bool LocalDeTransporte::addHorario(const Horario &h) {
+    if (horarios.size()==3) return false;
+    if (!horarios.empty())
+    {
+        horarios.push_back(h);
+        return true;
+    }
+    for (auto i=horarios.begin(); i!=horarios.end(); i++){
+        //if
+    }
     this->horarios.push_back(h);
     horarios.sort();
 }
@@ -33,18 +42,19 @@ list<Horario> LocalDeTransporte::getHorarios() const {
     return horarios;
 }
 
-int LocalDeTransporte::disponibilidade() const {
+int LocalDeTransporte::getDisponibilidade() const {
     int count=0;
-    for (auto h:horarios){
-        count+=h.getHoras().size();
+    for (auto i=horarios.begin(); i!=horarios.end(); i++){
+        count+=i->getHoras().size();
     }
+    return count;
 }
 
 bool LocalDeTransporte::operator<(const LocalDeTransporte &l2) const {
     if (this->distancia != l2.distancia)
         return this->distancia < l2.distancia;
-    else if (this->horarios.size() != l2.horarios.size())
-        return this->horarios.size() > l2.horarios.size();
+    else if (this->getDisponibilidade() != l2.getDisponibilidade())
+        return this->getDisponibilidade() > l2.getDisponibilidade();
     return (this->tipo < l2.tipo);
 
 }
