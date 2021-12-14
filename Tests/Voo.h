@@ -132,7 +132,7 @@ public:
     */
     void setNumLugaresReservados(unsigned lr);
     void setTransportador(unsigned c, unsigned n, unsigned m);
-    void addPassageiro(const Passageiro& p);
+    bool addPassageiro(const Passageiro& p);
     void realizarCheckIn(const Passageiro& p);
 };
 

@@ -118,9 +118,12 @@ void Voo::setTransportador(unsigned int c, unsigned int n, unsigned int m) {
     this->transportador = TransportadorDeBagagem(c, n, m);
 }
 
-void Voo::addPassageiro(const Passageiro& p) {
+bool Voo::addPassageiro(const Passageiro& p) {
+    if (numLugaresReservados == lotacao)
+        return false;
     passageiros.push_back(p);
     numLugaresReservados++;
+    return true;
 }
 
 void Voo::realizarCheckIn(const Passageiro& p) {
