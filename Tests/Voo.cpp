@@ -26,7 +26,7 @@ Voo::Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, const Data& dp, f
     this->passageirosCheckedIn = list<Passageiro>();
 }
 
-Voo::Voo(const Voo& v) {
+/*Voo::Voo(const Voo& v) {
     this->numeroVoo = v.numeroVoo;
     this->origem = v.origem;
     //this->dataPartida = v.dataPartida;
@@ -35,7 +35,7 @@ Voo::Voo(const Voo& v) {
     this->horaChegada = v.horaChegada;
     this->duracao = v.duracao;
     //isabel: numLugaresReservados, lotacao?
-}
+}*/
 
 unsigned Voo::getNumeroVoo() const {
     return numeroVoo;
@@ -123,6 +123,18 @@ bool Voo::addPassageiro(const Passageiro& p) {
         return false;
     passageiros.push_back(p);
     numLugaresReservados++;
+    return true;
+}
+
+bool Voo::addConjuntoPassageiros(const list<Passageiro> &p) {
+    if (numLugaresReservados + (unsigned)p.size() > lotacao)
+        return false;
+
+    list<Passageiro>::const_iterator it;
+    for (it = p.begin(); it != p.end(); it++) {
+        passageiros.push_back(*it);
+        numLugaresReservados++;
+    }
     return true;
 }
 

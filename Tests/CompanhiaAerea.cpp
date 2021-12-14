@@ -40,3 +40,17 @@ bool CompanhiaAerea::adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem) 
     sort(bilhetesVendidos.begin(), bilhetesVendidos.end());
     return true;
 }
+
+//todos os passageiros do grupo têm a mesma opção relativa a bagagem de mão
+bool CompanhiaAerea::adquirirConjuntoBilhetes(const list<Passageiro> &p, Voo &v, bool bagagem) {
+    if (!v.addConjuntoPassageiros(p))
+        return false;
+
+    list<Passageiro>::const_iterator it;
+    for (it = p.begin(); it != p.end(); it++) {
+        Bilhete b(v, bagagem, *it);
+        bilhetesVendidos.push_back(b);
+    }
+    sort(bilhetesVendidos.begin(), bilhetesVendidos.end());
+    return true;
+}

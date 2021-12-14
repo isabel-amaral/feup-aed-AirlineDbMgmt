@@ -51,7 +51,7 @@ private:
 public:
     Voo();
     Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, const Data& dp, float hp, float hc, float d, unsigned l, unsigned nlr);
-    Voo(const Voo& v);
+    //Voo(const Voo& v);
     /**
     *
     * @return número do voo
@@ -133,6 +133,7 @@ public:
     void setNumLugaresReservados(unsigned lr);
     void setTransportador(unsigned c, unsigned n, unsigned m);
     bool addPassageiro(const Passageiro& p);
+    bool addConjuntoPassageiros(const list<Passageiro>& p);
     void realizarCheckIn(const Passageiro& p);
 };
 
