@@ -11,6 +11,8 @@
 #include "Servico.h"
 #include "TransportadorDeBagagem.h"
 #include "Voo.h"
+#include "Horario.h"
+#include "LocalDeTransporte.h"
 //sofia: para ja inclui todas, dps tiramos as que nao forem precisas
 
 using testing::Eq;
