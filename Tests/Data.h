@@ -3,16 +3,17 @@
 
 class Data {
 private:
-    int dia;
-    int mes;
-    int ano;
+    unsigned dia;
+    unsigned mes;
+    unsigned ano;
 public:
-    int getDia() const;
-    int getMes() const;
-    int getAno() const;
-    void setDia(const int &d);
-    void setMes(const int &m);
-    void setAno(const int &a);
+    Data(unsigned d, unsigned m, unsigned a);
+    unsigned getDia() const;
+    unsigned getMes() const;
+    unsigned getAno() const;
+    void setDia(unsigned d);
+    void setMes(unsigned m);
+    void setAno(unsigned a);
     bool operator < (const Data &d2) const;
 };
 

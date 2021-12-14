@@ -1,27 +1,33 @@
 #include "Data.h"
 using namespace std;
 
-int Data::getDia() const {
+Data::Data(unsigned int d, unsigned int m, unsigned int a) {
+    this->dia = d;
+    this->mes = m;
+    this->ano = a;
+}
+
+unsigned Data::getDia() const {
     return dia;
 }
 
-int Data::getMes() const {
+unsigned Data::getMes() const {
     return mes;
 }
 
-int Data::getAno() const {
+unsigned Data::getAno() const {
     return ano;
 }
 
-void Data::setDia(const int &d) {
+void Data::setDia(unsigned d) {
     this->dia = d;
 }
 
-void Data::setMes(const int &m) {
+void Data::setMes(unsigned m) {
     this->mes = m;
 }
 
-void Data::setAno(const int &a) {
+void Data::setAno(unsigned a) {
     this->ano = a;
 }
 
