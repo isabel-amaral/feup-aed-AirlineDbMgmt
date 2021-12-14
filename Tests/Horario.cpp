@@ -12,19 +12,19 @@ DiaDaSemana Horario::getDia() const{
     return dia;
 }
 
-vector<string> Horario::getHoras() const {
+vector<float> Horario::getHoras() const {
     return horas;
 }
 
-void Horario::addHora(string &hora) {
+void Horario::addHora(float &hora) {
     if (find(horas.begin(), horas.end(),hora)==horas.end()){
         horas.push_back(hora);
         sort(horas.begin(), horas.end());
     }
 }
 
-void Horario::setDia(const DiaDaSemana &dia) {
-    this->dia=dia;
+void Horario::setDia(const DiaDaSemana &d) {
+    this->dia=d;
 }
 
 /*

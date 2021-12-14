@@ -20,7 +20,7 @@ private:
     /**
      * transportes disponiveis na cidade onde o aeroporto se localiza
      */
-     BST<LocalDeTransporte> transportes;
+     BST<LocalDeTransporte *> transportes;
 
 public:
     Aeroporto();
@@ -48,7 +48,7 @@ public:
      * Acrescenta um novo local de transporte à lista
      * @param lp é o novo local de transporte
      */
-    void addTransporte (const LocalDeTransporte &lp);
+    void addTransporte (LocalDeTransporte* lp);
     /**
      * @return local de transporte mais próximo
      */

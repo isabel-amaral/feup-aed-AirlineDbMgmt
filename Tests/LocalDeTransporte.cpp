@@ -8,12 +8,12 @@ LocalDeTransporte::LocalDeTransporte(const float distancia) {
     this->distancia=distancia;
 }
 
-void LocalDeTransporte::setDistancia(const float &distancia) {
-    this->distancia=distancia;
+void LocalDeTransporte::setDistancia(const float &d) {
+    this->distancia=d;
 }
 
-void LocalDeTransporte::setTipo(const tipoTransporte &tipo) {
-    this->tipo=tipo;
+void LocalDeTransporte::setTipo(const tipoTransporte &t) {
+    this->tipo=t;
 }
 
 bool LocalDeTransporte::addHorario(const Horario &h) {
@@ -23,9 +23,10 @@ bool LocalDeTransporte::addHorario(const Horario &h) {
         horarios.push_back(h);
         return true;
     }
+    /*
     for (auto i=horarios.begin(); i!=horarios.end(); i++){
         //if
-    }
+    }*/
     this->horarios.push_back(h);
     horarios.sort();
 }
@@ -50,12 +51,12 @@ int LocalDeTransporte::getDisponibilidade() const {
     return count;
 }
 
-bool LocalDeTransporte::operator<(const LocalDeTransporte &l2) const {
-    if (this->distancia != l2.distancia)
-        return this->distancia < l2.distancia;
-    else if (this->getDisponibilidade() != l2.getDisponibilidade())
-        return this->getDisponibilidade() > l2.getDisponibilidade();
-    return (this->tipo < l2.tipo);
+bool LocalDeTransporte::operator<(const LocalDeTransporte* l2) const {
+    if (this->distancia != l2->distancia)
+        return this->distancia < l2->distancia;
+    else if (this->getDisponibilidade() != l2->getDisponibilidade())
+        return this->getDisponibilidade() > l2->getDisponibilidade();
+    return (this->tipo < l2->tipo);
 
 }
 

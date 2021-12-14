@@ -6,7 +6,7 @@ var searchData=
   ['setcapacidade_3',['setCapacidade',['../class_aviao.html#a3996463d8dc860da300031240ae7ba26',1,'Aviao']]],
   ['setdata_4',['setData',['../class_servico.html#aff35672cef34edbc75c811783793754a',1,'Servico']]],
   ['setdestino_5',['setDestino',['../class_voo.html#a2594cd12632afbecea9aa5b64a178f76',1,'Voo']]],
-  ['setdia_6',['setDia',['../class_horario.html#a84b971a73fde7a783ec3af92170874f0',1,'Horario']]],
+  ['setdia_6',['setDia',['../class_horario.html#a6b70339c8c87db6fac7d36c612161b4e',1,'Horario']]],
   ['setdistancia_7',['setDistancia',['../class_local_de_transporte.html#a4c0bdc2cb050c911e0a57069d57cd213',1,'LocalDeTransporte']]],
   ['setduracao_8',['setDuracao',['../class_voo.html#a5e18f22cd139da376c75486d783003af',1,'Voo']]],
   ['setfuncionarioresponsavel_9',['setFuncionarioResponsavel',['../class_servico.html#a77710ef398f92a6bd0a6f0b92395c24a',1,'Servico']]],
@@ -21,5 +21,8 @@ var searchData=
   ['setservicosrealizados_18',['setServicosRealizados',['../class_aviao.html#ac91f0fb6ae84c55596ffafe174b4f066',1,'Aviao']]],
   ['settipo_19',['setTipo',['../class_local_de_transporte.html#a44e243d6908e43cadad71dea03f19f3f',1,'LocalDeTransporte']]],
   ['settiposervico_20',['setTipoServico',['../class_servico.html#ad7559d0289377bd1589742fefb1c68ba',1,'Servico']]],
-  ['showmeiotransporteproximo_21',['showMeioTransporteProximo',['../class_aeroporto.html#aba1a3954edab969dffed1bf7dc6e3e55',1,'Aeroporto']]]
+  ['showautocarroproximo_21',['showAutocarroProximo',['../class_aeroporto.html#a2740be1d830a5edeea20c75238b755a2',1,'Aeroporto']]],
+  ['showcomboioproximo_22',['showComboioProximo',['../class_aeroporto.html#adc6b9e587eddd08dfb85f7c01da796fc',1,'Aeroporto']]],
+  ['showlocaltransporteproximo_23',['showLocalTransporteProximo',['../class_aeroporto.html#aae3713b84aa031c75542fb8478bd47c4',1,'Aeroporto']]],
+  ['showmetroproximo_24',['showMetroProximo',['../class_aeroporto.html#adffbb0d2be03a10ddf65f84cae089b45',1,'Aeroporto']]]
 ];

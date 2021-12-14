@@ -1,8 +1,7 @@
 #include "Aeroporto.h"
-#include "LocalDeTransporte.h"
 using namespace std;
 
-Aeroporto::Aeroporto(): transportes(LocalDeTransporte(0.0)){
+Aeroporto::Aeroporto(): transportes(new LocalDeTransporte(0.0)){
     this->nome = "";
     this->cidade = "";
 
@@ -12,7 +11,7 @@ Aeroporto::Aeroporto(): transportes(LocalDeTransporte(0.0)){
      */
 }
 
-Aeroporto::Aeroporto(const string& n, const string& c): transportes(LocalDeTransporte(0.0)){
+Aeroporto::Aeroporto(const string& n, const string& c): transportes(new LocalDeTransporte(0.0)){
     this->nome = n;
     this->cidade = c;
     /*
@@ -61,58 +60,77 @@ list<LocalDeTransporte> Aeroporto::getTransportes() const {
     return transportes;
 }*/
 
-void Aeroporto::addTransporte(const LocalDeTransporte &lp) {
+void Aeroporto::addTransporte( LocalDeTransporte* lp) {
     transportes.insert(lp);
 }
-/*
-LocalDeTransporte* Aeroporto::getMeioTransporteProximo()  {
-    LocalDeTransporte l= transportes.findMin();
-    return &l;
+
+LocalDeTransporte* Aeroporto::getLocalTransporteProximo()  {
+    return transportes.findMin();
 }
 
 
-LocalDeTransporte Aeroporto::getMetroProximo() {
-    BSTItrIn<LocalDeTransporte> it (transportes);
+LocalDeTransporte* Aeroporto::getMetroProximo() {
+    BSTItrIn<LocalDeTransporte*> it (transportes);
     while (!it.isAtEnd()){
-        if (it.retrieve().getTipo()==Metro)
+        if (it.retrieve()->getTipo()==Metro)
             return it.retrieve();
         it.advance();
     }
+    return nullptr;
 }
 
-LocalDeTransporte Aeroporto::getComboioProximo() {
-    BSTItrIn<LocalDeTransporte> it (transportes);
+LocalDeTransporte* Aeroporto::getComboioProximo() {
+    BSTItrIn<LocalDeTransporte*> it (transportes);
     while (!it.isAtEnd()){
-        if (it.retrieve().getTipo()==Comboio)
+        if (it.retrieve()->getTipo()==Comboio)
             return it.retrieve();
         it.advance();
     }
+    return nullptr;
 }
 
-LocalDeTransporte Aeroporto::getAutocarroProximo() {
-    BSTItrIn<LocalDeTransporte> it (transportes);
+LocalDeTransporte* Aeroporto::getAutocarroProximo() {
+    BSTItrIn<LocalDeTransporte*> it (transportes);
     while (!it.isAtEnd()){
-        if (it.retrieve().getTipo()==Autocarro)
+        if (it.retrieve()->getTipo()==Autocarro)
             return it.retrieve();
         it.advance();
     }
+    return nullptr;
 }
 
-void Aeroporto::showMeioTransporteProximo() {
-    cout << getMeioTransporteProximo()<< endl;
+void Aeroporto::showLocalTransporteProximo() {
+    if (getLocalTransporteProximo() == nullptr) {
+        cout << "Não existe local de transporte terrestre próximo a este aeroporto." << endl;
+        return;
+    }
+    cout << getLocalTransporteProximo()<< endl;
 }
 
 void Aeroporto::showMetroProximo() {
-    cout << getMetroProximo() << endl;
+    if (getLocalTransporteProximo() == nullptr) {
+        cout << "Não existe local de Metro próximo a este aeroporto." << endl;
+        return;
+    }
+    cout << *(getMetroProximo())<< endl;
 }
 
 void Aeroporto::showComboioProximo() {
-    cout << getComboioProximo() <<endl;
+    if (getComboioProximo() == nullptr) {
+        cout << "Não existe local de Comboio próximo a este aeroporto." << endl;
+        return;
+    }
+    cout << *(getComboioProximo())<< endl;
+
 }
 
 void Aeroporto::showAutocarroProximo() {
-    cout << getAutocarroProximo() <<endl;
-}*/
+    if (getLocalTransporteProximo() == nullptr) {
+        cout << "Não existe local de Autocarro próximo a este aeroporto." << endl;
+        return;
+    }
+    cout << *(getAutocarroProximo())<< endl;
+}
 
 
 

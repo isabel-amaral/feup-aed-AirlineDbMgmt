@@ -31,15 +31,18 @@ public:
      * Altera a distância entre o local e o aeroporto a que está associado
      * @param distancia é a nova distância a ser atribuída
      */
-    void setDistancia(const float &distancia);
+    void setDistancia(const float &d);
     /**
      * Modifica o tipo de transporte terrestre
      * @param tipo é o tipo de transporte que circula pelo local
      */
-    void setTipo(const tipoTransporte &tipo);
+    void setTipo(const tipoTransporte &t);
 
     /**
-     * Adiciona um novo horário a lista horarios caso ainda não exista um igual (com o mesmo dia da semana).
+     * Atualiza a lista de horários. Caso exista, um horario igual h (com o mesmo dia da semana)
+     *
+     * ainda não exista um horario igual h (com o mesmo dia da semana),
+     * h é simplesmente adicionado a lista, caso
      * @param h é o horário
      * @return (true) casp h seja inserido ou (false) caso contrário.
      */
@@ -62,7 +65,8 @@ public:
     int getDisponibilidade() const;
 
     //Milena: Há alguma coisa a dizer sobre estas duas?
-    bool operator < (const LocalDeTransporte& l2) const;
+
+    bool operator < (const LocalDeTransporte* l2) const;
     friend ostream& operator<<(ostream& os, const LocalDeTransporte& lp);
 };
 
