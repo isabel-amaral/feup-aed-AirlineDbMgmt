@@ -35,7 +35,7 @@ private:
 
 public:
     Aviao();
-    Aviao(const string& m, unsigned c, const list<Voo>& planVoo, const queue<Servico>& servRealizados, const queue<Servico>& servPorRealizar);
+    Aviao(const string& m, unsigned c);
     /**
      *
      * @return matricula do avião

@@ -68,9 +68,9 @@ void Aeroporto::addTransporte(const LocalDeTransporte &lp) {
 LocalDeTransporte* Aeroporto::getMeioTransporteProximo()  {
     LocalDeTransporte l= transportes.findMin();
     return &l;
-}*/
+}
 
-/*
+
 LocalDeTransporte Aeroporto::getMetroProximo() {
     BSTItrIn<LocalDeTransporte> it (transportes);
     while (!it.isAtEnd()){

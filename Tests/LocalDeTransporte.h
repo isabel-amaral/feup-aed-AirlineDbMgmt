@@ -37,12 +37,12 @@ public:
     void setTipo(const tipoTransporte &tipo);
 
     /**
-     * Adiciona um novo horario aa lista horarios
-     * @param h é o horario
+     * Adiciona um novo horário a lista horários
+     * @param h é o horário
      */
     void addHorario(const Horario &h);
     /**
-     * @return distancia entre o local e o aeroporto
+     * @return distância entre o local e o aeroporto
      */
     float getDistancia() const;
     /**
@@ -50,9 +50,13 @@ public:
      */
     tipoTransporte getTipo() const;
     /**
-     * @return horarios do local
+     * @return horários do local
      */
     list<Horario> getHorarios() const;
+    /**
+     * @return número de vezes que o meio de transporte passa pelo local
+     */
+    int disponibilidade() const;
 
     //Milena: Há alguma coisa a dizer sobre estas duas?
     bool operator < (const LocalDeTransporte& l2) const;

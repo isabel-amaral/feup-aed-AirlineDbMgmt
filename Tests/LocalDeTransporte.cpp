@@ -33,11 +33,18 @@ list<Horario> LocalDeTransporte::getHorarios() const {
     return horarios;
 }
 
+int LocalDeTransporte::disponibilidade() const {
+    int count=0;
+    for (auto h:horarios){
+        count+=h.getHoras().size();
+    }
+}
+
 bool LocalDeTransporte::operator<(const LocalDeTransporte &l2) const {
     if (this->distancia != l2.distancia)
         return this->distancia < l2.distancia;
-    //else if (this->horarios.size() != l2.horarios.size())
-    //    return this->horarios.size() > l2.horarios.size();
+    else if (this->horarios.size() != l2.horarios.size())
+        return this->horarios.size() > l2.horarios.size();
     return (this->tipo < l2.tipo);
 
 }
@@ -61,5 +68,7 @@ ostream &operator<<(ostream &os, const LocalDeTransporte &lp) {
      }
     return os;
 }
+
+
 
 

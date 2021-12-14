@@ -44,18 +44,44 @@ public:
 
 
     //list<LocalDeTransporte> getTransportes() const;
+    /**
+     * Acrescenta um novo local de transporte à lista
+     * @param lp é o novo local de transporte
+     */
     void addTransporte (const LocalDeTransporte &lp);
-/*
-    LocalDeTransporte* getMeioTransporteProximo();
-
+    /**
+     * @return local de transporte mais próximo
+     */
+    LocalDeTransporte* getLocalTransporteProximo();
+    /**
+     * @return local de Metro mais próximo do aeroporto
+     */
     LocalDeTransporte* getMetroProximo();
+    /**
+     *
+     * @return local de Comboio mais próximo do aeroporto
+    */
     LocalDeTransporte* getComboioProximo();
-    LocalDeTransporte* getAutocarroProximo();*/
-/*
-    void showMeioTransporteProximo();
+    /**
+     * @return local de Autocarro mais próximo do aeroporto
+     */
+    LocalDeTransporte* getAutocarroProximo();
+    /**
+     * Mostra os detalhes sobre o local de transporte mais próximo, caso exista
+     */
+    void showLocalTransporteProximo();
+    /**
+     * Mostra detalhes sobre o Metro mais próximo, caso exista
+     */
     void showMetroProximo();
+    /**
+     * Mostra detalhes sobre o Comboio mais próximo, caso exista
+     */
     void showComboioProximo();
-    void showAutocarroProximo();*/
+    /**
+     * Mostra detalhes sobre o Autocarro mais próximo, caso exista
+     */
+    void showAutocarroProximo();
 };
 
 #endif //_AEROPORTO_H

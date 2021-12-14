@@ -13,12 +13,13 @@ Aviao::Aviao() {
     }
 }
 
-Aviao::Aviao(const string& m, unsigned c, const list<Voo>& planVoo, const queue<Servico>& servRealizados, const queue<Servico>& servPorRealizar) {
+Aviao::Aviao(const string& m, unsigned c) {
     this->matricula = m;
     this->capacidade = c;
+    /*
     this->planoDeVoo = planVoo;
     this->servicosPorRealizar = servPorRealizar;
-    this->servicosRealizados = servRealizados;
+    this->servicosRealizados = servRealizados;*/
 }
 
 string Aviao::getMatricula() const {
@@ -42,23 +43,23 @@ const queue<Servico>& Aviao::getServicosRealizados() const{
 }
 
 void Aviao::setMatricula(const string& m) {
-    this->matricula=matricula;
+    this->matricula=m;
 }
 
-void Aviao::setCapacidade(const unsigned & c) {
-    this->capacidade=capacidade;
+void Aviao::setCapacidade(const unsigned& c) {
+    this->capacidade=c;
 }
 
 void Aviao::setPlanoDeVoo(const list<Voo>& planVoo) {
-    this->planoDeVoo = planoDeVoo;
+    this->planoDeVoo = planVoo;
 }
 
 void Aviao::setServicosPorRealizar(const queue<Servico>& servPorRealizar) {
-    this->servicosPorRealizar = servicosPorRealizar;
+    this->servicosPorRealizar = servPorRealizar;
 }
 
 void Aviao::setServicosRealizados(const queue<Servico>& servRealizados) {
-    this->servicosRealizados = servicosRealizados;
+    this->servicosRealizados = servRealizados;
 }
 
 void Aviao:: addVoo(const Voo& voo){
