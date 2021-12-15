@@ -18,6 +18,7 @@
 using testing::Eq;
 using namespace std;
 
+//Aeroporto::addTransporte()
 TEST(test_1, test_addTransporte) {
     Aeroporto a("Aeroporto Francisco Sá Carneiro", "Porto");
 
@@ -71,6 +72,7 @@ TEST(test_1, test_addTransporte) {
     EXPECT_EQ(4, numLocaisDeTransporte);
 }
 
+//Aviao::addVoo()
 TEST(test_2, test_addVoo) {
     Aviao av("N774AM", 415);
 
@@ -89,6 +91,7 @@ TEST(test_2, test_addVoo) {
     EXPECT_EQ(v2.getNumeroVoo(), av.getPlanoDeVoo().back().getNumeroVoo());
 }
 
+//Aviao::addServicoPorRealizar()
 TEST(test_3, test_addServicoPorRealizar) {
     Aviao av("N774AM", 415);
 
@@ -111,6 +114,7 @@ TEST(test_3, test_addServicoPorRealizar) {
     EXPECT_EQ(Limpeza, av.getServicosPorRealizar().back().getTipoServico());
 }
 
+//Aviao::realizarServico
 TEST(test_4, test_realizarServico) {
     Aviao av("N774AM", 415);
 
@@ -135,6 +139,7 @@ TEST(test_4, test_realizarServico) {
 
 }
 
+//CompanhiaAerea::adquirirBilhete()
 TEST(test_5, test_adquirirBilhete) { //sofia: nao sei bem que expects fazer
     CompanhiaAerea ca;
     Passageiro p("Isabel", 123, 19, false);
@@ -145,10 +150,23 @@ TEST(test_5, test_adquirirBilhete) { //sofia: nao sei bem que expects fazer
     bool bilheteAdquirido = ca.adquirirBilhete(p, v, true);
 
     EXPECT_EQ(true, bilheteAdquirido);
+}
+
+//CompanhiaAerea::getBilhetesFromPassageiro()
+TEST(test_6, test_getBilhetesFromPassageiro) {
+    CompanhiaAerea ca;
+    Passageiro p("Isabel", 123, 19, false);
+    Aeroporto a1("Aeroporto Francisco Sá Carneiro", "Porto");
+    Aeroporto a2("Aeroporto de S. Tomé", "S. Miguel");
+    Data d(17, 12, 2021);
+    Voo v(327, a1, a2, d, 15.30, 17.55, 2.25, 400, 360);
+    ca.adquirirBilhete(p, v, true);
+
     EXPECT_EQ(1, ca.getBilhetesFromPassageiro(p).size());
 }
 
-TEST(test_6, test_adquirirConjuntoBilhetes) { //sofia: e aqui tbm nao
+//CompanhiaAerea::adquirirConjuntoBilhetes
+TEST(test_7, test_adquirirConjuntoBilhetes) { //sofia: e aqui tbm nao
     CompanhiaAerea ca;
     Passageiro p1("Isabel", 123, 19, false);
     Passageiro p2("Filipa", 456, 19, false);
@@ -190,6 +208,7 @@ TEST(test_6, test_adquirirConjuntoBilhetes) { //sofia: e aqui tbm nao
     EXPECT_EQ(3, ca.BinarySearchPassageiro(p4));
 }*/
 
+//Horario::BinarySearchHora()
 TEST(test_8, test_BinarySearchHora) {
     vector<float> vh = {10.30, 11.00, 12.30, 13.15, 14.00, 15.30, 16.45, 17.55, 18.25};
     Horario h(DiasUteis, vh);
@@ -198,6 +217,7 @@ TEST(test_8, test_BinarySearchHora) {
     EXPECT_EQ(vh[3], vh[h.BinarySearchHora(13.16)]);
 }
 
+//Horario::addHora()
 TEST(test_9, test_addHora) {
     vector<float> vh = {10.30, 11.00, 12.30, 13.15, 14.00, 15.30, 16.45, 17.55, 18.25};
     Horario h(DiasUteis, vh);

@@ -15,7 +15,7 @@ vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(const Passageiro& p) c
     for (int i = 0; i < bilhetesVendidos.size(); i++) {
         if (bilhetesVendidos[i].getPasssageiro().getNome() == p.getNome()) {
             bilhetes.push_back(bilhetesVendidos[i]);
-            if (bilhetesVendidos[i+1].getPasssageiro().getNome() != p.getNome())
+            if (i < bilhetesVendidos.size()-1 && bilhetesVendidos[i+1].getPasssageiro().getNome() != p.getNome())
                 break;  //vetor encontra-se ordenado por ordem alfabética do nome dos passageiros
         }
     }
