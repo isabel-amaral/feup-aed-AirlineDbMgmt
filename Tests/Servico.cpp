@@ -1,22 +1,22 @@
 #include "Servico.h"
 
 Servico::Servico() {
-    tipoServico = "";
-    data = "";
+    tipoServico = Limpeza;
+    data = Data();
     funcionarioResponsavel = Funcionario();
 }
 
-Servico::Servico(string tipo, string d, Funcionario& funcionario) {
+Servico::Servico(TipoServico tipo, Data d, Funcionario& funcionario) {
     this->tipoServico = tipo;
     this->data = d;
     this->funcionarioResponsavel = funcionario;
 }
 
-string Servico::getTipoServico() {
+TipoServico Servico::getTipoServico() {
     return this->tipoServico;
 }
 
-string Servico::getData() {
+Data Servico::getData() {
     return this->data;
 }
 
@@ -24,11 +24,11 @@ const Funcionario& Servico::getFuncionarioResponsavel() {
     return this->funcionarioResponsavel;
 }
 
-void Servico::setTipoServico(string& tipo) {
+void Servico::setTipoServico(TipoServico tipo) {
     this->tipoServico = tipo;
 }
 
-void Servico::setData(string& d) {
+void Servico::setData(const Data& d) {
     this->data = d;
 }
 void Servico::setFuncionarioResponsavel(const Funcionario& f) {

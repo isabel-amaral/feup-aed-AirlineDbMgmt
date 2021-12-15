@@ -1,9 +1,12 @@
 #ifndef _SERVICO_H
 #define _SERVICO_H
 
+#include "Data.h"
 #include "Funcionario.h"
 #include <string>
 using namespace std;
+
+enum TipoServico {Manutencao, Limpeza};
 
 class Servico {
 private:
@@ -11,29 +14,29 @@ private:
      * um serviço pode ser de manutenção ou limpeza,
      * em cada caso será representado por uma string cujo valor será "manutenção "ou "limpeza"
      */
-    string tipoServico;
+    TipoServico tipoServico;
     /**
      * a data para a qual o serviço foi agendado é armazenada numa string no formato DD-MM-AAAA,
      * pode ser uma data passada ou futura conforme o serviço já tenha sido realizado ou não
      */
-    string data;
+    Data data;
     /**
      * nome do funcionário responsável pelo serviço
      */
     Funcionario funcionarioResponsavel;
 public:
     Servico();
-    Servico(string tipo, string d, Funcionario& funcionario);
+    Servico(TipoServico tipo, Data d, Funcionario& funcionario);
     /**
      *
      * @return tipo do serviço
      */
-    string getTipoServico();
+    TipoServico getTipoServico();
     /**
      *
      * @return data na qual o serviço foi realizado/data para a qual o serviço está agendado
      */
-    string getData();
+    Data getData();
     /**
      *
      * @return nome do funcionário responsável pelo serviço
@@ -43,12 +46,12 @@ public:
      * altera o tipo de serviço agendado para uma determinada data
      * @param tipo é o tipo do serviço a ser alterado
      */
-    void setTipoServico(string& tipo);
+    void setTipoServico(TipoServico tipo);
     /**
      * altera a data para a qual o serviço está agendado, antecipações e adiamentos são possíveis
      * @param d é a data para qual o serviço vai ser reagendado
      */
-    void setData(string& d);
+    void setData(const Data& d);
     /**
      * altera o funcionário responsável pelo serviço
      * @param f é o nome do funcionário responsável pelo serviço
