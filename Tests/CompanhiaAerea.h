@@ -14,10 +14,11 @@ private:
 public:
     CompanhiaAerea();
     const vector<Bilhete>& getBilhetesVendidos() const;
-    const vector<Bilhete>& getBilhetesFromPassageiro(const Passageiro& p) const;
+    const vector<Bilhete> getBilhetesFromPassageiro(const Passageiro& p) const;
     void mostrarBilhetesFromPassageiro(const Passageiro& p) const;
     bool adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem);
     bool adquirirConjuntoBilhetes(const list<Passageiro>& p, Voo& v, bool bagagem);
+    unsigned BinarySearchPassageiro(const Passageiro& p) const;
     //outros métodos
 };
 
