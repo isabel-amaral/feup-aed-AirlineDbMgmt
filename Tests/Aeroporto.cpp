@@ -27,38 +27,6 @@ string Aeroporto::getCidade() const {
     return cidade;
 }
 
-/*
-list<Voo> Aeroporto::getVoosPartida() const {
-    return voosPartida;
-}
-
-list<Voo> Aeroporto::getVoosChegada() const {
-    return voosChegada;
-}
-*/
-
-/*
-void Aeroporto::setNome(const string &n) {
-    this->nome = nome;
-}
-
-void Aeroporto::setCidade(const string &c) {
-    this->cidade = c;
-}
-
-void Aeroporto::setVoosPartida(const list<Voo> &v) {
-    this->voosPartida = v;
-}
-
-void Aeroporto::setVoosChegada(const list<Voo> &v) {
-    this->voosChegada = v;
-}
- */
-/*
-list<LocalDeTransporte> Aeroporto::getTransportes() const {
-    return transportes;
-}*/
-
 void Aeroporto::addTransporte( LocalDeTransporte* lp) {
     transportes.insert(lp);
 }
@@ -131,14 +99,34 @@ void Aeroporto::showAutocarroProximo() {
     cout << *(getAutocarroProximo())<< endl;
 }
 
+/*
+list<Voo> Aeroporto::getVoosPartida() const {
+    return voosPartida;
+}
 
+list<Voo> Aeroporto::getVoosChegada() const {
+    return voosChegada;
+}
+*/
 
+/*
+void Aeroporto::setNome(const string &n) {
+    this->nome = nome;
+}
 
+void Aeroporto::setCidade(const string &c) {
+    this->cidade = c;
+}
 
+void Aeroporto::setVoosPartida(const list<Voo> &v) {
+    this->voosPartida = v;
+}
 
-
-
-
-
-
-
+void Aeroporto::setVoosChegada(const list<Voo> &v) {
+    this->voosChegada = v;
+}
+ */
+/*
+list<LocalDeTransporte> Aeroporto::getTransportes() const {
+    return transportes;
+}*/
