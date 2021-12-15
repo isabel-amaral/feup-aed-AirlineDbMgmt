@@ -28,7 +28,7 @@ private:
 
 public:
     Passageiro();
-    Passageiro(const string& n, unsigned id, unsigned i, bool menor, const list<Bagagem*>& b);
+    Passageiro(const string& n, unsigned id, unsigned i, bool menor, const list<Bagagem*>& b = list<Bagagem*>());
     /**
      *
      * @return nome do passageiro

@@ -8,7 +8,7 @@ Passageiro::Passageiro() {
     this->menorNaoAcompanhado = false;
 }
 
-Passageiro::Passageiro(const string& n, unsigned id, unsigned i, bool menor, const list<Bagagem*>& b = list<Bagagem*>()) {
+Passageiro::Passageiro(const string& n, unsigned id, unsigned i, bool menor, const list<Bagagem*>& b) {
     this->nome = n;
     this->id = id;
     this->idade = i;
