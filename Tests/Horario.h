@@ -34,7 +34,7 @@ public:
      * Acrescenta um novo elemento às horas, caso este ainda não exista no vetor
      * @param hora é o elemento a ser adicionado
      */
-    void addHora(float& hora);
+    void addHora(const float& hora);
     /**
      * Modifica/define o dia da semana
      * @param dia é o dia que será atribuido ao Horario

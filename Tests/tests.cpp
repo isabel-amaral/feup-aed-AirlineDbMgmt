@@ -27,7 +27,8 @@ TEST(test_1, test_addTransporte) {
     LocalDeTransporte *l2 = new LocalDeTransporte(750, Comboio);
     a.addTransporte(l2);
 
-    BSTItrIn<LocalDeTransporte*> it(a.getTransportes());
+    BST<LocalDeTransporte*> bt = a.getTransportes();
+    BSTItrIn<LocalDeTransporte*> it(bt);
     unsigned numLocaisDeTransporte = 0;
     while(!it.isAtEnd()) {
         numLocaisDeTransporte++;
@@ -165,7 +166,11 @@ TEST(test_8, test_BinarySearchHora) {
 }
 
 TEST(test_9, test_addHora) {
-
+    vector<float> vh = {10.30, 11.00, 12.30, 13.15, 14.00, 15.30, 16.45, 17.55, 18.25};
+    Horario h(DiasUteis, vh);
+    float hora = 16.05;
+    h.addHora(hora);
+    EXPECT_EQ(hora, h.getHoras()[6]);
 }
 
 TEST(test_10, test_updateHorario) {
