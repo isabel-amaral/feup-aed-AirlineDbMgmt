@@ -10,41 +10,15 @@ vector<Bilhete> CompanhiaAerea::getBilhetesVendidos() const {
     return bilhetesVendidos;
 }
 
-unsigned CompanhiaAerea::BinarySearchPassageiro(const Passageiro &p) const {
-    int left = 0, right = bilhetesVendidos.size() - 1;
-    int middle;
-    while (left <= right) {
-        middle = (left + right)/2;
-        if (bilhetesVendidos[middle].getPasssageiro().getNome() < p.getNome())
-            left = middle + 1;
-        else if (bilhetesVendidos[middle].getPasssageiro().getNome() > p.getNome())
-            right = middle - 1;
-        else
-            return middle;
-    }
-    return bilhetesVendidos.size(); //caso o passageiro não seja encontrado
-}
-
 vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(const Passageiro& p) const {
     vector<Bilhete> bilhetes;
-    unsigned index = BinarySearchPassageiro(p);
-    bilhetes.push_back(bilhetesVendidos[index]);
-
-    bool passageiroDiferente = false;
-    for (int i = index-1; i >= 0 && !passageiroDiferente; i--) {
-        if (bilhetesVendidos[i].getPasssageiro().getNome() == p.getNome())
+    for (int i = 0; i < bilhetesVendidos.size(); i++) {
+        if (bilhetesVendidos[i].getPasssageiro().getNome() == p.getNome()) {
             bilhetes.push_back(bilhetesVendidos[i]);
-        else
-            passageiroDiferente = true;
+            if (i < bilhetesVendidos.size()-1 && bilhetesVendidos[i+1].getPasssageiro().getNome() != p.getNome())
+                break;  //vetor encontra-se ordenado por ordem alfabética do nome dos passageiros
+        }
     }
-    passageiroDiferente = false;
-    for (int i = index+1; i < bilhetesVendidos.size(); i++) {
-        if (bilhetesVendidos[i].getPasssageiro().getNome() == p.getNome())
-            bilhetes.push_back(bilhetesVendidos[i]);
-        else
-            passageiroDiferente = true;
-    }
-    sort(bilhetes.begin(), bilhetes.end());
     return bilhetes;
 }
 

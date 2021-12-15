@@ -25,7 +25,7 @@ private:
     void getStringRepresentation();
 public:
     Data();
-    Data(unsigned d, unsigned m, unsigned a);
+    Data(unsigned int d, unsigned int m, unsigned a);
     /**
      *
      * @return o dia

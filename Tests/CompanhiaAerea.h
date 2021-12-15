@@ -53,7 +53,6 @@ public:
      * Caso contrário retorna false (o voo está lotado/ não possui bilhetes suficientes).
      */
     bool adquirirConjuntoBilhetes(const list<Passageiro>& p, Voo& v, bool bagagem);
-    unsigned BinarySearchPassageiro(const Passageiro& p) const;
     //outros métodos
 };
 

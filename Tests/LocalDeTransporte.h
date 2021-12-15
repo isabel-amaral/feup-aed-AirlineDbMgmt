@@ -1,3 +1,4 @@
+
 #ifndef AIRLINEDATABASEMANAGEMENT_LOCALDETRANSPORTE_H
 #define AIRLINEDATABASEMANAGEMENT_LOCALDETRANSPORTE_H
 
@@ -30,16 +31,6 @@ public:
     LocalDeTransporte();
     LocalDeTransporte(float d, tipoTransporte t, const list<Horario>& h = list<Horario>());
     /**
-     * Altera a distância entre o local e o aeroporto a que está associado
-     * @param distancia é a nova distância a ser atribuída
-     */
-    void setDistancia(float d);
-    /**
-     * Modifica o tipo de transporte terrestre
-     * @param tipo é o tipo de transporte que circula pelo local
-     */
-    void setTipo(const tipoTransporte &t);
-    /**
      * @return distância entre o local e o aeroporto
      */
     float getDistancia() const;
@@ -56,14 +47,23 @@ public:
      */
     unsigned getDisponibilidade() const;
     /**
-     * Atualiza a lista de horários. Caso exista, um horario com o mesmo dia da semana que @param h
-     * a lista de horas deste elemento é alterada: passa a ser igual à do @param h.
-     * Caso contrário, @param h é simplesmente adicionado à lista horarios do local de transporte.
+     * Altera a distância entre o local e o aeroporto a que está associado
+     * @param distancia é a nova distância a ser atribuída
+     */
+    void setDistancia(float d);
+    /**
+     * Modifica o tipo de transporte terrestre
+     * @param tipo é o tipo de transporte que circula pelo local
+     */
+    void setTipo(const tipoTransporte &t);
+    /**
+     * Atualiza a lista de horários. Caso exista, um horario igual a h (com o mesmo dia da semana)
+     * a lista de horas deste elemento é alterada: passa a ser igual à do horário h.
+     * Caso contrário, o horário h é simplesmente adicionado a lista horarios do local de transporte.
      * @param h é o novo horário
      */
-    void updateHorario(const Horario &h);
+    void updateHorario(const Horario &horario);
 
-    //Milena: Há alguma coisa a dizer sobre estas duas? isabel: na documentação descrever critério de ordenação
     /**
      * Considera-se que este local de transporte é menor que outro (local) se a sua distância ao aeroporto for menor que a de local. Em caso
      * de empate, compara-se as disponibilidades de cada um: o que tiver maior disponibilidade, será considerado menor. Caso contrário,
@@ -71,7 +71,7 @@ public:
      * @param local é o objeto a ser comparado com esta instância
      * @return true se esta instância é menor que @param local, caso contrário false.
      */
-    bool operator< (const LocalDeTransporte* local) const;
+    bool operator< (const LocalDeTransporte& local) const;
     friend ostream& operator<< (ostream& os, const LocalDeTransporte& local);
 };
 
