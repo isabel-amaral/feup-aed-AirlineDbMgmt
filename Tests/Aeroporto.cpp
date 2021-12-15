@@ -1,17 +1,16 @@
 #include "Aeroporto.h"
 using namespace std;
 
-Aeroporto::Aeroporto(): transportes(new LocalDeTransporte(0.0)){
+Aeroporto::Aeroporto(): transportes(new LocalDeTransporte()){
     this->nome = "";
     this->cidade = "";
-
     /*
     voosPartida.clear();
     voosChegada.clear();
      */
 }
 
-Aeroporto::Aeroporto(const string& n, const string& c): transportes(new LocalDeTransporte(0.0)){
+Aeroporto::Aeroporto(const string& n, const string& c): transportes(new LocalDeTransporte()){
     this->nome = n;
     this->cidade = c;
     /*

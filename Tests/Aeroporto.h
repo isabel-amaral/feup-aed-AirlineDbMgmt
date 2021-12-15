@@ -20,7 +20,7 @@ private:
     /**
      * transportes disponiveis na cidade onde o aeroporto se localiza
      */
-     BST<LocalDeTransporte *> transportes;
+     BST<LocalDeTransporte*> transportes;
 
 public:
     Aeroporto();
@@ -41,7 +41,6 @@ public:
     void setVoosPartida(const list<Voo> &v);
     void setVoosChegada(const list<Voo> &v);
     */
-
 
     //list<LocalDeTransporte> getTransportes() const;
     /**
