@@ -35,6 +35,9 @@ bool Bilhete::operator< (const Bilhete& b) {
     if (this->passageiro.getNome() < b.passageiro.getNome())
         return true;
     if (this->passageiro.getNome() == b.passageiro.getNome())
-        return this->getVoo().getNumeroVoo() < this->getVoo().getNumeroVoo(); //alterar após data de partida estar definida
+        if (this->getVoo().getDataPartida() < this->getVoo().getDataPartida())
+            return true;
+        if (this->getVoo().getDataPartida() == this->getVoo().getDataPartida())
+            return this->getVoo().getHoraPartida() < this->getVoo().getHoraPartida();
     return false;
 }
