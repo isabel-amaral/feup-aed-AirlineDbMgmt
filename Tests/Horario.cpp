@@ -47,7 +47,7 @@ unsigned Horario:: BinarySearchHora(const float& hora) const {
     return middle;
 }
 
-void Horario::addHora(float& hora) {
+void Horario::addHora(const float& hora) {
     if (horas.empty())
         horas.push_back(hora);
 
