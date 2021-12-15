@@ -100,7 +100,7 @@ public:
     void addServicoPorRealizar(const Servico& servico);
     /**
      *
-     * marca um serviço da lista dos serviços agendados (por realizar) como concluído, ou seja, remove-o da lista dos
+     * marca um serviço da lista dos serviços agendados (por realizar) como concluído, ou seja, remove-o da fila dos
      * agendados e acrescenta na dos realizados.
      */
     void realizarServico();

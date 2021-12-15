@@ -80,6 +80,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a23f806b5b9765396d4cdee50f0ce6ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a222a4ff75168f6cd658538739ca4cb36"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aeroporto.html#a222a4ff75168f6cd658538739ca4cb36">getCidade</a> () const</td></tr>
 <tr class="separator:a222a4ff75168f6cd658538739ca4cb36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f23b7c0c3b94a1c365f3df4d8bd3659"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_t.html">BST</a>&lt; <a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aeroporto.html#a1f23b7c0c3b94a1c365f3df4d8bd3659">getTransportes</a> () const</td></tr>
+<tr class="separator:a1f23b7c0c3b94a1c365f3df4d8bd3659"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa927bc595ea09b013c33d50768bdebe4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aeroporto.html#aa927bc595ea09b013c33d50768bdebe4">addTransporte</a> (<a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> *lp)</td></tr>
 <tr class="separator:aa927bc595ea09b013c33d50768bdebe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07bffd43f9964d3b04fca82d85e71569"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aeroporto.html#a07bffd43f9964d3b04fca82d85e71569">getLocalTransporteProximo</a> ()</td></tr>
@@ -105,8 +107,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a7d75ca16bcc0dd2958d74bfc12ac591a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a090aaa97df329d0dd04d917d97c130"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aeroporto.html#a5a090aaa97df329d0dd04d917d97c130">cidade</a></td></tr>
 <tr class="separator:a5a090aaa97df329d0dd04d917d97c130"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8aa7cebfd95086263e73b646faa6dd5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_t.html">BST</a>&lt; <a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aeroporto.html#a8aa7cebfd95086263e73b646faa6dd5c">transportes</a></td></tr>
-<tr class="separator:a8aa7cebfd95086263e73b646faa6dd5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c5d8e69bb8a2fc448d6db03605704a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_t.html">BST</a>&lt; <a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aeroporto.html#a8c5d8e69bb8a2fc448d6db03605704a3">transportes</a></td></tr>
+<tr class="separator:a8c5d8e69bb8a2fc448d6db03605704a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa927bc595ea09b013c33d50768bdebe4" name="aa927bc595ea09b013c33d50768bdebe4"></a>
@@ -241,6 +243,24 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a1f23b7c0c3b94a1c365f3df4d8bd3659" name="a1f23b7c0c3b94a1c365f3df4d8bd3659"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f23b7c0c3b94a1c365f3df4d8bd3659">&#9670;&nbsp;</a></span>getTransportes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_b_s_t.html">BST</a>&lt; <a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> * &gt; Aeroporto::getTransportes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>árvore binária com os locais de transportes próximos do aeroporto </dd></dl>
+
+</div>
+</div>
 <a id="a2740be1d830a5edeea20c75238b755a2" name="a2740be1d830a5edeea20c75238b755a2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2740be1d830a5edeea20c75238b755a2">&#9670;&nbsp;</a></span>showAutocarroProximo()</h2>
 
@@ -360,8 +380,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8aa7cebfd95086263e73b646faa6dd5c" name="a8aa7cebfd95086263e73b646faa6dd5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8aa7cebfd95086263e73b646faa6dd5c">&#9670;&nbsp;</a></span>transportes</h2>
+<a id="a8c5d8e69bb8a2fc448d6db03605704a3" name="a8c5d8e69bb8a2fc448d6db03605704a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c5d8e69bb8a2fc448d6db03605704a3">&#9670;&nbsp;</a></span>transportes</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -370,7 +390,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_b_s_t.html">BST</a>&lt;<a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> *&gt; Aeroporto::transportes</td>
+          <td class="memname"><a class="el" href="class_b_s_t.html">BST</a>&lt;<a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a>*&gt; Aeroporto::transportes</td>
         </tr>
       </table>
   </td>
@@ -384,8 +404,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/<a class="el" href="_aeroporto_8h_source.html">Aeroporto.h</a></li>
-<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/Aeroporto.cpp</li>
+<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/AirlineDatabaseManagement/Tests/<a class="el" href="_aeroporto_8h_source.html">Aeroporto.h</a></li>
+<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/AirlineDatabaseManagement/Tests/Aeroporto.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

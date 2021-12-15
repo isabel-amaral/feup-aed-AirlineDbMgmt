@@ -125,6 +125,10 @@ public:
     * @param d é a origem do voo
     */
     void setDuracao(float d);
+    /**
+     * Altera a lotação do Voo
+     * @param lotacao é a nova lotação
+     */
     void setLotacao(unsigned int lotacao);
     /**
     * modifica o  número de lugares reservados(ocupados) no avião

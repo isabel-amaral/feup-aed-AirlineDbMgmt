@@ -38,21 +38,21 @@ void LocalDeTransporte::setTipo(const tipoTransporte& t) {
     this->tipo = t;
 }
 
-void LocalDeTransporte::updateHorario(const Horario& horario) {
+void LocalDeTransporte::updateHorario(const Horario& h) {
     if (horarios.empty()) {
-        horarios.push_back(horario);
+        horarios.push_back(h);
         return;
     }
 
     list<Horario>::iterator it;
     for (it = horarios.begin(); it != horarios.end(); it++) {
-        if (it->getDia() == horario.getDia()) {
+        if (it->getDia() == h.getDia()) {
             it->clearHoras();
-            it->setHoras(horario.getHoras());
+            it->setHoras(h.getHoras());
             return;
         }
     }
-    this->horarios.push_back(horario);
+    this->horarios.push_back(h);
     horarios.sort();
 }
 

@@ -37,9 +37,13 @@ public:
     void addHora(float& hora);
     /**
      * Modifica/define o dia da semana
-     * @param dia é o dia que será atribuido ao Horario
+     * @param dia é o dia que será atribuido ao objeto
      */
     void setDia(const DiaDaSemana& d);
+    /**
+     * Modifica/define o conjunto de horas não repetidas
+     * @param h são as horas
+     */
     void setHoras(const vector<float>& h);
     /**
      * Remove todos os elementos do atributo horas

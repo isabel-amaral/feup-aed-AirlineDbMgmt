@@ -56,12 +56,12 @@ public:
      */
     unsigned getDisponibilidade() const;
     /**
-     * Atualiza a lista de horários. Caso exista, um horario igual a h (com o mesmo dia da semana)
-     * a lista de horas deste elemento é alterada: passa a ser igual à do horário h.
-     * Caso contrário, o horário h é simplesmente adicionado a lista horarios do local de transporte.
+     * Atualiza a lista de horários. Caso exista, um horario com o mesmo dia da semana que @param h
+     * a lista de horas deste elemento é alterada: passa a ser igual à do @param h.
+     * Caso contrário, @param h é simplesmente adicionado à lista horarios do local de transporte.
      * @param h é o novo horário
      */
-    void updateHorario(const Horario &horario);
+    void updateHorario(const Horario &h);
 
     //Milena: Há alguma coisa a dizer sobre estas duas? isabel: na documentação descrever critério de ordenação
     bool operator< (const LocalDeTransporte* local) const;

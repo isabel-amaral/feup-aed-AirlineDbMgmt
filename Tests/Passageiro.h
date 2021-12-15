@@ -24,6 +24,9 @@ private:
      * se o passageiro é um menor não acompanhado
      */
     bool menorNaoAcompanhado;
+    /**
+     * lista de bagagens do passgeiro
+     */
     list<Bagagem*> bagagem;
 
 public:
@@ -49,7 +52,14 @@ public:
      * @return true se o passageiro for menor de idade e estiver a vaigem sem um adulto responsável, falso caso contrário
      */
     bool isMenorNaoAcompanhado() const;
+    /**
+     * @return lista contendo todas as bagagens do passageiro
+     */
     const list<Bagagem*>& getBagagem() const;
+    /**
+     * Define as bagagens que o passageiro possui
+     * @param b contém as bagagens
+     */
     void setBagagem(const list<Bagagem*>& b);
 };
 

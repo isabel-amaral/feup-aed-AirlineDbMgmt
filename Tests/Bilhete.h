@@ -29,9 +29,22 @@ public:
      * @return true se o passageiro tem direito a levar bagagem de mão, falso caso contrário
      */
     bool temBagagemDeMao() const;
+    /**
+     *
+     * @return passageiro a quem pertence o bilhete
+     */
     Passageiro getPasssageiro() const;
+    /**
+     * Modifica o atributo bagagem de mão
+     * @param bagagem é o novo valor booleano que o atributo bagagemDeMao terá
+     */
     void setBagagemDeMao(bool bagagem);
+    /**
+     * Indica o passageiro que comprou o bilhete
+     * @param p é o passageiro a quem pertence o bilhete
+     */
     void setPassageiro(const Passageiro& p);
+
     bool operator< (const Bilhete& b);
 };
 

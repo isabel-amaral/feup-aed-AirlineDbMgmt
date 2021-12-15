@@ -73,12 +73,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7d7a23057c31834d663697e1bbd2dfcc"><td class="memItemLeft" align="right" valign="top"><a id="a7d7a23057c31834d663697e1bbd2dfcc" name="a7d7a23057c31834d663697e1bbd2dfcc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Voo</b> (unsigned n, const <a class="el" href="class_aeroporto.html">Aeroporto</a> &amp;ao, const <a class="el" href="class_aeroporto.html">Aeroporto</a> &amp;ad, const <a class="el" href="class_data.html">Data</a> &amp;dp, float hp, float hc, float d, unsigned nlr)</td></tr>
-<tr class="separator:a7d7a23057c31834d663697e1bbd2dfcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb4567200f852ed48140f176fc62fd03"><td class="memItemLeft" align="right" valign="top"><a id="acb4567200f852ed48140f176fc62fd03" name="acb4567200f852ed48140f176fc62fd03"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Voo</b> (const <a class="el" href="class_voo.html">Voo</a> &amp;v)</td></tr>
-<tr class="separator:acb4567200f852ed48140f176fc62fd03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47f01e19595f9761a330d66b2aa02b66"><td class="memItemLeft" align="right" valign="top"><a id="a47f01e19595f9761a330d66b2aa02b66" name="a47f01e19595f9761a330d66b2aa02b66"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Voo</b> (unsigned n, const <a class="el" href="class_aeroporto.html">Aeroporto</a> &amp;ao, const <a class="el" href="class_aeroporto.html">Aeroporto</a> &amp;ad, const <a class="el" href="class_data.html">Data</a> &amp;dp, float hp, float hc, float d, unsigned l, unsigned nlr)</td></tr>
+<tr class="separator:a47f01e19595f9761a330d66b2aa02b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d4ac1273a17e10923eb6a01ab34ce71"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voo.html#a1d4ac1273a17e10923eb6a01ab34ce71">getNumeroVoo</a> () const</td></tr>
 <tr class="separator:a1d4ac1273a17e10923eb6a01ab34ce71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07b4f2c7f15530224193680ede9dc170"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_aeroporto.html">Aeroporto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voo.html#a07b4f2c7f15530224193680ede9dc170">getOrigem</a> () const</td></tr>
@@ -93,6 +90,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a27caeb6f6b4328778f7e0cefe79567f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43fa5208ba0e516af45f086b966d3620"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voo.html#a43fa5208ba0e516af45f086b966d3620">getDuracao</a> () const</td></tr>
 <tr class="separator:a43fa5208ba0e516af45f086b966d3620"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b9e7c49b07b81f410c2632b13220be6"><td class="memItemLeft" align="right" valign="top"><a id="a7b9e7c49b07b81f410c2632b13220be6" name="a7b9e7c49b07b81f410c2632b13220be6"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getLotacao</b> () const</td></tr>
+<tr class="separator:a7b9e7c49b07b81f410c2632b13220be6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ed172b88e84c2d389e12747219a2102"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voo.html#a0ed172b88e84c2d389e12747219a2102">getNumLugaresReservados</a> () const</td></tr>
 <tr class="separator:a0ed172b88e84c2d389e12747219a2102"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa07827a84849103cc5f27749f6eb58e"><td class="memItemLeft" align="right" valign="top"><a id="afa07827a84849103cc5f27749f6eb58e" name="afa07827a84849103cc5f27749f6eb58e"></a>
@@ -113,14 +113,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setDataPartida</b> (c
 <tr class="separator:a5fcfdcac3cb1b3958a188349b63b18b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e18f22cd139da376c75486d783003af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voo.html#a5e18f22cd139da376c75486d783003af">setDuracao</a> (float d)</td></tr>
 <tr class="separator:a5e18f22cd139da376c75486d783003af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace40e3787f55e99e13e4e52ddf71e271"><td class="memItemLeft" align="right" valign="top"><a id="ace40e3787f55e99e13e4e52ddf71e271" name="ace40e3787f55e99e13e4e52ddf71e271"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLotacao</b> (unsigned int lotacao)</td></tr>
+<tr class="separator:ace40e3787f55e99e13e4e52ddf71e271"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09417c3c9f9a0cf7e6ed698d27a9a89e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voo.html#a09417c3c9f9a0cf7e6ed698d27a9a89e">setNumLugaresReservados</a> (unsigned lr)</td></tr>
 <tr class="separator:a09417c3c9f9a0cf7e6ed698d27a9a89e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04039c0e39bd5643c74ee01416acb820"><td class="memItemLeft" align="right" valign="top"><a id="a04039c0e39bd5643c74ee01416acb820" name="a04039c0e39bd5643c74ee01416acb820"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setTransportador</b> (unsigned c, unsigned n, unsigned m)</td></tr>
 <tr class="separator:a04039c0e39bd5643c74ee01416acb820"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ebd7ba30f18a6b85a1cafffa13979cb"><td class="memItemLeft" align="right" valign="top"><a id="a1ebd7ba30f18a6b85a1cafffa13979cb" name="a1ebd7ba30f18a6b85a1cafffa13979cb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addPassageiro</b> (const <a class="el" href="class_passageiro.html">Passageiro</a> &amp;p)</td></tr>
-<tr class="separator:a1ebd7ba30f18a6b85a1cafffa13979cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a383237237ebeddd9113e789cf8803ffb"><td class="memItemLeft" align="right" valign="top"><a id="a383237237ebeddd9113e789cf8803ffb" name="a383237237ebeddd9113e789cf8803ffb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>addPassageiro</b> (const <a class="el" href="class_passageiro.html">Passageiro</a> &amp;p)</td></tr>
+<tr class="separator:a383237237ebeddd9113e789cf8803ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14df466375fd4729c982976ad1b25283"><td class="memItemLeft" align="right" valign="top"><a id="a14df466375fd4729c982976ad1b25283" name="a14df466375fd4729c982976ad1b25283"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>addConjuntoPassageiros</b> (const list&lt; <a class="el" href="class_passageiro.html">Passageiro</a> &gt; &amp;p)</td></tr>
+<tr class="separator:a14df466375fd4729c982976ad1b25283"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba67447db4a792b2f147c3fc93e450ff"><td class="memItemLeft" align="right" valign="top"><a id="aba67447db4a792b2f147c3fc93e450ff" name="aba67447db4a792b2f147c3fc93e450ff"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>realizarCheckIn</b> (const <a class="el" href="class_passageiro.html">Passageiro</a> &amp;p)</td></tr>
 <tr class="separator:aba67447db4a792b2f147c3fc93e450ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,6 +147,9 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ab43422b39091908a20c12694cef9d923"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84793bc78fbb8732cb8094cd56a5e9c5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voo.html#a84793bc78fbb8732cb8094cd56a5e9c5">duracao</a></td></tr>
 <tr class="separator:a84793bc78fbb8732cb8094cd56a5e9c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4750fec12e9b7d4cec66fd0e1f9323f1"><td class="memItemLeft" align="right" valign="top"><a id="a4750fec12e9b7d4cec66fd0e1f9323f1" name="a4750fec12e9b7d4cec66fd0e1f9323f1"></a>
+unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>lotacao</b></td></tr>
+<tr class="separator:a4750fec12e9b7d4cec66fd0e1f9323f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb01c9b5cef6ed3b23f82187306b0078"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voo.html#abb01c9b5cef6ed3b23f82187306b0078">numLugaresReservados</a></td></tr>
 <tr class="separator:abb01c9b5cef6ed3b23f82187306b0078"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7047915a1ef5febdb06bba322dba91e8"><td class="memItemLeft" align="right" valign="top"><a id="a7047915a1ef5febdb06bba322dba91e8" name="a7047915a1ef5febdb06bba322dba91e8"></a>
@@ -652,8 +661,8 @@ list&lt; <a class="el" href="class_passageiro.html">Passageiro</a> &gt;&#160;</t
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/<a class="el" href="_voo_8h_source.html">Voo.h</a></li>
-<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/Voo.cpp</li>
+<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/AirlineDatabaseManagement/Tests/<a class="el" href="_voo_8h_source.html">Voo.h</a></li>
+<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/AirlineDatabaseManagement/Tests/Voo.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
