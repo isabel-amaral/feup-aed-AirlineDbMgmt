@@ -1,22 +1,14 @@
 #include "Aeroporto.h"
 using namespace std;
 
-Aeroporto::Aeroporto(): transportes(new LocalDeTransporte()){
+Aeroporto::Aeroporto(): transportes(LocalDeTransporte()){
     this->nome = "";
     this->cidade = "";
-    /*
-    voosPartida.clear();
-    voosChegada.clear();
-     */
 }
 
-Aeroporto::Aeroporto(const string& n, const string& c): transportes(new LocalDeTransporte()){
+Aeroporto::Aeroporto(const string& n, const string& c): transportes(LocalDeTransporte()){
     this->nome = n;
     this->cidade = c;
-    /*
-    voosPartida = vp;
-    voosChegada = vc;
-     */
 }
 
 string Aeroporto::getNome() const {
@@ -27,91 +19,81 @@ string Aeroporto::getCidade() const {
     return cidade;
 }
 
-BST<LocalDeTransporte*> Aeroporto::getTransportes() const {
+BST<LocalDeTransporte> Aeroporto::getTransportes() const {
     return transportes;
 }
 
-void Aeroporto::addTransporte( LocalDeTransporte* lp) {
+void Aeroporto::addTransporte(LocalDeTransporte lp) {
     transportes.insert(lp);
 }
 
-LocalDeTransporte* Aeroporto::getLocalTransporteProximo()  {
+LocalDeTransporte Aeroporto::getLocalTransporteProximo()  {
     return transportes.findMin();
 }
 
 
-LocalDeTransporte* Aeroporto::getMetroProximo() {
-    BSTItrIn<LocalDeTransporte*> it (transportes);
+LocalDeTransporte Aeroporto::getMetroProximo() {
+    BSTItrIn<LocalDeTransporte> it (transportes);
     while (!it.isAtEnd()){
-        if (it.retrieve()->getTipo()==Metro)
+        if (it.retrieve().getTipo()==Metro)
             return it.retrieve();
         it.advance();
     }
-    return nullptr;
+    return LocalDeTransporte();
 }
 
-LocalDeTransporte* Aeroporto::getComboioProximo() {
-    BSTItrIn<LocalDeTransporte*> it (transportes);
+LocalDeTransporte Aeroporto::getComboioProximo() {
+    BSTItrIn<LocalDeTransporte> it (transportes);
     while (!it.isAtEnd()){
-        if (it.retrieve()->getTipo()==Comboio)
+        if (it.retrieve().getTipo()==Comboio)
             return it.retrieve();
         it.advance();
     }
-    return nullptr;
+    return LocalDeTransporte();
 }
 
-LocalDeTransporte* Aeroporto::getAutocarroProximo() {
-    BSTItrIn<LocalDeTransporte*> it (transportes);
+LocalDeTransporte Aeroporto::getAutocarroProximo() {
+    BSTItrIn<LocalDeTransporte> it (transportes);
     while (!it.isAtEnd()){
-        if (it.retrieve()->getTipo()==Autocarro)
+        if (it.retrieve().getTipo()==Autocarro)
             return it.retrieve();
         it.advance();
     }
-    return nullptr;
+    return LocalDeTransporte();
 }
 
 void Aeroporto::showLocalTransporteProximo() {
-    if (getLocalTransporteProximo() == nullptr) {
+    if (getLocalTransporteProximo().getDistancia() == 0.0) {
         cout << "Não existe local de transporte terrestre próximo a este aeroporto." << endl;
         return;
     }
-    cout << getLocalTransporteProximo()<< endl;
+    cout << getLocalTransporteProximo() << endl;
 }
 
 void Aeroporto::showMetroProximo() {
-    if (getLocalTransporteProximo() == nullptr) {
+    if (getLocalTransporteProximo().getDistancia() == 0.0) {
         cout << "Não existe local de Metro próximo a este aeroporto." << endl;
         return;
     }
-    cout << *(getMetroProximo())<< endl;
+    cout << getMetroProximo() << endl;
 }
 
 void Aeroporto::showComboioProximo() {
-    if (getComboioProximo() == nullptr) {
+    if (getComboioProximo().getDistancia() == 0.0) {
         cout << "Não existe local de Comboio próximo a este aeroporto." << endl;
         return;
     }
-    cout << *(getComboioProximo())<< endl;
+    cout << getComboioProximo() << endl;
 
 }
 
 void Aeroporto::showAutocarroProximo() {
-    if (getLocalTransporteProximo() == nullptr) {
+    if (getLocalTransporteProximo().getDistancia() == 0.0) {
         cout << "Não existe local de Autocarro próximo a este aeroporto." << endl;
         return;
     }
-    cout << *(getAutocarroProximo())<< endl;
+    cout << getAutocarroProximo() << endl;
 }
-
-/*
-list<Voo> Aeroporto::getVoosPartida() const {
-    return voosPartida;
-}
-
-list<Voo> Aeroporto::getVoosChegada() const {
-    return voosChegada;
-}
-*/
 
 /*
 void Aeroporto::setNome(const string &n) {
@@ -120,14 +102,6 @@ void Aeroporto::setNome(const string &n) {
 
 void Aeroporto::setCidade(const string &c) {
     this->cidade = c;
-}
-
-void Aeroporto::setVoosPartida(const list<Voo> &v) {
-    this->voosPartida = v;
-}
-
-void Aeroporto::setVoosChegada(const list<Voo> &v) {
-    this->voosChegada = v;
 }
  */
 

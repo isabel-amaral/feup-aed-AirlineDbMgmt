@@ -56,12 +56,12 @@ void LocalDeTransporte::updateHorario(const Horario& horario) {
     horarios.sort();
 }
 
-bool LocalDeTransporte::operator< (const LocalDeTransporte* local) const {
-    if (this->distancia != local->distancia)
-        return this->distancia < local->distancia;
-    if (this->getDisponibilidade() != local->getDisponibilidade())
-        return this->getDisponibilidade() > local->getDisponibilidade();
-    return (this->tipo < local->tipo);
+bool LocalDeTransporte::operator< (const LocalDeTransporte& local) const {
+    if (this->distancia != local.distancia)
+        return this->distancia < local.distancia;
+    if (this->getDisponibilidade() != local.getDisponibilidade())
+        return this->getDisponibilidade() > local.getDisponibilidade();
+    return (this->tipo < local.tipo);
 }
 
 ostream& operator<< (ostream &os, const LocalDeTransporte &local) {

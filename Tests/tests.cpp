@@ -21,25 +21,54 @@ using namespace std;
 TEST(test_1, test_addTransporte) {
     Aeroporto a("Aeroporto Francisco Sá Carneiro", "Porto");
 
-    LocalDeTransporte *l1 = new LocalDeTransporte(300, Autocarro);
+    LocalDeTransporte l1(300.0, Autocarro);
     a.addTransporte(l1);
-    LocalDeTransporte *l2 = new LocalDeTransporte(750, Comboio);
+    LocalDeTransporte l2(750.0, Comboio);
     a.addTransporte(l2);
 
-    BST<LocalDeTransporte*> bt = a.getTransportes();
-    BSTItrIn<LocalDeTransporte*> it(bt);
+    BST<LocalDeTransporte> bt1 = a.getTransportes();
+    BSTItrIn<LocalDeTransporte> it1(bt1);
     unsigned numLocaisDeTransporte = 0;
-    vector<LocalDeTransporte*> lt;
-    while(!it.isAtEnd()) {
-        lt.push_back(it.retrieve());
+    vector<LocalDeTransporte> lt;
+    while (!it1.isAtEnd()) {
+        lt.push_back(it1.retrieve());
         numLocaisDeTransporte++;
-        it.advance();
+        it1.advance();
     }
-    EXPECT_EQ(300, lt[0]->getDistancia());
-    EXPECT_EQ(Autocarro, lt[0]->getTipo());
-    EXPECT_EQ(750, lt[1]->getDistancia());
-    EXPECT_EQ(Comboio, lt[1]->getTipo());
+    EXPECT_EQ(300.0, lt[0].getDistancia());
+    EXPECT_EQ(Autocarro, lt[0].getTipo());
+    EXPECT_EQ(750.0, lt[1].getDistancia());
+    EXPECT_EQ(Comboio, lt[1].getTipo());
     EXPECT_EQ(2, numLocaisDeTransporte);
+
+    Horario h1(DiasUteis, {9.0, 9.30, 10.0, 10.30, 11.0, 11.30, 12.0, 12.30, 13.0, 14.0, 15.30, 16.0, 16.30, 17.0, 18.0, 19.0});
+    Horario h2(Sabados, {10.0, 11.0, 12.0, 12.30, 13.0, 14.0, 15.0});
+    list<Horario> lh;
+    lh.push_back(h1);
+    lh.push_back(h2);
+    LocalDeTransporte l3(350.0, Autocarro, lh);
+    LocalDeTransporte l4(400.0, Metro, lh);
+    a.addTransporte(l3);
+    a.addTransporte(l4);
+
+    BST<LocalDeTransporte> bt2 = a.getTransportes();
+    BSTItrIn<LocalDeTransporte> it2(bt2);
+    numLocaisDeTransporte = 0;
+    lt.clear();
+    while (!it2.isAtEnd()) {
+        lt.push_back(it2.retrieve());
+        numLocaisDeTransporte++;
+        it2.advance();
+    }
+    EXPECT_EQ(300.0, lt[0].getDistancia());
+    EXPECT_EQ(Autocarro, lt[0].getTipo());
+    EXPECT_EQ(350.0, lt[1].getDistancia());
+    EXPECT_EQ(Autocarro, lt[1].getTipo());
+    EXPECT_EQ(400.0, lt[2].getDistancia());
+    EXPECT_EQ(Metro, lt[2].getTipo());
+    EXPECT_EQ(750.0, lt[3].getDistancia());
+    EXPECT_EQ(Comboio, lt[3].getTipo());
+    EXPECT_EQ(4, numLocaisDeTransporte);
 }
 
 TEST(test_2, test_addVoo) {

@@ -20,7 +20,7 @@ private:
     /**
      * transportes disponiveis na cidade onde o aeroporto se localiza
      */
-     BST<LocalDeTransporte*> transportes;
+     BST<LocalDeTransporte> transportes;
 
 public:
     Aeroporto();
@@ -35,39 +35,37 @@ public:
      * @return cidade do aeroporto
      */
     string getCidade() const;
-    /*
-    void setNome(const string &nome);
-    void setCidade(const string &cidade);
-    void setVoosPartida(const list<Voo> &v);
-    void setVoosChegada(const list<Voo> &v);
-    */
     /**
      *
      * @return árvore binária com os locais de transportes próximos do aeroporto
      */
-    BST<LocalDeTransporte*> getTransportes() const; //sofia: acrescentei pq precisei para os testes
+    BST<LocalDeTransporte> getTransportes() const;
+    /*
+    void setNome(const string &nome);
+    void setCidade(const string &cidade);
+    */
     /**
      * Acrescenta um novo local de transporte à lista
      * @param lp é o novo local de transporte
      */
-    void addTransporte (LocalDeTransporte* lp);
+    void addTransporte (LocalDeTransporte lp);
     /**
      * @return local de transporte mais próximo
      */
-    LocalDeTransporte* getLocalTransporteProximo();
+    LocalDeTransporte getLocalTransporteProximo();
     /**
      * @return local de Metro mais próximo do aeroporto
      */
-    LocalDeTransporte* getMetroProximo();
+    LocalDeTransporte getMetroProximo();
     /**
      *
      * @return local de Comboio mais próximo do aeroporto
     */
-    LocalDeTransporte* getComboioProximo();
+    LocalDeTransporte getComboioProximo();
     /**
      * @return local de Autocarro mais próximo do aeroporto
      */
-    LocalDeTransporte* getAutocarroProximo();
+    LocalDeTransporte getAutocarroProximo();
     /**
      * Mostra os detalhes sobre o local de transporte mais próximo, caso exista
      */
