@@ -8,8 +8,6 @@
 using namespace std;
 
 class TransportadorDeBagagem {
-    //, cada carruagem dispõe de n pilhas onde colocar bagagem (na
-    //figura, n=3) e cada pilha pode levar m malas (na figura, m=4).
 private:
     /**
      * Número de carruagens que o carrinho de transporte possui.
@@ -41,9 +39,6 @@ public:
      * @param bagagem é a nova bagagem
      */
     void adicionarAoTapete(Bagagem* bagagem);
-    /**
-     *
-     */
     void despejarTapete();
     void despejarTapete(unsigned n);
     void adicionarAoCarrinho(Bagagem* bagagem);

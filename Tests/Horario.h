@@ -50,12 +50,19 @@ public:
      */
     void clearHoras();
     /**
-     * @param hora é o elemento a ser pesquisado no vetor horas
-     * @return
+     *
+     * @param hora é o elemento a ser pesquisado no vetor horas usando pesquisa binária.
+     * @return Posição da hora no vetor caso seja seja encontrado, caso contrário retorna.
+     * O índice do maior elemento menor que @param hora ou o menor elemento maior que @param hora.
      */
     unsigned BinarySearchHora(const float& hora) const;
-    bool operator< (const Horario& h) const;   //Milena: Ha alguma documentacao a escrever em relacao a esta funcao? isabel: é melhor descrever o critério de ordenação
-    //bool operator== (const Horario& h) const;
+    /**
+     * Este horário é menor que outro horário(h) se o seu dia for menor que o dia de h.
+     * Sendo que os dias seguem a ordenação DiasUteis< Sabados< Domingos .
+     * @param h é o objeto a ser comparado com o este horário.
+     * @return true se esta instância é menor que h, caso contrário false.
+     */
+    bool operator< (const Horario& h) const;
 };
 
 

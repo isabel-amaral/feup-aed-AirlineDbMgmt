@@ -64,6 +64,13 @@ public:
     void updateHorario(const Horario &h);
 
     //Milena: Há alguma coisa a dizer sobre estas duas? isabel: na documentação descrever critério de ordenação
+    /**
+     * Considera-se que este local de transporte é menor que outro (local) se a sua distância ao aeroporto for menor que a de local. Em caso
+     * de empate, compara-se as disponibilidades de cada um: o que tiver maior disponibilidade, será considerado menor. Caso contrário,
+     * será menor aquele que tiver o menor tipo. Sendo considerada a seguinte ordem: Metro< Comboio< Autocarro.
+     * @param local é o objeto a ser comparado com esta instância
+     * @return true se esta instância é menor que @param local, caso contrário false.
+     */
     bool operator< (const LocalDeTransporte* local) const;
     friend ostream& operator<< (ostream& os, const LocalDeTransporte& local);
 };
