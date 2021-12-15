@@ -53,12 +53,16 @@ void Data::setAno(unsigned a) {
     getStringRepresentation();
 }
 
-bool Data::operator < (const Data &d2) const{
-    if (ano == d2.ano) {
-        if (mes == d2.mes) {
-            return dia < d2.dia;
+bool Data::operator < (const Data &d) const {
+    if (ano == d.ano) {
+        if (mes == d.mes) {
+            return dia < d.dia;
         }
-        return mes < d2.mes;
+        return mes < d.mes;
     }
-    return ano < d2.ano;
+    return ano < d.ano;
+}
+
+bool Data::operator==(const Data &d) const {
+    return ano == d.ano && mes == d.mes && dia == d.dia;
 }

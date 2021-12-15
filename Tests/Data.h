@@ -21,7 +21,8 @@ public:
     void setDia(unsigned d);
     void setMes(unsigned m);
     void setAno(unsigned a);
-    bool operator < (const Data &d2) const;
+    bool operator< (const Data &d) const;
+    bool operator== (const Data& d) const;
 };
 
 #endif //_DATA_H
