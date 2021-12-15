@@ -1,5 +1,6 @@
 #ifndef AIRLINEDATABASEMANAGEMENT_LOCALDETRANSPORTE_H
 #define AIRLINEDATABASEMANAGEMENT_LOCALDETRANSPORTE_H
+
 #include <string>
 #include <list>
 #include <sstream>
@@ -8,6 +9,7 @@
 using namespace std;
 
 enum tipoTransporte{ Metro, Comboio, Autocarro};
+
 class LocalDeTransporte {
 private:
     /**
@@ -26,24 +28,17 @@ private:
     list<Horario> horarios;
 public:
     LocalDeTransporte();
-    LocalDeTransporte( float d);
+    LocalDeTransporte(float d, tipoTransporte t, const list<Horario>& h);
     /**
      * Altera a distância entre o local e o aeroporto a que está associado
      * @param distancia é a nova distância a ser atribuída
      */
-    void setDistancia(const float &d);
+    void setDistancia(float d);
     /**
      * Modifica o tipo de transporte terrestre
      * @param tipo é o tipo de transporte que circula pelo local
      */
     void setTipo(const tipoTransporte &t);
-    /**
-     * Atualiza a lista de horários. Caso exista, um horario igual a h (com o mesmo dia da semana)
-     * a lista de horas deste elemento é alterada: passa a ser igual à do horário h.
-     * Caso contrário, o horário h é simplesmente adicionado a lista horarios do local de transporte.
-     * @param h é o novo horário
-     */
-    void updateHorario(const Horario &horario);
     /**
      * @return distância entre o local e o aeroporto
      */
@@ -55,16 +50,22 @@ public:
     /**
      * @return horários do local
      */
-    list<Horario> getHorarios() const;
+    const list<Horario>& getHorarios() const;
     /**
      * @return número de vezes que o meio de transporte passa pelo local
      */
-    int getDisponibilidade() const;
+    unsigned getDisponibilidade() const;
+    /**
+     * Atualiza a lista de horários. Caso exista, um horario igual a h (com o mesmo dia da semana)
+     * a lista de horas deste elemento é alterada: passa a ser igual à do horário h.
+     * Caso contrário, o horário h é simplesmente adicionado a lista horarios do local de transporte.
+     * @param h é o novo horário
+     */
+    void updateHorario(const Horario &horario);
 
-    //Milena: Há alguma coisa a dizer sobre estas duas?
-
-    bool operator < (const LocalDeTransporte* l2) const;
-    friend ostream& operator<<(ostream& os, const LocalDeTransporte& lp);
+    //Milena: Há alguma coisa a dizer sobre estas duas? isabel: na documentação descrever critério de ordenação
+    bool operator< (const LocalDeTransporte* local) const;
+    friend ostream& operator<< (ostream& os, const LocalDeTransporte& local);
 };
 
 

@@ -1,6 +1,6 @@
-
 #ifndef AIRLINEDATABASEMANAGEMENT_HORARIO_H
 #define AIRLINEDATABASEMANAGEMENT_HORARIO_H
+
 #include <string>
 #include <list>
 #include <vector>
@@ -21,7 +21,7 @@ private:
     vector<float> horas;
 public:
     Horario();
-    Horario(const DiaDaSemana &dia);
+    Horario(const DiaDaSemana& dia, const vector<float>& horas = vector<float>());
     /**
      * @return o dia da semana
      */
@@ -34,23 +34,24 @@ public:
      * Acrescenta um novo elemento às horas, caso este ainda não exista no vetor
      * @param hora é o elemento a ser adicionado
      */
-    void addHora(float &hora);
+    void addHora(float& hora);
     /**
      * Modifica/define o dia da semana
      * @param dia é o dia que será atribuido ao Horario
      */
-    void setDia (const DiaDaSemana &d);
+    void setDia(const DiaDaSemana& d);
+    void setHoras(const vector<float>& h);
     /**
      * Remove todos os elementos do atributo horas
      */
-    void clearHoras ();
+    void clearHoras();
     /**
      * @param hora é o elemento a ser pesquisado no vetor horas
      * @return
      */
-    int BinarySearchHora(const float &hora) const;
-    bool operator <(const Horario &h2) const;   //Milena: Ha alguma documentacao a escrever em relacao a esta funcao?
-    bool operator ==(const Horario &h2) const;
+    unsigned BinarySearchHora(const float& hora) const;
+    bool operator< (const Horario& h) const;   //Milena: Ha alguma documentacao a escrever em relacao a esta funcao? isabel: é melhor descrever o critério de ordenação
+    //bool operator== (const Horario& h) const;
 };
 
 

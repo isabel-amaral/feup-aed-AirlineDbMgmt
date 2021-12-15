@@ -4,35 +4,10 @@ LocalDeTransporte::LocalDeTransporte() {
     this->distancia=0.0;
 }
 
-LocalDeTransporte::LocalDeTransporte( float d) {
-    this->distancia=d;
-}
-
-void LocalDeTransporte::setDistancia(const float &d) {
-    this->distancia=d;
-}
-
-void LocalDeTransporte::setTipo(const tipoTransporte &t) {
-    this->tipo=t;
-}
-
-void LocalDeTransporte::updateHorario(const Horario &horario) {
-    if (!horarios.empty())
-    {
-        horarios.push_back(horario);
-        return;
-    }
-
-    for (auto i = horarios.begin(); i != horarios.end(); i++){
-        if (*i == horario){
-            (*i).clearHoras();
-            for (auto hora:horario.getHoras())
-                (*i).addHora(hora);
-            return;
-        }
-    }
-    this->horarios.push_back(horario);
-    horarios.sort();
+LocalDeTransporte::LocalDeTransporte(float d, tipoTransporte t, const list<Horario> &h = list<Horario>()) {
+    this->distancia = d;
+    this->tipo = t;
+    this->horarios = h;
 }
 
 float LocalDeTransporte::getDistancia() const {
@@ -43,33 +18,58 @@ tipoTransporte LocalDeTransporte::getTipo() const {
     return tipo;
 }
 
-list<Horario> LocalDeTransporte::getHorarios() const {
+const list<Horario>& LocalDeTransporte::getHorarios() const {
     return horarios;
 }
 
-int LocalDeTransporte::getDisponibilidade() const {
+unsigned LocalDeTransporte::getDisponibilidade() const {
     int count=0;
     for (auto i=horarios.begin(); i!=horarios.end(); i++){
-        count+=i->getHoras().size();
+        count += i->getHoras().size();
     }
     return count;
 }
 
-bool LocalDeTransporte::operator<(const LocalDeTransporte* l2) const {
-    if (this->distancia != l2->distancia)
-        return this->distancia < l2->distancia;
-    else if (this->getDisponibilidade() != l2->getDisponibilidade())
-        return this->getDisponibilidade() > l2->getDisponibilidade();
-    return (this->tipo < l2->tipo);
-
+void LocalDeTransporte::setDistancia(float d) {
+    this->distancia = d;
 }
 
-ostream &operator<<(ostream &os, const LocalDeTransporte &lp) {
-    os << "Tipo: "<< lp.getTipo();
-    os << "Distancia do aeroporto: "<<lp.getDistancia();
+void LocalDeTransporte::setTipo(const tipoTransporte& t) {
+    this->tipo = t;
+}
+
+void LocalDeTransporte::updateHorario(const Horario& horario) {
+    if (horarios.empty()) {
+        horarios.push_back(horario);
+        return;
+    }
+
+    list<Horario>::iterator it;
+    for (it = horarios.begin(); it != horarios.end(); it++) {
+        if (it->getDia() == horario.getDia()) {
+            it->clearHoras();
+            it->setHoras(horario.getHoras());
+            return;
+        }
+    }
+    this->horarios.push_back(horario);
+    horarios.sort();
+}
+
+bool LocalDeTransporte::operator< (const LocalDeTransporte* local) const {
+    if (this->distancia != local->distancia)
+        return this->distancia < local->distancia;
+    if (this->getDisponibilidade() != local->getDisponibilidade())
+        return this->getDisponibilidade() > local->getDisponibilidade();
+    return (this->tipo < local->tipo);
+}
+
+ostream& operator<< (ostream &os, const LocalDeTransporte &local) {
+    os << "Tipo: "<< local.getTipo();
+    os << "Distancia do aeroporto: " << local.getDistancia();
     os << "Horários: ";
 
-     for (auto h:lp.getHorarios()){
+     for (auto h: local.getHorarios()){
          if(h.getDia()==DiasUteis)
              os << "Dias Uteis: ";
          else if (h.getDia() == DomingosFeriados)
@@ -78,7 +78,7 @@ ostream &operator<<(ostream &os, const LocalDeTransporte &lp) {
              os << "Sábados: ";
 
          for (auto hora: h.getHoras()){
-             os<<hora;
+             os << hora;
          }
      }
     return os;
