@@ -19,25 +19,12 @@ using testing::Eq;
 using namespace std;
 
 TEST(test_1, test_addTransporte) {
-    Aeroporto a("Francisco Sá Carneiro", "Porto");
+    Aeroporto a("Aeroporto Francisco Sá Carneiro", "Porto");
 
-    Horario h1(DiasUteis, {9.50, 10.25, 10.58, 11.32, 12.04}); //sofia: nao vale a pena meter aqui mts horas pois nao?
-    Horario h2(Sabados, {13.50, 14.25, 14.58, 15.32, 16.04});
-    Horario h3(DomingosFeriados, {15.50, 16.25, 16.58, 17.32, 18.04});
-    list<Horario> lh1;
-    lh1.push_back(h1);
-    lh1.push_back(h2);
-    lh1.push_back(h3);
-    LocalDeTransporte *l1 = new LocalDeTransporte(300, Autocarro, lh1);
-
-    Horario h4(DiasUteis, {1.05, 1.50, 2.34, 3.10, 3.55, 4.45});
-    Horario h5(Sabados, {3.46, 4.17, 4.59, 5.39, 6.20, 7.00, 7.41});
-    list<Horario> lh2;
-    lh2.push_back(h4);
-    lh2.push_back(h5);
-    LocalDeTransporte *l2 = new LocalDeTransporte(750, Comboio, lh2);
-
+    LocalDeTransporte *l1 = new LocalDeTransporte(300, Autocarro);
     a.addTransporte(l1);
+
+    LocalDeTransporte *l2 = new LocalDeTransporte(750, Comboio);
     a.addTransporte(l2);
 
     BSTItrIn<LocalDeTransporte*> it(a.getTransportes());
@@ -48,4 +35,40 @@ TEST(test_1, test_addTransporte) {
     }
 
     ASSERT_EQ(2, numLocaisDeTransporte);
+}
+
+TEST(test_2, test_addVoo) {
+    Aviao av("N774AM", 415);
+
+    Aeroporto a1("Aeroporto Francisco Sá Carneiro", "Porto");
+    Aeroporto a2("Aeroporto Humberto Delgado", "Lisboa");
+    Data d1(17, 12, 2021);
+    Voo v1(327, a1, a2, d1, 15.30, 16.21, 0.51, 400, 360);
+    av.addVoo(v1);
+
+    Aeroporto a3("Aeroporto de S. Tomé", "S. Miguel");
+    Voo v2(327, a2, a3, d1, 17.20, 19.05, 1.45, 400, 345);
+    av.addVoo(v2);
+
+    EXPECT_EQ(2, av.getPlanoDeVoo().size());
+    EXPECT_EQ(v1, av.getPlanoDeVoo().front());
+    EXPECT_EQ(v2, av.getPlanoDeVoo().back());
+}
+
+TEST(test_3, test_addServicoPorRealizar) {
+    Aviao av("N774AM", 415);
+
+    Data d1(16, 12, 2021);
+    Funcionario f1(123, "Sofia");
+    Servico s1(Manutencao, d1, f1);
+    av.addServicoPorRealizar(s1);
+
+    Data d2(18, 12, 2021);
+    Funcionario f2(456, "Milena");
+    Servico s2(Limpeza, d2, f2);
+    av.addServicoPorRealizar(s2);
+
+    EXPECT_EQ(2,av.getServicosPorRealizar().size());
+    EXPECT_EQ(s1, av.getServicosPorRealizar().front());
+    EXPECT_EQ(s2, av.getServicosPorRealizar().back());
 }
