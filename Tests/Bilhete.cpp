@@ -11,7 +11,7 @@ Bilhete::Bilhete(const Voo& v, bool bagagem, const Passageiro& p) {
     this->passageiro = p;
 }
 
-const Voo& Bilhete::getVoo() const {
+Voo Bilhete::getVoo() const {
     return this->voo;
 }
 
@@ -19,7 +19,7 @@ bool Bilhete::temBagagemDeMao() const {
     return this->bagagemDeMao;
 }
 
-const Passageiro& Bilhete::getPasssageiro() const {
+Passageiro Bilhete::getPasssageiro() const {
     return passageiro;
 }
 

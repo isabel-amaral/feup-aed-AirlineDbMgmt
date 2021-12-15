@@ -6,7 +6,7 @@ CompanhiaAerea::CompanhiaAerea() {
     bilhetesVendidos = vector<Bilhete>();
 }
 
-const vector<Bilhete>& CompanhiaAerea::getBilhetesVendidos() const {
+vector<Bilhete> CompanhiaAerea::getBilhetesVendidos() const {
     return bilhetesVendidos;
 }
 
@@ -25,7 +25,7 @@ unsigned CompanhiaAerea::BinarySearchPassageiro(const Passageiro &p) const {
     return bilhetesVendidos.size(); //caso o passageiro não seja encontrado
 }
 
-const vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(const Passageiro& p) const {
+vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(const Passageiro& p) const {
     vector<Bilhete> bilhetes;
     unsigned index = BinarySearchPassageiro(p);
     bilhetes.push_back(bilhetesVendidos[index]);

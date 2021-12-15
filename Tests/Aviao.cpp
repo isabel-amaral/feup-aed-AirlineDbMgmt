@@ -30,15 +30,15 @@ unsigned Aviao::getCapacidade() const {
     return this->capacidade;
 }
 
-const list<Voo>& Aviao::getPlanoDeVoo() const {
+list<Voo> Aviao::getPlanoDeVoo() const {
     return this->planoDeVoo;
 }
 
-const queue<Servico>& Aviao::getServicosPorRealizar() const {
+queue<Servico> Aviao::getServicosPorRealizar() const {
     return this->servicosPorRealizar;
 }
 
-const queue<Servico>& Aviao::getServicosRealizados() const{
+queue<Servico> Aviao::getServicosRealizados() const{
     return this->servicosRealizados;
 }
 

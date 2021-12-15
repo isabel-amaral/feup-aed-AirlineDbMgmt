@@ -50,17 +50,17 @@ public:
     *
     * @return todos os voos que o avião tem agendados/por realizar
     */
-    const list<Voo>& getPlanoDeVoo() const;
+    list<Voo> getPlanoDeVoo() const;
     /**
     *
     * todos os serviços aos quais o avião está sujeito
     */
-    const queue<Servico>& getServicosPorRealizar() const;
+    queue<Servico> getServicosPorRealizar() const;
     /**
     *
     * @return todos os serviços concluídos
     */
-    const queue<Servico>& getServicosRealizados() const;
+    queue<Servico> getServicosRealizados() const;
     /**
     * modifica a matrícula do avião
     * @param m é a matricula do aviao
