@@ -28,7 +28,7 @@ private:
     list<Horario> horarios;
 public:
     LocalDeTransporte();
-    LocalDeTransporte(float d, tipoTransporte t, const list<Horario>& h);
+    LocalDeTransporte(float d, tipoTransporte t, const list<Horario>& h = list<Horario>());
     /**
      * Altera a distância entre o local e o aeroporto a que está associado
      * @param distancia é a nova distância a ser atribuída
