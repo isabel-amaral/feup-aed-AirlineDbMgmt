@@ -27,6 +27,10 @@ string Aeroporto::getCidade() const {
     return cidade;
 }
 
+BST<LocalDeTransporte*> Aeroporto::getTransportes() const {
+    return transportes;
+}
+
 void Aeroporto::addTransporte( LocalDeTransporte* lp) {
     transportes.insert(lp);
 }
@@ -126,7 +130,4 @@ void Aeroporto::setVoosChegada(const list<Voo> &v) {
     this->voosChegada = v;
 }
  */
-/*
-list<LocalDeTransporte> Aeroporto::getTransportes() const {
-    return transportes;
-}*/
+

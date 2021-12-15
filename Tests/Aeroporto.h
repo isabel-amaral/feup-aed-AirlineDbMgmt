@@ -41,8 +41,11 @@ public:
     void setVoosPartida(const list<Voo> &v);
     void setVoosChegada(const list<Voo> &v);
     */
-
-    //list<LocalDeTransporte> getTransportes() const;
+    /**
+     *
+     * @return árvore binária com os locais de transportes próximos do aeroporto
+     */
+    BST<LocalDeTransporte*> getTransportes() const; //sofia: acrescentei pq precisei para os testes
     /**
      * Acrescenta um novo local de transporte à lista
      * @param lp é o novo local de transporte
