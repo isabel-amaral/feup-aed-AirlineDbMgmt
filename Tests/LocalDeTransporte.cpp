@@ -4,7 +4,7 @@ LocalDeTransporte::LocalDeTransporte() {
     this->distancia=0.0;
 }
 
-LocalDeTransporte::LocalDeTransporte(float d, tipoTransporte t, const list<Horario> &h = list<Horario>()) {
+LocalDeTransporte::LocalDeTransporte(float d, tipoTransporte t, const list<Horario> &h) {
     this->distancia = d;
     this->tipo = t;
     this->horarios = h;
