@@ -23,13 +23,13 @@ public:
      *
      * @return voo para o qual o bilhete foi adquirido
      */
-    const Voo& getVoo() const;
+    Voo getVoo() const;
     /**
      *
      * @return true se o passageiro tem direito a levar bagagem de mão, falso caso contrário
      */
     bool temBagagemDeMao() const;
-    const Passageiro& getPasssageiro() const;
+    Passageiro getPasssageiro() const;
     void setBagagemDeMao(bool bagagem);
     void setPassageiro(const Passageiro& p);
     bool operator< (const Bilhete& b);
