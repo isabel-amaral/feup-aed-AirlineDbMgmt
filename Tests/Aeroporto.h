@@ -48,40 +48,71 @@ public:
      * Acrescenta um novo local de transporte à lista.
      * @param lp é o novo local de transporte.
      */
-    void addTransporte (LocalDeTransporte lp);
+    void addTransporte (const LocalDeTransporte& lp);
     /**
      * @return local de transporte mais próximo, caso exista algum.
      */
-    LocalDeTransporte getLocalTransporteProximo();
+    LocalDeTransporte getLocalTransporteProximo() const;
+    /**
+    *
+    * @return todos os locais de metro da cidade, caso existam na mesma.
+    */
+    vector<LocalDeTransporte> getMetros() const;
+    /**
+     *
+     * @return todos locais de Comboio da cidade, caso existam na mesma.
+     */
+    vector<LocalDeTransporte> getComboios() const;
+    /**
+     *
+     * @return todos locais de Autocarro da cidade, caso existam na mesma.
+     */
+    vector<LocalDeTransporte> getAutocarros() const;
     /**
      * @return local de Metro mais próximo do aeroporto, caso exista algum Metro na cidade em questão.
      */
-    LocalDeTransporte getMetroProximo();
+    LocalDeTransporte getMetroProximo() const;
     /**
      *
      * @return local de Comboio mais próximo do aeroporto, caso exista algum Comboio na cidade em questão.
     */
-    LocalDeTransporte getComboioProximo();
+    LocalDeTransporte getComboioProximo() const;
     /**
      * @return local de Autocarro mais próximo do aeroporto, caso exista algum Autocarro na ciade em questão.
      */
-    LocalDeTransporte getAutocarroProximo();
+    LocalDeTransporte getAutocarroProximo() const;
+    /**
+     * Imprime na tela todos os meios de transporte terrestre disponíveis.
+     */
+    void showTransportes() const;
+    /**
+     * Imprime na tela todos os locais de Metro disponíveis na cidade.
+     */
+    void showMetros() const;
+    /**
+     * Imprime na tela todos os locais de Comboio disponíveis na cidade.
+     */
+    void showComboios() const;
+    /**
+     * Imprime na tela todos os locais de Autocarro disponíveis na cidade.
+     */
+    void showAutocaros() const;
     /**
      * Imprime os detalhes sobre o local de transporte mais próximo, caso exista.
      */
-    void showLocalTransporteProximo();
+    void showLocalTransporteProximo() const;
     /**
      * Imprime os detalhes sobre o Metro mais próximo, caso exista.
      */
-    void showMetroProximo();
+    void showMetroProximo() const;
     /**
      * Imprime os detalhes sobre o Comboio mais próximo, caso exista.
      */
-    void showComboioProximo();
+    void showComboioProximo() const;
     /**
      * Imprime os detalhes sobre o Autocarro mais próximo, caso exista.
      */
-    void showAutocarroProximo();
+    void showAutocarroProximo() const;
 };
 
 #endif //_AEROPORTO_H
