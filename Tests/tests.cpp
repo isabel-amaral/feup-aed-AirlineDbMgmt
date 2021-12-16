@@ -185,29 +185,6 @@ TEST(test_7, test_adquirirConjuntoBilhetes) { //sofia: e aqui tbm nao
     EXPECT_EQ(2, ca.getBilhetesVendidos().size());
 }
 
-/*TEST(test_7, test_BinarySearchPassageiro) {
-    CompanhiaAerea ca;
-    Passageiro p1("Isabel", 123, 19, false);
-    Passageiro p2("Milena", 456, 19, false);
-    Passageiro p3("Sofia", 789, 20, false);
-    list<Passageiro> lp;
-    lp.push_back(p1);
-    lp.push_back(p2);
-    lp.push_back(p3);
-
-    Aeroporto a1("Aeroporto Francisco Sá Carneiro", "Porto");
-    Aeroporto a2("Aeroporto Internacional de Maputo Mavalane", "Maputo");
-    Data d(17, 12, 2021);
-    Voo v(327, a1, a2, d, 15.30, 17.55, 2.25, 400, 360);
-
-    ca.adquirirConjuntoBilhetes(lp, v, true);
-
-    EXPECT_EQ(1, ca.BinarySearchPassageiro(p2));
-
-    Passageiro p4("Anete", 321, 18, false);
-    EXPECT_EQ(3, ca.BinarySearchPassageiro(p4));
-}*/
-
 //Horario::BinarySearchHora()
 TEST(test_8, test_BinarySearchHora) {
     vector<float> vh = {10.30, 11.00, 12.30, 13.15, 14.00, 15.30, 16.45, 17.55, 18.25};
