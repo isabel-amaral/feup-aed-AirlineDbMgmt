@@ -4,10 +4,10 @@ Bilhete::Bilhete() {
     this->passageiro = Passageiro();
     this->voo = Voo();
     this->bagagemDeMao = false;
-    this->bagagem = list<Bagagem>();
+    this->bagagem = list<Bagagem*>();
 }
 
-Bilhete::Bilhete(const Passageiro& p, const Voo& v, bool b, const list<Bagagem>& bagagem) {
+Bilhete::Bilhete(const Passageiro& p, const Voo& v, bool b, const list<Bagagem*>& bagagem) {
     this->passageiro = p;
     this->voo = v;
     this->bagagemDeMao = b;
@@ -26,7 +26,7 @@ bool Bilhete::temBagagemDeMao() const {
     return this->bagagemDeMao;
 }
 
-list<Bagagem> Bilhete::getBagagem() const {
+list<Bagagem*> Bilhete::getBagagem() const {
     return bagagem;
 }
 
@@ -38,7 +38,7 @@ void Bilhete::setBagagemDeMao(bool bagagem) {
     this->bagagemDeMao = bagagem;
 }
 
-void Bilhete::setBagagem(const list<Bagagem>& b) {
+void Bilhete::setBagagem(const list<Bagagem*>& b) {
     this->bagagem = b;
 }
 

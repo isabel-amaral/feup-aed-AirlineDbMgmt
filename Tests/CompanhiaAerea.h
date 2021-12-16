@@ -34,6 +34,7 @@ public:
      * @param p é o passageiro.
      */
     void mostrarBilhetesFromPassageiro(const Passageiro& p) const;
+    vector<Passageiro> getPassageirosFromVoo(const Voo& v) const;
     /**
      * Acrescenta um bilhete ao conjunto dos demais bilhetes vendidos caso seja possivel efetuar a sua compra (o voo v não está lotado).
      * @param p é o passageiro que pretende comprar o bilhete.
@@ -53,7 +54,7 @@ public:
      * Caso contrário retorna false (o voo está lotado/ não possui bilhetes suficientes para todos).
      */
     bool adquirirConjuntoBilhetes(list<Passageiro>& p, Voo& v, bool bagagem);
-    //outros métodos
+    void realizarCheckIn(const Passageiro& p, Voo& v);
 };
 
 #endif //_COMPANHIAAEREA_H

@@ -3,13 +3,16 @@ using namespace std;
 
 Voo::Voo() {
     numeroVoo = 0;
+    origem = Aeroporto();
+    destino = Aeroporto();
     dataPartida = Data();
     horaPartida = 0.0;
     horaChegada = 0.0;
     duracao = 0.0;
-    origem = Aeroporto();
-    destino = Aeroporto();
+    lotacao = 0;
     numLugaresReservados = 0;
+    passageiros = list<Passageiro>();
+    passageirosCheckedIn = list<Passageiro>();
 }
 
 Voo::Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, const Data& dp, float hp, float hc, float d, unsigned l, unsigned nlr) {
@@ -70,6 +73,10 @@ list<Passageiro> Voo::getPassageirosCheckedIn() const {
     return passageirosCheckedIn;
 }
 
+TransportadorDeBagagem Voo::getTransportador() const {
+    return transportador;
+}
+
 void Voo::setNumeroVoo(unsigned n) {
     numeroVoo = n;
 }
@@ -111,31 +118,26 @@ void Voo::setTransportador(unsigned int c, unsigned int n, unsigned int m) {
     this->transportador = TransportadorDeBagagem(c, n, m);
 }
 
-bool Voo::addPassageiro(const Passageiro& p) {
+bool Voo::addPassageiro(const Passageiro& b) {
     if (numLugaresReservados == lotacao)
         return false;
-    passageiros.push_back(p);
+    passageiros.push_back(b);
     numLugaresReservados++;
     return true;
 }
 
-bool Voo::addConjuntoPassageiros(const list<Passageiro> &p) {
-    if (numLugaresReservados + (unsigned)p.size() > lotacao)
+bool Voo::addConjuntoPassageiros(const list<Passageiro> &b) {
+    if (numLugaresReservados + (unsigned)b.size() > lotacao)
         return false;
 
     list<Passageiro>::const_iterator it;
-    for (it = p.begin(); it != p.end(); it++) {
+    for (it = b.begin(); it != b.end(); it++) {
         passageiros.push_back(*it);
         numLugaresReservados++;
     }
     return true;
 }
 
-/*void Voo::realizarCheckIn(const Passageiro& p) {
-    //acrescentar restrições de peso, o que acontece se o passageiro tiver bagagem de mão e o seu bilhete não permitir?
-    list<Bagagem*>::const_iterator it;
-    for (it = p.getBagagem().begin(); it != p.getBagagem().end(); it++)
-        if (!(*it)->isBagagemDeMao() && (*it)->isCheckInAutomatico())
-            transportador.adicionarAoTapete(*it);
+void Voo::realizarCheckIn(const Passageiro& p) {
     passageirosCheckedIn.push_back(p);
-}*/
+}

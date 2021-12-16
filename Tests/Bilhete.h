@@ -22,11 +22,11 @@ private:
     /**
      * lista com os volumes de bagagem do passageiro para o voo em questão.
      */
-    list<Bagagem> bagagem;
+    list<Bagagem*> bagagem;
 
 public:
     Bilhete();
-    Bilhete(const Passageiro& p, const Voo& v, bool b, const list<Bagagem>& bagagem = list<Bagagem>());
+    Bilhete(const Passageiro& p, const Voo& v, bool b, const list<Bagagem*>& bagagem = list<Bagagem*>());
     /**
      *
      * @return passageiro a quem pertence o bilhete.
@@ -46,7 +46,7 @@ public:
      *
      * @return lista com os volumes de bagagem do passageiro para o voo em questão.
      */
-    list<Bagagem> getBagagem() const;
+    list<Bagagem*> getBagagem() const;
     /**
      * Indica o passageiro que comprou o bilhete.
      * @param p é o passageiro a quem pertence o bilhete.
@@ -61,7 +61,7 @@ public:
      * Define as bagagens que o passageiro possui.
      * @param b é a lista das bagagens.
      */
-    void setBagagem(const list<Bagagem>& b);
+    void setBagagem(const list<Bagagem*>& b);
     //TODO
     bool operator< (const Bilhete& b) const;
 };

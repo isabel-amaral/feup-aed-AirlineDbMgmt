@@ -1,7 +1,7 @@
 var searchData=
 [
   ['setano_0',['setAno',['../class_data.html#a11d9c620b5a1936e18b532814e8c2e22',1,'Data']]],
-  ['setbagagem_1',['setBagagem',['../class_bilhete.html#a29ec13cb92c346b9f5eab185bae5603c',1,'Bilhete']]],
+  ['setbagagem_1',['setBagagem',['../class_bilhete.html#ae72f47ee0c42b59b867651a1df0549b4',1,'Bilhete']]],
   ['setbagagemdemao_2',['setBagagemDeMao',['../class_bilhete.html#ad99113d6eff80bf14805437965fb701a',1,'Bilhete']]],
   ['setcapacidade_3',['setCapacidade',['../class_aviao.html#a3996463d8dc860da300031240ae7ba26',1,'Aviao']]],
   ['setdata_4',['setData',['../class_servico.html#a0b15a8641f2316b33ae2cbc4e52bba3f',1,'Servico']]],
@@ -29,8 +29,12 @@ var searchData=
   ['settipo_26',['setTipo',['../class_local_de_transporte.html#acf52081672b30c462aad782f87b4428c',1,'LocalDeTransporte']]],
   ['settiposervico_27',['setTipoServico',['../class_servico.html#adf9398da4f0b675bef5837edc4c37733',1,'Servico']]],
   ['settransportador_28',['setTransportador',['../class_voo.html#a04039c0e39bd5643c74ee01416acb820',1,'Voo']]],
-  ['showautocarroproximo_29',['showAutocarroProximo',['../class_aeroporto.html#a2740be1d830a5edeea20c75238b755a2',1,'Aeroporto']]],
-  ['showcomboioproximo_30',['showComboioProximo',['../class_aeroporto.html#adc6b9e587eddd08dfb85f7c01da796fc',1,'Aeroporto']]],
-  ['showlocaltransporteproximo_31',['showLocalTransporteProximo',['../class_aeroporto.html#aae3713b84aa031c75542fb8478bd47c4',1,'Aeroporto']]],
-  ['showmetroproximo_32',['showMetroProximo',['../class_aeroporto.html#adffbb0d2be03a10ddf65f84cae089b45',1,'Aeroporto']]]
+  ['showautocaros_29',['showAutocaros',['../class_aeroporto.html#a153b3b7a85af6d271b6b1b768ab8dc3a',1,'Aeroporto']]],
+  ['showautocarroproximo_30',['showAutocarroProximo',['../class_aeroporto.html#a8c2dc649c2bb414adc78e535e3f61f4e',1,'Aeroporto']]],
+  ['showcomboioproximo_31',['showComboioProximo',['../class_aeroporto.html#a3d0ede98ba9af12a276513fe82308675',1,'Aeroporto']]],
+  ['showcomboios_32',['showComboios',['../class_aeroporto.html#af9ce064f6efd8a8945f8621d11b9e7d5',1,'Aeroporto']]],
+  ['showlocaltransporteproximo_33',['showLocalTransporteProximo',['../class_aeroporto.html#aecf803b449768839628fc605cd5bef1c',1,'Aeroporto']]],
+  ['showmetroproximo_34',['showMetroProximo',['../class_aeroporto.html#ab2c2911cb37a6397c08e21663e8a07ac',1,'Aeroporto']]],
+  ['showmetros_35',['showMetros',['../class_aeroporto.html#ab9533f22513165df67e9f8a570803f88',1,'Aeroporto']]],
+  ['showtransportes_36',['showTransportes',['../class_aeroporto.html#a4dafb782fe2e93638b711cee0177f4e7',1,'Aeroporto']]]
 ];

@@ -1,11 +1,10 @@
 #ifndef _VOO_H
 #define _VOO_H
 
+#include "Data.h"
 #include "Aeroporto.h"
 #include "Passageiro.h"
 #include "TransportadorDeBagagem.h"
-#include "Voo.h"
-#include "Data.h"
 #include <string>
 using namespace std;
 
@@ -46,11 +45,11 @@ private:
      */
     unsigned numLugaresReservados;
     /**
-     * Todos os passageiros que adiquiriram bilhetes para este voo.
+     * Todos os bilhetes dos passageiros deste voo.
      */
     list<Passageiro> passageiros;
     /**
-     * Passageiros com check-in feito.
+     * Bilhetes dos passageiros com check-in feito.
      */
     list<Passageiro> passageirosCheckedIn;
     /**
@@ -112,6 +111,7 @@ public:
      * @return passageiros que já fizeram o check in
      */
     list<Passageiro> getPassageirosCheckedIn() const;
+    TransportadorDeBagagem getTransportador() const;
     /**
     * atribui um número ao voo.
     * @param n é o número do voo.
@@ -166,18 +166,18 @@ public:
      */
     void setTransportador(unsigned c, unsigned n, unsigned m);
     /**
-     * Adiciona um novo passageiro ao vetor passageiros se o voo não se encontra lotado.
-     * @param p é o novo passageiro que pretende viajar.
+     * Adiciona o bilhete de um novo passageiro ao vetor passageiros se o voo não se encontra lotado.
+     * @param p é o bilhete do novo passageiro que pretende viajar.
      * @return true se passageiro poderá viajar, caso contrário false.
      */
-    bool addPassageiro(const Passageiro& p);
+    bool addPassageiro(const Passageiro& b);
     /**
      * Se os lugares vagos são suficientes para o número de passageiros que pretende viajar,
-     * estes são adicicionados ao vector de passageiros do voo.
-     * @param p contém os passageiros que pretendem viajar em conjunto.
+     * os bilhetes destes são adicicionados ao vector de passageiros do voo.
+     * @param p contém os bilhetes dos passageiros que pretendem viajar em conjunto.
      * @return  true se o grupo de passageiros poderá viajar, caso contrário false.
      */
-    bool addConjuntoPassageiros(const list<Passageiro>& p);
+    bool addConjuntoPassageiros(const list<Passageiro>& b);
     /**
      * Realiza o check-in de um passageiro: coloca as suas bagagens no tapete rolante e de seguida.
      * adiciona o passageiro à lista de passageiros com o check-in feito.

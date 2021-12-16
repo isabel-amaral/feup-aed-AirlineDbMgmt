@@ -38,6 +38,17 @@ void CompanhiaAerea::mostrarBilhetesFromPassageiro(const Passageiro &p) const {
     }
 }
 
+vector<Passageiro> CompanhiaAerea::getPassageirosFromVoo(const Voo &v) const {
+    vector<Passageiro> passageiros;
+    for (Bilhete b: bilhetesVendidos) {
+        if (b.getVoo().getNumeroVoo() == v.getNumeroVoo())
+            passageiros.push_back(b.getPasssageiro());
+    }
+    return passageiros;
+}
+
+//TODO: método mostrarPassageirosFromVoo, operador << na classe Passageiro
+
 bool CompanhiaAerea::adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem) {
     if (!v.addPassageiro(p))
         return false;
@@ -59,4 +70,23 @@ bool CompanhiaAerea::adquirirConjuntoBilhetes(list<Passageiro> &p, Voo &v, bool 
     }
     sort(bilhetesVendidos.begin(), bilhetesVendidos.end());
     return true;;
+}
+
+void CompanhiaAerea::realizarCheckIn(const Passageiro &p, Voo &v) {
+    //acrescentar restrições de peso, o que acontece se o passageiro tiver bagagem de mão e o seu bilhete não permitir?
+    Bilhete bilhete;
+    vector<Bilhete> bilhetes = getBilhetesFromPassageiro(p);
+    for (Bilhete b: bilhetes) {
+        if (b.getVoo().getNumeroVoo() == v.getNumeroVoo()) {
+            bilhete = b;
+            break;
+        }
+    }
+
+    list<Bagagem*>::iterator it;
+    for (it = bilhete.getBagagem().begin(); it != bilhete.getBagagem().end(); it++) {
+        if (!(*it)->isBagagemDeMao() && (*it)->isCheckInAutomatico())
+            v.getTransportador().adicionarAoTapete(*it);
+    }
+    v.realizarCheckIn(p);
 }

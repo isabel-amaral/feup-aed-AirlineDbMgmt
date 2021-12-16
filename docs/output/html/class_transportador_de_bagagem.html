@@ -76,6 +76,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2a233f8da2dd46b9e8064d2dfae9344f"><td class="memItemLeft" align="right" valign="top"><a id="a2a233f8da2dd46b9e8064d2dfae9344f" name="a2a233f8da2dd46b9e8064d2dfae9344f"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>TransportadorDeBagagem</b> (unsigned c, unsigned n, unsigned m)</td></tr>
 <tr class="separator:a2a233f8da2dd46b9e8064d2dfae9344f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eade3a6d9b32cbb3a2e8016845b566e"><td class="memItemLeft" align="right" valign="top">queue&lt; <a class="el" href="class_bagagem.html">Bagagem</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transportador_de_bagagem.html#a5eade3a6d9b32cbb3a2e8016845b566e">getTapeteRolante</a> () const</td></tr>
+<tr class="separator:a5eade3a6d9b32cbb3a2e8016845b566e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5afb29f74b198da3407f6efbdd75f247"><td class="memItemLeft" align="right" valign="top">list&lt; list&lt; stack&lt; <a class="el" href="class_bagagem.html">Bagagem</a> * &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transportador_de_bagagem.html#a5afb29f74b198da3407f6efbdd75f247">getCarrinho</a> () const</td></tr>
+<tr class="separator:a5afb29f74b198da3407f6efbdd75f247"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e3daccc3735da11127c8fd012df8c99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transportador_de_bagagem.html#a3e3daccc3735da11127c8fd012df8c99">adicionarAoTapete</a> (<a class="el" href="class_bagagem.html">Bagagem</a> *bagagem)</td></tr>
 <tr class="separator:a3e3daccc3735da11127c8fd012df8c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7ab12c3d47d0bf449366e6ce11811c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transportador_de_bagagem.html#ac7ab12c3d47d0bf449366e6ce11811c0">despejarTapete</a> ()</td></tr>
@@ -140,7 +144,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Acrescenta uma nova bagegem ao tapete rolante </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Acrescenta uma nova bagagem ao tapete rolante </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bagagem</td><td>é a nova bagagem </td></tr>
   </table>
@@ -163,7 +167,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Retira todas as malas que se env«contram no acrrinho. </p>
+<p >Retira todas as malas que se encontram no carrinho. </p>
 
 </div>
 </div>
@@ -206,6 +210,42 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a5afb29f74b198da3407f6efbdd75f247" name="a5afb29f74b198da3407f6efbdd75f247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5afb29f74b198da3407f6efbdd75f247">&#9670;&nbsp;</a></span>getCarrinho()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">list&lt; list&lt; stack&lt; <a class="el" href="class_bagagem.html">Bagagem</a> * &gt; &gt; &gt; TransportadorDeBagagem::getCarrinho </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>bagagens que estão no carrinho </dd></dl>
+
+</div>
+</div>
+<a id="a5eade3a6d9b32cbb3a2e8016845b566e" name="a5eade3a6d9b32cbb3a2e8016845b566e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eade3a6d9b32cbb3a2e8016845b566e">&#9670;&nbsp;</a></span>getTapeteRolante()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">queue&lt; <a class="el" href="class_bagagem.html">Bagagem</a> * &gt; TransportadorDeBagagem::getTapeteRolante </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>bagagens que estão no tapete rolante </dd></dl>
 
 </div>
 </div>
@@ -326,8 +366,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/sofia/Desktop/AirlineDatabaseManagement/Tests/<a class="el" href="_transportador_de_bagagem_8h_source.html">TransportadorDeBagagem.h</a></li>
-<li>C:/Users/sofia/Desktop/AirlineDatabaseManagement/Tests/TransportadorDeBagagem.cpp</li>
+<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/<a class="el" href="_transportador_de_bagagem_8h_source.html">TransportadorDeBagagem.h</a></li>
+<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/TransportadorDeBagagem.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
