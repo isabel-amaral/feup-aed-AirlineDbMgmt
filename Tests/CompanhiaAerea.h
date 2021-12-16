@@ -12,6 +12,9 @@ private:
      * Todos os bilhetes que foram vendidos pela companhia.
      */
     vector<Bilhete> bilhetesVendidos;
+    /**
+     * Todos os voos que a companhia tem por realizar.
+     */
     vector<Voo> voos;
 
 public:
@@ -21,11 +24,20 @@ public:
      * @return uma copia dos bilhetes que a companhia vendeu.
      */
     vector<Bilhete> getBilhetesVendidos() const;
-    //TODO: DOCUMENTACAO
+    /**
+     *
+     * @return todos os voos que a companhia tem por realizar.
+     */
     vector<Voo> getVoos() const;
-    //TODO: DOCUMENTACAO
+    /**
+     * Acrescenta um voo ao demais voos que a companhia tem por realizar.
+     * @param v novo voo a acrescentar.
+     */
     void addVoo(const Voo &v);
-    //TODO: DOCUMENTACAO
+    /**
+     * Define os voos da companhia aérea.
+     * @param voos são os novos voos da companhia.
+     */
     void setVoo(const vector<Voo>& voos);
     /**
      * @param p é um determinado passageiro.
@@ -41,7 +53,11 @@ public:
      */
     void mostrarBilhetesFromPassageiro(const Passageiro& p) const;
 
-    //TODO: DOCUMENTACAO
+    /**
+     *
+     * @param v é um voo
+     * @return todos os passageiros do voo indicado
+     */
     vector<Passageiro> getPassageirosFromVoo(const Voo& v) const;
     /**
      * Acrescenta um bilhete ao conjunto dos demais bilhetes vendidos caso seja possivel efetuar a sua compra (o voo v não está lotado).
@@ -63,7 +79,13 @@ public:
      */
     bool adquirirConjuntoBilhetes(list<Passageiro>& p, Voo& v, bool bagagem);
 
-    //TODO: DOCUMENTACAO
+    /**
+     * Realiza o check-in de um determinado passageiro com bilhete referente a um certo voo
+     *
+     *
+     * @param p
+     * @param v
+     */
     void realizarCheckIn(const Passageiro& p, Voo& v) const;
     //TODO: DOCUMENTACAO
     vector <Voo> getVoosChegada (const string& cidadeChegada, const Data& d1=Data()) const;
