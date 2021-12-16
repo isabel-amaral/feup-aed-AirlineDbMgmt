@@ -66,3 +66,9 @@ bool Data::operator < (const Data &d) const {
 bool Data::operator==(const Data &d) const {
     return ano == d.ano && mes == d.mes && dia == d.dia;
 }
+
+bool Data::operator<=(const Data &d) const {
+    return *this == d || *this < d;
+}
+
+

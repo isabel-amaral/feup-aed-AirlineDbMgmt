@@ -276,7 +276,7 @@ TEST(test_13, test_despejarTapete) {
     EXPECT_EQ(b3, t.getTapeteRolante().front());
 }
 
-TEST(test_14, test_despejarCarrinho) { //nao e suposto o tamanho do carrinho ficar a 0?
+TEST(test_14, test_despejarCarrinho) {
     TransportadorDeBagagem t(2, 3, 4);
 
     Bagagem *b1 = new Bagagem(30, false);
@@ -286,7 +286,7 @@ TEST(test_14, test_despejarCarrinho) { //nao e suposto o tamanho do carrinho fic
     t.adicionarAoCarrinho(b2);
 
     t.despejarCarrinho();
-    EXPECT_EQ(0, t.getCarrinho().size());
+    EXPECT_EQ(2, t.getCarrinho().size());
 }
 
 TEST(test_15, test_addPassageiro) {

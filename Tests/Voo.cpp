@@ -141,3 +141,26 @@ bool Voo::addConjuntoPassageiros(const list<Passageiro> &b) {
 void Voo::realizarCheckIn(const Passageiro& p) {
     passageirosCheckedIn.push_back(p);
 }
+
+bool Voo::operator<(const Voo &v) const {
+    if (this->dataPartida < v.dataPartida)
+        return true;
+    else if (this->dataPartida == v.dataPartida){
+        if ( this->horaPartida == v.horaPartida)
+            return this->getOrigem().getCidade() < v.getOrigem().getCidade();
+        else
+            return this->horaPartida < v.horaPartida;
+    }
+    return false;
+
+}
+
+ostream &operator<<(ostream &os, const Voo &v) {
+    os << "Voo número " << v.getNumeroVoo() << endl;
+    os << "Partida prevista às " << v.getHoraPartida() << " com chegada prevista às " << v.getHoraChegada() << endl;
+    os << " no dia " << v.getDataPartida().getData() << endl;
+    os << "A duração do voo será aproximadamente " << v.getDuracao() << endl;
+    return os;
+}
+
+

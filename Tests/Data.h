@@ -62,10 +62,12 @@ public:
      */
     void setAno(unsigned a);
 
-    //TODO
+    //TODO: DOCUMENTACAO
     bool operator< (const Data &d) const;
-    //TODO
+    //TODO: DOCUMENTACAO
     bool operator== (const Data& d) const;
+    //TODO: DOCUMENTACAO
+    bool operator <= (const Data& d) const;
 };
 
 #endif //_DATA_H

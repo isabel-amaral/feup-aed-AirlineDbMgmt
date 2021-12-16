@@ -12,7 +12,7 @@ private:
      * Todos os bilhetes que foram vendidos pela companhia.
      */
     vector<Bilhete> bilhetesVendidos;
-    //list<Aviao> avioes;
+    vector<Voo> voos;
 
 public:
     CompanhiaAerea();
@@ -21,6 +21,12 @@ public:
      * @return uma copia dos bilhetes que a companhia vendeu.
      */
     vector<Bilhete> getBilhetesVendidos() const;
+    //TODO: DOCUMENTACAO
+    vector<Voo> getVoos() const;
+    //TODO: DOCUMENTACAO
+    void addVoo(const Voo &v);
+    //TODO: DOCUMENTACAO
+    void setVoo(const vector<Voo>& voos);
     /**
      * @param p é um determinado passageiro.
      * @return  vector com todos os bilhetes adquiridos pelo passageiro (@param p) num vetor.
@@ -34,6 +40,8 @@ public:
      * @param p é o passageiro.
      */
     void mostrarBilhetesFromPassageiro(const Passageiro& p) const;
+
+    //TODO: DOCUMENTACAO
     vector<Passageiro> getPassageirosFromVoo(const Voo& v) const;
     /**
      * Acrescenta um bilhete ao conjunto dos demais bilhetes vendidos caso seja possivel efetuar a sua compra (o voo v não está lotado).
@@ -46,7 +54,7 @@ public:
     bool adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem);
     /**
      * Acrescenta bilhetes no vetor de bilhetes vendidos caso seja possivel
-     * (os bilhetes disponíveis são suficientes para o grupo todo).
+     * (os bilhetes disponíveis são suficientes para o todos membros do grupo).
      * @param p lista de passageiros que pretendem comprar bilhetes.
      * @param v é voo para o qual os passageiros pretendem adquirir bilhetes.
      * @param bagagem indica se os passageiros têm ou não direito a levar bagagem de mão.
@@ -54,7 +62,29 @@ public:
      * Caso contrário retorna false (o voo está lotado/ não possui bilhetes suficientes para todos).
      */
     bool adquirirConjuntoBilhetes(list<Passageiro>& p, Voo& v, bool bagagem);
+
+    //TODO: DOCUMENTACAO
     void realizarCheckIn(const Passageiro& p, Voo& v);
+    //TODO: DOCUMENTACAO
+    vector <Voo> getVoosChegada (const string& cidadeChegada, const Data& d1=Data()) const;
+    //TODO: DOCUMENTACAO
+    vector <Voo> getVoosPartida (const string& cidadePartida, const Data& d1=Data()) const;
+    //TODO: DOCUMENTACAO
+    vector <Voo> getVoosCidades (const string& cidadePartida, const string& cidadeChegada, const Data& d1, Data& d2) const;
+    //TODO: DOCUMENTACAO
+    vector <Voo> getVoosDatas (const Data& d1, const Data& d2=Data()) const;
+
+    //TODO: DOCUMENTACAO
+    void showVoos() const;
+    //TODO: DOCUMENTACAO
+    void showVoosPartida (const string& cidadePartida, const Data& d1=Data()) const;
+    //TODO: DOCUMENTACAO
+    void showVoosChegada(const string& cidadeChegada, const Data& d1=Data()) const;
+    //TODO: DOCUMENTACAO
+    void showVoosCidades (const string& cidadePartida, const string& cidadeChegada, const Data& d1, Data& d2) const;
+    //TODO: DOCUMENTACAO
+    void showVoosDatas (const Data& d1, const Data& d2=Data()) const;
+
 };
 
 #endif //_COMPANHIAAEREA_H

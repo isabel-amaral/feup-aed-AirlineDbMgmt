@@ -25,6 +25,8 @@ vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(const Passageiro& p) c
 void CompanhiaAerea::mostrarBilhetesFromPassageiro(const Passageiro &p) const {
     vector<Bilhete> bilhetes = getBilhetesFromPassageiro(p);
     for (Bilhete b: bilhetes) {
+        cout<< b <<endl;
+        /*
         cout << "Bilhete para " << b.getVoo().getDestino().getNome() << " com partida de " << b.getVoo().getOrigem().getNome() << endl;
         cout << "Voo número " << b.getVoo().getNumeroVoo() << endl;
         cout << "Partida prevista às " << b.getVoo().getHoraPartida() << " com chegada prevista às " << b.getVoo().getHoraChegada();
@@ -34,7 +36,7 @@ void CompanhiaAerea::mostrarBilhetesFromPassageiro(const Passageiro &p) const {
             cout << p.getNome() << " tem direito a levar bagagem de mão" << endl;
         else
             cout << p.getNome() << " não tem direito a levar bagagem de mão" << endl;
-        cout << endl;
+        cout << endl;*/
     }
 }
 
@@ -90,3 +92,129 @@ void CompanhiaAerea::realizarCheckIn(const Passageiro &p, Voo &v) {
     }
     v.realizarCheckIn(p);
 }
+
+void CompanhiaAerea::addVoo(const Voo &v) {
+    voos.push_back(v);
+    sort(voos.begin(), voos.end());
+}
+
+vector<Voo> CompanhiaAerea::getVoos() const{
+    return voos;
+}
+
+void CompanhiaAerea::setVoo(const vector<Voo>& v) {
+    this->voos = v;
+    sort(voos.begin(), voos.end());
+}
+
+vector<Voo> CompanhiaAerea::getVoosChegada(const string& cidadeChegada, const Data& d1) const {
+    vector <Voo> result;
+
+    for (const auto& v: voos){
+        if (v.getDestino().getCidade() == cidadeChegada && (d1 == Data() || v.getDataPartida() == d1) ){
+            result.push_back(v);
+        }
+    }
+    return result;
+}
+
+vector<Voo> CompanhiaAerea::getVoosPartida(const string& cidadePartida, const Data& d1) const {
+    vector <Voo> result;
+
+    for (const auto& v: voos){
+        if (v.getOrigem().getCidade() == cidadePartida && (d1 == Data() || v.getDataPartida() == d1)){
+            result.push_back(v);
+        }
+    }
+    return result;
+}
+
+vector<Voo> CompanhiaAerea::getVoosCidades(const string& cidadePartida, const string& cidadeChegada, const Data& d1, Data& d2) const {
+    vector<Voo> result;
+
+    for (const auto& v: voos){
+        if ( v.getOrigem().getCidade() == cidadePartida && v.getDestino().getCidade()== cidadeChegada && (d1 <= v.getDataPartida() || v.getDataPartida()<=d2)) {
+            result.push_back(v);
+        }
+    }
+    return result;
+}
+
+vector<Voo> CompanhiaAerea::getVoosDatas(const Data& d1, const Data& d2) const {
+    vector<Voo> result;
+    for (const auto& v : voos){
+        if (d1 <= v.getDataPartida() || v.getDataPartida()<=d2)
+            result.push_back(v);
+    }
+    return result;
+}
+
+void CompanhiaAerea::showVoos() const {
+    if (voos.empty()){
+        cout << "Não há voos disponíveis." << endl;
+        return;
+    }
+    for (const auto& voo : voos){
+        cout << voo;
+    }
+}
+
+void CompanhiaAerea::showVoosPartida(const string &cidadePartida, const Data &d1) const {
+    vector <Voo> voosPartida= getVoosPartida(cidadePartida,d1);
+
+    if (voosPartida.empty()){
+        cout << "Não existe voo com partida em "<< cidadePartida;
+        if (!(d1 == Data()))
+            cout<< " para a data " << d1.getData();
+        return;
+    }
+    for (const auto& voo : voosPartida){
+        cout << voo;
+    }
+}
+
+void CompanhiaAerea::showVoosChegada(const string &cidadeChegada, const Data &d1) const {
+    vector <Voo> voosChegada= getVoosChegada(cidadeChegada, d1);
+
+    if (voosChegada.empty()){
+        cout << "Não existe voo com chegada à "<< cidadeChegada;
+        if (!(d1 == Data()))
+            cout<< " para a data " << d1.getData() ;
+        cout << endl;
+        return;
+    }
+    for (const auto& voo : voosChegada){
+        cout << voo;
+    }
+}
+
+
+
+void CompanhiaAerea::showVoosCidades(const string &cidadePartida, const string &cidadeChegada, const Data &d1, Data &d2) const {
+    vector <Voo> voosCidade = getVoosCidades(cidadePartida, cidadeChegada, d1, d2);
+
+    if (voosCidade.empty()){
+        cout<< "Não existem voo com partida em " << cidadePartida << " e chegada à " << cidadeChegada << " no periodo indicado." << endl;
+        return;
+    }
+
+    for (const auto& voo : voosCidade){
+        cout << voo;
+    }
+}
+
+void CompanhiaAerea::showVoosDatas(const Data &d1, const Data &d2) const {
+    vector <Voo> voosDatas = getVoosDatas(d1, d2);
+
+    if (voosDatas.empty()){
+        cout << "Não há voo disponível para o periodo indicado." <<endl;
+        return;
+    }
+
+    for (const auto& voo: voosDatas){
+        cout<<voo;
+    }
+}
+
+
+

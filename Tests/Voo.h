@@ -35,10 +35,12 @@ private:
      */
     float horaChegada;
     /**
-     * duração do voo em horas e minutos.
+     * Duração do voo em horas e minutos.
      */
     float duracao;
-    //TODO
+    /**
+     * Lotação do voo.
+     */
     unsigned lotacao;
     /**
      * número de lugares reservados(ocupados) no avião onde será realizado o voo.
@@ -184,6 +186,11 @@ public:
      * @param p é o passageiro que pretende realizar o seu check-in.
      */
     void realizarCheckIn(const Passageiro& p);
+
+    //TODO : DOCUMENTACAO
+    bool operator < (const Voo& v) const;
+    //TODO: DOCUMENTACAO
+    friend ostream& operator<< (ostream& os, const Voo& v);
 };
 
 #endif //_VOO_H
