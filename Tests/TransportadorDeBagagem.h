@@ -34,7 +34,17 @@ public:
     TransportadorDeBagagem();
     TransportadorDeBagagem(unsigned c, unsigned n, unsigned m);
     /**
-     * Acrescenta uma nova bagegem ao tapete rolante
+     *
+     * @return bagagens que estão no tapete rolante
+     */
+    queue<Bagagem *> getTapeteRolante() const;
+    /**
+     *
+     * @return bagagens que estão no carrinho
+     */
+    list<list<stack<Bagagem *>>> getCarrinho() const;
+    /**
+     * Acrescenta uma nova bagagem ao tapete rolante
      * @param bagagem é a nova bagagem
      */
     void adicionarAoTapete(Bagagem* bagagem);
@@ -53,7 +63,7 @@ public:
      */
     void adicionarAoCarrinho(Bagagem* bagagem);
     /**
-     * Retira todas as malas que se env«contram no acrrinho.
+     * Retira todas as malas que se encontram no carrinho.
      */
     void despejarCarrinho();
 };

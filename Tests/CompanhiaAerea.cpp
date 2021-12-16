@@ -22,9 +22,9 @@ vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(const Passageiro& p) c
     return bilhetes;
 }
 //TODO: operador << na classe Bilhete
-/*void CompanhiaAerea::mostrarBilhetesFromPassageiro(const Passageiro &p) const {
+void CompanhiaAerea::mostrarBilhetesFromPassageiro(const Passageiro &p) const {
     vector<Bilhete> bilhetes = getBilhetesFromPassageiro(p);
-    for (Bilhete b(Passageiro(), Voo(), false): bilhetes) {
+    for (Bilhete b: bilhetes) {
         cout << "Bilhete para " << b.getVoo().getDestino().getNome() << " com partida de " << b.getVoo().getOrigem().getNome() << endl;
         cout << "Voo número " << b.getVoo().getNumeroVoo() << endl;
         cout << "Partida prevista às " << b.getVoo().getHoraPartida() << " com chegada prevista às " << b.getVoo().getHoraChegada();
@@ -36,7 +36,7 @@ vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(const Passageiro& p) c
             cout << p.getNome() << " não tem direito a levar bagagem de mão" << endl;
         cout << endl;
     }
-}*/
+}
 
 bool CompanhiaAerea::adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem) {
     if (!v.addPassageiro(p))

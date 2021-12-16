@@ -114,7 +114,7 @@ TEST(test_3, test_addServicoPorRealizar) {
     EXPECT_EQ(Limpeza, av.getServicosPorRealizar().back().getTipoServico());
 }
 
-//Aviao::realizarServico
+//Aviao::realizarServico()
 TEST(test_4, test_realizarServico) {
     Aviao av("N774AM", 415);
 
@@ -165,7 +165,7 @@ TEST(test_6, test_getBilhetesFromPassageiro) {
     EXPECT_EQ(1, ca.getBilhetesFromPassageiro(p).size());
 }
 
-//CompanhiaAerea::adquirirConjuntoBilhetes
+//CompanhiaAerea::adquirirConjuntoBilhetes()
 TEST(test_7, test_adquirirConjuntoBilhetes) { //sofia: e aqui tbm nao
     CompanhiaAerea ca;
     Passageiro p1("Isabel", 123, 19, false);
@@ -226,34 +226,135 @@ TEST(test_9, test_addHora) {
     EXPECT_EQ(hora, h.getHoras()[6]);
 }
 
+//Horario::updateHorario()
 TEST(test_10, test_updateHorario) {
+    Horario h1(DiasUteis, {9.0, 9.30, 10.0, 10.30, 11.0, 11.30, 12.0, 12.30, 13.0, 14.0, 15.30, 16.0, 16.30, 17.0, 18.0, 19.0});
+    Horario h2(Sabados, {10.0, 11.0, 12.0, 12.30, 13.0, 14.0, 15.0});
+    list<Horario> lh1;
+    lh1.push_back(h1);
+    lh1.push_back(h2);
+    LocalDeTransporte l(300.0, Autocarro, lh1);
 
+    Horario h3(DomingosFeriados, {9.0, 11.0, 12.30, 14.0, 16.3, 18.0, 20.0});
+    l.updateHorario(h3);
+
+    EXPECT_EQ(3, l.getHorarios().size());
+    EXPECT_EQ(h3.getHoras(), l.getHorarios().back().getHoras());
+    EXPECT_EQ(h3.getDia(), l.getHorarios().back().getDia());
+
+    Horario h4(Sabados, {8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 15.30, 16.0, 16.30, 17.0, 17.30});
+    l.updateHorario(h4);
+
+    EXPECT_EQ(3, l.getHorarios().size());
+
+    list<Horario> lh2 = l.getHorarios();
+    lh2.pop_back();
+    LocalDeTransporte l2(300.0, Autocarro, lh2);
+
+    EXPECT_EQ(h4.getHoras(), l2.getHorarios().back().getHoras());
+    EXPECT_EQ(h4.getDia(), l2.getHorarios().back().getDia());
 }
 
+//TransportadorDeBagagem::adicionarAoTapete()
 TEST(test_11, test_adicionarAoTapete) {
+    TransportadorDeBagagem t(2, 3, 4);
+    Bagagem *b = new Bagagem(30, false);
 
+    t.adicionarAoTapete(b);
+
+    EXPECT_EQ(b, t.getTapeteRolante().back());
 }
 
-TEST(test_12, test_despejarTapete) { //nao esquecer que ha 2 metodos despejarTapete, ver se preciso fazer 2 testes
+//TransportadorDeBagagem::adicionarAoCarrinho()
+TEST(test_12, test_adicionarAoCarrinho) {
+    TransportadorDeBagagem t(2, 3, 4);
+    Bagagem *b = new Bagagem(30, false);
+    t.adicionarAoCarrinho(b);
 
+    EXPECT_EQ(b, t.getCarrinho().front().front().top());
+    EXPECT_EQ(0, t.getTapeteRolante().size());
+}
+//TransportadorDeBagagem::despejarTapete()
+TEST(test_13, test_despejarTapete) {
+    TransportadorDeBagagem t(2, 3, 4);
+
+    Bagagem *b1 = new Bagagem(30, false);
+    t.adicionarAoTapete(b1);
+
+    Bagagem *b2 = new Bagagem(15, true);
+    t.adicionarAoTapete(b2);
+
+    t.despejarTapete();
+    EXPECT_EQ(b2, t.getCarrinho().front().front().top());
+
+    t.adicionarAoTapete(b1);
+    t.adicionarAoTapete(b2);
+    Bagagem *b3 = new Bagagem(27, false);
+    t.adicionarAoTapete(b3);
+
+    t.despejarTapete(2);
+
+    EXPECT_EQ(2, t.getCarrinho().size());
+    EXPECT_EQ(1, t.getTapeteRolante().size());
+    EXPECT_EQ(b3, t.getTapeteRolante().front());
 }
 
-TEST(test_13, test_adicionarAoCarrinho) {
+TEST(test_14, test_despejarCarrinho) { //nao e suposto o tamanho do carrinho ficar a 0?
+    TransportadorDeBagagem t(2, 3, 4);
 
-}
+    Bagagem *b1 = new Bagagem(30, false);
+    t.adicionarAoCarrinho(b1);
 
-TEST(test_14, test_despejarCarrinho) {
+    Bagagem *b2 = new Bagagem(15, true);
+    t.adicionarAoCarrinho(b2);
 
+    t.despejarCarrinho();
+    EXPECT_EQ(0, t.getCarrinho().size());
 }
 
 TEST(test_15, test_addPassageiro) {
+    Passageiro p1("Isabel", 123, 19, false);
+    Passageiro p2("Milena", 456, 19, false);
+    Passageiro p3("Sofia", 789, 20, false);
 
+    Aeroporto a1("Aeroporto Francisco Sá Carneiro", "Porto");
+    Aeroporto a2("Aeroporto de S.Tomé", "S. Miguel");
+    Data d(17, 12, 2021);
+    Voo v(327, a1, a2, d, 15.30, 17.55, 2.25, 400, 360);
+
+    v.addPassageiro(p1);
+    v.addPassageiro(p2);
+    v.addPassageiro(p3);
+
+    EXPECT_EQ(3, v.getPassageiros().size());
 }
 
 TEST(test_16, test_addConjuntoPassageiros) {
+    Passageiro p1("Isabel", 123, 19, false);
+    Passageiro p2("Milena", 456, 19, false);
+    Passageiro p3("Sofia", 789, 20, false);
+    list<Passageiro> l;
+    l.push_back(p1);
+    l.push_back(p2);
+    l.push_back(p3);
 
+    Aeroporto a1("Aeroporto Francisco Sá Carneiro", "Porto");
+    Aeroporto a2("Aeroporto de S.Tomé", "S. Miguel");
+    Data d(17, 12, 2021);
+    Voo v(327, a1, a2, d, 15.30, 17.55, 2.25, 400, 360);
+
+    v.addConjuntoPassageiros(l);
+    EXPECT_EQ(3, v.getPassageiros().size());
 }
 
 TEST(test_17, test_realizarCheckIn) {
+    Aeroporto a1("Aeroporto Francisco Sá Carneiro", "Porto");
+    Aeroporto a2("Aeroporto de S.Tomé", "S. Miguel");
+    Data d(17, 12, 2021);
+    Voo v(327, a1, a2, d, 15.30, 17.55, 2.25, 400, 360);
 
+    Passageiro p("Isabel", 123, 19, false);
+
+    v.realizarCheckIn(p);
+    EXPECT_EQ(1, v.getPassageirosCheckedIn().size());
 }
