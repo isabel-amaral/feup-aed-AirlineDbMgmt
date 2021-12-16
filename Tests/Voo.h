@@ -103,7 +103,16 @@ public:
      * @return numero de lugares reservados(ocupados) no avião.
      */
     unsigned getNumLugaresReservados() const;
-    const list<Passageiro>& getPassageiros() const;
+    /**
+     *
+     * @return numero dos lugares correspondentes aos bilhetes comprados
+     */
+    list<Passageiro> getPassageiros() const;
+    /**
+     *
+     * @return passageiros que já fizeram o check in
+     */
+    list<Passageiro> getPassageirosCheckedIn() const;
     /**
     * atribui um número ao voo.
     * @param n é o número do voo.

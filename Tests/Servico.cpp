@@ -20,7 +20,7 @@ Data Servico::getData() {
     return this->data;
 }
 
-const Funcionario& Servico::getFuncionarioResponsavel() {
+Funcionario Servico::getFuncionarioResponsavel() const {
     return this->funcionarioResponsavel;
 }
 

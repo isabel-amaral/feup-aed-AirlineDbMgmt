@@ -24,6 +24,14 @@ TransportadorDeBagagem::TransportadorDeBagagem(unsigned c, unsigned n, unsigned 
     }
 }
 
+queue<Bagagem *> TransportadorDeBagagem::getTapeteRolante() const {
+    return tapeteRolante;
+}
+
+list<list<stack<Bagagem *>>> TransportadorDeBagagem::getCarrinho() const {
+    return carrinho;
+}
+
 void TransportadorDeBagagem::adicionarAoTapete(Bagagem* bagagem) {
     tapeteRolante.push(bagagem);
 }

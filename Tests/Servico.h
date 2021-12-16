@@ -41,7 +41,7 @@ public:
      *
      * @return nome do funcionário responsável pelo serviço.
      */
-    const Funcionario& getFuncionarioResponsavel();
+    Funcionario getFuncionarioResponsavel() const;
     /**
      * Altera o tipo de serviço agendado para uma determinada data.
      * @param tipo é o tipo do serviço a ser alterado.
