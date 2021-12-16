@@ -105,8 +105,8 @@ void Voo::setDuracao(float d) {
     duracao = d;
 }
 
-void Voo::setLotacao(unsigned lotacao) {
-    lotacao = lotacao;
+void Voo::setLotacao(unsigned lot) {
+    lotacao = lot;
 }
 
 void Voo::setNumLugaresReservados(unsigned lr) {

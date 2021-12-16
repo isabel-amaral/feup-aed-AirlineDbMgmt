@@ -24,7 +24,7 @@ vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(const Passageiro& p) c
 //TODO: operador << na classe Bilhete
 void CompanhiaAerea::mostrarBilhetesFromPassageiro(const Passageiro &p) const {
     vector<Bilhete> bilhetes = getBilhetesFromPassageiro(p);
-    for (Bilhete b: bilhetes) {
+    for (const Bilhete& b: bilhetes) {
         cout<< b <<endl;
         /*
         cout << "Bilhete para " << b.getVoo().getDestino().getNome() << " com partida de " << b.getVoo().getOrigem().getNome() << endl;
@@ -42,7 +42,7 @@ void CompanhiaAerea::mostrarBilhetesFromPassageiro(const Passageiro &p) const {
 
 vector<Passageiro> CompanhiaAerea::getPassageirosFromVoo(const Voo &v) const {
     vector<Passageiro> passageiros;
-    for (Bilhete b: bilhetesVendidos) {
+    for (const Bilhete& b: bilhetesVendidos) {
         if (b.getVoo().getNumeroVoo() == v.getNumeroVoo())
             passageiros.push_back(b.getPasssageiro());
     }
@@ -71,14 +71,14 @@ bool CompanhiaAerea::adquirirConjuntoBilhetes(list<Passageiro> &p, Voo &v, bool 
         bilhetesVendidos.push_back(b);
     }
     sort(bilhetesVendidos.begin(), bilhetesVendidos.end());
-    return true;;
+    return true;
 }
 
-void CompanhiaAerea::realizarCheckIn(const Passageiro &p, Voo &v) {
+void CompanhiaAerea::realizarCheckIn(const Passageiro &p, Voo &v) const {
     //acrescentar restrições de peso, o que acontece se o passageiro tiver bagagem de mão e o seu bilhete não permitir?
     Bilhete bilhete;
     vector<Bilhete> bilhetes = getBilhetesFromPassageiro(p);
-    for (Bilhete b: bilhetes) {
+    for (const Bilhete& b: bilhetes) {
         if (b.getVoo().getNumeroVoo() == v.getNumeroVoo()) {
             bilhete = b;
             break;

@@ -18,10 +18,10 @@ string Funcionario::getNomeFuncionario() const {
     return nomeFuncionario;
 }
 
-void Funcionario::setIdFuncionario(unsigned idFuncionario) {
-    this->idFuncionario = idFuncionario;
+void Funcionario::setIdFuncionario(unsigned id) {
+    this->idFuncionario = id;
 }
 
-void Funcionario::setNomeFuncionario(const string &nomeFuncionario) {
-    this->nomeFuncionario = nomeFuncionario;
+void Funcionario::setNomeFuncionario(const string &nome) {
+    this->nomeFuncionario = nome;
 }

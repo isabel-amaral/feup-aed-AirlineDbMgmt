@@ -24,8 +24,8 @@ const list<Horario>& LocalDeTransporte::getHorarios() const {
 
 unsigned LocalDeTransporte::getDisponibilidade() const {
     int count=0;
-    for (auto i=horarios.begin(); i!=horarios.end(); i++){
-        count += i->getHoras().size();
+    for (const auto & horario : horarios){
+        count += horario.getHoras().size();
     }
     return count;
 }
@@ -69,7 +69,7 @@ ostream& operator<< (ostream &os, const LocalDeTransporte &local) {
     os << "Distancia do aeroporto: " << local.getDistancia() << endl;
     os << "Horários: ";
 
-    for (auto h: local.getHorarios()){
+    for (const auto& h: local.getHorarios()){
         if(h.getDia()==DiasUteis)
             os << "Dias Uteis: " << endl;
         else if (h.getDia() == DomingosFeriados)

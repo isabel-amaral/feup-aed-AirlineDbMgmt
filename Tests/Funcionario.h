@@ -32,12 +32,12 @@ public:
      * Altera o número de identificação do funcionário.
      * @param idFuncionario é o novo id.
      */
-    void setIdFuncionario(unsigned idFuncionario);
+    void setIdFuncionario(unsigned id);
     /**
      * Modifica o nome do funcionário.
      * @param nomeFuncionario é o novo nome do funcionário.
      */
-    void setNomeFuncionario(const string &nomeFuncionario);
+    void setNomeFuncionario(const string &nome);
 };
 
 #endif //_FUNCIONARIO_H

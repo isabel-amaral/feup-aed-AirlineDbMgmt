@@ -64,7 +64,7 @@ public:
     bool adquirirConjuntoBilhetes(list<Passageiro>& p, Voo& v, bool bagagem);
 
     //TODO: DOCUMENTACAO
-    void realizarCheckIn(const Passageiro& p, Voo& v);
+    void realizarCheckIn(const Passageiro& p, Voo& v) const;
     //TODO: DOCUMENTACAO
     vector <Voo> getVoosChegada (const string& cidadeChegada, const Data& d1=Data()) const;
     //TODO: DOCUMENTACAO

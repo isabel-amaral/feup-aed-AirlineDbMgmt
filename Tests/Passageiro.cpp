@@ -1,5 +1,4 @@
 #include "Passageiro.h"
-#include <iostream>
 
 Passageiro::Passageiro() {
     this->nome = "";

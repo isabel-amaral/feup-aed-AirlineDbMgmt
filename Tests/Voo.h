@@ -154,7 +154,7 @@ public:
      * Altera a lotação do Voo.
      * @param lotacao é a nova lotação.
      */
-    void setLotacao(unsigned int lotacao);
+    void setLotacao(unsigned int lot);
     /**
     * modifica o  número de lugares reservados(ocupados) no avião.
     * @param lr é o número de lugares ocupados.

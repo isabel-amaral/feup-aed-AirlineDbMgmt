@@ -6,7 +6,7 @@ Servico::Servico() {
     funcionarioResponsavel = Funcionario();
 }
 
-Servico::Servico(TipoServico tipo, Data d, Funcionario& funcionario) {
+Servico::Servico(TipoServico tipo, const Data& d, Funcionario& funcionario) {
     this->tipoServico = tipo;
     this->data = d;
     this->funcionarioResponsavel = funcionario;

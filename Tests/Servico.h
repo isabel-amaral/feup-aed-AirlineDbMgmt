@@ -26,7 +26,7 @@ private:
     Funcionario funcionarioResponsavel;
 public:
     Servico();
-    Servico(TipoServico tipo, Data d, Funcionario& funcionario);
+    Servico(TipoServico tipo, const Data& d, Funcionario& funcionario);
     /**
      *
      * @return tipo do serviço.
