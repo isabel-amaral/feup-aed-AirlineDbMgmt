@@ -26,17 +26,6 @@ Voo::Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, const Data& dp, f
     this->passageirosCheckedIn = list<Passageiro>();
 }
 
-/*Voo::Voo(const Voo& v) {
-    this->numeroVoo = v.numeroVoo;
-    this->origem = v.origem;
-    //this->dataPartida = v.dataPartida;
-    this->horaPartida = v.horaPartida;
-    this->destino = v.destino;
-    this->horaChegada = v.horaChegada;
-    this->duracao = v.duracao;
-    //isabel: numLugaresReservados, lotacao?
-}*/
-
 unsigned Voo::getNumeroVoo() const {
     return numeroVoo;
 }
@@ -138,11 +127,11 @@ bool Voo::addConjuntoPassageiros(const list<Passageiro> &p) {
     return true;
 }
 
-void Voo::realizarCheckIn(const Passageiro& p) {
+/*void Voo::realizarCheckIn(const Passageiro& p) {
     //acrescentar restrições de peso, o que acontece se o passageiro tiver bagagem de mão e o seu bilhete não permitir?
     list<Bagagem*>::const_iterator it;
     for (it = p.getBagagem().begin(); it != p.getBagagem().end(); it++)
         if (!(*it)->isBagagemDeMao() && (*it)->isCheckInAutomatico())
             transportador.adicionarAoTapete(*it);
     passageirosCheckedIn.push_back(p);
-}
+}*/

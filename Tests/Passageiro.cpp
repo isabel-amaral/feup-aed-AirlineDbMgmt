@@ -8,7 +8,7 @@ Passageiro::Passageiro() {
     this->menorNaoAcompanhado = false;
 }
 
-Passageiro::Passageiro(const string& n, unsigned id, unsigned i, bool menor, const list<Bagagem*>& b) {
+Passageiro::Passageiro(const string& n, unsigned id, unsigned i, bool menor) {
     this->nome = n;
     this->id = id;
     this->idade = i;
@@ -16,7 +16,6 @@ Passageiro::Passageiro(const string& n, unsigned id, unsigned i, bool menor, con
         this->menorNaoAcompanhado = false;
     else
         this->menorNaoAcompanhado = menor;
-    this->bagagem = b;
 }
 
 string Passageiro::getNome() const {
@@ -34,13 +33,5 @@ unsigned Passageiro::getIdade() const {
 
 bool Passageiro::isMenorNaoAcompanhado() const {
     return menorNaoAcompanhado;
-}
-
-const list<Bagagem*>& Passageiro::getBagagem() const {
-    return bagagem;
-}
-
-void Passageiro::setBagagem(const list<Bagagem*>& b) {
-    this->bagagem = b;
 }
 

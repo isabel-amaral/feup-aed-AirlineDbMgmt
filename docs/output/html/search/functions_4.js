@@ -2,7 +2,7 @@ var searchData=
 [
   ['getano_0',['getAno',['../class_data.html#afbc2e0c648cd6aace9a5a59831c2c05c',1,'Data']]],
   ['getautocarroproximo_1',['getAutocarroProximo',['../class_aeroporto.html#a06376fb3707466bf9e50961424c0f0cc',1,'Aeroporto']]],
-  ['getbagagem_2',['getBagagem',['../class_passageiro.html#aabd1d94b040dc1aab1930f761c969f7c',1,'Passageiro']]],
+  ['getbagagem_2',['getBagagem',['../class_bilhete.html#a0022266e668eae6b7198ea8a9d69ec05',1,'Bilhete']]],
   ['getbilhetesfrompassageiro_3',['getBilhetesFromPassageiro',['../class_companhia_aerea.html#acee29d50deccfd972a4b96fc3bf85091',1,'CompanhiaAerea']]],
   ['getbilhetesvendidos_4',['getBilhetesVendidos',['../class_companhia_aerea.html#a52009bc4209ba18de04b821f71a4a290',1,'CompanhiaAerea']]],
   ['getcapacidade_5',['getCapacidade',['../class_aviao.html#a88283b9bfc23fb022e14c01316f82784',1,'Aviao']]],

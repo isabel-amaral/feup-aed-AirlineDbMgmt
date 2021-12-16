@@ -61,7 +61,6 @@ private:
 public:
     Voo();
     Voo(unsigned n, const Aeroporto& ao, const Aeroporto& ad, const Data& dp, float hp, float hc, float d, unsigned l, unsigned nlr);
-    //Voo(const Voo& v);
     /**
     *
     * @return número do voo

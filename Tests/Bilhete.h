@@ -3,9 +3,14 @@
 
 #include "Voo.h"
 #include "Passageiro.h"
+#include "Bagagem.h"
 
 class Bilhete {
 private:
+    /**
+     * Passageiro a quem pertence o bilhete.
+     */
+    Passageiro passageiro;
     /**
      * Voo para o qual o bilhete foi aquirido.
      */
@@ -15,13 +20,18 @@ private:
      */
     bool bagagemDeMao;
     /**
-     * Passageiro a quem pertence o bilhete.
+     * lista com os volumes de bagagem do passageiro para o voo em questão.
      */
-    Passageiro passageiro;
+    list<Bagagem> bagagem;
 
 public:
     Bilhete();
-    Bilhete(const Voo& v, bool bagagem, const Passageiro& p);
+    Bilhete(const Passageiro& p, const Voo& v, bool b, const list<Bagagem>& bagagem = list<Bagagem>());
+    /**
+     *
+     * @return passageiro a quem pertence o bilhete.
+     */
+    Passageiro getPasssageiro() const;
     /**
      *
      * @return voo para o qual o bilhete foi adquirido.
@@ -34,21 +44,26 @@ public:
     bool temBagagemDeMao() const;
     /**
      *
-     * @return passageiro a quem pertence o bilhete.
+     * @return lista com os volumes de bagagem do passageiro para o voo em questão.
      */
-    Passageiro getPasssageiro() const;
+    list<Bagagem> getBagagem() const;
+    /**
+     * Indica o passageiro que comprou o bilhete.
+     * @param p é o passageiro a quem pertence o bilhete.
+     */
+    void setPassageiro(const Passageiro& p);
     /**
      * Modifica o atributo bagagem de mão.
      * @param bagagem é o novo valor booleano que o atributo bagagemDeMao terá.
      */
     void setBagagemDeMao(bool bagagem);
     /**
-     * Indica o passageiro que comprou o bilhete.
-     * @param p é o passageiro a quem pertence o bilhete.
+     * Define as bagagens que o passageiro possui.
+     * @param b é a lista das bagagens.
      */
-    void setPassageiro(const Passageiro& p);
+    void setBagagem(const list<Bagagem>& b);
     //TODO
-    bool operator< (const Bilhete& b);
+    bool operator< (const Bilhete& b) const;
 };
 
 #endif //_BILHETE_H

@@ -16,7 +16,7 @@ private:
 
 public:
     CompanhiaAerea();
-    /**
+   /**
      *
      * @return uma copia dos bilhetes que a companhia vendeu.
      */
@@ -52,7 +52,7 @@ public:
      * @return true se a compra dos bilheite foi realizada com sucesso.
      * Caso contrário retorna false (o voo está lotado/ não possui bilhetes suficientes para todos).
      */
-    bool adquirirConjuntoBilhetes(const list<Passageiro>& p, Voo& v, bool bagagem);
+    bool adquirirConjuntoBilhetes(list<Passageiro>& p, Voo& v, bool bagagem);
     //outros métodos
 };
 

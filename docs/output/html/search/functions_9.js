@@ -1,7 +1,7 @@
 var searchData=
 [
   ['setano_0',['setAno',['../class_data.html#a11d9c620b5a1936e18b532814e8c2e22',1,'Data']]],
-  ['setbagagem_1',['setBagagem',['../class_passageiro.html#a5dea07e10219312def9557c184cfc6f4',1,'Passageiro']]],
+  ['setbagagem_1',['setBagagem',['../class_bilhete.html#a29ec13cb92c346b9f5eab185bae5603c',1,'Bilhete']]],
   ['setbagagemdemao_2',['setBagagemDeMao',['../class_bilhete.html#ad99113d6eff80bf14805437965fb701a',1,'Bilhete']]],
   ['setcapacidade_3',['setCapacidade',['../class_aviao.html#a3996463d8dc860da300031240ae7ba26',1,'Aviao']]],
   ['setdata_4',['setData',['../class_servico.html#a0b15a8641f2316b33ae2cbc4e52bba3f',1,'Servico']]],
