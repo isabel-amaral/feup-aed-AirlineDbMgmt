@@ -25,44 +25,46 @@ private:
     void getStringRepresentation();
 public:
     Data();
-    Data(unsigned int d, unsigned int m, unsigned a);
+    Data(unsigned d, unsigned m, unsigned a);
     /**
      *
-     * @return o dia
+     * @return O dia.
      */
     unsigned getDia() const;
     /**
      *
-     * @return o mês
+     * @return O mês.
      */
     unsigned getMes() const;
     /**
      *
-     * @return o ano
+     * @return O ano.
      */
     unsigned getAno() const;
     /**
      *
-     * @return o objeto em forma de texto e escrito no formato DD-MM-AAAA
+     * @return o objeto em forma de texto e escrito no formato DD-MM-AAAA.
      */
     string getData() const;
     /**
-     * Altera o dia
-     * @param d é o novo dia
+     * Altera o dia.
+     * @param d é o novo dia.
      */
     void setDia(unsigned d);
     /**
-     * Modifica o mês
-     * @param m é o novo mês
+     * Modifica o mês.
+     * @param m é o novo mês.
      */
     void setMes(unsigned m);
     /**
-     * Altera o ano
-     * @param a é o novo ano
+     * Altera o ano.
+     * @param a é o novo ano.
      */
     void setAno(unsigned a);
 
+    //TODO
     bool operator< (const Data &d) const;
+    //TODO
     bool operator== (const Data& d) const;
 };
 

@@ -114,6 +114,10 @@ public:
     * @param ao é a origem do voo.
     */
     void setOrigem(const Aeroporto& ao);
+    /**
+     * Define a data de partida do voo.
+     * @param dp é a data de partida do voo.
+     */
     void setDataPartida(const Data& dp);
     /**
     *

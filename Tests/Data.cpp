@@ -9,7 +9,7 @@ Data::Data() {
     this->data = "";
 }
 
-Data::Data(unsigned int d, unsigned int m, unsigned int a) {
+Data::Data(unsigned d, unsigned m, unsigned a) {
     this->dia = d;
     this->mes = m;
     this->ano = a;

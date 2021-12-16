@@ -78,11 +78,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2a233f8da2dd46b9e8064d2dfae9344f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e3daccc3735da11127c8fd012df8c99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transportador_de_bagagem.html#a3e3daccc3735da11127c8fd012df8c99">adicionarAoTapete</a> (<a class="el" href="class_bagagem.html">Bagagem</a> *bagagem)</td></tr>
 <tr class="separator:a3e3daccc3735da11127c8fd012df8c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7ab12c3d47d0bf449366e6ce11811c0"><td class="memItemLeft" align="right" valign="top"><a id="ac7ab12c3d47d0bf449366e6ce11811c0" name="ac7ab12c3d47d0bf449366e6ce11811c0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>despejarTapete</b> ()</td></tr>
+<tr class="memitem:ac7ab12c3d47d0bf449366e6ce11811c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transportador_de_bagagem.html#ac7ab12c3d47d0bf449366e6ce11811c0">despejarTapete</a> ()</td></tr>
 <tr class="separator:ac7ab12c3d47d0bf449366e6ce11811c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a891a0143012c10031f02a80e3843c83c"><td class="memItemLeft" align="right" valign="top"><a id="a891a0143012c10031f02a80e3843c83c" name="a891a0143012c10031f02a80e3843c83c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>despejarTapete</b> (unsigned n)</td></tr>
+<tr class="memitem:a891a0143012c10031f02a80e3843c83c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transportador_de_bagagem.html#a891a0143012c10031f02a80e3843c83c">despejarTapete</a> (unsigned n)</td></tr>
 <tr class="separator:a891a0143012c10031f02a80e3843c83c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a947a5a8874a03126e7e7daacb9563a10"><td class="memItemLeft" align="right" valign="top"><a id="a947a5a8874a03126e7e7daacb9563a10" name="a947a5a8874a03126e7e7daacb9563a10"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>adicionarAoCarrinho</b> (<a class="el" href="class_bagagem.html">Bagagem</a> *bagagem)</td></tr>
@@ -123,6 +121,48 @@ Private Attributes</h2></td></tr>
 <p >Acrescenta uma nova bagegem ao tapete rolante </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">bagagem</td><td>é a nova bagagem </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac7ab12c3d47d0bf449366e6ce11811c0" name="ac7ab12c3d47d0bf449366e6ce11811c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7ab12c3d47d0bf449366e6ce11811c0">&#9670;&nbsp;</a></span>despejarTapete() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TransportadorDeBagagem::despejarTapete </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Retira as malas do tapete rolante e as coloca no carrinho. </p>
+
+</div>
+</div>
+<a id="a891a0143012c10031f02a80e3843c83c" name="a891a0143012c10031f02a80e3843c83c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a891a0143012c10031f02a80e3843c83c">&#9670;&nbsp;</a></span>despejarTapete() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TransportadorDeBagagem::despejarTapete </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Tranfere (remove) as primeiras n malas do tapete rolante para o carrinho. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>é o número de malas que devem ser retiradas. </td></tr>
   </table>
   </dd>
 </dl>
@@ -241,7 +281,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Fila com todas as bagagens que são depositadas no tapete rolante para a posterior colocação no carrinho. </p>
+<p >Tapete rolante no qual as malas são depositadas para a posterior colocação no carrinho. </p>
 
 </div>
 </div>

@@ -13,23 +13,23 @@ using namespace std;
 class Aviao {
 private:
     /**
-     * matricula do avião
+     * Matrícula do avião.
      */
     string matricula;
     /**
-     * capacidade do avião
+     * Capacidade do avião.
      */
     unsigned int capacidade;
     /**
-     * todos os voos que o avião tem agendados/por realizar
+     * Todos os voos que o avião tem agendados/por realizar.
      */
     list<Voo> planoDeVoo; //sofia: nao acham que deviamos dizer a lista tem os voos por exemplo do mês e que vai sendo atualizada mensalmente?
     /**
-    * todos os serviços aos quais o avião está sujeito
+    * Todos os serviços aos quais o avião está sujeito.
     */
     queue <Servico> servicosPorRealizar;
     /**
-    * todos os serviços concluídos
+    * Todos os serviços concluídos.
     */
     queue <Servico> servicosRealizados;
 
@@ -38,70 +38,70 @@ public:
     Aviao(const string& m, unsigned c);
     /**
      *
-     * @return matricula do avião
+     * @return matricula do avião.
      */
     string getMatricula() const;
     /**
      *
-     * @return capacidade do avião
+     * @return capacidade do avião.
      */
     unsigned getCapacidade() const;
     /**
     *
-    * @return todos os voos que o avião tem agendados/por realizar
+    * @return todos os voos que o avião tem agendados/por realizar.
     */
     list<Voo> getPlanoDeVoo() const;
     /**
     *
-    * todos os serviços aos quais o avião está sujeito
+    * todos os serviços aos quais o avião está sujeito.
     */
     queue<Servico> getServicosPorRealizar() const;
     /**
     *
-    * @return todos os serviços concluídos
+    * @return todos os serviços concluídos.
     */
     queue<Servico> getServicosRealizados() const;
     /**
-    * modifica a matrícula do avião
-    * @param m é a matricula do aviao
+    * Modifica a matrícula do avião.
+    * @param m é a matricula do aviao.
     */
     void setMatricula(const string& m);
     /**
-    * modifica a capacidade do avião
+    * Modifica a capacidade do avião.
     * @param c é a capacidade do aviao
     */
     void setCapacidade(const unsigned& c);
     /**
-    * define a lista de voos que o avião tem por realizar
-    * @param planVoo é o plano de voos do avião
+    * Define a lista de voos que o avião tem por realizar.
+    * @param planVoo é o plano de voos do avião.
     */
     void setPlanoDeVoo(const list<Voo>& planVoo);
     /**
-    * define os serviços aos quais o avião está sujeito
-    * @param servPorRealizar são os serviços a realizar
+    * Define os serviços aos quais o avião está sujeito.
+    * @param servPorRealizar são os serviços a realizar.
     */
     void setServicosPorRealizar(const queue<Servico>& servPorRealizar);
     /**
-    * define os serviços concluídos
-    * @param servRealizados são os serviços realizados
+    * Define os serviços concluídos.
+    * @param servRealizados são os serviços realizados.
     */
     void setServicosRealizados(const queue<Servico>& servRealizados);
     /**
      *
-     * acrescenta mais um voo aos demais voos que o avião tem como agendados
-     * @param voo é o novo voo que o avião deverá realizar
+     * Acrescenta mais um voo aos demais voos que o avião tem como agendados.
+     * @param voo é o novo voo que o avião deverá realizar.
      */
     void addVoo(const Voo& voo);
     /**
      *
-     * acrescenta um novo serviço a realizar
-     * @param servico é o servico a ser adicionado
+     * Acrescenta um novo serviço a realizar.
+     * @param servico é o serviço a ser adicionado.
      */
     void addServicoPorRealizar(const Servico& servico);
     /**
      *
-     * marca um serviço da lista dos serviços agendados (por realizar) como concluído, ou seja, remove-o da fila dos
-     * agendados e acrescenta na dos realizados.
+     * Marca um serviço da lista dos serviços agendados (por realizar) como concluído, ou seja,
+     * remove-o da fila dos agendados e acrescenta-o na dos realizados.
      */
     void realizarServico();
 };

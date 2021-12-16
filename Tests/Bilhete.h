@@ -11,7 +11,7 @@ private:
      */
     Voo voo;
     /**
-     * se o passageiro que adquiriu o bilhete tem direito a levar bagagem de mão.
+     * Se o passageiro que adquiriu o bilhete tem direito a levar bagagem de mão ou não.
      */
     bool bagagemDeMao;
     /**
@@ -29,7 +29,7 @@ public:
     Voo getVoo() const;
     /**
      *
-     * @return true se o passageiro tem direito a levar bagagem de mão, falso caso contrário.
+     * @return true se o passageiro tem direito a levar bagagem de mão, caso contrário false.
      */
     bool temBagagemDeMao() const;
     /**
@@ -47,7 +47,7 @@ public:
      * @param p é o passageiro a quem pertence o bilhete.
      */
     void setPassageiro(const Passageiro& p);
-
+    //TODO
     bool operator< (const Bilhete& b);
 };
 

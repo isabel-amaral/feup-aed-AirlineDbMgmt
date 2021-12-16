@@ -35,7 +35,7 @@ void TransportadorDeBagagem::despejarTapete() {
     }
 }
 
-void TransportadorDeBagagem::despejarTapete(unsigned int n) {
+void TransportadorDeBagagem::despejarTapete(unsigned n) {
     for (int i = 0; i < n && !tapeteRolante.empty(); i++) {
         adicionarAoCarrinho(tapeteRolante.front());
         tapeteRolante.pop();

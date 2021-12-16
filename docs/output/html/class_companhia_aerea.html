@@ -121,7 +121,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Acrescenta um bilhete no vetor de bilhetes vendidos caso seja possivel efetuar a sua compra (o voo v não esteja lotado). </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Acrescenta um bilhete ao conjunto dos demais bilhetes vendidos caso seja possivel efetuar a sua compra (o voo v não está lotado). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p</td><td>é o passageiro que pretende comprar o bilhete. </td></tr>
     <tr><td class="paramname">v</td><td>é voo que o passageiro pretende adquirir o bilhete. </td></tr>
@@ -172,7 +172,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true se a compra dos bilheite foi realizada com sucesso. Caso contrário retorna false (o voo está lotado/ não possui bilhetes suficientes). </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true se a compra dos bilheite foi realizada com sucesso. Caso contrário retorna false (o voo está lotado/ não possui bilhetes suficientes para todos). </dd></dl>
 
 </div>
 </div>
@@ -193,7 +193,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td>é um determinado passageiro </td></tr>
+    <tr><td class="paramname">p</td><td>é um determinado passageiro. </td></tr>
   </table>
   </dd>
 </dl>
@@ -221,7 +221,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>uma copia do vetor bilhetesVendidos </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>uma copia dos bilhetes que a companhia vendeu. </dd></dl>
 
 </div>
 </div>
@@ -240,9 +240,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Imprime os dados de cada um dos bilhetes de um determinado passageiro. Caso o passageiro não tenha adquirido nenhum bilhete, a mensagem "Este passageiro ainda não adquiriu nenhum bilhete" é apresentada. </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Imprime os dados de cada um dos bilhetes de um determinado passageiro. Caso o passageiro não tenha adquirido nenhum bilhete, é apresentada a mensagem "Este passageiro ainda não adquiriu nenhum bilhete". </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td>é o passageiro </td></tr>
+    <tr><td class="paramname">p</td><td>é o passageiro. </td></tr>
   </table>
   </dd>
 </dl>
@@ -269,7 +269,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Vetor com todos os bilhetes que foram vendidos pela companhia </p>
+<p >Todos os bilhetes que foram vendidos pela companhia. </p>
 
 </div>
 </div>
