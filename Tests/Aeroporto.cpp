@@ -11,28 +11,66 @@ Aeroporto::Aeroporto(const string& n, const string& c): transportes(LocalDeTrans
     this->cidade = c;
 }
 
-string Aeroporto::getNome() const {
+string Aeroporto::getNome() const{
     return nome;
 }
 
-string Aeroporto::getCidade() const {
+string Aeroporto::getCidade() const{
     return cidade;
 }
 
-BST<LocalDeTransporte> Aeroporto::getTransportes() const {
+BST<LocalDeTransporte> Aeroporto::getTransportes() const{
     return transportes;
 }
 
-void Aeroporto::addTransporte(LocalDeTransporte lp) {
+void Aeroporto::addTransporte(const LocalDeTransporte& lp) {
     transportes.insert(lp);
 }
 
-LocalDeTransporte Aeroporto::getLocalTransporteProximo()  {
+LocalDeTransporte Aeroporto::getLocalTransporteProximo() const{
     return transportes.findMin();
 }
 
+vector<LocalDeTransporte> Aeroporto::getMetros() const {
+    vector<LocalDeTransporte> metros;
 
-LocalDeTransporte Aeroporto::getMetroProximo() {
+    BSTItrIn<LocalDeTransporte> it (transportes);
+
+    while (!it.isAtEnd()){
+        if (it.retrieve().getTipo()==Metro)
+            metros.push_back(it.retrieve());
+        it.advance();
+    }
+    return metros;
+}
+
+vector<LocalDeTransporte> Aeroporto::getComboios() const {
+    vector<LocalDeTransporte> comboios;
+
+    BSTItrIn<LocalDeTransporte> it (transportes);
+
+    while (!it.isAtEnd()){
+        if (it.retrieve().getTipo()==Comboio)
+            comboios.push_back(it.retrieve());
+        it.advance();
+    }
+    return comboios;
+}
+
+vector <LocalDeTransporte> Aeroporto::getAutocarros() const {
+    vector<LocalDeTransporte> autocarros;
+
+    BSTItrIn<LocalDeTransporte> it (transportes);
+
+    while (!it.isAtEnd()){
+        if (it.retrieve().getTipo()==Autocarro)
+            autocarros.push_back(it.retrieve());
+        it.advance();
+    }
+    return autocarros;
+}
+
+LocalDeTransporte Aeroporto::getMetroProximo() const{
     BSTItrIn<LocalDeTransporte> it (transportes);
     while (!it.isAtEnd()){
         if (it.retrieve().getTipo()==Metro)
@@ -42,7 +80,7 @@ LocalDeTransporte Aeroporto::getMetroProximo() {
     return LocalDeTransporte();
 }
 
-LocalDeTransporte Aeroporto::getComboioProximo() {
+LocalDeTransporte Aeroporto::getComboioProximo() const{
     BSTItrIn<LocalDeTransporte> it (transportes);
     while (!it.isAtEnd()){
         if (it.retrieve().getTipo()==Comboio)
@@ -52,7 +90,7 @@ LocalDeTransporte Aeroporto::getComboioProximo() {
     return LocalDeTransporte();
 }
 
-LocalDeTransporte Aeroporto::getAutocarroProximo() {
+LocalDeTransporte Aeroporto::getAutocarroProximo() const{
     BSTItrIn<LocalDeTransporte> it (transportes);
     while (!it.isAtEnd()){
         if (it.retrieve().getTipo()==Autocarro)
@@ -62,7 +100,54 @@ LocalDeTransporte Aeroporto::getAutocarroProximo() {
     return LocalDeTransporte();
 }
 
-void Aeroporto::showLocalTransporteProximo() {
+void Aeroporto::showTransportes() const {
+    BSTItrIn <LocalDeTransporte> it (transportes);
+
+    if (it.isAtEnd()){   // A BST está vazia
+        cout << "Não existe informação sobre os meios de transportes disponíveis nesta cidade" << endl;
+        return;
+    }
+
+    while(!it.isAtEnd()){ // A BST tem pelo menos um elemento
+        cout << it.retrieve() << endl;
+    }
+}
+
+void Aeroporto::showMetros() const {
+    vector <LocalDeTransporte> metros = getMetros();
+
+    if (metros.empty()){
+        cout << "Esta cidade não possui metros." << endl;
+    }
+    for (const auto& metro : metros)
+        cout << metro << endl;
+}
+
+void Aeroporto::showComboios() const {
+    vector<LocalDeTransporte> comboios = getMetros();
+
+    if (comboios.empty()){
+        cout << "Esta cidade não possui comboios." << endl;
+        return;
+    }
+
+    for (const auto& comboio : comboios)
+        cout << comboio << endl;
+}
+
+void Aeroporto::showAutocaros() const {
+    vector<LocalDeTransporte> autocarros = getMetros();
+
+    if (autocarros.empty()){
+        cout << "Esta cidade não possui autocarros." << endl;
+        return;
+    }
+
+    for (const auto& autocarro : autocarros)
+        cout << autocarro << endl;
+}
+
+void Aeroporto::showLocalTransporteProximo() const{
     if (getLocalTransporteProximo().getDistancia() == 0.0) {
         cout << "Não existe local de transporte terrestre próximo a este aeroporto." << endl;
         return;
@@ -70,7 +155,7 @@ void Aeroporto::showLocalTransporteProximo() {
     cout << getLocalTransporteProximo() << endl;
 }
 
-void Aeroporto::showMetroProximo() {
+void Aeroporto::showMetroProximo() const{
     if (getLocalTransporteProximo().getDistancia() == 0.0) {
         cout << "Não existe local de Metro próximo a este aeroporto." << endl;
         return;
@@ -78,23 +163,21 @@ void Aeroporto::showMetroProximo() {
     cout << getMetroProximo() << endl;
 }
 
-void Aeroporto::showComboioProximo() {
+void Aeroporto::showComboioProximo() const{
     if (getComboioProximo().getDistancia() == 0.0) {
         cout << "Não existe local de Comboio próximo a este aeroporto." << endl;
         return;
     }
     cout << getComboioProximo() << endl;
-
 }
 
-void Aeroporto::showAutocarroProximo() {
+void Aeroporto::showAutocarroProximo() const{
     if (getLocalTransporteProximo().getDistancia() == 0.0) {
         cout << "Não existe local de Autocarro próximo a este aeroporto." << endl;
         return;
     }
     cout << getAutocarroProximo() << endl;
 }
-
 /*
 void Aeroporto::setNome(const string &n) {
     this->nome = nome;
