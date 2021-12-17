@@ -66,7 +66,7 @@ void Aviao:: addVoo(const Voo& voo){
 }
 
 bool Aviao::addServicoPorRealizar(const Servico& servico) {
-    if (servicosPorRealizar.back().getData() < servico.getData()) {
+    if (servicosPorRealizar.empty() || servicosPorRealizar.back().getData() < servico.getData()) {
         this->servicosPorRealizar.push(servico);
         return true;
     }
