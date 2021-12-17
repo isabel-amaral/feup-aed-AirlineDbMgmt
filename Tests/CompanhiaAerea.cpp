@@ -22,8 +22,14 @@ vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(const Passageiro& p) c
     return bilhetes;
 }
 
-void CompanhiaAerea::mostrarBilhetesFromPassageiro(const Passageiro &p) const {
+void CompanhiaAerea::showBilhetesFromPassageiro(const Passageiro &p) const {
     vector<Bilhete> bilhetes = getBilhetesFromPassageiro(p);
+
+    if (bilhetes.empty()){
+        cout << "Este passageiro ainda não adquiriu nenhum bilhete." <<endl;
+        return;
+    }
+
     for (const Bilhete& b: bilhetes) {
         cout<< b <<endl;
     }
@@ -38,7 +44,19 @@ vector<Passageiro> CompanhiaAerea::getPassageirosFromVoo(const Voo &v) const {
     return passageiros;
 }
 
-//TODO: método mostrarPassageirosFromVoo, operador << na classe Passageiro
+void CompanhiaAerea::showPassageirosFromVoo (const Voo& v) const{
+    vector <Passageiro> passageiros = getPassageirosFromVoo(v);
+    if ( passageiros.empty()){
+        cout << "Voo sem passageiros." << endl;
+        return;
+    }
+
+    for ( auto passageiro: passageiros){
+        cout << passageiro << endl;
+    }
+}
+
+
 
 bool CompanhiaAerea::adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem) {
     if (!v.addPassageiro(p))

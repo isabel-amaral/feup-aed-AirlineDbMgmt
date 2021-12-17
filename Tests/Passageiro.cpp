@@ -34,3 +34,15 @@ bool Passageiro::isMenorNaoAcompanhado() const {
     return menorNaoAcompanhado;
 }
 
+ostream &operator << (ostream &os, const Passageiro &p) {
+    os << "NOME: " << p.getNome() << endl;
+    os << "IDENTIFICAÇÃO: " << p.getId() << endl;
+    os << "IDADE: " << p.getIdade() << endl;
+    if (p.menorNaoAcompanhado){
+        os << "OBS.: Menor de idade e não acompanhado." << endl;
+    }
+    return os;
+}
+
+
+

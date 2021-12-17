@@ -16,7 +16,6 @@ private:
      * Todos os voos que a companhia tem por realizar.
      */
     vector<Voo> voos;
-
 public:
     CompanhiaAerea();
    /**
@@ -51,14 +50,16 @@ public:
      * mensagem "Este passageiro ainda não adquiriu nenhum bilhete".
      * @param p é o passageiro.
      */
-    void mostrarBilhetesFromPassageiro(const Passageiro& p) const;
-
+    void showBilhetesFromPassageiro(const Passageiro& p) const;
     /**
      *
      * @param v é um voo
      * @return todos os passageiros do voo indicado
      */
     vector<Passageiro> getPassageirosFromVoo(const Voo& v) const;
+
+    //TODO: DOCUMENTACAO
+    void showPassageirosFromVoo (const Voo& v) const;
     /**
      * Acrescenta um bilhete ao conjunto dos demais bilhetes vendidos caso seja possivel efetuar a sua compra (o voo v não está lotado).
      * @param p é o passageiro que pretende comprar o bilhete.

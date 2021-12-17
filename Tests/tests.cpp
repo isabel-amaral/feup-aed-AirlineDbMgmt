@@ -70,6 +70,14 @@ TEST(test_1, test_addTransporte) {
     EXPECT_EQ(750.0, lt[3].getDistancia());
     EXPECT_EQ(Comboio, lt[3].getTipo());
     EXPECT_EQ(4, numLocaisDeTransporte);
+    //cout << l1 << endl;
+    //cout << l2 << endl;
+    //cout << l3 << endl;
+    //a.showAutocaros();
+    //a.showComboios();
+    //a.showMetros();
+    //a.showLocalTransporteProximo();
+
 }
 
 //Aviao::addVoo()
@@ -150,6 +158,8 @@ TEST(test_5, test_adquirirBilhete) { //sofia: nao sei bem que expects fazer
     bool bilheteAdquirido = ca.adquirirBilhete(p, v, true);
 
     EXPECT_EQ(true, bilheteAdquirido);
+
+    //cout << ca.getBilhetesVendidos()[0]<<endl;
 }
 
 //CompanhiaAerea::getBilhetesFromPassageiro()

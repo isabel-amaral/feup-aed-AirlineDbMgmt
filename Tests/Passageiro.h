@@ -3,6 +3,7 @@
 
 #include <string>
 #include <list>
+#include <iostream>
 using namespace std;
 
 class Passageiro {
@@ -47,6 +48,8 @@ public:
      * @return true se o passageiro for menor de idade e estiver a vaigem sem um adulto responsável, falso caso contrário.
      */
     bool isMenorNaoAcompanhado() const;
+    //TODO: DOCUMENTACAO
+    friend ostream& operator<< (ostream& os, const Passageiro& p);
 };
 
 #endif //_PASSAGEIRO_H

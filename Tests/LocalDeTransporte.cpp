@@ -1,3 +1,4 @@
+#include <iomanip>
 #include "LocalDeTransporte.h"
 
 LocalDeTransporte::LocalDeTransporte() {
@@ -65,9 +66,16 @@ bool LocalDeTransporte::operator< (const LocalDeTransporte& local) const {
 }
 
 ostream& operator<< (ostream &os, const LocalDeTransporte &local) {
-    os << "Tipo: "<< local.getTipo() << endl ;
-    os << "Distancia do aeroporto: " << local.getDistancia() << endl;
-    os << "Horários: ";
+    os << "TIPO: ";
+    if (local.getTipo() == Metro)
+        os << "Metro" << endl;
+    else if (local.getTipo() == Comboio)
+        os << "Comboio" << endl;
+    else
+        os << "Autocarro" << endl;
+
+    os << "DISTÂNCIA DO AEROPORTO: " << local.getDistancia() << " metros" << endl;
+    os << "HORÁRIOS: " << endl;
 
     for (const auto& h: local.getHorarios()){
         if(h.getDia()==DiasUteis)
@@ -78,7 +86,7 @@ ostream& operator<< (ostream &os, const LocalDeTransporte &local) {
             os << "Sábados: " << endl;
 
         for (auto hora: h.getHoras()){
-            os << hora << endl;
+            os << fixed << setprecision(2) << hora << endl;
         }
     }
     return os;
