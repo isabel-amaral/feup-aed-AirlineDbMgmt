@@ -1,3 +1,4 @@
+#include <iomanip>
 #include "LocalDeTransporte.h"
 
 LocalDeTransporte::LocalDeTransporte() {
@@ -24,8 +25,8 @@ const list<Horario>& LocalDeTransporte::getHorarios() const {
 
 unsigned LocalDeTransporte::getDisponibilidade() const {
     int count=0;
-    for (auto i=horarios.begin(); i!=horarios.end(); i++){
-        count += i->getHoras().size();
+    for (const auto & horario : horarios){
+        count += horario.getHoras().size();
     }
     return count;
 }
@@ -65,20 +66,27 @@ bool LocalDeTransporte::operator< (const LocalDeTransporte& local) const {
 }
 
 ostream& operator<< (ostream &os, const LocalDeTransporte &local) {
-    os << "Tipo: "<< local.getTipo();
-    os << "Distancia do aeroporto: " << local.getDistancia();
-    os << "Horários: ";
+    os << "TIPO: ";
+    if (local.getTipo() == Metro)
+        os << "Metro" << endl;
+    else if (local.getTipo() == Comboio)
+        os << "Comboio" << endl;
+    else
+        os << "Autocarro" << endl;
 
-    for (auto h: local.getHorarios()){
+    os << "DISTÂNCIA DO AEROPORTO: " << local.getDistancia() << " metros" << endl;
+    os << "HORÁRIOS: " << endl;
+
+    for (const auto& h: local.getHorarios()){
         if(h.getDia()==DiasUteis)
-            os << "Dias Uteis: ";
+            os << "Dias Uteis: " << endl;
         else if (h.getDia() == DomingosFeriados)
-            os << "Domingos e Feriados: ";
+            os << "Domingos e Feriados: " << endl;
         else
-            os << "Sábados: ";
+            os << "Sábados: " << endl;
 
         for (auto hora: h.getHoras()){
-            os << hora;
+            os << fixed << setprecision(2) << hora << endl;
         }
     }
     return os;

@@ -62,10 +62,22 @@ public:
      */
     void setAno(unsigned a);
 
-    //TODO
+    /**
+     * Uma data é tanto menor quanto menor é o seu ano.
+     * Em caso de empate, é tanto menor quanto menor é o seu mês.
+     * Em caso de empate, é tanto menor quanto menor é o seu dia.
+     * @param d é a data a ser comparada com está instância.
+     * @return true se esta instância é menor que @param d caso contrário false.
+     */
     bool operator< (const Data &d) const;
-    //TODO
-    bool operator== (const Data& d) const;
+    /**
+     * Duas datas são iguais se todos os seus atributos são iguais.
+     * @param d é a data a ser comparada com esta instância.
+     * @return true se esta instância é igual à @param d caso contrário false.
+     */
+    bool operator == (const Data& d) const;
+    //TODO: DOCUMENTACAO
+    bool operator <= (const Data& d) const;
 };
 
 #endif //_DATA_H

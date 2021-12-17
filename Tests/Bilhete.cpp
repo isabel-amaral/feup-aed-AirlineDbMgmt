@@ -52,3 +52,17 @@ bool Bilhete::operator< (const Bilhete& b) const {
         return this->getVoo().getHoraPartida() < this->getVoo().getHoraPartida();
     return false;
 }
+
+ostream &operator<<(ostream &os, const Bilhete &b) {
+    os<< b.getVoo();
+    if (b.temBagagemDeMao())
+        cout << b.getPasssageiro().getNome() << " tem direito a levar bagagem de mão" << endl;
+    else
+        cout << b.getPasssageiro().getNome() << " não tem direito a levar bagagem de mão" << endl;
+    cout << endl;
+
+    if (!b.getBagagem().empty())
+        cout<< "Pode levar " << b.getBagagem().size() << " mala(s) no total." << endl;
+
+    return os;
+}

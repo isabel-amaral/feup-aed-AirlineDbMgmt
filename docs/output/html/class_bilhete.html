@@ -66,6 +66,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_bilhete-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Bilhete Class Reference</div></div>
 </div><!--header-->
@@ -90,8 +91,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad99113d6eff80bf14805437965fb701a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae72f47ee0c42b59b867651a1df0549b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bilhete.html#ae72f47ee0c42b59b867651a1df0549b4">setBagagem</a> (const list&lt; <a class="el" href="class_bagagem.html">Bagagem</a> * &gt; &amp;b)</td></tr>
 <tr class="separator:ae72f47ee0c42b59b867651a1df0549b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a8edce928974f7f78eefb4b3c478d9a"><td class="memItemLeft" align="right" valign="top"><a id="a7a8edce928974f7f78eefb4b3c478d9a" name="a7a8edce928974f7f78eefb4b3c478d9a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="class_bilhete.html">Bilhete</a> &amp;b) const</td></tr>
+<tr class="memitem:a7a8edce928974f7f78eefb4b3c478d9a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bilhete.html#a7a8edce928974f7f78eefb4b3c478d9a">operator&lt;</a> (const <a class="el" href="class_bilhete.html">Bilhete</a> &amp;b) const</td></tr>
 <tr class="separator:a7a8edce928974f7f78eefb4b3c478d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -104,6 +104,12 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ae0e2863a15ec4937b7a9c74d43fbb534"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac727c2b18a5e96234f548cd09eba39e5"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="class_bagagem.html">Bagagem</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bilhete.html#ac727c2b18a5e96234f548cd09eba39e5">bagagem</a></td></tr>
 <tr class="separator:ac727c2b18a5e96234f548cd09eba39e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:ad962c4c89ace6955e782b24f5f14dce1"><td class="memItemLeft" align="right" valign="top"><a id="ad962c4c89ace6955e782b24f5f14dce1" name="ad962c4c89ace6955e782b24f5f14dce1"></a>
+ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (ostream &amp;os, const <a class="el" href="class_bilhete.html">Bilhete</a> &amp;b)</td></tr>
+<tr class="separator:ad962c4c89ace6955e782b24f5f14dce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa4b38ee5181fce0ded25b928abbdee6d" name="aa4b38ee5181fce0ded25b928abbdee6d"></a>
@@ -157,6 +163,37 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>voo para o qual o bilhete foi adquirido. </dd></dl>
+
+</div>
+</div>
+<a id="a7a8edce928974f7f78eefb4b3c478d9a" name="a7a8edce928974f7f78eefb4b3c478d9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a8edce928974f7f78eefb4b3c478d9a">&#9670;&nbsp;</a></span>operator&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Bilhete::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_bilhete.html">Bilhete</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Um bilhete é tanto menor quanto menor é o nome do passegeiro a quem pertence. Em caso de empate é tanto menor quanto menor é a data de partida do voo a que se refere. Em caso de empate é tanto menor quanto menor é a hora de partida do repetivo voo. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>é o objeto a ser comparado com esta instância. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se esta instância é menor</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>caso contrário false. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -344,8 +381,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/<a class="el" href="_bilhete_8h_source.html">Bilhete.h</a></li>
-<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/Bilhete.cpp</li>
+<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/AirlineDatabaseManagement/Tests/<a class="el" href="_bilhete_8h_source.html">Bilhete.h</a></li>
+<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/AirlineDatabaseManagement/Tests/Bilhete.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

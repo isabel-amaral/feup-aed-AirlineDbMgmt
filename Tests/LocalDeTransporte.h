@@ -72,7 +72,7 @@ public:
      * @return true se esta instância é menor que @param local, caso contrário false.
      */
     bool operator< (const LocalDeTransporte& local) const;
-    //TODO
+    //TODO: DOCUMENTACAO
     friend ostream& operator<< (ostream& os, const LocalDeTransporte& local);
 };
 

@@ -62,8 +62,17 @@ public:
      * @param b é a lista das bagagens.
      */
     void setBagagem(const list<Bagagem*>& b);
-    //TODO
+    /**
+     * Um bilhete é tanto menor quanto menor é o nome do passegeiro a quem pertence.
+     * Em caso de empate é tanto menor quanto menor é a data de partida do voo a que se refere.
+     * Em caso de empate é tanto menor quanto menor é a hora de partida do repetivo voo.
+     * @param b é o objeto a ser comparado com esta instância.
+     * @return true se esta instância é menor @param b caso contrário false.
+     */
     bool operator< (const Bilhete& b) const;
+
+    //TODO: DOCUMENTACAO
+    friend ostream &operator<<(ostream &os, const Bilhete &b);
 };
 
 #endif //_BILHETE_H
