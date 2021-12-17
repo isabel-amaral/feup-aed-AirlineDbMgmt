@@ -24,6 +24,11 @@ private:
      * Se o passageiro é um menor não acompanhado.
      */
     bool menorNaoAcompanhado;
+    /**
+     * Preço que o passageiro deve pagar em multas de excesso de bagagem ou uso de bagagem de mão indevido.
+     * Este parâmetro encontra-se inicialmente a 0 e é incrementado com o valor da multa à medida que as infrações são cometidas.
+     */
+    float multaBagagem;
 
 public:
     Passageiro();
@@ -48,6 +53,17 @@ public:
      * @return true se o passageiro for menor de idade e estiver a vaigem sem um adulto responsável, falso caso contrário.
      */
     bool isMenorNaoAcompanhado() const;
+    /**
+     *
+     * @return o preço que o passageiro deve pagar em multas de excesso de bagagem ou uso indevido de bagagem de mão
+     */
+    float getMultaBagagem() const;
+    /**
+     * Atualiza o valor que o passageiro deve pagar em multas de excesso de bagagem ou uso indevido de bagagem de mão
+     * @param multa preço a pagar pela nova infração cometida
+     */
+    void incrementarMulta(float multa);
+
     //TODO: DOCUMENTACAO
     friend ostream& operator<< (ostream& os, const Passageiro& p);
 };

@@ -32,7 +32,7 @@ var searchData=
   ['settipo_29',['setTipo',['../class_local_de_transporte.html#acf52081672b30c462aad782f87b4428c',1,'LocalDeTransporte']]],
   ['settiposervico_30',['setTipoServico',['../class_servico.html#adf9398da4f0b675bef5837edc4c37733',1,'Servico']]],
   ['settransportador_31',['setTransportador',['../class_voo.html#a04039c0e39bd5643c74ee01416acb820',1,'Voo']]],
-  ['setvoo_32',['setVoo',['../class_companhia_aerea.html#abc1b1d259acea1ef470a0c42e58bfba4',1,'CompanhiaAerea']]],
+  ['setvoos_32',['setVoos',['../class_companhia_aerea.html#a26392e8a1a2ebb27684b7e4313418a3a',1,'CompanhiaAerea']]],
   ['showautocaros_33',['showAutocaros',['../class_aeroporto.html#a153b3b7a85af6d271b6b1b768ab8dc3a',1,'Aeroporto']]],
   ['showautocarroproximo_34',['showAutocarroProximo',['../class_aeroporto.html#a8c2dc649c2bb414adc78e535e3f61f4e',1,'Aeroporto']]],
   ['showbilhetesfrompassageiro_35',['showBilhetesFromPassageiro',['../class_companhia_aerea.html#adec0f0dc6417a2586a08fe3160e19e0d',1,'CompanhiaAerea']]],

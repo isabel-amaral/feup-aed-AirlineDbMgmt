@@ -82,12 +82,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9319e90378a07add6cc628e7a57b251b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1ed4ff145dc05b823e27e8f3fa75dbc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_excesso_peso.html#aa1ed4ff145dc05b823e27e8f3fa75dbc">getTaxaBagagemDeMao</a> () const</td></tr>
 <tr class="separator:aa1ed4ff145dc05b823e27e8f3fa75dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2893a4f88c401a81ea05e3c6e0b6530e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_excesso_peso.html#a2893a4f88c401a81ea05e3c6e0b6530e">excedePeso</a> (const <a class="el" href="class_bagagem.html">Bagagem</a> &amp;b) const</td></tr>
-<tr class="separator:a2893a4f88c401a81ea05e3c6e0b6530e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af28e21a6ad23ecdf6c962b797acdbf8a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_excesso_peso.html#af28e21a6ad23ecdf6c962b797acdbf8a">multaExcessoPeso</a> (const <a class="el" href="class_bagagem.html">Bagagem</a> &amp;b) const</td></tr>
-<tr class="separator:af28e21a6ad23ecdf6c962b797acdbf8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aceea99de54b9244d9e1a06318930f902"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_excesso_peso.html#aceea99de54b9244d9e1a06318930f902">multaTaxaBagagemDeMao</a> (const <a class="el" href="class_bagagem.html">Bagagem</a> &amp;b) const</td></tr>
-<tr class="separator:aceea99de54b9244d9e1a06318930f902"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5eb75f2cb898eee3a675246f1827638b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_excesso_peso.html#a5eb75f2cb898eee3a675246f1827638b">excedePeso</a> (const <a class="el" href="class_bagagem.html">Bagagem</a> *b) const</td></tr>
+<tr class="separator:a5eb75f2cb898eee3a675246f1827638b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1814842811a0712d406392fe607adfd1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_excesso_peso.html#a1814842811a0712d406392fe607adfd1">multaExcessoPeso</a> (const <a class="el" href="class_bagagem.html">Bagagem</a> *b) const</td></tr>
+<tr class="separator:a1814842811a0712d406392fe607adfd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a725e477708ab99e08d9571f399a09657"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_excesso_peso.html#a725e477708ab99e08d9571f399a09657">multaTaxaBagagemDeMao</a> (const <a class="el" href="class_bagagem.html">Bagagem</a> *b) const</td></tr>
+<tr class="separator:a725e477708ab99e08d9571f399a09657"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -99,8 +99,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a0a4d7774d4c2167bd98be5d29ee9bf17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2893a4f88c401a81ea05e3c6e0b6530e" name="a2893a4f88c401a81ea05e3c6e0b6530e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2893a4f88c401a81ea05e3c6e0b6530e">&#9670;&nbsp;</a></span>excedePeso()</h2>
+<a id="a5eb75f2cb898eee3a675246f1827638b" name="a5eb75f2cb898eee3a675246f1827638b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eb75f2cb898eee3a675246f1827638b">&#9670;&nbsp;</a></span>excedePeso()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -108,7 +108,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">bool ExcessoPeso::excedePeso </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_bagagem.html">Bagagem</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_bagagem.html">Bagagem</a> *&#160;</td>
           <td class="paramname"><em>b</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -178,8 +178,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="af28e21a6ad23ecdf6c962b797acdbf8a" name="af28e21a6ad23ecdf6c962b797acdbf8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af28e21a6ad23ecdf6c962b797acdbf8a">&#9670;&nbsp;</a></span>multaExcessoPeso()</h2>
+<a id="a1814842811a0712d406392fe607adfd1" name="a1814842811a0712d406392fe607adfd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1814842811a0712d406392fe607adfd1">&#9670;&nbsp;</a></span>multaExcessoPeso()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,7 +187,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">float ExcessoPeso::multaExcessoPeso </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_bagagem.html">Bagagem</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_bagagem.html">Bagagem</a> *&#160;</td>
           <td class="paramname"><em>b</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -203,8 +203,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aceea99de54b9244d9e1a06318930f902" name="aceea99de54b9244d9e1a06318930f902"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aceea99de54b9244d9e1a06318930f902">&#9670;&nbsp;</a></span>multaTaxaBagagemDeMao()</h2>
+<a id="a725e477708ab99e08d9571f399a09657" name="a725e477708ab99e08d9571f399a09657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a725e477708ab99e08d9571f399a09657">&#9670;&nbsp;</a></span>multaTaxaBagagemDeMao()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,7 +212,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">float ExcessoPeso::multaTaxaBagagemDeMao </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_bagagem.html">Bagagem</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_bagagem.html">Bagagem</a> *&#160;</td>
           <td class="paramname"><em>b</em></td><td>)</td>
           <td> const</td>
         </tr>

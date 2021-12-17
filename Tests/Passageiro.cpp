@@ -15,6 +15,7 @@ Passageiro::Passageiro(const string& n, unsigned id, unsigned i, bool menor) {
         this->menorNaoAcompanhado = false;
     else
         this->menorNaoAcompanhado = menor;
+    multaBagagem = 0.0;
 }
 
 string Passageiro::getNome() const {
@@ -34,6 +35,14 @@ bool Passageiro::isMenorNaoAcompanhado() const {
     return menorNaoAcompanhado;
 }
 
+float Passageiro::getMultaBagagem() const {
+    return multaBagagem;
+}
+
+void Passageiro::incrementarMulta(float multa) {
+    multaBagagem += multa;
+}
+
 ostream &operator << (ostream &os, const Passageiro &p) {
     os << "NOME: " << p.getNome() << endl;
     os << "IDENTIFICAÇÃO: " << p.getId() << endl;
@@ -43,6 +52,3 @@ ostream &operator << (ostream &os, const Passageiro &p) {
     }
     return os;
 }
-
-
-
