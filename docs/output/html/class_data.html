@@ -91,11 +91,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abfbc6c521e013d3467af69e5919b921b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11d9c620b5a1936e18b532814e8c2e22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data.html#a11d9c620b5a1936e18b532814e8c2e22">setAno</a> (unsigned a)</td></tr>
 <tr class="separator:a11d9c620b5a1936e18b532814e8c2e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c7e04ede28abdc975de8e4de0993d9a"><td class="memItemLeft" align="right" valign="top"><a id="a7c7e04ede28abdc975de8e4de0993d9a" name="a7c7e04ede28abdc975de8e4de0993d9a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="class_data.html">Data</a> &amp;d) const</td></tr>
+<tr class="memitem:a7c7e04ede28abdc975de8e4de0993d9a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data.html#a7c7e04ede28abdc975de8e4de0993d9a">operator&lt;</a> (const <a class="el" href="class_data.html">Data</a> &amp;d) const</td></tr>
 <tr class="separator:a7c7e04ede28abdc975de8e4de0993d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae54e4c0da1bc281ef97f2b4bc5144b7f"><td class="memItemLeft" align="right" valign="top"><a id="ae54e4c0da1bc281ef97f2b4bc5144b7f" name="ae54e4c0da1bc281ef97f2b4bc5144b7f"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_data.html">Data</a> &amp;d) const</td></tr>
+<tr class="memitem:ae54e4c0da1bc281ef97f2b4bc5144b7f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_data.html#ae54e4c0da1bc281ef97f2b4bc5144b7f">operator==</a> (const <a class="el" href="class_data.html">Data</a> &amp;d) const</td></tr>
 <tr class="separator:ae54e4c0da1bc281ef97f2b4bc5144b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3cc4433fa1c00f395b688ef3b141512"><td class="memItemLeft" align="right" valign="top"><a id="aa3cc4433fa1c00f395b688ef3b141512" name="aa3cc4433fa1c00f395b688ef3b141512"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="class_data.html">Data</a> &amp;d) const</td></tr>
@@ -188,6 +186,68 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>O mês. </dd></dl>
+
+</div>
+</div>
+<a id="a7c7e04ede28abdc975de8e4de0993d9a" name="a7c7e04ede28abdc975de8e4de0993d9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c7e04ede28abdc975de8e4de0993d9a">&#9670;&nbsp;</a></span>operator&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Data::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Uma data é tanto menor quanto menor é o seu ano. Em caso de empate, é tanto menor quanto menor é o seu mês. Em caso de empate, é tanto menor quanto menor é o seu dia. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d</td><td>é a data a ser comparada com está instância. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se esta instância é menor que</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d</td><td>caso contrário false. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae54e4c0da1bc281ef97f2b4bc5144b7f" name="ae54e4c0da1bc281ef97f2b4bc5144b7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae54e4c0da1bc281ef97f2b4bc5144b7f">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Data::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_data.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Duas datas são iguais se todos os seus atributos são iguais. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d</td><td>é a data a ser comparada com esta instância. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se esta instância é igual à</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d</td><td>caso contrário false. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -357,8 +417,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/AirlineDatabaseManagement/Tests/<a class="el" href="_data_8h_source.html">Data.h</a></li>
-<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/AirlineDatabaseManagement/Tests/Data.cpp</li>
+<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/<a class="el" href="_data_8h_source.html">Data.h</a></li>
+<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/Data.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

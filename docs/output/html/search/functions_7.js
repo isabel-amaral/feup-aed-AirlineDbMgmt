@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['operator_3c_0',['operator&lt;',['../class_bilhete.html#a7a8edce928974f7f78eefb4b3c478d9a',1,'Bilhete::operator&lt;()'],['../class_horario.html#a39ccebebf574df5b1d74383c42ffccbd',1,'Horario::operator&lt;()'],['../class_local_de_transporte.html#aba8a290334533aafc42d994019fdca78',1,'LocalDeTransporte::operator&lt;()']]]
+  ['multaexcessopeso_0',['multaExcessoPeso',['../class_excesso_peso.html#af28e21a6ad23ecdf6c962b797acdbf8a',1,'ExcessoPeso']]],
+  ['multataxabagagemdemao_1',['multaTaxaBagagemDeMao',['../class_excesso_peso.html#aceea99de54b9244d9e1a06318930f902',1,'ExcessoPeso']]]
 ];
