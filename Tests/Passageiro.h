@@ -32,7 +32,7 @@ private:
 
 public:
     Passageiro();
-    Passageiro(const string& n, unsigned id, unsigned i, bool menor);
+    Passageiro(const string& n, unsigned id, unsigned i, bool menor = false);
     /**
      *
      * @return nome do passageiro.

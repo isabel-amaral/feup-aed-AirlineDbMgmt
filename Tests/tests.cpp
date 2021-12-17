@@ -13,7 +13,6 @@
 #include "Voo.h"
 #include "Horario.h"
 #include "LocalDeTransporte.h"
-//sofia: para ja inclui todas, dps tiramos as que nao forem precisas
 
 using testing::Eq;
 using namespace std;
@@ -111,15 +110,24 @@ TEST(test_3, test_addServicoPorRealizar) {
     Data d2(18, 12, 2021);
     Funcionario f2(456, "Milena");
     Servico s2(Limpeza, d2, f2);
-    av.addServicoPorRealizar(s2);
 
+    EXPECT_EQ(true, av.addServicoPorRealizar(s2));
     EXPECT_EQ(2,av.getServicosPorRealizar().size());
+
     EXPECT_EQ(s1.getData(), av.getServicosPorRealizar().front().getData());
     EXPECT_EQ(s1.getFuncionarioResponsavel().getIdFuncionario(), av.getServicosPorRealizar().front().getFuncionarioResponsavel().getIdFuncionario());
     EXPECT_EQ(Manutencao, av.getServicosPorRealizar().front().getTipoServico());
+
     EXPECT_EQ(s2.getData(), av.getServicosPorRealizar().back().getData());
     EXPECT_EQ(s2.getFuncionarioResponsavel().getIdFuncionario(), av.getServicosPorRealizar().back().getFuncionarioResponsavel().getIdFuncionario());
     EXPECT_EQ(Limpeza, av.getServicosPorRealizar().back().getTipoServico());
+
+    Data d3(18, 11, 2021);
+    Funcionario f3(456, "Isabel");
+    Servico s3(Limpeza, d3, f3);
+
+    EXPECT_EQ(false, av.addServicoPorRealizar(s3));
+    EXPECT_EQ(2, av.getServicosPorRealizar().size());
 }
 
 //Aviao::realizarServico()
@@ -141,25 +149,40 @@ TEST(test_4, test_realizarServico) {
     EXPECT_EQ(s2.getData(), av.getServicosPorRealizar().front().getData());
     EXPECT_EQ(s2.getFuncionarioResponsavel().getIdFuncionario(), av.getServicosPorRealizar().front().getFuncionarioResponsavel().getIdFuncionario());
     EXPECT_EQ(Limpeza, av.getServicosPorRealizar().front().getTipoServico());
+
     EXPECT_EQ(s1.getData(), av.getServicosRealizados().back().getData());
     EXPECT_EQ(s1.getFuncionarioResponsavel().getIdFuncionario(), av.getServicosRealizados().back().getFuncionarioResponsavel().getIdFuncionario());
     EXPECT_EQ(s1.getTipoServico(), av.getServicosRealizados().back().getTipoServico());
 
+    av.realizarServico();
+    EXPECT_EQ(0, av.getServicosPorRealizar().size());
+    EXPECT_EQ(2, av.getServicosRealizados().size());
+    EXPECT_EQ(false, av.realizarServico());
 }
 
 //CompanhiaAerea::adquirirBilhete()
-TEST(test_5, test_adquirirBilhete) { //sofia: nao sei bem que expects fazer
+TEST(test_5, test_adquirirBilhete) {
     CompanhiaAerea ca;
-    Passageiro p("Isabel", 123, 19, false);
+    Passageiro p1("Isabel", 123, 19, false);
     Aeroporto a1("Aeroporto Francisco Sá Carneiro", "Porto");
     Aeroporto a2("Aeroporto de S. Tomé", "S. Miguel");
     Data d(17, 12, 2021);
     Voo v(327, a1, a2, d, 15.30, 17.55, 2.25, 400, 360);
-    bool bilheteAdquirido = ca.adquirirBilhete(p, v, true);
 
-    EXPECT_EQ(true, bilheteAdquirido);
+    EXPECT_EQ(true, ca.adquirirBilhete(p1, v, true));
+    EXPECT_EQ("Isabel", ca.getBilhetesVendidos()[0].getPasssageiro().getNome());
+    EXPECT_EQ(123, ca.getBilhetesVendidos()[0].getPasssageiro().getId());
+    EXPECT_EQ("Porto", ca.getBilhetesVendidos()[0].getVoo().getOrigem().getCidade());
+    EXPECT_EQ("S. Miguel", ca.getBilhetesVendidos()[0].getVoo().getDestino().getCidade());
 
-    //cout << ca.getBilhetesVendidos()[0]<<endl;
+    Passageiro p2("Filipa", 456, 19, false);
+    EXPECT_EQ(true, ca.adquirirBilhete(p2, v, true));
+    EXPECT_EQ("Filipa", ca.getBilhetesVendidos()[0].getPasssageiro().getNome());
+    EXPECT_EQ(456, ca.getBilhetesVendidos()[0].getPasssageiro().getId());
+
+    v.setNumLugaresReservados(400);
+    Passageiro p3("Raquel", 789, 18);
+    EXPECT_EQ(false, ca.adquirirBilhete(p3, v, false));
 }
 
 //CompanhiaAerea::getBilhetesFromPassageiro()
@@ -168,11 +191,32 @@ TEST(test_6, test_getBilhetesFromPassageiro) {
     Passageiro p("Isabel", 123, 19, false);
     Aeroporto a1("Aeroporto Francisco Sá Carneiro", "Porto");
     Aeroporto a2("Aeroporto de S. Tomé", "S. Miguel");
-    Data d(17, 12, 2021);
-    Voo v(327, a1, a2, d, 15.30, 17.55, 2.25, 400, 360);
-    ca.adquirirBilhete(p, v, true);
+    Aeroporto a3("Aeroporto de S. Miguel", "S. Tomé");
+    Data d1(17, 12, 2021);
+    Voo v1(327, a1, a2, d1, 15.30, 17.55, 2.25, 400, 360);
+    ca.adquirirBilhete(p, v1, true);
 
-    EXPECT_EQ(1, ca.getBilhetesFromPassageiro(p).size());
+    vector<Bilhete> b = ca.getBilhetesFromPassageiro(p);
+    EXPECT_EQ(1, b.size());
+    EXPECT_EQ("Isabel", b[0].getPasssageiro().getNome());
+    EXPECT_EQ(123, b[0].getPasssageiro().getId());
+    EXPECT_EQ("Porto", b[0].getVoo().getOrigem().getCidade());
+    EXPECT_EQ("S. Miguel", b[0].getVoo().getDestino().getCidade());
+
+    Data d2(3, 1, 2022);
+    Voo v2(328, a2, a1, d2, 15.30, 17.55, 2.25, 400, 360);
+    ca.adquirirBilhete(p, v2, false);
+    Data d3(14, 7, 2021);
+    Voo v3(329, a1, a2, d3, 10.30, 12.55, 2.25, 400, 360);
+    ca.adquirirBilhete(p, v3, true);
+    Voo v4(330, a2, a3, d3, 15.30, 18.40, 3.10, 400, 360);
+    ca.adquirirBilhete(p, v4, true);
+
+    b = ca.getBilhetesFromPassageiro(p);
+    EXPECT_EQ(329, b[0].getVoo().getNumeroVoo());
+    EXPECT_EQ(330, b[1].getVoo().getNumeroVoo());
+    EXPECT_EQ(327, b[2].getVoo().getNumeroVoo());
+    EXPECT_EQ(328, b[3].getVoo().getNumeroVoo());
 }
 
 //CompanhiaAerea::adquirirConjuntoBilhetes()
