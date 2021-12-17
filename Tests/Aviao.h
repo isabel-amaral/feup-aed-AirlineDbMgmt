@@ -98,11 +98,11 @@ public:
       * @return true se for possível agendar o serviço, false caso contrário.
       */
     bool addServicoPorRealizar(const Servico& servico);
-    /**
-     *
+     /**
      * Marca um serviço da lista dos serviços agendados (por realizar) como concluído, ou seja,
      * remove-o da fila dos agendados e acrescenta-o na dos realizados.
-     */
-    void realizarServico();
+      * @return true se foi possível realizar o serviço (se havia serviços por realizar), false caso contrário.
+      */
+    bool realizarServico();
 };
 #endif //_AVIAO_H

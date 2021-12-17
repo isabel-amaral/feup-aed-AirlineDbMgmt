@@ -73,7 +73,10 @@ bool Aviao::addServicoPorRealizar(const Servico& servico) {
     return false;
 }
 
-void Aviao::realizarServico (){
+bool Aviao::realizarServico (){
+    if (servicosPorRealizar.empty())
+        return false;
     this->servicosRealizados.push(servicosPorRealizar.front());
     this->servicosPorRealizar.pop();
+    return true;
 }
