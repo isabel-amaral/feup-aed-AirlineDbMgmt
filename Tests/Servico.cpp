@@ -12,11 +12,11 @@ Servico::Servico(TipoServico tipo, const Data& d, Funcionario& funcionario) {
     this->funcionarioResponsavel = funcionario;
 }
 
-TipoServico Servico::getTipoServico() {
+TipoServico Servico::getTipoServico() const {
     return this->tipoServico;
 }
 
-Data Servico::getData() {
+Data Servico::getData() const {
     return this->data;
 }
 

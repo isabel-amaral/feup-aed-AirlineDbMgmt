@@ -13,13 +13,12 @@ Aviao::Aviao() {
     }
 }
 
-Aviao::Aviao(const string& m, unsigned c) {
+Aviao::Aviao(const string& m, unsigned c, const list<Voo>& planVoo, const queue<Servico>& servRealizar) {
     this->matricula = m;
     this->capacidade = c;
-    /*
     this->planoDeVoo = planVoo;
-    this->servicosPorRealizar = servPorRealizar;
-    this->servicosRealizados = servRealizados;*/
+    this->servicosPorRealizar = servRealizar;
+    this->servicosRealizados = queue<Servico>();
 }
 
 string Aviao::getMatricula() const {
@@ -66,8 +65,12 @@ void Aviao:: addVoo(const Voo& voo){
     this->planoDeVoo.push_back(voo);
 }
 
-void Aviao::addServicoPorRealizar(const Servico& servico) {
-    this->servicosPorRealizar.push(servico);
+bool Aviao::addServicoPorRealizar(const Servico& servico) {
+    if (servicosPorRealizar.back().getData() < servico.getData()) {
+        this->servicosPorRealizar.push(servico);
+        return true;
+    }
+    return false;
 }
 
 void Aviao::realizarServico (){

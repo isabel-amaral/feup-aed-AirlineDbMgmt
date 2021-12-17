@@ -31,12 +31,12 @@ public:
      *
      * @return tipo do serviço.
      */
-    TipoServico getTipoServico();
+    TipoServico getTipoServico() const;
     /**
      *
      * @return data na qual o serviço foi realizado/data para a qual o serviço está agendado.
      */
-    Data getData();
+    Data getData() const;
     /**
      *
      * @return nome do funcionário responsável pelo serviço.

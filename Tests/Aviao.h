@@ -23,19 +23,19 @@ private:
     /**
      * Todos os voos que o avião tem agendados/por realizar.
      */
-    list<Voo> planoDeVoo; //sofia: nao acham que deviamos dizer a lista tem os voos por exemplo do mês e que vai sendo atualizada mensalmente?
+    list<Voo> planoDeVoo;
     /**
     * Todos os serviços aos quais o avião está sujeito.
     */
-    queue <Servico> servicosPorRealizar;
+    queue<Servico> servicosPorRealizar;
     /**
     * Todos os serviços concluídos.
     */
-    queue <Servico> servicosRealizados;
+    queue<Servico> servicosRealizados;
 
 public:
     Aviao();
-    Aviao(const string& m, unsigned c);
+    Aviao(const string& m, unsigned c, const list<Voo>& planVoo = list<Voo>(), const queue<Servico>& servRealizar = queue<Servico>());
     /**
      *
      * @return matricula do avião.
@@ -92,12 +92,12 @@ public:
      * @param voo é o novo voo que o avião deverá realizar.
      */
     void addVoo(const Voo& voo);
-    /**
-     *
-     * Acrescenta um novo serviço a realizar.
-     * @param servico é o serviço a ser adicionado.
-     */
-    void addServicoPorRealizar(const Servico& servico);
+     /**
+      * Acrescenta um novo serviço a realizar.
+      * @param servico é o serviço a ser adicionado.
+      * @return true se for possível agendar o serviço, false caso contrário.
+      */
+    bool addServicoPorRealizar(const Servico& servico);
     /**
      *
      * Marca um serviço da lista dos serviços agendados (por realizar) como concluído, ou seja,
