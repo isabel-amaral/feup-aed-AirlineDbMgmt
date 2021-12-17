@@ -19,6 +19,7 @@ private:
     float taxaBagagemDeMao;
 
 public:
+    ExcessoPeso();
     ExcessoPeso(float peso, float tp, float tb);
     /**
      *
@@ -40,19 +41,19 @@ public:
      * @param b volume de bagagem a testar
      * @return true se o volume de bagagem exceder o peso permitide, false caso contrário
      */
-    bool excedePeso(const Bagagem& b) const;
+    bool excedePeso(const Bagagem* b) const;
     /**
      *
      * @param b volume de bagagem que excede o peso permitido
      * @return preço extra a pagar (multa) para o passageiro poder levar esta bagagem no avião
      */
-    float multaExcessoPeso(const Bagagem& b) const;
+    float multaExcessoPeso(const Bagagem* b) const;
     /**
      *
      * @param b volume de bagagem de mão de um passageiro cujo bilhete não permitia bagagem de mão
      * @return preço extra a pagar (multa) para o passageiro poder levar esta bagagem no avião
      */
-    float multaTaxaBagagemDeMao(const Bagagem& b) const;
+    float multaTaxaBagagemDeMao(const Bagagem* b) const;
 };
 
 #endif //_EXCESSOPESO_H

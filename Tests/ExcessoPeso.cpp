@@ -1,5 +1,11 @@
 #include "ExcessoPeso.h"
 
+ExcessoPeso::ExcessoPeso() {
+    pesoMaximo = 0.0;
+    taxaPesoExtra = 0.0;
+    taxaBagagemDeMao = 0.0;
+}
+
 ExcessoPeso::ExcessoPeso(float peso, float tp, float tb) {
     this->pesoMaximo = peso;
     this->taxaPesoExtra = tp;
@@ -18,17 +24,17 @@ float ExcessoPeso::getTaxaBagagemDeMao() const {
     return taxaBagagemDeMao;
 }
 
-bool ExcessoPeso::excedePeso(const Bagagem &b) const {
-    return b.getPeso() > pesoMaximo;
+bool ExcessoPeso::excedePeso(const Bagagem* b) const {
+    return b->getPeso() > pesoMaximo;
 }
 
-float ExcessoPeso::multaExcessoPeso(const Bagagem &b) const {
+float ExcessoPeso::multaExcessoPeso(const Bagagem* b) const {
     float multa = 0;
-    for (float i = pesoMaximo; i <= b.getPeso(); i++)
+    for (float i = pesoMaximo; i <= b->getPeso(); i++)
         multa += taxaPesoExtra;
     return multa;
 }
 
-float ExcessoPeso::multaTaxaBagagemDeMao(const Bagagem &b) const {
+float ExcessoPeso::multaTaxaBagagemDeMao(const Bagagem* b) const {
     return taxaBagagemDeMao;
 }
