@@ -46,10 +46,10 @@ bool Bilhete::operator< (const Bilhete& b) const {
     if (this->passageiro.getNome() < b.passageiro.getNome())
         return true;
     if (this->passageiro.getNome() == b.passageiro.getNome()) {
-        if (this->getVoo().getDataPartida() < this->getVoo().getDataPartida())
+        if (this->getVoo().getDataPartida() < b.getVoo().getDataPartida())
             return true;
-        if (this->getVoo().getDataPartida() == this->getVoo().getDataPartida())
-            return this->getVoo().getHoraPartida() < this->getVoo().getHoraPartida();
+        if (this->getVoo().getDataPartida() == b.getVoo().getDataPartida())
+            return this->getVoo().getHoraPartida() < b.getVoo().getHoraPartida();
     }
     return false;
 }
