@@ -4,10 +4,32 @@
 
 CompanhiaAerea::CompanhiaAerea() {
     bilhetesVendidos = vector<Bilhete>();
+    voos = vector<Voo>();
+    excessoPeso = ExcessoPeso();
+}
+
+CompanhiaAerea::CompanhiaAerea(float pesoMaximo, float taxaPesoExtra, float taxaBagagemDeMao) {
+    bilhetesVendidos = vector<Bilhete>();
+    voos = vector<Voo>();
+    excessoPeso = ExcessoPeso(pesoMaximo, taxaPesoExtra, taxaBagagemDeMao);
 }
 
 vector<Bilhete> CompanhiaAerea::getBilhetesVendidos() const {
     return bilhetesVendidos;
+}
+
+vector<Voo> CompanhiaAerea::getVoos() const{
+    return voos;
+}
+
+void CompanhiaAerea::setVoos(const vector<Voo>& v) {
+    this->voos = v;
+    sort(voos.begin(), voos.end());
+}
+
+void CompanhiaAerea::addVoo(const Voo &v) {
+    voos.push_back(v);
+    sort(voos.begin(), voos.end());
 }
 
 vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(const Passageiro& p) const {
@@ -24,14 +46,13 @@ vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(const Passageiro& p) c
 
 void CompanhiaAerea::showBilhetesFromPassageiro(const Passageiro &p) const {
     vector<Bilhete> bilhetes = getBilhetesFromPassageiro(p);
-
     if (bilhetes.empty()){
         cout << "Este passageiro ainda não adquiriu nenhum bilhete." <<endl;
         return;
     }
 
     for (const Bilhete& b: bilhetes) {
-        cout<< b <<endl;
+        cout << b << endl;
     }
 }
 
@@ -44,19 +65,26 @@ vector<Passageiro> CompanhiaAerea::getPassageirosFromVoo(const Voo &v) const {
     return passageiros;
 }
 
-void CompanhiaAerea::showPassageirosFromVoo (const Voo& v) const{
+void CompanhiaAerea::showPassageirosFromVoo(const Voo& v) const {
     vector <Passageiro> passageiros = getPassageirosFromVoo(v);
     if ( passageiros.empty()){
         cout << "Voo sem passageiros." << endl;
         return;
     }
 
-    for ( auto passageiro: passageiros){
+    for (auto passageiro: passageiros){
         cout << passageiro << endl;
     }
 }
 
-
+Bilhete CompanhiaAerea::getBilhetePassageiroVoo(const Passageiro &p, const Voo &v) const {
+    vector<Bilhete> bilhetes = getBilhetesFromPassageiro(p);
+    for (Bilhete b: bilhetes) {
+        if (b.getVoo().getNumeroVoo() == v.getNumeroVoo())
+            return b;
+    }
+    return Bilhete();
+}
 
 bool CompanhiaAerea::adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem) {
     if (!v.addPassageiro(p))
@@ -81,37 +109,20 @@ bool CompanhiaAerea::adquirirConjuntoBilhetes(list<Passageiro> &p, Voo &v, bool 
     return true;
 }
 
-void CompanhiaAerea::realizarCheckIn(const Passageiro &p, Voo &v) const {
-    //acrescentar restrições de peso, o que acontece se o passageiro tiver bagagem de mão e o seu bilhete não permitir?
-    Bilhete bilhete;
-    vector<Bilhete> bilhetes = getBilhetesFromPassageiro(p);
-    for (const Bilhete& b: bilhetes) {
-        if (b.getVoo().getNumeroVoo() == v.getNumeroVoo()) {
-            bilhete = b;
-            break;
-        }
-    }
-
+void CompanhiaAerea::realizarCheckIn(Passageiro &p, Voo &v) const {
+    Bilhete bilhete = getBilhetePassageiroVoo(p, v);
     list<Bagagem*>::iterator it;
     for (it = bilhete.getBagagem().begin(); it != bilhete.getBagagem().end(); it++) {
-        if (!(*it)->isBagagemDeMao() && (*it)->isCheckInAutomatico())
-            v.getTransportador().adicionarAoTapete(*it);
+        if (!(*it)->isBagagemDeMao()) {
+            if ((*it)->isCheckInAutomatico())
+                v.getTransportador().adicionarAoTapete(*it);
+            if (excessoPeso.excedePeso(*it))
+                p.incrementarMulta(excessoPeso.multaExcessoPeso(*it));
+        }
+        else
+            p.incrementarMulta(excessoPeso.multaTaxaBagagemDeMao(*it));
     }
     v.realizarCheckIn(p);
-}
-
-void CompanhiaAerea::addVoo(const Voo &v) {
-    voos.push_back(v);
-    sort(voos.begin(), voos.end());
-}
-
-vector<Voo> CompanhiaAerea::getVoos() const{
-    return voos;
-}
-
-void CompanhiaAerea::setVoo(const vector<Voo>& v) {
-    this->voos = v;
-    sort(voos.begin(), voos.end());
 }
 
 vector<Voo> CompanhiaAerea::getVoosChegada(const string& cidadeChegada, const Data& d1) const {
@@ -194,8 +205,6 @@ void CompanhiaAerea::showVoosChegada(const string &cidadeChegada, const Data &d1
         cout << voo;
     }
 }
-
-
 
 void CompanhiaAerea::showVoosCidades(const string &cidadePartida, const string &cidadeChegada, const Data &d1, Data &d2) const {
     vector <Voo> voosCidade = getVoosCidades(cidadePartida, cidadeChegada, d1, d2);

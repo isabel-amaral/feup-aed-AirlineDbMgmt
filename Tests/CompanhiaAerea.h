@@ -5,6 +5,7 @@
 #include "Bilhete.h"
 #include "Voo.h"
 #include "Data.h"
+#include "ExcessoPeso.h"
 
 class CompanhiaAerea {
 private:
@@ -16,9 +17,15 @@ private:
      * Todos os voos que a companhia tem por realizar.
      */
     vector<Voo> voos;
+    /**
+     * Objeto que contém as restrições de peso definidas pela companhia aérea e multas associadas
+     */
+    ExcessoPeso excessoPeso;
+
 public:
     CompanhiaAerea();
-   /**
+    CompanhiaAerea(float pesoMaximo, float taxaPesoExtra, float taxaBagagemDeMao);
+    /**
      *
      * @return uma copia dos bilhetes que a companhia vendeu.
      */
@@ -29,15 +36,15 @@ public:
      */
     vector<Voo> getVoos() const;
     /**
+     * Define os voos da companhia aérea.
+     * @param voos são os novos voos da companhia.
+     */
+    void setVoos(const vector<Voo>& voos);
+    /**
      * Acrescenta um voo ao demais voos que a companhia tem por realizar.
      * @param v novo voo a acrescentar.
      */
     void addVoo(const Voo &v);
-    /**
-     * Define os voos da companhia aérea.
-     * @param voos são os novos voos da companhia.
-     */
-    void setVoo(const vector<Voo>& voos);
     /**
      * @param p é um determinado passageiro.
      * @return  vector com todos os bilhetes adquiridos pelo passageiro (@param p) num vetor.
@@ -59,7 +66,8 @@ public:
     vector<Passageiro> getPassageirosFromVoo(const Voo& v) const;
 
     //TODO: DOCUMENTACAO
-    void showPassageirosFromVoo (const Voo& v) const;
+    void showPassageirosFromVoo(const Voo& v) const;
+    Bilhete getBilhetePassageiroVoo(const Passageiro& p, const Voo& v) const;
     /**
      * Acrescenta um bilhete ao conjunto dos demais bilhetes vendidos caso seja possivel efetuar a sua compra (o voo v não está lotado).
      * @param p é o passageiro que pretende comprar o bilhete.
@@ -79,15 +87,12 @@ public:
      * Caso contrário retorna false (o voo está lotado/ não possui bilhetes suficientes para todos).
      */
     bool adquirirConjuntoBilhetes(list<Passageiro>& p, Voo& v, bool bagagem);
-
     /**
      * Realiza o check-in de um determinado passageiro com bilhete referente a um certo voo
-     *
-     *
      * @param p
      * @param v
      */
-    void realizarCheckIn(const Passageiro& p, Voo& v) const;
+    void realizarCheckIn(Passageiro& p, Voo& v) const;
     //TODO: DOCUMENTACAO
     vector <Voo> getVoosChegada (const string& cidadeChegada, const Data& d1=Data()) const;
     //TODO: DOCUMENTACAO
