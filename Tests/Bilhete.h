@@ -7,7 +7,9 @@
 
 class Bilhete {
 private:
-    //TODO: DOC
+    /**
+     * Número de identificação do bilhete.
+     */
     unsigned idBilhete;
     /**
      * Passageiro a quem pertence o bilhete.
@@ -28,8 +30,11 @@ private:
 
 public:
     Bilhete();
-    Bilhete( const Passageiro& p, const Voo& v, bool b, const list<Bagagem*>& bagagem = list<Bagagem*>());
-    //TODO: DOC
+    Bilhete(unsigned id, const Passageiro& p, const Voo& v, bool b, const list<Bagagem*>& bagagem = list<Bagagem*>());
+    /**
+     *
+     * @return Número de identificação do bilhete.
+     */
     unsigned getIdBilhete();
     /**
      *
@@ -74,7 +79,6 @@ public:
      * @return true se esta instância é menor @param b caso contrário false.
      */
     bool operator< (const Bilhete& b) const;
-
     //TODO: DOCUMENTACAO
     friend ostream &operator<<(ostream &os, const Bilhete &b);
 };

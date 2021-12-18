@@ -1,13 +1,15 @@
 #include "Bilhete.h"
 
 Bilhete::Bilhete() {
+    this->idBilhete = 0;
     this->passageiro = Passageiro();
     this->voo = Voo();
     this->bagagemDeMao = false;
     this->bagagem = list<Bagagem*>();
 }
 
-Bilhete::Bilhete( const Passageiro& p, const Voo& v, bool b, const list<Bagagem*>& bagagem) {
+Bilhete::Bilhete(unsigned id, const Passageiro& p, const Voo& v, bool b, const list<Bagagem*>& bagagem) {
+    this->idBilhete = id;
     this->passageiro = p;
     this->voo = v;
     this->bagagemDeMao = b;
