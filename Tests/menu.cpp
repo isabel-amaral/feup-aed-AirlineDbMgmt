@@ -177,22 +177,23 @@ void menu::menu4() {
         processOption();
     }
 
-    cout << "/n Escolha em que ordem deseja que os dados sejam apresentados: " << endl;
-    cout << "1. Distancia Ascendente - Disponibilidade Ascendente - Tipo " << endl;
-    cout << "2. Disponibilidade Ascendente - Distancia Ascendente - Tipo" << endl;
-    cout << "3. Tipo - Distancia Ascendente - Disponibilidade Ascendente " << endl;
-    cin >> opOrdenacao;
-
+    if (option >= 11 && option <= 14){
+        cout << "/n Escolha em que ordem deseja que os dados sejam apresentados: " << endl;
+        cout << "1. Distancia Ascendente - Disponibilidade Ascendente - Tipo " << endl;
+        cout << "2. Disponibilidade Ascendente - Distancia Ascendente - Tipo" << endl;
+        cout << "3. Tipo - Distancia Ascendente - Disponibilidade Ascendente " << endl;
+        cin >> opOrdenacao;
+    }
 
     switch (option){
         case 11: a1.showTransportes(opOrdenacao);      break;
         case 12: a1.showMetros(opOrdenacao);           break;
         case 13: a1.showComboios(opOrdenacao);         break;
         case 14: a1.showAutocaros(opOrdenacao);        break;
-        case 15: a1.showLocalTransporteProximo(opOrdenacao); break;
-        case 16: a1.showMetroProximo(opOrdenacao);     break;
-        case 17: a1.showComboioProximo(opOrdenacao);   break;
-        case 18: a1.showAutocarroProximo(opOrdenacao); break;
+        case 15: a1.showLocalTransporteProximo();      break;
+        case 16: a1.showMetroProximo();                break;
+        case 17: a1.showComboioProximo();              break;
+        case 18: a1.showAutocarroProximo();            break;
     }
 
     option = lastMenu.top();

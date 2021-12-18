@@ -119,6 +119,9 @@ void Aeroporto::showMetros(int ordenacao) const {
     if (metros.empty()){
         cout << "Esta cidade não possui metros." << endl;
     }
+    if ( ordenacao != 1)
+        ordenarLocais(metros, ordenacao);
+
     for (const auto& metro : metros)
         cout << metro << endl;
 }
@@ -130,6 +133,9 @@ void Aeroporto::showComboios(int ordenacao) const {
         cout << "Esta cidade não possui comboios." << endl;
         return;
     }
+
+    if ( ordenacao != 1)
+        ordenarLocais(comboios, ordenacao);
 
     for (const auto& comboio : comboios)
         cout << comboio << endl;
@@ -143,11 +149,14 @@ void Aeroporto::showAutocaros(int ordenacao) const {
         return;
     }
 
+    if ( ordenacao != 1)
+        ordenarLocais(autocarros, ordenacao);
+
     for (const auto& autocarro : autocarros)
         cout << autocarro << endl;
 }
 
-void Aeroporto::showLocalTransporteProximo(int ordenacao) const{
+void Aeroporto::showLocalTransporteProximo() const{
     if (getLocalTransporteProximo().getDistancia() == 0.0) {
         cout << "Não existe local de transporte terrestre próximo a este aeroporto." << endl;
         return;
@@ -155,7 +164,7 @@ void Aeroporto::showLocalTransporteProximo(int ordenacao) const{
     cout << getLocalTransporteProximo() << endl;
 }
 
-void Aeroporto::showMetroProximo(int ordenacao) const{
+void Aeroporto::showMetroProximo() const{
     if (getLocalTransporteProximo().getDistancia() == 0.0) {
         cout << "Não existe local de Metro próximo a este aeroporto." << endl;
         return;
@@ -163,7 +172,7 @@ void Aeroporto::showMetroProximo(int ordenacao) const{
     cout << getMetroProximo() << endl;
 }
 
-void Aeroporto::showComboioProximo(int ordenacao) const{
+void Aeroporto::showComboioProximo() const{
     if (getComboioProximo().getDistancia() == 0.0) {
         cout << "Não existe local de Comboio próximo a este aeroporto." << endl;
         return;
@@ -171,7 +180,7 @@ void Aeroporto::showComboioProximo(int ordenacao) const{
     cout << getComboioProximo() << endl;
 }
 
-void Aeroporto::showAutocarroProximo(int ordenacao) const{
+void Aeroporto::showAutocarroProximo() const{
     if (getLocalTransporteProximo().getDistancia() == 0.0) {
         cout << "Não existe local de Autocarro próximo a este aeroporto." << endl;
         return;
@@ -181,6 +190,32 @@ void Aeroporto::showAutocarroProximo(int ordenacao) const{
 
 bool Aeroporto::operator<(const Aeroporto &a1) const {
     return this->nome < a1.nome;
+}
+
+bool criterioComparacao2(const LocalDeTransporte &l1, const LocalDeTransporte &l2) {
+    if (l1.getDisponibilidade() != l2.getDisponibilidade())
+        return l1.getDisponibilidade() < l2.getDisponibilidade();
+    else if (l1.getDistancia() != l2.getDistancia())
+        return l1.getDistancia() < l2.getDistancia();
+    else
+        return l1.getTipo() < l2.getTipo();
+}
+
+bool criterioComparacao3(const LocalDeTransporte &l1, const LocalDeTransporte &l2) {
+    if (l1.getTipo() != l2.getTipo())
+        return l1.getTipo() < l2.getTipo();
+    else if (l1.getDistancia() != l2.getDistancia())
+        return l1.getDistancia() < l2.getDistancia();
+    else
+        return l1.getDisponibilidade() < l2.getDisponibilidade();
+}
+
+void ordenarLocais (vector <LocalDeTransporte>& locais, int ordenacao)
+{
+    if ( ordenacao == 2)
+        sort ( locais.begin(), locais.end(), criterioComparacao2);
+    else
+        sort (locais.begin(), locais.end(), criterioComparacao3);
 }
 /*
 void Aeroporto::setNome(const string &n) {
