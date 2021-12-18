@@ -1,5 +1,7 @@
 #include "Bilhete.h"
 
+unsigned Bilhete::idCount = 0;
+
 Bilhete::Bilhete() {
     this->idBilhete = 0;
     this->passageiro = Passageiro();
@@ -14,6 +16,7 @@ Bilhete::Bilhete(unsigned id, const Passageiro& p, const Voo& v, bool b, const l
     this->voo = v;
     this->bagagemDeMao = b;
     this->bagagem = bagagem;
+    idCount++;
 }
 
 unsigned Bilhete::getIdBilhete() {

@@ -11,6 +11,7 @@ private:
      * Número de identificação do bilhete.
      */
     unsigned idBilhete;
+    static unsigned idCount;
     /**
      * Passageiro a quem pertence o bilhete.
      */
