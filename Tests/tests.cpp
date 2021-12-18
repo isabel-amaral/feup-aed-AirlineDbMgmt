@@ -184,8 +184,8 @@ TEST(test_5, test_adquirirBilhete) {
     Passageiro p3("Raquel", 789, 18);
     EXPECT_EQ(false, ca.adquirirBilhete(p3, v, false));
 
-    for (auto b: ca.getBilhetesVendidos())
-        cout << b<< endl;
+//    for (auto b: ca.getBilhetesVendidos())
+//        cout << b<< endl;
 }
 
 //CompanhiaAerea::getBilhetesFromPassageiro()
@@ -223,7 +223,7 @@ TEST(test_6, test_getBilhetesFromPassageiro) {
 }
 
 //CompanhiaAerea::adquirirConjuntoBilhetes()
-TEST(test_7, test_adquirirConjuntoBilhetes) { //sofia: e aqui tbm nao
+TEST(test_7, test_adquirirConjuntoBilhetes) {
     CompanhiaAerea ca;
     Passageiro p1("Isabel", 123, 19, false);
     Passageiro p2("Filipa", 456, 19, false);
@@ -236,18 +236,23 @@ TEST(test_7, test_adquirirConjuntoBilhetes) { //sofia: e aqui tbm nao
     lp.push_back(p2);
     lp.push_back(p3);
     lp.push_back(p4);
-    //lp.push_back(p5);
 
     Aeroporto a1("Aeroporto Francisco Sá Carneiro", "Porto");
     Aeroporto a2("Aeroporto de S. Tomé", "S. Miguel");
     Data d(17, 12, 2021);
-    Voo v(327, a1, a2, d, 15.30, 17.55, 2.25, 400, 360);
-    Voo v1(456, a1, a2, d, 17.30, 19.00, 450, 400, 20);
+    Voo v1(327, a1, a2, d, 15.30, 17.55, 2.25, 400, 360);
+    Voo v2(456, a1, a2, d, 12.30, 19.00, 450, 400, 20);
 
-    bool bilhetesAdquiridos = ca.adquirirConjuntoBilhetes(lp, v, true);
-    ca.adquirirBilhete(p5, v1, false);
-    EXPECT_EQ(true, bilhetesAdquiridos);
-    EXPECT_EQ(5, ca.getBilhetesVendidos().size());
+    EXPECT_EQ(true,  ca.adquirirConjuntoBilhetes(lp, v1, true));
+    EXPECT_EQ(4, ca.getBilhetesVendidos().size());
+    EXPECT_EQ("Filipa", ca.getBilhetesVendidos()[0].getPasssageiro().getNome());
+    EXPECT_EQ("Isabel", ca.getBilhetesVendidos()[1].getPasssageiro().getNome());
+    EXPECT_EQ("Maria", ca.getBilhetesVendidos()[2].getPasssageiro().getNome());
+    EXPECT_EQ("Sofia", ca.getBilhetesVendidos()[3].getPasssageiro().getNome());
+
+    ca.adquirirBilhete(p5, v2, false);
+    EXPECT_EQ(789, ca.getBilhetesVendidos()[3].getPasssageiro().getId());
+    EXPECT_EQ(963, ca.getBilhetesVendidos()[4].getPasssageiro().getId());
 
     //for (auto b : ca.getBilhetesVendidos())
       //  cout << b << endl;
@@ -266,9 +271,22 @@ TEST(test_8, test_BinarySearchHora) {
 TEST(test_9, test_addHora) {
     vector<float> vh = {10.30, 11.00, 12.30, 13.15, 14.00, 15.30, 16.45, 17.55, 18.25};
     Horario h(DiasUteis, vh);
-    float hora = 16.05;
-    h.addHora(hora);
-    EXPECT_EQ(hora, h.getHoras()[6]);
+    float hora1 = 16.05;
+    float hora2 = 13.16;
+    float hora3 =  18.40;
+    float hora4 = 9.00;
+    float hora5 = 15.27;
+    h.addHora(hora1);
+    h.addHora(hora2);
+    h.addHora(hora3);
+    h.addHora(hora4);
+    h.addHora(hora5);
+    EXPECT_EQ(14, h.getHoras().size());
+
+    //esperado: 9.00, 10.30, 11.00, 12.30, 13.15, 13.16, 14.00, 15.27, 15.30, 16.05, 16.45, 17.55, 18.25, 18.40
+//    for (auto h: h.getHoras())
+//        cout << h << " ";
+//    cout << endl;
 }
 
 //Horario::updateHorario()
