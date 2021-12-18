@@ -178,6 +178,10 @@ void Aeroporto::showAutocarroProximo() const{
     }
     cout << getAutocarroProximo() << endl;
 }
+
+bool Aeroporto::operator<(const Aeroporto &a1) const {
+    return this->nome < a1.nome;
+}
 /*
 void Aeroporto::setNome(const string &n) {
     this->nome = nome;

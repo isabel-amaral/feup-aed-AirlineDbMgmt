@@ -194,9 +194,18 @@ public:
      * @param p é o passageiro que pretende realizar o seu check-in.
      */
     void realizarCheckIn(const Passageiro& p);
+    /**
+     * Remove um passageiro da lista de passageiros do voo quando este pretende cancelar a sua viagem.
+     * @param p é o passageiro que pretende cancelar a viagem.
+     */
     void removerPassageiro(const Passageiro& p);
-
-    //TODO : DOCUMENTACAO
+    /**
+    * Considera-se que este voo é menor que outro (voo) se a sua data de partida for anterior à de v. Em caso
+    * de empate, compara-se a hora de partida de cada um: o que partir mais cedo, será considerado menor. Caso contrário,
+    * será menor aquele que tiver vier primeiro em ordem alfabética.
+    * @param v é o objeto a ser comparado com esta instância
+    * @return true se esta instância é menor que @param v e em caso contrário false.
+    */
     bool operator < (const Voo& v) const;
     //TODO: DOCUMENTACAO
     friend ostream& operator<< (ostream& os, const Voo& v);

@@ -31,9 +31,9 @@ void Horario::clearHoras() {
 }
 
 unsigned Horario:: BinarySearchHora(const float& hora) const {
-    int left = 0;
-    int right = horas.size() - 1;
-    int middle;
+    unsigned left = 0;
+    unsigned right = horas.size() - 1;
+    unsigned middle;
 
     while (left <= right) {
         middle = (left + right) / 2;
@@ -53,12 +53,12 @@ void Horario::addHora(const float& hora) {
 
     unsigned index = BinarySearchHora(hora);
     if (horas.at(index) == hora)
-        return;
+        return;                                         // ja existe no vetor, logo nao é necessario voltar a introduzir
     else if (horas.at(index) < hora) {
-        horas.insert(horas.begin()+index+1, hora);
+        horas.insert(horas.begin() + index + 1, hora);  //
     }
     else {
-        horas.insert(horas.begin()+index, hora);
+        horas.insert(horas.begin() + index, hora);
     }
 }
 
@@ -66,8 +66,6 @@ bool Horario::operator< (const Horario& h) const {
     return this->dia < h.dia;
 }
 
-/*bool Horario::operator== (const Horario& h) const {
-    return this->dia == h.dia;
-}*/
+
 
 

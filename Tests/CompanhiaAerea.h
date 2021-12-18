@@ -19,10 +19,17 @@ private:
      */
     vector<Voo> voos;
     /**
-     * Objeto que contém as restrições de peso definidas pela companhia aérea e multas associadas
+     * Objeto que contém as restrições de peso definidas pela companhia aérea e multas associadas.
      */
     ExcessoPeso excessoPeso;
+    /**
+     * Todos os avioes da companhia area.
+     */
     list<Aviao> avioes;
+    /**
+     * Todos os aeroportos onde os aviões da companhia operam.
+     */
+     vector<Aeroporto> aeroportos;
 
 public:
     CompanhiaAerea();
@@ -38,6 +45,16 @@ public:
      */
     vector<Voo> getVoos() const;
     /**
+     *
+     * @return todos os avioes da companhia area.
+     */
+    list<Aviao> getAvioes() const;
+    /**
+     *
+     * @return todos os aeroportos onde os aviões da companhia operam
+     */
+    vector<Aeroporto> getAeroportos() const;
+    /**
      * Define os voos da companhia aérea.
      * @param voos são os novos voos da companhia.
      */
@@ -47,6 +64,23 @@ public:
      * @param v novo voo a acrescentar.
      */
     void addVoo(const Voo &v);
+    /**
+     * Adiciona um novo a avião à lista de aviões.
+     * @param aviao é o novo avião a ser adicionado.
+     */
+    void addAviao( const Aviao &aviao);
+    /**
+     * Adiciona um novo aeroporto ao vector se este ainda não existir no mesmo.
+     * @param aeroporto é o aeroporto a ser acrescentado
+     */
+    void addAeroporto (const Aeroporto &aeroporto);
+    /**
+     * Procura um determinado aeroporto no vector aeroportos usando pesquisa binária.
+     * @param aeroporto é o elemento a ser pesquisado.
+     * @return a posição do aeroporto vo vector caso ele exista. Casp contrário retorna
+     * o índice do maior elemento menor que @param aeroporto ou o menor elemento maior que @param aeroporto
+     */
+    unsigned binarySearchAeroporto (const Aeroporto &aeroporto);
     /**
      * @param p é um determinado passageiro.
      * @return  vector com todos os bilhetes adquiridos pelo passageiro (@param p) num vetor.
@@ -67,15 +101,15 @@ public:
      */
     vector<Passageiro> getPassageirosFromVoo(const Voo& v) const;
     /**
-     * Imprime os dados do bilhete de cada passageiro que irá viajar no voo.
-     * @param v é o voo para o qual se pretende obter a lista de passageiros com bilhete
+     * Mostra todos os passageiros que adquiriram bilhete para um determinado voo
+     * @param v é o voo
      */
     void showPassageirosFromVoo(const Voo& v) const;
     /**
-     * Retorna o bilhete de um dterminado passageiro para um determinado voo.
-     * @param p passageiro em questão
-     * @param v voo em questão
-     * @return o bilhete do passageiro p para o voo v, objeto default caso o passageiro ainda não tenho adquirido bilhete para o voo
+     * Procura o bilhete de um determinado passageiro para um determinado voo
+     * @param p é o passageiro
+     * @param v é o voo
+     * @return bilhete encontrado
      */
     Bilhete getBilhetePassageiroVoo(const Passageiro& p, const Voo& v) const;
     /**
@@ -97,6 +131,14 @@ public:
      * Caso contrário retorna false (o voo está lotado/ não possui bilhetes suficientes para todos).
      */
     bool adquirirConjuntoBilhetes(list<Passageiro>& p, Voo& v, bool bagagem);
+    /**
+     * Cancela a compra feita por um determinado passsageiro de um bilhete para um determinado voo.
+     * Esta operação não é possível se o passageiro nunca tiver comprado nenhum bilhete para o voo em questão
+     * ou se o check-in para o voo em questão já tiver sido realizado.
+     * @param p é o passageiro que pretende cancelar viagem
+     * @param v é o voo da viagem em questão
+     * @return true se o cancelamento for possível, false caso contrário
+     */
     bool cancelarViagem(const Passageiro& p, Voo& v);
     /**
      * Realiza o check-in de um determinado passageiro com bilhete referente a um certo voo
@@ -105,37 +147,72 @@ public:
      */
     void realizarCheckIn(Passageiro& p, Voo& v) const;
     /**
-     * Retorna os voos que chegam a uma determinada cidade num determinado dia.
-     * @param cidadeChegada é a cidade em questão
-     * @param d é a data em questão
-     * @return voos que chegam à cidade em questão no dia d
+     *
+     * @param cidadeChegada é a cidade de destino
+     * @param d1 é a data
+     * @return voos que vão aterrar numa determinada cidade numa determinada data
      */
-    vector<Voo> getVoosChegada(const string& cidadeChegada, const Data& d=Data()) const;
+    vector <Voo> getVoosChegada (const string& cidadeChegada, const Data& d1=Data()) const;
     /**
-     * Retorna os voos que partem de uma determinada cidade num determinado dia.
-     * @param cidadePartida é a cidade em quastão
-     * @param d é a data em questão
-     * @return voos que partem da cidade em questão no dia d
+     *
+     * @param cidadePartida é a cidade de origem
+     * @param d1 é a data
+     * @return voos que vão partir de uma determinada cidade numa determinada data
      */
-    vector<Voo> getVoosPartida(const string& cidadePartida, const Data& d=Data()) const;
-    //TODO: DOCUMENTACAO
-    vector<Voo> getVoosCidades(const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
-    //TODO: DOCUMENTACAO
-    vector<Voo> getVoosDatas(const Data& d1, const Data& d2=Data()) const;
-
-    //TODO: DOCUMENTACAO
+    vector <Voo> getVoosPartida (const string& cidadePartida, const Data& d1=Data()) const;
+    /**
+     *
+     * @param cidadePartida é a cidade de origem
+     * @param cidadeChegada é a cidade de destino
+     * @param d1 é uma data
+     * @param d2 é uma data
+     * @return voos que vão ser realizados de uma determinada cidade para outra entre duas determinadas datas
+     */
+    vector <Voo> getVoosCidades (const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
+    /**
+     *
+     * @param d1 é uma data
+     * @param d2 é uma data
+     * @return todos os voos que vão ser realizados entre duas determinadas datas
+     */
+    vector <Voo> getVoosDatas (const Data& d1, const Data& d2=Data()) const;
+    /**
+     * Mostra todos os voos que vão aterrar numa determinada cidade numa determinada data
+     */
     void showVoos() const;
-    //TODO: DOCUMENTACAO
+    /**
+     * Mostra os voos que vão partir de uma determinada cidade numa determinada data
+     * @param cidadePartida é a cidade de origem
+     * @param d1 é a data
+     */
     void showVoosPartida (const string& cidadePartida, const Data& d1=Data()) const;
-    //TODO: DOCUMENTACAO
+    /**
+     * Mostra os voos que vão aterrar numa determinada cidade numa determinada data
+     * @param cidadeChegada é a cidade de destino
+     * @param d1  é a data
+     */
     void showVoosChegada(const string& cidadeChegada, const Data& d1=Data()) const;
-    //TODO: DOCUMENTACAO
-    void showVoosCidades(const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
-    //TODO: DOCUMENTACAO
-    void showVoosDatas(const Data& d1, const Data& d2=Data()) const;
-    //TODO: DOCUMENTACAO
-    void loadData(string ficheiroAvioes, string ficheiroVoos, string ficheiroBilhetes);
-
+    /**
+     * Mostra os voos que vão ser realizados entre duas determinadas datas
+     * @param cidadePartida é a cidade de origem
+     * @param cidadeChegada é a cidade de destino
+     * @param d1 é uma data
+     * @param d2 é uma data
+     */
+    void showVoosCidades (const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
+    /**
+     * Mostra todos os voos que vão ser realizados entre duas determinadas datas
+     * @param d1 é uma data
+     * @param d2 é uma data
+     */
+    void showVoosDatas (const Data& d1, const Data& d2=Data()) const;
+    /**
+     *
+     * @param ficheiroAvioes é o nome de um ficheiro com os aviões
+     * @param ficheiroVoos é o nome de um ficheiro com os voos
+     * @param ficheiroBilhetes é o nome de um ficheiro com os bilhetes
+     */
+    void loadData (string ficheiroAvioes, string ficheiroVoos, string ficheiroBilhetes);
 };
 
 #endif //_COMPANHIAAEREA_H

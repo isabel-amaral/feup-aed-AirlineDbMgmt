@@ -1,5 +1,5 @@
-#ifndef AIRLINEDATABASEMANAGEMENT_LOCALDETRANSPORTE_H
-#define AIRLINEDATABASEMANAGEMENT_LOCALDETRANSPORTE_H
+#ifndef _LOCALDETRANSPORTE_H
+#define _LOCALDETRANSPORTE_H
 
 #include <string>
 #include <list>
@@ -33,7 +33,6 @@ private:
 public:
     LocalDeTransporte();
     LocalDeTransporte(unsigned id, float d, tipoTransporte t, const list<Horario>& h = list<Horario>());
-
     /**
      *
      * @return número de identificação do local de transporte.
@@ -82,7 +81,7 @@ public:
      * de empate, compara-se as disponibilidades de cada um: o que tiver maior disponibilidade, será considerado menor. Caso contrário,
      * será menor aquele que tiver o menor tipo. Sendo considerada a seguinte ordem: Metro< Comboio< Autocarro.
      * @param local é o objeto a ser comparado com esta instância
-     * @return true se esta instância é menor que @param local, caso contrário false.
+     * @return true se esta instância é menor que @param local e em caso contrário false.
      */
     bool operator< (const LocalDeTransporte& local) const;
     /**
@@ -95,4 +94,4 @@ public:
 };
 
 
-#endif //AIRLINEDATABASEMANAGEMENT_LOCALDETRANSPORTE_H
+#endif //_LOCALDETRANSPORTE_H

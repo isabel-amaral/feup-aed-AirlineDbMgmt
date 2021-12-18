@@ -52,8 +52,8 @@ public:
     /**
      *
      * @param hora é o elemento a ser pesquisado no vetor horas usando pesquisa binária.
-     * @return posição da hora no vetor caso esta seja seja encontrada. Caso contrário retorna
-     * o índice do maior elemento menor que @param hora ou o menor elemento maior que @param hora.
+     * @return posição da hora no vetor caso esta seja encontrada. Caso contrário .retorna
+     * o índice do maior elemento menor que @param hora ou o menor elemento maior que @param hora
      */
     unsigned BinarySearchHora(const float& hora) const;
     /**
