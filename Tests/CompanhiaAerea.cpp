@@ -237,7 +237,6 @@ void CompanhiaAerea::loadData(string ficheiroAvioes, string ficheiroVoos, string
     ifstream f;
     int numAvioes;
 
-
     f.open("avioes.txt");
     if (f.is_open())
         f >> numAvioes;
