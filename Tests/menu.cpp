@@ -169,8 +169,8 @@ void menu::menu4() {
     cout << "17. Visualizar dados do local de transporte de Comboio mais proximo" << endl;
     cout << "18. Visualizar dados do local de transporte de Autocarro mais proximo" << endl;
     cout << "0. Voltar a pagina anterior." << endl;
-    cout << "\n Escolha uma opcao: ";
-    readOption(11, 19);
+    cout << "/n Escolha uma opcao: ";
+    readOption(11, 18);
 
     if (option){
         lastMenu.push(4);
@@ -186,6 +186,25 @@ void menu::menu4() {
 }
 
 void menu::menu5() {
+    cout << "19. Adicionar voo." << endl;
+    cout << "20. Adicionar avião." << endl;
+    cout << "21. Adicionar aeroporto." << endl;
+    cout << "22. Visualizar os aeroportos ordenados" << endl;
+    cout << "23. Os seus bilhetes." << endl;
+    cout << "24. Visualizar os passageiros de um voo" << endl;
+    cout << "25. Visualizar número de passageiros que fizeram check-in num voo" << endl;
+    cout << "0. Voltar a pagina anterior." << endl;
+    cout << "/n Escolha uma opcao: ";
+    readOption(19, 24);
+
+    if (option){
+        lastMenu.push(4);
+    }
+    else{
+        option=lastMenu.top();
+        lastMenu.pop();
+    }
+    processOption();
 
 }
 
@@ -198,7 +217,7 @@ void menu::menu7() {
     unsigned dia, mes, ano;
     bool inserirData;
 
-    cout << "Insira a ciade de partida: ";
+    cout << "Insira a cidade de partida: ";
     getline(cin, cidade);
     cout << "Insira o dia, o mes e o ano separados por espaço: " << endl;
     cout << "Nota: Pode colocar '0 0 0' caso nao queira indicar uma data em especifico " << endl;
@@ -281,7 +300,49 @@ void menu::menu18() {
 }
 
 void menu::menu19() {
+    unsigned n;
+    float hp, hc, d;
+    unsigned l, dia, mes, ano;
 
+    string nome, cidade;
+
+    cout << "Número do voo: " << endl;
+    cin >> n;
+
+    cout << "Aeroporto de origem:" << endl;
+    cout << "Nome: " << endl;
+    getline(cin, nome);
+
+    cout << "Cidade: " << endl;
+    getline(cin, cidade);
+    Aeroporto ao(nome, cidade);
+
+    cout << "Aeroporto de destino:" << endl;
+    cout << "Nome: " << endl;
+    getline(cin, nome);
+
+    cout << "Cidade: " << endl;
+    getline(cin, cidade);
+    Aeroporto ad(nome, cidade);
+
+    cout << "Data de ida: ";
+    cin >> dia >> mes >> ano ;
+    Data partida(dia, mes, ano);
+
+    cout << "Hora de partida: " << endl;
+    cin >> hp;
+
+    cout << "Hora de chegada: " << endl;
+    cin >> hc;
+
+    cout << "Duração prevista: " << endl;
+    cin >> d;
+
+    cout << "Lotação do avião: " << endl;
+    cin >> l;
+
+    Voo v(n, ao, ad, partida, hp, hc, d, l, 0);
+    companhia.addVoo(v);
 }
 
 void menu::menu20() {
