@@ -23,14 +23,6 @@ public:
     void menu8();
     void menu9();
     void menu10();
-    void menu11();
-    void menu12();
-    void menu13();
-    void menu14();
-    void menu15();
-    void menu16();
-    void menu17();
-    void menu18();
     void menu19();
     void menu20();
     void menu21();
