@@ -1,4 +1,5 @@
 #include "Voo.h"
+#include <algorithm>
 using namespace std;
 
 Voo::Voo() {
@@ -140,6 +141,11 @@ bool Voo::addConjuntoPassageiros(const list<Passageiro> &b) {
 
 void Voo::realizarCheckIn(const Passageiro& p) {
     passageirosCheckedIn.push_back(p);
+}
+
+void Voo::removerPassageiro(const Passageiro &p) {
+    list<Passageiro>::iterator it = find(passageiros.begin(), passageiros.end(), p);
+    passageiros.erase(it);
 }
 
 bool Voo::operator<(const Voo &v) const {

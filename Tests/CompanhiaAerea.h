@@ -22,7 +22,6 @@ private:
      * Objeto que contém as restrições de peso definidas pela companhia aérea e multas associadas
      */
     ExcessoPeso excessoPeso;
-
     list<Aviao> avioes;
 
 public:
@@ -67,9 +66,17 @@ public:
      * @return todos os passageiros do voo indicado
      */
     vector<Passageiro> getPassageirosFromVoo(const Voo& v) const;
-
-    //TODO: DOCUMENTACAO
+    /**
+     * Imprime os dados do bilhete de cada passageiro que irá viajar no voo.
+     * @param v é o voo para o qual se pretende obter a lista de passageiros com bilhete
+     */
     void showPassageirosFromVoo(const Voo& v) const;
+    /**
+     * Retorna o bilhete de um dterminado passageiro para um determinado voo.
+     * @param p passageiro em questão
+     * @param v voo em questão
+     * @return o bilhete do passageiro p para o voo v, objeto default caso o passageiro ainda não tenho adquirido bilhete para o voo
+     */
     Bilhete getBilhetePassageiroVoo(const Passageiro& p, const Voo& v) const;
     /**
      * Acrescenta um bilhete ao conjunto dos demais bilhetes vendidos caso seja possivel efetuar a sua compra (o voo v não está lotado).
@@ -90,20 +97,31 @@ public:
      * Caso contrário retorna false (o voo está lotado/ não possui bilhetes suficientes para todos).
      */
     bool adquirirConjuntoBilhetes(list<Passageiro>& p, Voo& v, bool bagagem);
+    bool cancelarViagem(const Passageiro& p, Voo& v);
     /**
      * Realiza o check-in de um determinado passageiro com bilhete referente a um certo voo
      * @param p
      * @param v
      */
     void realizarCheckIn(Passageiro& p, Voo& v) const;
+    /**
+     * Retorna os voos que chegam a uma determinada cidade num determinado dia.
+     * @param cidadeChegada é a cidade em questão
+     * @param d é a data em questão
+     * @return voos que chegam à cidade em questão no dia d
+     */
+    vector<Voo> getVoosChegada(const string& cidadeChegada, const Data& d=Data()) const;
+    /**
+     * Retorna os voos que partem de uma determinada cidade num determinado dia.
+     * @param cidadePartida é a cidade em quastão
+     * @param d é a data em questão
+     * @return voos que partem da cidade em questão no dia d
+     */
+    vector<Voo> getVoosPartida(const string& cidadePartida, const Data& d=Data()) const;
     //TODO: DOCUMENTACAO
-    vector <Voo> getVoosChegada (const string& cidadeChegada, const Data& d1=Data()) const;
+    vector<Voo> getVoosCidades(const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
     //TODO: DOCUMENTACAO
-    vector <Voo> getVoosPartida (const string& cidadePartida, const Data& d1=Data()) const;
-    //TODO: DOCUMENTACAO
-    vector <Voo> getVoosCidades (const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
-    //TODO: DOCUMENTACAO
-    vector <Voo> getVoosDatas (const Data& d1, const Data& d2=Data()) const;
+    vector<Voo> getVoosDatas(const Data& d1, const Data& d2=Data()) const;
 
     //TODO: DOCUMENTACAO
     void showVoos() const;
@@ -112,11 +130,11 @@ public:
     //TODO: DOCUMENTACAO
     void showVoosChegada(const string& cidadeChegada, const Data& d1=Data()) const;
     //TODO: DOCUMENTACAO
-    void showVoosCidades (const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
+    void showVoosCidades(const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
     //TODO: DOCUMENTACAO
-    void showVoosDatas (const Data& d1, const Data& d2=Data()) const;
+    void showVoosDatas(const Data& d1, const Data& d2=Data()) const;
     //TODO: DOCUMENTACAO
-    void loadData (string ficheiroAvioes, string ficheiroVoos, string ficheiroBilhetes);
+    void loadData(string ficheiroAvioes, string ficheiroVoos, string ficheiroBilhetes);
 
 };
 

@@ -103,11 +103,22 @@ bool CompanhiaAerea::adquirirConjuntoBilhetes(list<Passageiro> &p, Voo &v, bool 
 
     list<Passageiro>::const_iterator it;
     for (it = p.begin(); it != p.end(); it++) {
-        Bilhete b(*it, v, bagagem);
+        Bilhete b(Bilhete::getIdCount()+1, *it, v, bagagem);
         bilhetesVendidos.push_back(b);
     }
     sort(bilhetesVendidos.begin(), bilhetesVendidos.end());
     return true;
+}
+
+bool CompanhiaAerea::cancelarViagem(const Passageiro &p, Voo &v) {
+    Bilhete b = getBilhetePassageiroVoo(p, v);
+    if (b.getIdBilhete() == 0)
+        return false;
+    if (find(v.getPassageirosCheckedIn().begin(), v.getPassageirosCheckedIn().end(), p) == v.getPassageirosCheckedIn().end())
+        return false;
+    vector<Bilhete>::iterator it = find(bilhetesVendidos.begin(), bilhetesVendidos.end(), b);
+    bilhetesVendidos.erase(it);
+    v.removerPassageiro(p);
 }
 
 void CompanhiaAerea::realizarCheckIn(Passageiro &p, Voo &v) const {
@@ -126,25 +137,19 @@ void CompanhiaAerea::realizarCheckIn(Passageiro &p, Voo &v) const {
     v.realizarCheckIn(p);
 }
 
-vector<Voo> CompanhiaAerea::getVoosChegada(const string& cidadeChegada, const Data& d1) const {
-    vector <Voo> result;
-
-    for (const auto& v: voos){
-        if (v.getDestino().getCidade() == cidadeChegada && (d1 == Data() || v.getDataPartida() == d1) ){
+vector<Voo> CompanhiaAerea::getVoosChegada(const string& cidadeChegada, const Data& d) const {
+    vector<Voo> result;
+    for (const auto& v: voos)
+        if (v.getDestino().getCidade() == cidadeChegada && (d == Data() || d == v.getDataPartida()))
             result.push_back(v);
-        }
-    }
     return result;
 }
 
-vector<Voo> CompanhiaAerea::getVoosPartida(const string& cidadePartida, const Data& d1) const {
+vector<Voo> CompanhiaAerea::getVoosPartida(const string& cidadePartida, const Data& d) const {
     vector <Voo> result;
-
-    for (const auto& v: voos){
-        if (v.getOrigem().getCidade() == cidadePartida && (d1 == Data() || v.getDataPartida() == d1)){
+    for (const auto& v: voos)
+        if (v.getOrigem().getCidade() == cidadePartida && (d == Data() || v.getDataPartida() == d))
             result.push_back(v);
-        }
-    }
     return result;
 }
 
@@ -196,9 +201,9 @@ void CompanhiaAerea::showVoosChegada(const string &cidadeChegada, const Data &d1
     vector <Voo> voosChegada= getVoosChegada(cidadeChegada, d1);
 
     if (voosChegada.empty()){
-        cout << "Não existe voo com chegada à "<< cidadeChegada;
+        cout << "Não existe voo com chegada a "<< cidadeChegada;
         if (!(d1 == Data()))
-            cout<< " para a data " << d1.getData() ;
+            cout << " para a data " << d1.getData() ;
         cout << endl;
         return;
     }

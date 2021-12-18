@@ -194,6 +194,7 @@ public:
      * @param p é o passageiro que pretende realizar o seu check-in.
      */
     void realizarCheckIn(const Passageiro& p);
+    void removerPassageiro(const Passageiro& p);
 
     //TODO : DOCUMENTACAO
     bool operator < (const Voo& v) const;
