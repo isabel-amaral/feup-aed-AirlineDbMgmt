@@ -46,7 +46,7 @@ public:
     /**
      * @return horários do local.
      */
-    const list<Horario>& getHorarios() const;
+    list<Horario> getHorarios() const;
     /**
      * @return número de vezes que o meio de transporte passa pelo local.
      */

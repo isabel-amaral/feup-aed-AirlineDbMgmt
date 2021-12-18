@@ -97,6 +97,10 @@ public:
     * @return duração do voo
     */
     float getDuracao() const;
+    /**
+     *
+     * @return numero total de lugares do voo
+     */
     unsigned int getLotacao() const;
     /**
      *
@@ -113,6 +117,10 @@ public:
      * @return passageiros que já fizeram o check in
      */
     list<Passageiro> getPassageirosCheckedIn() const;
+    /**
+     *
+     * @return transportador com as bagagens correspondentes aos passageiros do voo
+     */
     TransportadorDeBagagem getTransportador() const;
     /**
     * atribui um número ao voo.
