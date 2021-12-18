@@ -16,6 +16,9 @@ private:
      * Matrícula do avião.
      */
     string matricula;
+
+    //TODO: DOC
+    string tipo;
     /**
      * Capacidade do avião.
      */
@@ -41,6 +44,9 @@ public:
      * @return matricula do avião.
      */
     string getMatricula() const;
+
+    //TODO: DOC
+    string getTipo() const;
     /**
      *
      * @return capacidade do avião.
@@ -66,6 +72,9 @@ public:
     * @param m é a matricula do aviao.
     */
     void setMatricula(const string& m);
+
+    //TODO: DOC
+    void setTipo (const string& t);
     /**
     * Modifica a capacidade do avião.
     * @param c é a capacidade do aviao

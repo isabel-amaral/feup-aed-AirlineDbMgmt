@@ -1,6 +1,7 @@
 #include "CompanhiaAerea.h"
 #include <iostream>
 #include <algorithm>
+#include <fstream>
 
 CompanhiaAerea::CompanhiaAerea() {
     bilhetesVendidos = vector<Bilhete>();
@@ -147,7 +148,7 @@ vector<Voo> CompanhiaAerea::getVoosPartida(const string& cidadePartida, const Da
     return result;
 }
 
-vector<Voo> CompanhiaAerea::getVoosCidades(const string& cidadePartida, const string& cidadeChegada, const Data& d1, Data& d2) const {
+vector<Voo> CompanhiaAerea::getVoosCidades(const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const {
     vector<Voo> result;
 
     for (const auto& v: voos){
@@ -206,11 +207,11 @@ void CompanhiaAerea::showVoosChegada(const string &cidadeChegada, const Data &d1
     }
 }
 
-void CompanhiaAerea::showVoosCidades(const string &cidadePartida, const string &cidadeChegada, const Data &d1, Data &d2) const {
+void CompanhiaAerea::showVoosCidades(const string &cidadePartida, const string &cidadeChegada, const Data &d1, const Data &d2) const {
     vector <Voo> voosCidade = getVoosCidades(cidadePartida, cidadeChegada, d1, d2);
 
     if (voosCidade.empty()){
-        cout<< "Não existem voo com partida em " << cidadePartida << " e chegada à " << cidadeChegada << " no periodo indicado." << endl;
+        cout<< "Nao ha voo com partida em " << cidadePartida << " e chegada a " << cidadeChegada << " no periodo indicado." << endl;
         return;
     }
 
@@ -223,13 +224,31 @@ void CompanhiaAerea::showVoosDatas(const Data &d1, const Data &d2) const {
     vector <Voo> voosDatas = getVoosDatas(d1, d2);
 
     if (voosDatas.empty()){
-        cout << "Não há voo disponível para o periodo indicado." <<endl;
+        cout << "Nao ha voo disponivel para o periodo indicado." <<endl;
         return;
     }
 
     for (const auto& voo: voosDatas){
         cout<<voo;
     }
+}
+
+void CompanhiaAerea::loadData(string ficheiroAvioes, string ficheiroVoos, string ficheiroBilhetes) {
+    ifstream f;
+    int numAvioes;
+
+
+    f.open("avioes.txt");
+    if (f.is_open())
+        f >> numAvioes;
+
+    while (!f.eof()){
+        Aviao a;
+
+
+    }
+
+
 }
 
 

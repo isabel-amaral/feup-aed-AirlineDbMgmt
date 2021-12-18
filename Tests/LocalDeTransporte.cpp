@@ -11,6 +11,10 @@ LocalDeTransporte::LocalDeTransporte(float d, tipoTransporte t, const list<Horar
     this->horarios = h;
 }
 
+unsigned LocalDeTransporte::getIdLocal() const {
+    return idLocal;
+}
+
 float LocalDeTransporte::getDistancia() const {
     return distancia;
 }
@@ -30,6 +34,11 @@ unsigned LocalDeTransporte::getDisponibilidade() const {
     }
     return count;
 }
+
+void LocalDeTransporte::setIdLocal(unsigned int id) {
+    this->idLocal = id;
+}
+
 
 void LocalDeTransporte::setDistancia(float d) {
     this->distancia = d;
@@ -79,18 +88,22 @@ ostream& operator<< (ostream &os, const LocalDeTransporte &local) {
 
     for (const auto& h: local.getHorarios()){
         if(h.getDia()==DiasUteis)
-            os << "Dias Uteis: " << endl;
+            os << "Dias Uteis: ";
         else if (h.getDia() == DomingosFeriados)
-            os << "Domingos e Feriados: " << endl;
+            os << "Domingos e Feriados: ";
         else
-            os << "Sábados: " << endl;
+            os << "Sábados: " ;
 
         for (auto hora: h.getHoras()){
-            os << fixed << setprecision(2) << hora << endl;
+            os << fixed << setprecision(2) << hora << "  ";
         }
+        os << endl;
     }
     return os;
 }
+
+
+
 
 
 

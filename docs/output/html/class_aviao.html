@@ -73,11 +73,14 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac3ca97439df6ed6f7bab385423c87142"><td class="memItemLeft" align="right" valign="top"><a id="ac3ca97439df6ed6f7bab385423c87142" name="ac3ca97439df6ed6f7bab385423c87142"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Aviao</b> (const string &amp;m, unsigned c)</td></tr>
-<tr class="separator:ac3ca97439df6ed6f7bab385423c87142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30435d7ea25e1feb0e5b86dc43fe8a65"><td class="memItemLeft" align="right" valign="top"><a id="a30435d7ea25e1feb0e5b86dc43fe8a65" name="a30435d7ea25e1feb0e5b86dc43fe8a65"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Aviao</b> (const string &amp;m, unsigned c, const list&lt; <a class="el" href="class_voo.html">Voo</a> &gt; &amp;planVoo=list&lt; <a class="el" href="class_voo.html">Voo</a> &gt;(), const queue&lt; <a class="el" href="class_servico.html">Servico</a> &gt; &amp;servRealizar=queue&lt; <a class="el" href="class_servico.html">Servico</a> &gt;())</td></tr>
+<tr class="separator:a30435d7ea25e1feb0e5b86dc43fe8a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80c3658c222299133e4584cfdcd1d00f"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aviao.html#a80c3658c222299133e4584cfdcd1d00f">getMatricula</a> () const</td></tr>
 <tr class="separator:a80c3658c222299133e4584cfdcd1d00f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc26508e0362e09256ad59c5685cf8cb"><td class="memItemLeft" align="right" valign="top"><a id="adc26508e0362e09256ad59c5685cf8cb" name="adc26508e0362e09256ad59c5685cf8cb"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>getTipo</b> () const</td></tr>
+<tr class="separator:adc26508e0362e09256ad59c5685cf8cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88283b9bfc23fb022e14c01316f82784"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aviao.html#a88283b9bfc23fb022e14c01316f82784">getCapacidade</a> () const</td></tr>
 <tr class="separator:a88283b9bfc23fb022e14c01316f82784"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d0af34ad8969674781291685a1fe0b4"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="class_voo.html">Voo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aviao.html#a2d0af34ad8969674781291685a1fe0b4">getPlanoDeVoo</a> () const</td></tr>
@@ -88,6 +91,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1cd20a55231fa7f7101d2a2e3b41d5f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b65efb307f19337f3ba9e5b2c25d6b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aviao.html#a7b65efb307f19337f3ba9e5b2c25d6b7">setMatricula</a> (const string &amp;m)</td></tr>
 <tr class="separator:a7b65efb307f19337f3ba9e5b2c25d6b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a336fa943a5855731955f0a00acaba6"><td class="memItemLeft" align="right" valign="top"><a id="a4a336fa943a5855731955f0a00acaba6" name="a4a336fa943a5855731955f0a00acaba6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setTipo</b> (const string &amp;t)</td></tr>
+<tr class="separator:a4a336fa943a5855731955f0a00acaba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3996463d8dc860da300031240ae7ba26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aviao.html#a3996463d8dc860da300031240ae7ba26">setCapacidade</a> (const unsigned &amp;c)</td></tr>
 <tr class="separator:a3996463d8dc860da300031240ae7ba26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2ae7c647b3e52d74002f67ebbfef1fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aviao.html#ad2ae7c647b3e52d74002f67ebbfef1fe">setPlanoDeVoo</a> (const list&lt; <a class="el" href="class_voo.html">Voo</a> &gt; &amp;planVoo)</td></tr>
@@ -98,15 +104,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac91f0fb6ae84c55596ffafe174b4f066"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa642ae9b1f61decdedbcd312623a5e4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aviao.html#aa642ae9b1f61decdedbcd312623a5e4f">addVoo</a> (const <a class="el" href="class_voo.html">Voo</a> &amp;voo)</td></tr>
 <tr class="separator:aa642ae9b1f61decdedbcd312623a5e4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1627478bd614a16ae753e0b89b85705"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aviao.html#af1627478bd614a16ae753e0b89b85705">addServicoPorRealizar</a> (const <a class="el" href="class_servico.html">Servico</a> &amp;servico)</td></tr>
-<tr class="separator:af1627478bd614a16ae753e0b89b85705"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ce52bd8bb3614f15df241207735163e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aviao.html#a1ce52bd8bb3614f15df241207735163e">realizarServico</a> ()</td></tr>
-<tr class="separator:a1ce52bd8bb3614f15df241207735163e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44046e9646dabb63e80e8d3ccf524c7f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aviao.html#a44046e9646dabb63e80e8d3ccf524c7f">addServicoPorRealizar</a> (const <a class="el" href="class_servico.html">Servico</a> &amp;servico)</td></tr>
+<tr class="separator:a44046e9646dabb63e80e8d3ccf524c7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac79afa040f887e31956f59eea48aeeba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aviao.html#ac79afa040f887e31956f59eea48aeeba">realizarServico</a> ()</td></tr>
+<tr class="separator:ac79afa040f887e31956f59eea48aeeba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:aba74c724076459305c6468af56d8a4d5"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aviao.html#aba74c724076459305c6468af56d8a4d5">matricula</a></td></tr>
 <tr class="separator:aba74c724076459305c6468af56d8a4d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49175e701ce2f96d72be30e392646652"><td class="memItemLeft" align="right" valign="top"><a id="a49175e701ce2f96d72be30e392646652" name="a49175e701ce2f96d72be30e392646652"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>tipo</b></td></tr>
+<tr class="separator:a49175e701ce2f96d72be30e392646652"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e81a375e07ed2ff5a8ab319b68a44b6"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aviao.html#a9e81a375e07ed2ff5a8ab319b68a44b6">capacidade</a></td></tr>
 <tr class="separator:a9e81a375e07ed2ff5a8ab319b68a44b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedb4fe87bdafdc55e6e59b0e8c4ee8c0"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="class_voo.html">Voo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aviao.html#aedb4fe87bdafdc55e6e59b0e8c4ee8c0">planoDeVoo</a></td></tr>
@@ -117,14 +126,14 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a6b5cd208e9388ef1f38ed84150eece6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af1627478bd614a16ae753e0b89b85705" name="af1627478bd614a16ae753e0b89b85705"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1627478bd614a16ae753e0b89b85705">&#9670;&nbsp;</a></span>addServicoPorRealizar()</h2>
+<a id="a44046e9646dabb63e80e8d3ccf524c7f" name="a44046e9646dabb63e80e8d3ccf524c7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44046e9646dabb63e80e8d3ccf524c7f">&#9670;&nbsp;</a></span>addServicoPorRealizar()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Aviao::addServicoPorRealizar </td>
+          <td class="memname">bool Aviao::addServicoPorRealizar </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_servico.html">Servico</a> &amp;&#160;</td>
           <td class="paramname"><em>servico</em></td><td>)</td>
@@ -138,6 +147,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>true se for possível agendar o serviço, false caso contrário. </dd></dl>
 
 </div>
 </div>
@@ -255,21 +265,21 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1ce52bd8bb3614f15df241207735163e" name="a1ce52bd8bb3614f15df241207735163e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ce52bd8bb3614f15df241207735163e">&#9670;&nbsp;</a></span>realizarServico()</h2>
+<a id="ac79afa040f887e31956f59eea48aeeba" name="ac79afa040f887e31956f59eea48aeeba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac79afa040f887e31956f59eea48aeeba">&#9670;&nbsp;</a></span>realizarServico()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Aviao::realizarServico </td>
+          <td class="memname">bool Aviao::realizarServico </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Marca um serviço da lista dos serviços agendados (por realizar) como concluído, ou seja, remove-o da fila dos agendados e acrescenta-o na dos realizados. </p>
+<p >Marca um serviço da lista dos serviços agendados (por realizar) como concluído, ou seja, remove-o da fila dos agendados e acrescenta-o na dos realizados. </p><dl class="section return"><dt>Returns</dt><dd>true se foi possível realizar o serviço (se havia serviços por realizar), false caso contrário. </dd></dl>
 
 </div>
 </div>
@@ -510,8 +520,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/<a class="el" href="_aviao_8h_source.html">Aviao.h</a></li>
-<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/Aviao.cpp</li>
+<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/AirlineDatabaseManagement/Tests/<a class="el" href="_aviao_8h_source.html">Aviao.h</a></li>
+<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/AirlineDatabaseManagement/Tests/Aviao.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

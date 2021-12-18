@@ -29,6 +29,10 @@ unsigned Aviao::getCapacidade() const {
     return this->capacidade;
 }
 
+string Aviao::getTipo() const {
+    return tipo;
+}
+
 list<Voo> Aviao::getPlanoDeVoo() const {
     return this->planoDeVoo;
 }
@@ -43,6 +47,10 @@ queue<Servico> Aviao::getServicosRealizados() const{
 
 void Aviao::setMatricula(const string& m) {
     this->matricula=m;
+}
+
+void Aviao::setTipo(const string &t) {
+    this -> tipo = t;
 }
 
 void Aviao::setCapacidade(const unsigned& c) {
@@ -80,3 +88,9 @@ bool Aviao::realizarServico (){
     this->servicosPorRealizar.pop();
     return true;
 }
+
+
+
+
+
+
