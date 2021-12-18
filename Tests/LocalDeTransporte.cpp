@@ -23,7 +23,7 @@ tipoTransporte LocalDeTransporte::getTipo() const {
     return tipo;
 }
 
-const list<Horario>& LocalDeTransporte::getHorarios() const {
+list<Horario> LocalDeTransporte::getHorarios() const {
     return horarios;
 }
 

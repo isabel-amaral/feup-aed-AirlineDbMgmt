@@ -10,7 +10,7 @@ private:
     stack <int> lastMenu;
     int option;
 public:
-    void readOption(const int &minOption, const int &maxOption);
+    void readOption( const int &minOption, const int &maxOption);
     menu();
     void processOption();
     void menu1();

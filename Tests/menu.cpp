@@ -1,7 +1,3 @@
-//
-// Created by ASUS on 18/12/2021.
-//
-
 #include "menu.h"
 
 void menu::readOption(const int &minOption, const int &maxOption) {
@@ -24,7 +20,7 @@ void menu::readOption(const int &minOption, const int &maxOption) {
                 cin.ignore(10000, '\n');
             }
         }
-        else if (option<minOption || option>maxOption || option != 0 || !isspace(cin.peek()))
+        else if (option<minOption || option>maxOption || option != 0 || !isspace(cin.peek()))   // O utilizador introduziu um inteiro inválido
         {
             validOption = false;
             cout << "OPCAO INVALIDA! TENTE NOVAMENTE. " << endl;
@@ -143,23 +139,26 @@ void menu::menu3() {
    //companhia.showBilhetesFromPassageiro(idPassageiro); // TODO: Mudar showBilhetesFromPassageiro para este formato
 
 
-
 }
 
 void menu::menu4() {
-    string nomeAeroporto;
-    Aeroporto* a;
+    int n=0;
+    int opOrdenacao;
+    Aeroporto a1;
+    for (const auto& a: companhia.getAeroportos()){
+        cout << n+1 << "- ";
+        cout << a.getNome() << "  " << endl;
+    }
+    cout << "Escolha uma das opcoes relativas ao nome do aeroporto: (0 para voltar a pagina anterior) " << endl;
 
-    cout << "Insira o nome do aeroporto: " << endl;
-    getline (cin, nomeAeroporto);
-
-    /*
-    if (companhia.searchAeroporto(nomeAeroporto, a)){
-        cout << "Aeroporto indisponível. ";
-        option = lastMenu.top();
+    readOption(1, n);
+    if (option == 0){
+        option=lastMenu.top();
         lastMenu.pop();
         processOption();
-    }*/
+    }
+
+    a1 = companhia.getAeroportos().at(option-1);
     cout << "11. Visualizar dados de todos os locais de transporte" << endl;
     cout << "12. Visualizar dados de todos os locais de Metro" << endl;
     cout << "13. Visualizar dados de todos os locais de Comboio" << endl;
@@ -172,17 +171,33 @@ void menu::menu4() {
     cout << "/n Escolha uma opcao: ";
     readOption(11, 18);
 
-    if (option){
-        lastMenu.push(4);
-    }
-    else{
-        option=lastMenu.top();
+    if (option == 0){
+        option = lastMenu.top();
         lastMenu.pop();
+        processOption();
     }
+
+    cout << "/n Escolha em que ordem deseja que os dados sejam apresentados: " << endl;
+    cout << "1. Distancia Ascendente - Disponibilidade Ascendente - Tipo " << endl;
+    cout << "2. Disponibilidade Ascendente - Distancia Ascendente - Tipo" << endl;
+    cout << "3. Tipo - Distancia Ascendente - Disponibilidade Ascendente " << endl;
+    cin >> opOrdenacao;
+
+
+    switch (option){
+        case 11: a1.showTransportes(opOrdenacao);      break;
+        case 12: a1.showMetros(opOrdenacao);           break;
+        case 13: a1.showComboios(opOrdenacao);         break;
+        case 14: a1.showAutocaros(opOrdenacao);        break;
+        case 15: a1.showLocalTransporteProximo(opOrdenacao); break;
+        case 16: a1.showMetroProximo(opOrdenacao);     break;
+        case 17: a1.showComboioProximo(opOrdenacao);   break;
+        case 18: a1.showAutocarroProximo(opOrdenacao); break;
+    }
+
+    option = lastMenu.top();
+    lastMenu.pop();
     processOption();
-
-    //TODO
-
 }
 
 void menu::menu5() {
