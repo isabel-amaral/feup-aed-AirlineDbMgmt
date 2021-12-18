@@ -82,36 +82,43 @@ public:
      */
     unsigned binarySearchAeroporto (const Aeroporto &aeroporto);
     /**
-     * @param p é um determinado passageiro.
-     * @return  vector com todos os bilhetes adquiridos pelo passageiro (@param p) num vetor.
+     *
+     * @param bId é o id do bilhete
+     * @return bilhete com id bId
+     */
+    Bilhete getBilheteID(unsigned bId) const;
+    /**
+     *
+     * @param pId é o id de um determinado passageiro
+     * @return vector com todos os bilhetes adquiridos pelo passageiro (@param p) num vetor.
      * Caso este passageiro não tenha adquirido nenhum bilhete, será retornado um vetor vazio.
      */
-    vector<Bilhete> getBilhetesFromPassageiro(const Passageiro& p) const;
+    vector<Bilhete> getBilhetesFromPassageiro(unsigned pId) const;
     /**
      * Imprime os dados de cada um dos bilhetes de um determinado passageiro.
      * Caso o passageiro não tenha adquirido nenhum bilhete, é apresentada a
      * mensagem "Este passageiro ainda não adquiriu nenhum bilhete".
-     * @param p é o passageiro.
+     * @param pId é o id do passageiro
      */
-    void showBilhetesFromPassageiro(const Passageiro& p) const;
+    void showBilhetesFromPassageiro(unsigned pId) const;
     /**
      *
-     * @param v é um voo
+     * @param numVoo é o número do voo
      * @return todos os passageiros do voo indicado
      */
-    vector<Passageiro> getPassageirosFromVoo(const Voo& v) const;
+    vector<Passageiro> getPassageirosFromVoo(unsigned numVoo) const;
     /**
      * Mostra todos os passageiros que adquiriram bilhete para um determinado voo
-     * @param v é o voo
+     * @param numVoo é o número do voo
      */
-    void showPassageirosFromVoo(const Voo& v) const;
+    void showPassageirosFromVoo(unsigned numVoo) const;
     /**
      * Procura o bilhete de um determinado passageiro para um determinado voo
-     * @param p é o passageiro
-     * @param v é o voo
-     * @return bilhete encontrado
+     * @param pId é o id do passageiro
+     * @param numVoo é o número do voo
+     * @return bilhete do passageiro para o voo em questão
      */
-    Bilhete getBilhetePassageiroVoo(const Passageiro& p, const Voo& v) const;
+    Bilhete getBilhetePassageiroVoo(unsigned pId, unsigned numVoo) const;
     /**
      * Acrescenta um bilhete ao conjunto dos demais bilhetes vendidos caso seja possivel efetuar a sua compra (o voo v não está lotado).
      * @param p é o passageiro que pretende comprar o bilhete.
@@ -142,17 +149,16 @@ public:
     bool cancelarViagem(const Passageiro& p, Voo& v);
     /**
      * Realiza o check-in de um determinado passageiro com bilhete referente a um certo voo
-     * @param p
-     * @param v
+     * @param bId é o id do bilhete do passageiro para o voo para o qual pretende realizar check-in
      */
-    void realizarCheckIn(Passageiro& p, Voo& v) const;
+    void realizarCheckIn(unsigned bId) const;
     /**
      *
      * @param cidadeChegada é a cidade de destino
      * @param d1 é a data
      * @return voos que vão aterrar numa determinada cidade numa determinada data
      */
-    vector <Voo> getVoosChegada (const string& cidadeChegada, const Data& d1=Data()) const;
+    vector<Voo> getVoosChegada (const string& cidadeChegada, const Data& d1=Data()) const;
     /**
      *
      * @param cidadePartida é a cidade de origem
@@ -199,20 +205,20 @@ public:
      * @param d1 é uma data
      * @param d2 é uma data
      */
-    void showVoosCidades (const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
+    void showVoosCidades(const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
     /**
      * Mostra todos os voos que vão ser realizados entre duas determinadas datas
      * @param d1 é uma data
      * @param d2 é uma data
      */
-    void showVoosDatas (const Data& d1, const Data& d2=Data()) const;
+    void showVoosDatas(const Data& d1, const Data& d2=Data()) const;
     /**
      *
      * @param ficheiroAvioes é o nome de um ficheiro com os aviões
      * @param ficheiroVoos é o nome de um ficheiro com os voos
      * @param ficheiroBilhetes é o nome de um ficheiro com os bilhetes
      */
-    void loadData (string ficheiroAvioes, string ficheiroVoos, string ficheiroBilhetes);
+    void loadData(string ficheiroAvioes, string ficheiroVoos, string ficheiroBilhetes);
 };
 
 #endif //_COMPANHIAAEREA_H

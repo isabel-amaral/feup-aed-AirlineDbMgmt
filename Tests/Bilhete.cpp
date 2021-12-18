@@ -23,7 +23,7 @@ unsigned Bilhete::getIdBilhete() {
     return idBilhete;
 }
 
-int Bilhete::getIdCount() {
+unsigned Bilhete::getIdCount() {
     return idCount;
 }
 
