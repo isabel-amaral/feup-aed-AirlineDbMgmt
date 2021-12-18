@@ -23,6 +23,10 @@ unsigned Bilhete::getIdBilhete() {
     return idBilhete;
 }
 
+int Bilhete::getIdCount() {
+    return idCount;
+}
+
 Passageiro Bilhete::getPasssageiro() const {
     return passageiro;
 }
@@ -76,5 +80,3 @@ ostream &operator<<(ostream &os, const Bilhete &b) {
 
     return os;
 }
-
-

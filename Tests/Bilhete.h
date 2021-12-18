@@ -37,6 +37,8 @@ public:
      * @return Número de identificação do bilhete.
      */
     unsigned getIdBilhete();
+    static unsigned getIdCount();
+
     /**
      *
      * @return passageiro a quem pertence o bilhete.
