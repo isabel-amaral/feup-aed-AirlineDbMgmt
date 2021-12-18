@@ -1,4 +1,3 @@
-
 #ifndef AIRLINEDATABASEMANAGEMENT_LOCALDETRANSPORTE_H
 #define AIRLINEDATABASEMANAGEMENT_LOCALDETRANSPORTE_H
 
@@ -9,11 +8,13 @@
 
 using namespace std;
 
-enum tipoTransporte{ Metro, Comboio, Autocarro};
+enum tipoTransporte{ Metro, Comboio, Autocarro };
 
 class LocalDeTransporte {
 private:
-    //TODO:DOCUMENTACAO
+    /**
+     * Número de identificação do local de transporte
+     */
     unsigned idLocal;
     /**
      * Distância do local de transporte até ao aeroporto a que está associado.
@@ -31,9 +32,12 @@ private:
     list<Horario> horarios;
 public:
     LocalDeTransporte();
-    LocalDeTransporte(float d, tipoTransporte t, const list<Horario>& h = list<Horario>());
+    LocalDeTransporte(unsigned id, float d, tipoTransporte t, const list<Horario>& h = list<Horario>());
 
-    //TODO: DOCUMENTACAO
+    /**
+     *
+     * @return número de identificação do local de transporte.
+     */
     unsigned getIdLocal()const;
     /**
      * @return distância entre o local e o aeroporto.
@@ -44,15 +48,17 @@ public:
      */
     tipoTransporte getTipo() const;
     /**
-     * @return horários do local.
+     * @return horários a que é possível apanhar um transporte no local.
      */
     list<Horario> getHorarios() const;
     /**
      * @return número de vezes que o meio de transporte passa pelo local.
      */
     unsigned getDisponibilidade() const;
-
-    //TODO: DOC
+    /**
+     * Altera o número de identificação do local
+     * @param id é o novo número de identificação do local
+     */
     void setIdLocal(unsigned id);
     /**
      * Altera a distância entre o local e o aeroporto a que está associado.
@@ -71,7 +77,6 @@ public:
      * @param horario é o novo horário
      */
     void updateHorario(const Horario &horario);
-
     /**
      * Considera-se que este local de transporte é menor que outro (local) se a sua distância ao aeroporto for menor que a de local. Em caso
      * de empate, compara-se as disponibilidades de cada um: o que tiver maior disponibilidade, será considerado menor. Caso contrário,
@@ -80,7 +85,12 @@ public:
      * @return true se esta instância é menor que @param local, caso contrário false.
      */
     bool operator< (const LocalDeTransporte& local) const;
-    //TODO: DOCUMENTACAO
+    /**
+     * Este operador envia para uma outputstream toda a informação sobre um local de transporte que deverá ser mostrada ao utilizador.
+     * @param os outputstream que conterá ionformação sobre o local
+     * @param local local de transporte do qual se pretende obter informação
+     * @return outputstream com a informação sobre o local de transporte
+     */
     friend ostream& operator<< (ostream& os, const LocalDeTransporte& local);
 };
 

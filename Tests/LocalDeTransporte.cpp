@@ -5,7 +5,8 @@ LocalDeTransporte::LocalDeTransporte() {
     this->distancia=0.0;
 }
 
-LocalDeTransporte::LocalDeTransporte(float d, tipoTransporte t, const list<Horario> &h) {
+LocalDeTransporte::LocalDeTransporte(unsigned id, float d, tipoTransporte t, const list<Horario> &h) {
+    this->idLocal = id;
     this->distancia = d;
     this->tipo = t;
     this->horarios = h;
@@ -23,7 +24,7 @@ tipoTransporte LocalDeTransporte::getTipo() const {
     return tipo;
 }
 
-const list<Horario>& LocalDeTransporte::getHorarios() const {
+list<Horario> LocalDeTransporte::getHorarios() const {
     return horarios;
 }
 
@@ -83,7 +84,7 @@ ostream& operator<< (ostream &os, const LocalDeTransporte &local) {
     else
         os << "Autocarro" << endl;
 
-    os << "DISTÂNCIA DO AEROPORTO: " << local.getDistancia() << " metros" << endl;
+    os << "DISTÂNCIA AO AEROPORTO: " << local.getDistancia() << " metros" << endl;
     os << "HORÁRIOS: " << endl;
 
     for (const auto& h: local.getHorarios()){
