@@ -84,35 +84,35 @@ public:
     /**
      * Imprime na tela todos os meios de transporte terrestre disponíveis.
      */
-    void showTransportes() const;
+    void showTransportes(int ordenacao) const;
     /**
      * Imprime na tela todos os locais de Metro disponíveis na cidade.
      */
-    void showMetros() const;
+    void showMetros(int ordenacao) const;
     /**
      * Imprime na tela todos os locais de Comboio disponíveis na cidade.
      */
-    void showComboios() const;
+    void showComboios(int ordenacao) const;
     /**
      * Imprime na tela todos os locais de Autocarro disponíveis na cidade.
      */
-    void showAutocaros() const;
+    void showAutocaros(int ordenacao) const;
     /**
      * Imprime os detalhes sobre o local de transporte mais próximo, caso exista.
      */
-    void showLocalTransporteProximo() const;
+    void showLocalTransporteProximo(int ordenacao) const;
     /**
      * Imprime os detalhes sobre o Metro mais próximo, caso exista.
      */
-    void showMetroProximo() const;
+    void showMetroProximo(int ordenacao) const;
     /**
      * Imprime os detalhes sobre o Comboio mais próximo, caso exista.
      */
-    void showComboioProximo() const;
+    void showComboioProximo(int ordenacao) const;
     /**
      * Imprime os detalhes sobre o Autocarro mais próximo, caso exista.
      */
-    void showAutocarroProximo() const;
+    void showAutocarroProximo(int ordenacao) const;
     /**
      * Um aeroporto é tanto menor quanto menor é o seu nome.
      * @param a1 é o aeroporto a ser comparado com esta instância.
