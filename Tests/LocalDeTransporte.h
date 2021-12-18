@@ -13,6 +13,8 @@ enum tipoTransporte{ Metro, Comboio, Autocarro};
 
 class LocalDeTransporte {
 private:
+    //TODO:DOCUMENTACAO
+    unsigned idLocal;
     /**
      * Distância do local de transporte até ao aeroporto a que está associado.
      */
@@ -30,6 +32,9 @@ private:
 public:
     LocalDeTransporte();
     LocalDeTransporte(float d, tipoTransporte t, const list<Horario>& h = list<Horario>());
+
+    //TODO: DOCUMENTACAO
+    unsigned getIdLocal()const;
     /**
      * @return distância entre o local e o aeroporto.
      */
@@ -46,6 +51,9 @@ public:
      * @return número de vezes que o meio de transporte passa pelo local.
      */
     unsigned getDisponibilidade() const;
+
+    //TODO: DOC
+    void setIdLocal(unsigned id);
     /**
      * Altera a distância entre o local e o aeroporto a que está associado.
      * @param d é a nova distância a ser atribuída.

@@ -7,6 +7,8 @@
 
 class Bilhete {
 private:
+    //TODO: DOC
+    unsigned idBilhete;
     /**
      * Passageiro a quem pertence o bilhete.
      */
@@ -26,7 +28,9 @@ private:
 
 public:
     Bilhete();
-    Bilhete(const Passageiro& p, const Voo& v, bool b, const list<Bagagem*>& bagagem = list<Bagagem*>());
+    Bilhete( const Passageiro& p, const Voo& v, bool b, const list<Bagagem*>& bagagem = list<Bagagem*>());
+    //TODO: DOC
+    unsigned getIdBilhete();
     /**
      *
      * @return passageiro a quem pertence o bilhete.

@@ -7,11 +7,15 @@ Bilhete::Bilhete() {
     this->bagagem = list<Bagagem*>();
 }
 
-Bilhete::Bilhete(const Passageiro& p, const Voo& v, bool b, const list<Bagagem*>& bagagem) {
+Bilhete::Bilhete( const Passageiro& p, const Voo& v, bool b, const list<Bagagem*>& bagagem) {
     this->passageiro = p;
     this->voo = v;
     this->bagagemDeMao = b;
     this->bagagem = bagagem;
+}
+
+unsigned Bilhete::getIdBilhete() {
+    return idBilhete;
 }
 
 Passageiro Bilhete::getPasssageiro() const {
@@ -67,3 +71,5 @@ ostream &operator<<(ostream &os, const Bilhete &b) {
 
     return os;
 }
+
+

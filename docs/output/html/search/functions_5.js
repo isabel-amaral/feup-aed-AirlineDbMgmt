@@ -11,7 +11,7 @@ var searchData=
   ['getcidade_8',['getCidade',['../class_aeroporto.html#a222a4ff75168f6cd658538739ca4cb36',1,'Aeroporto']]],
   ['getcomboioproximo_9',['getComboioProximo',['../class_aeroporto.html#aeaa83c3481eff5b67e3fb8832ef4d1d9',1,'Aeroporto']]],
   ['getcomboios_10',['getComboios',['../class_aeroporto.html#a91897af78dd91138fa4a3ab7bbea5d88',1,'Aeroporto']]],
-  ['getdata_11',['getData',['../class_data.html#a13f25eafdc138d743e99eb4086d765a2',1,'Data::getData()'],['../class_servico.html#ac48508f9617fa99fe63853b070f123d6',1,'Servico::getData()']]],
+  ['getdata_11',['getData',['../class_data.html#a13f25eafdc138d743e99eb4086d765a2',1,'Data::getData()'],['../class_servico.html#aa261bceadec8c7a2eb4d3172f51661f0',1,'Servico::getData()']]],
   ['getdatapartida_12',['getDataPartida',['../class_voo.html#a025bc81bc163754977e6fc485dcaeb6d',1,'Voo']]],
   ['getdestino_13',['getDestino',['../class_voo.html#ae49630ba53ada7f549abacb1c9c19228',1,'Voo']]],
   ['getdia_14',['getDia',['../class_data.html#ad3e403bda0308718401e3f170d6ee8e2',1,'Data::getDia()'],['../class_horario.html#ab31554e9c816489307aa59615e4592e9',1,'Horario::getDia()']]],
@@ -50,7 +50,7 @@ var searchData=
   ['gettaxabagagemdemao_47',['getTaxaBagagemDeMao',['../class_excesso_peso.html#aa1ed4ff145dc05b823e27e8f3fa75dbc',1,'ExcessoPeso']]],
   ['gettaxapesoextra_48',['getTaxaPesoExtra',['../class_excesso_peso.html#a9319e90378a07add6cc628e7a57b251b',1,'ExcessoPeso']]],
   ['gettipo_49',['getTipo',['../class_local_de_transporte.html#ab75c6b65bf1ed9ec99ba8e00721d6e0a',1,'LocalDeTransporte']]],
-  ['gettiposervico_50',['getTipoServico',['../class_servico.html#a6607fd5dd330845c9a3ac4690fb993c7',1,'Servico']]],
+  ['gettiposervico_50',['getTipoServico',['../class_servico.html#a65cc79849178f241983e75b438042b7b',1,'Servico']]],
   ['gettransportes_51',['getTransportes',['../class_aeroporto.html#a0489561666fbbf2d1074f1e003831624',1,'Aeroporto']]],
   ['getvoo_52',['getVoo',['../class_bilhete.html#ac68c5d6583d6a29985e1c82cd6806011',1,'Bilhete']]],
   ['getvoos_53',['getVoos',['../class_companhia_aerea.html#aa43b2d1fc0e07f50fd0df57a5bceaaa7',1,'CompanhiaAerea']]]

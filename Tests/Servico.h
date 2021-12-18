@@ -13,11 +13,12 @@ private:
     /**
      * Um serviço pode ser de manutenção ou limpeza,
      * em cada caso será representado por uma string cujo valor será "manutenção "ou "limpeza"
-     */             //***************** ALTERAR A DOCUMENTADACAO ACIMA******************************
+     */
+    // TODO ALTERAR A DOCUMENTADACAO ACIMA
     TipoServico tipoServico;
     /**
      * A data para a qual o serviço foi agendado é armazenada numa string no formato DD-MM-AAAA,
-     * pode ser uma data passada ou futura conforme o serviço já tenha sido realizado ou não
+     * pode ser uma data passada ou futura conforme o serviço já tenha sido realizado ou não.
      */
     Data data;
     /**

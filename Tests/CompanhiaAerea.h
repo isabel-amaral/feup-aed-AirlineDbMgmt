@@ -6,6 +6,7 @@
 #include "Voo.h"
 #include "Data.h"
 #include "ExcessoPeso.h"
+#include "Aviao.h"
 
 class CompanhiaAerea {
 private:
@@ -21,6 +22,8 @@ private:
      * Objeto que contém as restrições de peso definidas pela companhia aérea e multas associadas
      */
     ExcessoPeso excessoPeso;
+
+    list<Aviao> avioes;
 
 public:
     CompanhiaAerea();
@@ -98,7 +101,7 @@ public:
     //TODO: DOCUMENTACAO
     vector <Voo> getVoosPartida (const string& cidadePartida, const Data& d1=Data()) const;
     //TODO: DOCUMENTACAO
-    vector <Voo> getVoosCidades (const string& cidadePartida, const string& cidadeChegada, const Data& d1, Data& d2) const;
+    vector <Voo> getVoosCidades (const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
     //TODO: DOCUMENTACAO
     vector <Voo> getVoosDatas (const Data& d1, const Data& d2=Data()) const;
 
@@ -109,9 +112,11 @@ public:
     //TODO: DOCUMENTACAO
     void showVoosChegada(const string& cidadeChegada, const Data& d1=Data()) const;
     //TODO: DOCUMENTACAO
-    void showVoosCidades (const string& cidadePartida, const string& cidadeChegada, const Data& d1, Data& d2) const;
+    void showVoosCidades (const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
     //TODO: DOCUMENTACAO
     void showVoosDatas (const Data& d1, const Data& d2=Data()) const;
+    //TODO: DOCUMENTACAO
+    void loadData (string ficheiroAvioes, string ficheiroVoos, string ficheiroBilhetes);
 
 };
 
