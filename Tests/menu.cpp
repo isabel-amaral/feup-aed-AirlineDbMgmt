@@ -88,6 +88,9 @@ void menu::processOption() {
         case 21: menu21(); break;
         case 22: menu22(); break;
         case 23: menu23(); break;
+        case 24: menu24(); break;
+        case 25: menu25(); break;
+
     }
 }
 
@@ -202,6 +205,25 @@ void menu::menu4() {
 }
 
 void menu::menu5() {
+    cout << "19. Adicionar voo." << endl;
+    cout << "20. Adicionar avião." << endl;
+    cout << "21. Adicionar aeroporto." << endl;
+    cout << "22. Visualizar os aeroportos." << endl;
+    cout << "23. Procurar aeroporto." << endl;
+    cout << "24. Visualizar os passageiros de um voo." << endl;
+    cout << "25. Visualizar número de passageiros que fizeram check-in num voo." << endl;
+    cout << "0. Voltar a pagina anterior." << endl;
+    cout << "/n Escolha uma opcao: ";
+    readOption(19, 25);
+
+    if (option){
+        lastMenu.push(4);
+    }
+    else{
+        option=lastMenu.top();
+        lastMenu.pop();
+    }
+    processOption();
 
 }
 
@@ -214,7 +236,7 @@ void menu::menu7() {
     unsigned dia, mes, ano;
     bool inserirData;
 
-    cout << "Insira a ciade de partida: ";
+    cout << "Insira a cidade de partida: ";
     getline(cin, cidade);
     cout << "Insira o dia, o mes e o ano separados por espaço: " << endl;
     cout << "Nota: Pode colocar '0 0 0' caso nao queira indicar uma data em especifico " << endl;
@@ -257,63 +279,155 @@ void menu::menu9() {
     Data regresso (dRegresso, mRegresso, aRegresso);
 
     companhia.showVoosCidades(origem, destino, partida, regresso);
-
 }
 
 void menu::menu10() {
+    string origem, destino;
+    unsigned d1, m1, a1, d2, m2, a2;
 
-}
+    cout << "Origem: " << endl;
+    getline(cin,origem);
 
-void menu::menu11() {
+    cout << "Destino: " << endl;
+    getline (cin, destino);
 
-}
+    cout << "Data de ida: ";
+    cin >> d1 >> m1 >> a1 ;
+    Data data1(d1, m1, a1);
 
-void menu::menu12() {
+    cout <<  "Data de regresso: ";
+    cin >> d2 >> m2 >> a2;
+    Data data2(d2, m2, a2);
 
-}
-
-void menu::menu13() {
-
-}
-
-void menu::menu14() {
-
-}
-
-void menu::menu15() {
-
-}
-
-void menu::menu16() {
-
-}
-
-void menu::menu17() {
-
-}
-
-void menu::menu18() {
-
+    companhia.showVoosDatas(data1, data2);
 }
 
 void menu::menu19() {
+    unsigned n;
+    float hp, hc, d;
+    unsigned l, dia, mes, ano;
 
+    string nome, cidade;
+
+    cout << "Número do voo: " << endl;
+    cin >> n;
+
+    cout << "Aeroporto de origem:" << endl;
+    cout << "Nome: " << endl;
+    getline(cin, nome);
+
+    cout << "Cidade: " << endl;
+    getline(cin, cidade);
+    Aeroporto ao(nome, cidade);
+
+    cout << "Aeroporto de destino:" << endl;
+    cout << "Nome: " << endl;
+    getline(cin, nome);
+
+    cout << "Cidade: " << endl;
+    getline(cin, cidade);
+    Aeroporto ad(nome, cidade);
+
+    cout << "Data de ida: ";
+    cin >> dia >> mes >> ano ;
+    Data partida(dia, mes, ano);
+
+    cout << "Hora de partida: " << endl;
+    cin >> hp;
+
+    cout << "Hora de chegada: " << endl;
+    cin >> hc;
+
+    cout << "Duração prevista: " << endl;
+    cin >> d;
+
+    cout << "Lotação do avião: " << endl;
+    cin >> l;
+
+    Voo v(n, ao, ad, partida, hp, hc, d, l, 0);
+    companhia.addVoo(v);
 }
 
 void menu::menu20() {
+    string m;
+    unsigned c;
 
+    cout << "Matrícula do avião: " << endl;
+    cin >> m;
+
+    cout << "Capacidade do avião: " << endl;
+    cin >> c;
+
+    Aviao a(m, c);
+    companhia.addAviao(a);
 }
 
 void menu::menu21() {
+    string nome, cidade;
 
+    cout << "Nome: " << endl;
+    getline(cin, nome);
+
+    cout << "Cidade: " << endl;
+    getline(cin, cidade);
+
+    Aeroporto a(nome, cidade);
+    companhia.addAeroporto(a);
 }
 
 void menu::menu22() {
+    vector<Aeroporto> a = companhia.getAeroportos();
+    sort(a.begin(), a.end());
 
+    for(Aeroporto ap: a) {
+        cout << ap.getNome() << endl;
+        cout << ap.getCidade() << endl;
+    }
 }
 
 void menu::menu23() {
+    string n, c;
 
+    cout << "Nome: " << endl;
+    getline(cin, n);
+
+    cout << "Cidade: " << endl;
+    getline(cin, c);
+
+    Aeroporto a(n, c);
+    companhia.binarySearchAeroporto(a);
+}
+
+void menu::menu24() {
+    unsigned n;
+    cout << "Número de voo: " << endl;
+    cin >> n;
+
+    for (Voo v: companhia.getVoos()) {
+        if (v.getNumeroVoo() == n) {
+            for (Passageiro p: v.getPassageiros()) {
+                cout << p.getId() << endl << p.getNome() << p.isMenorNaoAcompanhado() << endl;
+                cout << endl;
+            }
+            break;
+        }
+    }
+}
+
+void menu::menu25() {
+    unsigned n;
+    cout << "Número de voo: " << endl;
+    cin >> n;
+
+    for (Voo v: companhia.getVoos()) {
+        if (v.getNumeroVoo() == n) {
+            for (Passageiro p: v.getPassageirosCheckedIn()) {
+                cout << p.getId() << endl << p.getNome() << p.isMenorNaoAcompanhado() << endl;
+                cout << endl;
+            }
+            break;
+        }
+    }
 }
 
 

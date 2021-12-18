@@ -36,6 +36,8 @@ public:
     void menu21();
     void menu22();
     void menu23();
+    void menu24();
+    void menu25();
 };
 
 
