@@ -48,8 +48,8 @@ menu::menu() {
     cout << "1. Pesquisar Voos " << endl;
     cout << "2. Realizar Check-in" << endl;
     cout << "3. As minhas Reservas" << endl;
-    cout << "4. Transportes: Locais e Horários " << endl;
-    cout << "5. Companhia: Informacoes Privadas  " << endl;
+    cout << "4. Transportes: Locais e Horarios " << endl;
+    cout << "5. Companhia: Pesquisa e Listagens  " << endl;
     cout << "0. Sair." << endl;
     cout << endl;
     cout << "Escolha uma opcao: ";
@@ -148,8 +148,18 @@ void menu::menu3() {
 
 void menu::menu4() {
     string nomeAeroporto;
+    Aeroporto* a;
+
     cout << "Insira o nome do aeroporto: " << endl;
     getline (cin, nomeAeroporto);
+
+    /*
+    if (companhia.searchAeroporto(nomeAeroporto, a)){
+        cout << "Aeroporto indisponível. ";
+        option = lastMenu.top();
+        lastMenu.pop();
+        processOption();
+    }*/
     cout << "11. Visualizar dados de todos os locais de transporte" << endl;
     cout << "12. Visualizar dados de todos os locais de Metro" << endl;
     cout << "13. Visualizar dados de todos os locais de Comboio" << endl;

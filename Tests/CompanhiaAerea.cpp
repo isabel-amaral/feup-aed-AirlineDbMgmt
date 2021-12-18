@@ -73,7 +73,7 @@ void CompanhiaAerea::showPassageirosFromVoo(const Voo& v) const {
         return;
     }
 
-    for (auto passageiro: passageiros){
+    for (const auto& passageiro: passageiros){
         cout << passageiro << endl;
     }
 }
@@ -237,19 +237,21 @@ void CompanhiaAerea::loadData(string ficheiroAvioes, string ficheiroVoos, string
     ifstream f;
     int numAvioes;
 
-
     f.open("avioes.txt");
     if (f.is_open())
         f >> numAvioes;
 
     while (!f.eof()){
         Aviao a;
-
-
     }
+}
 
+Aeroporto &CompanhiaAerea::findAeroporto(const string &nome) const {
 
 }
+
+
+
 
 
 

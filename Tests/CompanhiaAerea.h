@@ -177,6 +177,9 @@ public:
      */
     void loadData (string ficheiroAvioes, string ficheiroVoos, string ficheiroBilhetes);
 
+    Aeroporto& findAeroporto (const string& nome) const;
+
+
 };
 
 #endif //_COMPANHIAAEREA_H
