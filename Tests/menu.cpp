@@ -217,7 +217,7 @@ void menu::menu5() {
     readOption(19, 25);
 
     if (option){
-        lastMenu.push(4);
+        lastMenu.push(5);
     }
     else{
         option=lastMenu.top();
@@ -379,7 +379,7 @@ void menu::menu22() {
     vector<Aeroporto> a = companhia.getAeroportos();
     sort(a.begin(), a.end());
 
-    for(Aeroporto ap: a) {
+    for(const Aeroporto& ap: a) {
         cout << ap.getNome() << endl;
         cout << ap.getCidade() << endl;
     }
@@ -387,6 +387,7 @@ void menu::menu22() {
 
 void menu::menu23() {
     string n, c;
+    unsigned index;
 
     cout << "Nome: " << endl;
     getline(cin, n);
@@ -403,10 +404,10 @@ void menu::menu24() {
     cout << "Número de voo: " << endl;
     cin >> n;
 
-    for (Voo v: companhia.getVoos()) {
+    for (const Voo& v: companhia.getVoos()) {
         if (v.getNumeroVoo() == n) {
-            for (Passageiro p: v.getPassageiros()) {
-                cout << p.getId() << endl << p.getNome() << p.isMenorNaoAcompanhado() << endl;
+            for (const Passageiro& p: v.getPassageiros()) {
+                cout << p << endl;
                 cout << endl;
             }
             break;
@@ -419,10 +420,10 @@ void menu::menu25() {
     cout << "Número de voo: " << endl;
     cin >> n;
 
-    for (Voo v: companhia.getVoos()) {
+    for (const Voo& v: companhia.getVoos()) {
         if (v.getNumeroVoo() == n) {
-            for (Passageiro p: v.getPassageirosCheckedIn()) {
-                cout << p.getId() << endl << p.getNome() << p.isMenorNaoAcompanhado() << endl;
+            for (const Passageiro& p: v.getPassageirosCheckedIn()) {
+                cout << p << endl;
                 cout << endl;
             }
             break;
