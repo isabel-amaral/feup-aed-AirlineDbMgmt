@@ -113,6 +113,13 @@ public:
      * Imprime os detalhes sobre o Autocarro mais próximo, caso exista.
      */
     void showAutocarroProximo() const;
+    /**
+     * Um aeroporto é tanto menor quanto menor é o seu nome.
+     * @param a1 é o aeroporto a ser comparado com esta instância.
+     * @return true se @param a1 é maior que esta instância.
+     */
+    bool operator <(const Aeroporto& a1) const;
+
 };
 
 #endif //_AEROPORTO_H

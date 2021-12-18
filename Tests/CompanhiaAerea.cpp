@@ -7,6 +7,7 @@ CompanhiaAerea::CompanhiaAerea() {
     bilhetesVendidos = vector<Bilhete>();
     voos = vector<Voo>();
     excessoPeso = ExcessoPeso();
+    aeroportos = vector<Aeroporto>();
 }
 
 CompanhiaAerea::CompanhiaAerea(float pesoMaximo, float taxaPesoExtra, float taxaBagagemDeMao) {
@@ -21,6 +22,14 @@ vector<Bilhete> CompanhiaAerea::getBilhetesVendidos() const {
 
 vector<Voo> CompanhiaAerea::getVoos() const{
     return voos;
+}
+
+list<Aviao> CompanhiaAerea::getAvioes() const {
+    return avioes;
+}
+
+vector<Aeroporto> CompanhiaAerea::getAeroportos() const {
+    return aeroportos;
 }
 
 void CompanhiaAerea::setVoos(const vector<Voo>& v) {
@@ -246,9 +255,44 @@ void CompanhiaAerea::loadData(string ficheiroAvioes, string ficheiroVoos, string
     }
 }
 
-Aeroporto &CompanhiaAerea::findAeroporto(const string &nome) const {
-
+void CompanhiaAerea::addAviao(const Aviao &aviao) {
+    avioes.push_back(aviao);
 }
+
+void CompanhiaAerea::addAeroporto(const Aeroporto &aeroporto) {
+    if (aeroportos.empty())
+        aeroportos.push_back(aeroporto);
+    unsigned index= binarySearchAeroporto(aeroporto);
+    if (aeroportos.at(index).getNome() == aeroporto.getNome())
+        return;
+    else if (aeroportos.at(index) < aeroporto)
+        aeroportos.insert (aeroportos.begin() + index + 1, aeroporto);
+    else
+        aeroportos.insert(aeroportos.begin() + index, aeroporto);
+}
+
+unsigned CompanhiaAerea::binarySearchAeroporto(const Aeroporto &aeroporto) {
+    unsigned left = 0;
+    unsigned right = aeroportos.size() - 1;
+    unsigned middle;
+
+    while (left <= right) {
+        middle = (left + right) / 2;
+        if (aeroportos.at(middle) < aeroporto)
+            left = middle + 1;
+        else if (aeroporto < aeroportos.at(middle))
+            right = middle - 1;
+        else
+            return middle;
+    }
+    return middle;
+}
+
+
+
+
+
+
 
 
 

@@ -19,13 +19,17 @@ private:
      */
     vector<Voo> voos;
     /**
-     * Objeto que contém as restrições de peso definidas pela companhia aérea e multas associadas
+     * Objeto que contém as restrições de peso definidas pela companhia aérea e multas associadas.
      */
     ExcessoPeso excessoPeso;
     /**
-     * Todos os avioes da companhia area
+     * Todos os avioes da companhia area.
      */
     list<Aviao> avioes;
+    /**
+     * Todos os aeroportos onde os aviões da companhia operam.
+     */
+     vector<Aeroporto> aeroportos;
 
 public:
     CompanhiaAerea();
@@ -41,6 +45,16 @@ public:
      */
     vector<Voo> getVoos() const;
     /**
+     *
+     * @return todos os avioes da companhia area.
+     */
+    list<Aviao> getAvioes() const;
+    /**
+     *
+     * @return todos os aeroportos onde os aviões da companhia operam
+     */
+    vector<Aeroporto> getAeroportos() const;
+    /**
      * Define os voos da companhia aérea.
      * @param voos são os novos voos da companhia.
      */
@@ -50,6 +64,24 @@ public:
      * @param v novo voo a acrescentar.
      */
     void addVoo(const Voo &v);
+    /**
+     * Adiciona um novo a avião à lista de aviões.
+     * @param aviao é o novo avião a ser adicionado.
+     */
+    void addAviao( const Aviao &aviao);
+    /**
+     * Adiciona um novo aeroporto ao vector se este ainda não existir no mesmo.
+     * @param aeroporto é o aeroporto a ser acrescentado
+     */
+    void addAeroporto (const Aeroporto &aeroporto);
+
+    /**
+     * Procura um determinado aeroporto no vector aeroportos usando pesquisa binária.
+     * @param aeroporto é o elemento a ser pesquisado.
+     * @return a posição do aeroporto vo vector caso ele exista. Casp contrário retorna
+     * o índice do maior elemento menor que @param aeroporto ou o menor elemento maior que @param aeroporto
+     */
+    unsigned binarySearchAeroporto (const Aeroporto &aeroporto);
     /**
      * @param p é um determinado passageiro.
      * @return  vector com todos os bilhetes adquiridos pelo passageiro (@param p) num vetor.
@@ -176,10 +208,6 @@ public:
      * @param ficheiroBilhetes é o nome de um ficheiro com os bilhetes
      */
     void loadData (string ficheiroAvioes, string ficheiroVoos, string ficheiroBilhetes);
-
-    Aeroporto& findAeroporto (const string& nome) const;
-
-
 };
 
 #endif //_COMPANHIAAEREA_H
