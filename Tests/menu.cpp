@@ -281,39 +281,24 @@ void menu::menu9() {
 }
 
 void menu::menu10() {
+    string origem, destino;
+    unsigned d1, m1, a1, d2, m2, a2;
 
-}
+    cout << "Origem: " << endl;
+    getline(cin,origem);
 
-void menu::menu11() {
+    cout << "Destino: " << endl;
+    getline (cin, destino);
 
-}
+    cout << "Data de ida: ";
+    cin >> d1 >> m1 >> a1 ;
+    Data data1(d1, m1, a1);
 
-void menu::menu12() {
+    cout <<  "Data de regresso: ";
+    cin >> d2 >> m2 >> a2;
+    Data data2(d2, m2, a2);
 
-}
-
-void menu::menu13() {
-
-}
-
-void menu::menu14() {
-
-}
-
-void menu::menu15() {
-
-}
-
-void menu::menu16() {
-
-}
-
-void menu::menu17() {
-
-}
-
-void menu::menu18() {
-
+    companhia.showVoosDatas(data1, data2);
 }
 
 void menu::menu19() {
