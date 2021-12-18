@@ -21,9 +21,9 @@ using namespace std;
 TEST(test_1, test_addTransporte) {
     Aeroporto a("Aeroporto Francisco Sá Carneiro", "Porto");
 
-    LocalDeTransporte l1(300.0, Autocarro);
+    LocalDeTransporte l1(123, 300.0, Autocarro);
     a.addTransporte(l1);
-    LocalDeTransporte l2(750.0, Comboio);
+    LocalDeTransporte l2(124, 750.0, Comboio);
     a.addTransporte(l2);
 
     BST<LocalDeTransporte> bt1 = a.getTransportes();
@@ -35,6 +35,8 @@ TEST(test_1, test_addTransporte) {
         numLocaisDeTransporte++;
         it1.advance();
     }
+    EXPECT_EQ(123, lt[0].getIdLocal());
+    EXPECT_EQ(124, lt[1].getIdLocal());
     EXPECT_EQ(300.0, lt[0].getDistancia());
     EXPECT_EQ(Autocarro, lt[0].getTipo());
     EXPECT_EQ(750.0, lt[1].getDistancia());
@@ -46,8 +48,8 @@ TEST(test_1, test_addTransporte) {
     list<Horario> lh;
     lh.push_back(h1);
     lh.push_back(h2);
-    LocalDeTransporte l3(350.0, Autocarro, lh);
-    LocalDeTransporte l4(400.0, Metro, lh);
+    LocalDeTransporte l3(125, 350.0, Autocarro, lh);
+    LocalDeTransporte l4(126, 400.0, Metro, lh);
     a.addTransporte(l3);
     a.addTransporte(l4);
 
@@ -60,15 +62,20 @@ TEST(test_1, test_addTransporte) {
         numLocaisDeTransporte++;
         it2.advance();
     }
+    EXPECT_EQ(123, lt[0].getIdLocal());
     EXPECT_EQ(300.0, lt[0].getDistancia());
     EXPECT_EQ(Autocarro, lt[0].getTipo());
+    EXPECT_EQ(125, lt[1].getIdLocal());
     EXPECT_EQ(350.0, lt[1].getDistancia());
     EXPECT_EQ(Autocarro, lt[1].getTipo());
+    EXPECT_EQ(126, lt[2].getIdLocal());
     EXPECT_EQ(400.0, lt[2].getDistancia());
     EXPECT_EQ(Metro, lt[2].getTipo());
+    EXPECT_EQ(124, lt[3].getIdLocal());
     EXPECT_EQ(750.0, lt[3].getDistancia());
     EXPECT_EQ(Comboio, lt[3].getTipo());
     EXPECT_EQ(4, numLocaisDeTransporte);
+
     //cout << l1 << endl;
     //cout << l2 << endl;
     //cout << l3 << endl;
@@ -76,7 +83,6 @@ TEST(test_1, test_addTransporte) {
     //a.showComboios();
     //a.showMetros();
     //a.showLocalTransporteProximo();
-
 }
 
 //Aviao::addVoo()
@@ -296,23 +302,34 @@ TEST(test_10, test_updateHorario) {
     list<Horario> lh1;
     lh1.push_back(h1);
     lh1.push_back(h2);
-    LocalDeTransporte l(300.0, Autocarro, lh1);
+    LocalDeTransporte l1(123, 300.0, Autocarro, lh1);
 
     Horario h3(DomingosFeriados, {9.0, 11.0, 12.30, 14.0, 16.3, 18.0, 20.0});
-    l.updateHorario(h3);
+    l1.updateHorario(h3);
 
-    EXPECT_EQ(3, l.getHorarios().size());
-    EXPECT_EQ(h3.getHoras(), l.getHorarios().back().getHoras());
-    EXPECT_EQ(h3.getDia(), l.getHorarios().back().getDia());
+    EXPECT_EQ(3, l1.getHorarios().size());
+    EXPECT_EQ(h1.getHoras(), l1.getHorarios().front().getHoras());
+    EXPECT_EQ(h1.getDia(), l1.getHorarios().front().getDia());
+    EXPECT_EQ(h3.getHoras(), l1.getHorarios().back().getHoras());
+    EXPECT_EQ(h3.getDia(), l1.getHorarios().back().getDia());
 
     Horario h4(Sabados, {8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 15.30, 16.0, 16.30, 17.0, 17.30});
-    l.updateHorario(h4);
+    l1.updateHorario(h4);
 
-    EXPECT_EQ(3, l.getHorarios().size());
+    EXPECT_EQ(3, l1.getHorarios().size());
+    vector<Horario> vh;
+    for (Horario h: l1.getHorarios())
+        vh.push_back(h);
+    EXPECT_EQ(h1.getDia(), vh[0].getDia());
+    EXPECT_EQ(h1.getHoras(), vh[0].getHoras());
+    EXPECT_EQ(h4.getDia(), vh[1].getDia());
+    EXPECT_EQ(h4.getHoras(), vh[1].getHoras());
+    EXPECT_EQ(h3.getDia(), vh[2].getDia());
+    EXPECT_EQ(h3.getHoras(), vh[2].getHoras());
 
-    list<Horario> lh2 = l.getHorarios();
+    list<Horario> lh2 = l1.getHorarios();
     lh2.pop_back();
-    LocalDeTransporte l2(300.0, Autocarro, lh2);
+    LocalDeTransporte l2(124, 300.0, Autocarro, lh2);
 
     EXPECT_EQ(h4.getHoras(), l2.getHorarios().back().getHoras());
     EXPECT_EQ(h4.getDia(), l2.getHorarios().back().getDia());

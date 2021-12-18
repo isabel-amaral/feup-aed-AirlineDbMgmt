@@ -4,12 +4,13 @@
 #include "stack"
 using namespace std;
 
-int runTests(int argc, char* argv[]) {
+int main(int argc, char* argv[]) {
     testing::InitGoogleTest(&argc, argv);
     std::cout << "Airline Database Management" << std::endl;
     return RUN_ALL_TESTS();
 }
 
+/*
 stack <int> lastMenu;
 
 void readOption(int &option, const int &minOption, const int &maxOption){
@@ -116,4 +117,4 @@ int main(){
 
     return 0;
 
-}
+}*/
