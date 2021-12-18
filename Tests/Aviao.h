@@ -72,8 +72,10 @@ public:
     * @param m é a matricula do aviao.
     */
     void setMatricula(const string& m);
-
-    //TODO: DOC
+    /**
+     * Modifica o tipo do aviao.
+     * @param t é o tipo do aviao.
+     */
     void setTipo (const string& t);
     /**
     * Modifica a capacidade do avião.

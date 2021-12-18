@@ -22,7 +22,9 @@ private:
      * Objeto que contém as restrições de peso definidas pela companhia aérea e multas associadas
      */
     ExcessoPeso excessoPeso;
-
+    /**
+     * Todos os avioes da companhia area
+     */
     list<Aviao> avioes;
 
 public:
@@ -68,8 +70,17 @@ public:
      */
     vector<Passageiro> getPassageirosFromVoo(const Voo& v) const;
 
-    //TODO: DOCUMENTACAO
+    /**
+     * Mostra todos os passageiros que adquiriram bilhete para o voo
+     * @param v
+     */
     void showPassageirosFromVoo(const Voo& v) const;
+    /**
+     * Procura o bilhete de um determinado passageiro para um determinado voo
+     * @param p é o passageiro
+     * @param v é o voo
+     * @return bilhete encontrado
+     */
     Bilhete getBilhetePassageiroVoo(const Passageiro& p, const Voo& v) const;
     /**
      * Acrescenta um bilhete ao conjunto dos demais bilhetes vendidos caso seja possivel efetuar a sua compra (o voo v não está lotado).
@@ -96,26 +107,74 @@ public:
      * @param v
      */
     void realizarCheckIn(Passageiro& p, Voo& v) const;
-    //TODO: DOCUMENTACAO
+    /**
+     *
+     * @param cidadeChegada é a cidade de destino
+     * @param d1 é a data
+     * @return voos que vão aterrar numa determinada cidade numa determinada data
+     */
     vector <Voo> getVoosChegada (const string& cidadeChegada, const Data& d1=Data()) const;
-    //TODO: DOCUMENTACAO
+    /**
+     *
+     * @param cidadePartida é a cidade de origem
+     * @param d1 é a data
+     * @return voos que vão partir de uma determinada cidade numa determinada data
+     */
     vector <Voo> getVoosPartida (const string& cidadePartida, const Data& d1=Data()) const;
-    //TODO: DOCUMENTACAO
+    /**
+     *
+     * @param cidadePartida é a cidade de origem
+     * @param cidadeChegada é a cidade de destino
+     * @param d1 é uma data
+     * @param d2 é uma data
+     * @return voos que vão ser realizados de uma determinada cidade para outra entre duas determinadas datas
+     */
     vector <Voo> getVoosCidades (const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
-    //TODO: DOCUMENTACAO
+    /**
+     *
+     * @param d1 é uma data
+     * @param d2 é uma data
+     * @return todos os voos que vão ser realizados entre duas determinadas datas
+     */
     vector <Voo> getVoosDatas (const Data& d1, const Data& d2=Data()) const;
 
-    //TODO: DOCUMENTACAO
+    /**
+     * Mostra todos os voos que vão aterrar numa determinada cidade numa determinada data
+     */
     void showVoos() const;
-    //TODO: DOCUMENTACAO
+    /**
+     * Mostra os voos que vão partir de uma determinada cidade numa determinada data
+     * @param cidadePartida é a cidade de origem
+     * @param d1 é a data
+     */
     void showVoosPartida (const string& cidadePartida, const Data& d1=Data()) const;
-    //TODO: DOCUMENTACAO
+    /**
+     * Mostra os voos que vão aterrar numa determinada cidade numa determinada data
+     * @param cidadeChegada é a cidade de destino
+     * @param d1  é a data
+     */
     void showVoosChegada(const string& cidadeChegada, const Data& d1=Data()) const;
-    //TODO: DOCUMENTACAO
+    /**
+     * Mostra os voos que vão ser realizados entre duas determinadas datas
+     * @param cidadePartida é a cidade de origem
+     * @param cidadeChegada é a cidade de destino
+     * @param d1 é uma data
+     * @param d2 é uma data
+     */
     void showVoosCidades (const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
-    //TODO: DOCUMENTACAO
+    /**
+     * Mostra todos os voos que vão ser realizados entre duas determinadas datas
+     * @param d1 é uma data
+     * @param d2 é uma data
+     */
     void showVoosDatas (const Data& d1, const Data& d2=Data()) const;
-    //TODO: DOCUMENTACAO
+    //TODO
+    /**
+     *
+     * @param ficheiroAvioes é o nome de um ficheiro com os aviões
+     * @param ficheiroVoos é o nome de um ficheiro com os voos
+     * @param ficheiroBilhetes é o nome de um ficheiro com os bilhetes
+     */
     void loadData (string ficheiroAvioes, string ficheiroVoos, string ficheiroBilhetes);
 
 };
