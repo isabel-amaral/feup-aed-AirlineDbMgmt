@@ -288,6 +288,7 @@ void CompanhiaAerea::loadData() {
     this->loadAvioes();
     this->loadAeroportos();
     this->loadServicos();
+    this->loadBilhetes();
     //this->loadVoos();
 }
 
@@ -374,6 +375,12 @@ void CompanhiaAerea::loadServicos() {
     }
     f.close();
 }
+
+void CompanhiaAerea::loadBilhetes() {
+
+
+
+};
 
 /*void CompanhiaAerea::loadVoos() {
 //-----Ler Passageiros:

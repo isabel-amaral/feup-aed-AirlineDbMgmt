@@ -220,6 +220,7 @@ public:
     void loadAvioes();
     void loadAeroportos();
     void loadServicos();
+    void loadBilhetes();
     void loadVoos();
 };
 
