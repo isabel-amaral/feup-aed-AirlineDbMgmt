@@ -101,22 +101,28 @@ LocalDeTransporte Aeroporto::getAutocarroProximo() const{
 }
 
 void Aeroporto::showTransportes(int ordenacao) const {
-    BSTItrIn <LocalDeTransporte> it (transportes);
-    vector <LocalDeTransporte> locais;
+    BSTItrIn<LocalDeTransporte> it (transportes);
+    vector<LocalDeTransporte> locais;
     if (it.isAtEnd()){   //A BST está vazia
         cout << "Não existe informação sobre os meios de transportes disponíveis nesta cidade" << endl;
         return;
     }
-    while(!it.isAtEnd()){
-        if (ordenacao != 1)
+
+    if (ordenacao != 1) {
+        while (!it.isAtEnd()) {
             locais.push_back(it.retrieve());
-        else
-            cout << it.retrieve() << endl;
-        it.advance();
+            it.advance();
+        }
+        ordenarLocais(locais, ordenacao);
+        for (LocalDeTransporte l: locais)
+            cout << l << endl;
+        return;
     }
 
-    if (ordenacao != 1)
-        ordenarLocais(locais, ordenacao);
+    while(!it.isAtEnd()) {
+        cout << it.retrieve() << endl;
+        it.advance();
+    }
 }
 
 void Aeroporto::showMetros(int ordenacao) const {
@@ -196,7 +202,7 @@ bool Aeroporto::operator< (const Aeroporto &a1) const {
     return this->nome < a1.nome;
 }
 
-bool criterioComparacao2(const LocalDeTransporte &l1, const LocalDeTransporte &l2) {
+bool criterioComparacao2(const LocalDeTransporte& l1, const LocalDeTransporte& l2) {
     if (l1.getDisponibilidade() != l2.getDisponibilidade())
         return l1.getDisponibilidade() < l2.getDisponibilidade();
     else if (l1.getDistancia() != l2.getDistancia())
@@ -205,7 +211,7 @@ bool criterioComparacao2(const LocalDeTransporte &l1, const LocalDeTransporte &l
         return l1.getTipo() < l2.getTipo();
 }
 
-bool criterioComparacao3(const LocalDeTransporte &l1, const LocalDeTransporte &l2) {
+bool criterioComparacao3(const LocalDeTransporte& l1, const LocalDeTransporte& l2) {
     if (l1.getTipo() != l2.getTipo())
         return l1.getTipo() < l2.getTipo();
     else if (l1.getDistancia() != l2.getDistancia())
@@ -214,10 +220,9 @@ bool criterioComparacao3(const LocalDeTransporte &l1, const LocalDeTransporte &l
         return l1.getDisponibilidade() < l2.getDisponibilidade();
 }
 
-void ordenarLocais(vector <LocalDeTransporte>& locais, int ordenacao)
-{
+void ordenarLocais(vector<LocalDeTransporte>& locais, int ordenacao) {
     if (ordenacao == 2)
-        sort ( locais.begin(), locais.end(), criterioComparacao2);
+        sort(locais.begin(), locais.end(), criterioComparacao2);
     else
-        sort (locais.begin(), locais.end(), criterioComparacao3);
+        sort(locais.begin(), locais.end(), criterioComparacao3);
 }
