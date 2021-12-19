@@ -365,16 +365,19 @@ void menu::menu19() {
 }
 
 void menu::menu20() {
-    string m;
+    string m, t;
     unsigned c;
 
     cout << "Matrícula do aviao: " << endl;
     cin >> m;
 
+    cout << "Tipo do avião: " << endl;
+    cin >> t;
+
     cout << "Capacidade do aviao: " << endl;
     cin >> c;
 
-    Aviao a(m, c);
+    Aviao a(m, t, c);
     companhia.addAviao(a);
 
     option = lastMenu.top();
