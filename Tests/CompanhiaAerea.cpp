@@ -288,51 +288,25 @@ void CompanhiaAerea::loadData() {
     this->loadAvioes();
     this->loadAeroportos();
     this->loadServicos();
-    this->loadVoos();
-}
-
-void CompanhiaAerea::loadAeroportos(){
-    ifstream f;
-    int num;
-    string nome;
-    string cidade;
-
-    f.open("aeroportos.txt");
-    if (!f.is_open())
-        cout << "Ficheiro nao existe." << endl;
-
-    f >> num;
-    f.ignore(LONG_MAX, '\n');
-    while (!f.eof() && num>0){
-        getline(f, nome);
-        getline(f, cidade);
-        this->addAeroporto(Aeroporto(nome, cidade));
-
-        f.ignore(LONG_MAX, '\n');
-        num--;
-    }
-    f.close();
+    //this->loadVoos();
 }
 
 void CompanhiaAerea::loadAvioes() {
-    int num;
     ifstream f;
-    string matricula;
-    string tipo;
+    int num;
+    string matricula, tipo, aux;
     int capacidade;
-    string aux;
 
     f.open("avioes.txt");
     if (!f.is_open())
         cout << "Ficheiro nao existe." << endl;
 
     f >> num;
-    f.ignore(LONG_MAX, '\n');
-    while (!f.eof() && num>0){
+    while (!f.eof() && num > 0){
+        f.ignore(LONG_MAX, '\n');
         getline(f, matricula);
         getline(f, tipo);
         f >> capacidade;
-        f.ignore(LONG_MAX, '\n');
 
         this->addAviao(Aviao(matricula, tipo, capacidade));
         num--;
@@ -340,16 +314,32 @@ void CompanhiaAerea::loadAvioes() {
     f.close();
 }
 
-void CompanhiaAerea::loadServicos() {
-    int num;
+void CompanhiaAerea::loadAeroportos(){
     ifstream f;
-    string matricula;
+    int num;
+    string nome, cidade;
+
+    f.open("aeroportos.txt");
+    if (!f.is_open())
+        cout << "Ficheiro nao existe." << endl;
+
+    f >> num;
+    while (!f.eof() && num > 0) {
+        f.ignore(LONG_MAX, '\n');
+        getline(f, nome);
+        getline(f, cidade);
+        this->addAeroporto(Aeroporto(nome, cidade));
+        num--;
+    }
+    f.close();
+}
+
+void CompanhiaAerea::loadServicos() {
+    ifstream f;
+    int num;
+    string matricula, aux, nomeFunc;
     TipoServico tipo;
-    string aux;
-    int dia, mes, ano;
-    int idFunc;
-    string nomeFunc;
-    auto i = avioes.begin();
+    int dia, mes, ano, idFunc;
 
     f.open("servicos.txt");
     if (!f.is_open())
@@ -357,34 +347,35 @@ void CompanhiaAerea::loadServicos() {
 
     f >> num;
     f.ignore(LONG_MAX, '\n');
-    while (!f.eof() && num>0) {
+    while (!f.eof() && num > 0) {
         getline(f, matricula);
         getline(f, aux);
-        if (aux == "1")
-            tipo = Limpeza;
-        else
+        if (aux == "0")
             tipo = Manutencao;
+        else
+            tipo = Limpeza;
 
         f >> dia >> mes >> ano;
-        f.ignore (LONG_MAX, '\n');
-        Data d1 (dia, mes, ano);
-
+        Data d1(dia, mes, ano);
         f >> idFunc;
-        f.ignore (LONG_MAX, '\n');
-
+        f.ignore(LONG_MAX, '\n');
         getline(f, nomeFunc);
         Funcionario f1(idFunc, nomeFunc);
 
-        if (i->getMatricula() != matricula)
-            i++;
-
-        i->addServicoPorRealizar( Servico(tipo, Data (dia, mes, ano), f1));
+        Aviao av;
+        for (Aviao a: avioes) {
+            if (a.getMatricula() == matricula) {
+                av = a;
+                break;
+            }
+        }
+        av.addServicoPorRealizar( Servico(tipo, d1, f1));
         num--;
     }
     f.close();
 }
 
-void CompanhiaAerea::loadVoos() {
+/*void CompanhiaAerea::loadVoos() {
 //-----Ler Passageiros:
     vector <Passageiro> p;
     ifstream f;
@@ -436,4 +427,4 @@ void CompanhiaAerea::loadVoos() {
         num --;
     }
     f.close();
-}
+}*/

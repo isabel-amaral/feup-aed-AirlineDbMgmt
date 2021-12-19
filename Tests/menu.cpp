@@ -30,7 +30,7 @@ void menu::readOption(const int &minOption, const int &maxOption) {
 }
 
 menu::menu() {
-    //companhia.loadData("avioes.txt", "voos.txt", "bilhetes.txt"); //TODO: IMPLEMENTAR COMPANHIA.LOADFILE()
+    companhia.loadData();
     lastMenu.push(0);   //'0' representa o menu inicial/principal
 
     cout << "BEM-VINDO A NOSSA COMPANHIA AEREA" << endl;
