@@ -1,6 +1,5 @@
 25
 
-1
 157
 Autocarro
 Aeroporto Francisco Sa Carneiro
@@ -8,59 +7,50 @@ DiasUteis 08.00 08.30 09.00 09.30 10.00 10.30 11.00 12.00 13.00 14.00 15.30 15.4
 Sabados 09.05 09.47 10.10 10.5 11.04 11.20 11.5 12.08 12.36 12.59 13.19 13.57 14.16
 Domingos 08.00 12.00 16.00 20.00
 
-2
 135
 Autocarro
 Aeroporto Francisco Sa Carneiro
 Sabados 14.59 15.23 16.01 16.30 17.05 18.13 19.03 19.41 20.03 20.21 21.0 21.29 22.04 23.02 23.33
 Domingos 10.00 12.00 14.00 16.00 18.00 20.00 22.00
 
-3
 60
 Metro
 Aeroporto Francisco Sa Carneiro
 DiasUteis 00.30 01.30 02.30 03.30 04.30 05.30 06.30 07.30 08.30 09.30 10.30 11.30 12.30 13.30 14.30 15.30 16.30 17.30 18.30 19.30 20.03 21.30 22.30 23.30
 
-4
 70
 Metro
 Aeroporto Francisco Sa Carneiro
 DiasUteis 00.00 01.00 02.30 03.40 04.55 05.20 06.50 07.28 08.23 09.12 10.20 11.03 12.08 13.16 14.18 15.27 16.37 17.19 18.18
 Sabados 00.30 01.30 02.30 .30 08.30 09.30 10.30 11.30 12.30  16.30 17.30 18.30 19.30 20.03 21.30 22.30 23.30 
 
-5
 200
 Autocarro
 Aeroporto Humberto Delgado
 Domingos 9.06 9.48 10.11 10.51 11.05 11.21 11.51 12.09 12.37 12.59 13.20 13.58 14.17
 
-6
 280
 Autocarro
 Aeroporto Humberto Delgado
 DiasUteis 14.58 15.22 16.0 16.29 17.06 18.16 19.02 19.40 20.02 20.19 20.59 21.28 22.03 23.01 23.29
 Domingos 10.03 12.00 17.00 18.00
 
-7
 100
 Comboio
 Aeroporto Humberto Delgado
 DiasUteis 00.00 01.00 02.00 03.00 04.00 05.00 06.00 07.00 08.00 09.00 10.00 11.00 12.00 13.00 14.00 15.00 16.00 17.00 18.00 19.00 20.00 21.00 22.00 23.00
 
-8
 50
 Metro
 Aeroporto Humberto Delgado
 Domingos 00.10 01.20 02.30 03.40 04.50 06.00 07.10 08.20 09.30 10.40 11.50 13.00 14.10 15.20 16.30 17.40 16.50 18.00 19.10 20.02 21.30 22.40 23.05
 
-9
 300
 Autocarro
 Aeroporto Joao Paulo II
 Sabados 9.01 10.05 11.03 12.07 13.10 14.15 15.0 16.03 17.10 18.09 19.01 20.02 21.15
 Domingos 09.00 17.40 19.00 23.12
 
-10
 260
 Comboio
 Aeroporto Joao Paulo II
@@ -68,7 +58,6 @@ DiasUteis 00.30 01.30 02.30 03.30 04.30 05.30 06.30 07.30 08.30 09.30 10.30 11.3
 Sabados 04.20 05.30 07.45 09.25 11.40 17.24 19.56 22.0
 Domingos 10.35 15.45 17.48 19.45 20.46 23.28
 
-11
 250
 Comboio
 Aeroporto Joao Paulo II
@@ -76,61 +65,51 @@ DiasUteis 0.3 2.3 4.3 6.3 8.3 10.3 12.3 14.3 16.3 18.3 20.3 22.3
 Sabados 08.00 09.30 10.46 11.46 12.49 13.19 14.59 17.00 19.00
 Domingos 14.23 18.00 20.00 23.45
 
-14
 90
 Autocarro
 Aeroporto Internacional de Maputo Mavalane
 DiasUteis 9.06 10.23 11.4 12.18 13.37 14.54 15.1 16.0 17.58 18.2 19.3 20.57 21.16 22.27 23.56 0.4
 
-15
 95
 Autocarro
 Aeroporto Internacional de Maputo Mavalane
 Sabados 9.07 9.30 11.05 11.34 13.01 13.3 15.04 15.31 17.0 17.32 19.01 19.34 21.09 21.39 23.07 23.38
 Domingos 10.00 12.59 13.57 19.06
 
-16
 150
 Comboio
 Aeroporto Internacional de Maputo Mavalane
 DiasUteis 1.0 3.0 5.0 7.0 9.0 11.0 13.0 15.0 17.0 19.0 21.0 23.0
 
-18
 110
 Autocarro
 Aeroporto Internacional de Maputo Mavalane
 Sabados 0.0 1.0 2.0 3.0 4.0 5.0 6.0 7.0 8.0 9.0 10.0 11.0 12.0 13.0 14.0 15.0 16.0 17.0 18.0 19.0 20.0 21.0 22.0 23.0
 
-19
 120
 Comboio
 Aeroporto Internacional John F. Kennedy
 Domingos 0.0 1.0 2.0 3.0 4.0 5.0 6.0 7.0 8.0 9.0 10.0 11.0 12.0 13.0 14.0 15.0 16.0 17.0 18.0 19.0 20.0 21.0 22.0 23.0
 
-20
 40
 Metro
 Domingos 0.1 1.1 2.1 3.1 4.1 5.1 6.1 7.1 8.1 9.1 10.1 11.1 12.1 13.1 14.1 15.1 16.1 17.1 18.1 19.1 20.1 21.1 22.1 23.1
 
-21
 50
 Metro
 Aeroporto Internacional John F. Kennedy
 DiasUteis 0.2 1.2 2.2 3.2 4.2 5.2 6.2 7.2 8.2 9.2 10.2 11.2 12.2 13.2 14.2 15.2 16.2 17.2 18.2 19.2 20.2 21.2 22.0 23.2
 
-22
 60
 Metro
 Aeroporto Internacional John F. Kennedy
 Domingos 0.3 1.3 2.3 3.3 4.3 5.3 6.3 7.3 8.3 9.3 10.3 11.3 12.3 13.3 14.3 15.3 16.3 17.3 18.3 19.3 20.3 21.3 22.3 23.3
 
-23
 70
 Metro
 Aeroporto Internacional John F. Kennedy
 Sabados 0.4 1.4 2.4 3.4 4.4 5.4 6.4 7.4 8.4 9.4 10.4 11.4 12.4 13.4 14.4 15.4 16.4 17.4 18.4 19.4 20.4 21.4 22.4 23.4
 
-24
 80
 Metro
 Aeroporto Internacional John F. Kennedy
@@ -138,14 +117,12 @@ Dias Uteis 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.59.5 10.5 11.5 12.5 13.5 14.5 15.5 
 Sabados 04.16 10.45 13.45 17.20 19.36 20.48 22.47 23.00
 Domingos 10.00 15.09 20.49 23.55
 
-25
 200
 Comboio
 Aeroporto Internacional John F. Kennedy
 Sabados 08.30 09.15 10.47 11.49 12.58 13.57 14.05 16
 Domingos 9.05 13.45 16.09 19.21 23.50
 
-26
 150
 Autocarro
 Aeroporto Francisco Sá Carneiro
