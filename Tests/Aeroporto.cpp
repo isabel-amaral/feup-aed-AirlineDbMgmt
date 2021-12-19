@@ -102,15 +102,23 @@ LocalDeTransporte Aeroporto::getAutocarroProximo() const{
 
 void Aeroporto::showTransportes(int ordenacao) const {
     BSTItrIn <LocalDeTransporte> it (transportes);
-
+    vector <LocalDeTransporte> locais;
     if (it.isAtEnd()){   // A BST está vazia
         cout << "Não existe informação sobre os meios de transportes disponíveis nesta cidade" << endl;
         return;
     }
 
     while(!it.isAtEnd()){ // A BST tem pelo menos um elemento
-        cout << it.retrieve() << endl;
+        if (ordenacao != 1){
+            locais.push_back(it.retrieve());
+        }
+        else{
+            cout << it.retrieve() << endl;
+        }
     }
+
+    if (ordenacao != 1)
+        ordenarLocais(locais, ordenacao);
 }
 
 void Aeroporto::showMetros(int ordenacao) const {
