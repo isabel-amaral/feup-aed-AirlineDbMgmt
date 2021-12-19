@@ -410,7 +410,7 @@ void Menu::menu24() {
     unsigned n;
     cout << "Numero de voo: " << endl;
     cin >> n;
-    
+
     for (const Passageiro& p: companhia.getPassageirosFromVoo(n)) {
         cout << p << endl;
         cout << endl;

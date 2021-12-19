@@ -294,28 +294,32 @@ void CompanhiaAerea::loadData() {
     this->loadServicos();
     this->loadAeroportos();
     this->loadLocaisTransporte();
-    //this->loadVoosAndBilhetes();
+    this->loadVoosAndBilhetes();
+    this->loadBagagens();
 }
 
 void CompanhiaAerea::loadAvioes() {
     ifstream f;
     int num;
-    string matricula, tipo, aux;
+    string matricula, tipo, text;
     int capacidade;
+
 
     f.open("avioes.txt");
     if (!f.is_open())
         cout << "Ficheiro nao existe." << endl;
 
     f >> num;
+    f.ignore(LONG_MAX, '\n');
     while (!f.eof() && num > 0){
         f.ignore(LONG_MAX, '\n');
-        getline(f, matricula);
-        getline(f, tipo);
-        f >> capacidade;
-
+        getline (f, matricula);
+        getline (f, tipo);
+        getline (f, text);
+        capacidade = stoi(text);
         this->addAviao(Aviao(matricula, tipo, capacidade));
         num--;
+
     }
     f.close();
 }
@@ -323,7 +327,7 @@ void CompanhiaAerea::loadAvioes() {
 void CompanhiaAerea::loadServicos() {
     ifstream f;
     int num;
-    string matricula, aux, nomeFunc;
+    string matricula, text, nomeFunc;
     TipoServico tipo;
     int dia, mes, ano, idFunc;
 
@@ -335,25 +339,31 @@ void CompanhiaAerea::loadServicos() {
     f.ignore(LONG_MAX, '\n');
     while (!f.eof() && num > 0) {
         getline(f, matricula);
-        getline(f, aux);
-        if (aux == "0")
+        getline(f, text);
+        if (text == "0")
             tipo = Manutencao;
         else
             tipo = Limpeza;
 
-        f >> dia >> mes >> ano;
+        getline(f, text);
+        istringstream data(text);
+        data >> dia >> mes >> ano;
         Data d1(dia, mes, ano);
-        f >> idFunc;
-        f.ignore(LONG_MAX, '\n');
+
+        getline(f, text);
+        idFunc = stoi(text);
+
         getline(f, nomeFunc);
         Funcionario f1(idFunc, nomeFunc);
 
-        for (Aviao a: avioes) {
+        for (auto a: avioes) {
             if (a.getMatricula() == matricula) {
                 a.addServicoPorRealizar(Servico(tipo, d1, f1));
                 break;
             }
         }
+
+        f.ignore(LONG_MAX, '\n');
         num--;
     }
     f.close();
@@ -369,12 +379,14 @@ void CompanhiaAerea::loadAeroportos(){
         cout << "Ficheiro nao existe." << endl;
 
     f >> num;
+    f.ignore(LONG_MAX, '\n');
     while (!f.eof() && num > 0) {
         f.ignore(LONG_MAX, '\n');
         getline(f, nome);
         getline(f, cidade);
         this->addAeroporto(Aeroporto(nome, cidade));
         num--;
+        f.ignore(LONG_MAX, '\n');
     }
     f.close();
 }
@@ -436,11 +448,12 @@ void CompanhiaAerea::loadLocaisTransporte() {
     f.close();
 }
 
-/*
 void CompanhiaAerea::loadVoosAndBilhetes() {
-//-----Ler Passageiros:
+//--------Ler Passageiros------------
+
     vector <Passageiro> p;
     ifstream f;
+    string text;
     int num;
     string nomePassageiro;
     int idPassageiro;
@@ -457,25 +470,32 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
     while(!f.eof() && num>0) {
         getline(f, nomePassageiro);
 
-        f >> idPassageiro;
-        f.ignore(LONG_MAX, '\n');
-        f >> idadePassageiro;
-        f.ignore(LONG_MAX, '\n');
-        f >> menorNaoAcompanhado;
-        f.ignore(LONG_MAX, '\n');
-        f.ignore(LONG_MAX, '\n');           // Ignorar separador "*"
-        p.push_back(Passageiro(nomePassageiro, idPassageiro, idadePassageiro, menorNaoAcompanhado));
+        getline (f, text);
+        idPassageiro= stoi(text);
+
+        getline (f, text);
+        idadePassageiro=stoi(text);
+
+        getline (f, text);
+        menorNaoAcompanhado = (text == "true");
+
+        Passageiro p1 (nomePassageiro, idPassageiro, idadePassageiro, menorNaoAcompanhado);
+        p.push_back(p1);
+
+        f.ignore(LONG_MAX, '\n');        // Ignorar separador "*"
         num --;
     }
     f.close();
 
 //------Ler Voos----
     int idVoo, lotacao, reservas;
-    string origem, destino;
     int dia, mes, ano;
-    float hPartida, hChegada, duracao;
-    string matricula;
     unsigned indexOrigem, indexDestino;
+    float hPartida, hChegada, duracao;
+
+    string origem, destino, matricula;
+
+
     auto i = avioes.begin();
 
 
@@ -487,38 +507,40 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
     f.ignore(LONG_MAX, '\n');
 
     while(!f.eof() && num>0) {
-        f >> idVoo;
-        f.ignore(LONG_MAX, '\n');
+        getline (f, text);
+        idVoo = stoi (text);
 
         getline (f, origem);
         getline (f, destino);
 
-        f >> dia >> mes >> ano;
-        f.ignore(LONG_MAX, '\n');
+        getline (f, text);
+        istringstream data(text);
+        data >> dia >> mes >> ano;
 
-        f >> hPartida;
-        f.ignore(LONG_MAX, '\n');
+        getline(f, text);
+        hPartida = stof(text);
+        getline(f, text);
+        hChegada = stof (text);
 
-        f >> hChegada;
-        f.ignore(LONG_MAX, '\n');
+        getline(f, text);
+        duracao = stof (text);
 
-        f >> duracao;
-        f.ignore(LONG_MAX, '\n');
+        getline(f, text);
+        lotacao = stoi (text);
 
-        f >> lotacao;
-        f.ignore(LONG_MAX, '\n');
+        getline(f, text);
+        reservas = stoi (text);
 
-        f >> reservas;
-        f.ignore(LONG_MAX, '\n');
-
-        indexDestino = this->binarySearchAeroporto(Aeroporto(origem,""));
-        indexOrigem = this->binarySearchAeroporto(Aeroporto(destino, ""));
+        indexDestino = this->binarySearchAeroporto(origem);
+        indexOrigem = this->binarySearchAeroporto(destino);
 
         Voo v (idVoo, aeroportos.at(indexOrigem), aeroportos.at(indexDestino), Data (dia,mes,ano), hPartida, hChegada, duracao, lotacao, reservas);
 
-        while (f >> idPassageiro)
+        getline(f, text);
+        istringstream passageiros(text);
+
+        while(passageiros >> idPassageiro)
             v.addPassageiro(p.at(idPassageiro-1));
-        f.ignore(LONG_MAX, '\n');
 
         getline (f, matricula);
 
@@ -542,26 +564,64 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
     f.ignore(LONG_MAX, '\n');
 
     while(!f.eof() && num>0) {
-        f >> idBilhete;
-        f.ignore(LONG_MAX, '\n');
+        getline (f, text);
+        idBilhete = stoi(text);
 
-        f >> idVoo;
-        f.ignore(LONG_MAX, '\n');
+        getline (f, text);
+        idPassageiro = stoi(text);
 
-        f >> idPassageiro;
-        f.ignore(LONG_MAX, '\n');
+        getline (f, text);
+        idVoo = stoi(text);
 
-        f >> bagagemMao;
-        f.ignore(LONG_MAX, '\n');
+        getline (f, text);
+        bagagemMao = (text == "true");
 
+        for(const Voo& v: voos){
+            if(v.getNumeroVoo() == idVoo){
+                Bilhete b (idPassageiro, p.at( idPassageiro -1), v, bagagemMao);
+                bilhetesVendidos.push_back(b);
+                break;
+            }
+        }
         f.ignore(LONG_MAX, '\n');   // ignorar o separador "*"
-
-        Voo voo;
-        for(Voo v: voos) if(v.getNumeroVoo() == idVoo) voo = v;
-        Bilhete b(idBilhete, p.at(idPassageiro - 1 ), voo, bagagemMao);
-        bilhetesVendidos.push_back(b);
-
         num--;
     }
 }
-*/
+
+void CompanhiaAerea::loadBagagens() {
+    ifstream f;
+    unsigned num;
+    string text;
+    float peso;
+    bool bagagemMao;
+    unsigned idBilhete;
+    list<Bagagem*> bagagens;
+
+    f.open("bagagens.txt");
+    if (!f.is_open())
+        cout << "Ficheiro nao existe." << endl;
+
+    f >> num;
+    f.ignore(LONG_MAX, '\n');
+
+    while(!f.eof() && num>0) {
+        getline(f, text);
+        peso = stoi(text);
+
+        getline(f, text);
+        bagagemMao = stoi(text);
+
+        getline(f, text);
+        idBilhete = stoi(text);
+
+        num--;
+
+        Bagagem *b = new Bagagem(peso, bagagemMao);
+        bagagens.push_back(b);
+    }
+
+    for(Bilhete bilh: bilhetesVendidos) {
+        if(bilh.getIdBilhete() == idBilhete)
+            bilh.setBagagem(bagagens);
+    }
+}
