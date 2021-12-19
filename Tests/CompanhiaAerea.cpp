@@ -294,7 +294,7 @@ void CompanhiaAerea::loadData() {
     this->loadServicos();
     this->loadAeroportos();
     this->loadLocaisTransporte();
-    this->loadVoos();
+    //this->loadVoos();
 }
 
 void CompanhiaAerea::loadAvioes() {
@@ -430,7 +430,7 @@ void CompanhiaAerea::loadLocaisTransporte() {
             f >> auxDia;
         }
 
-        for (Aeroporto a: aeroportos) {
+        for (Aeroporto& a: aeroportos) {
             if (a.getNome() == nome) {
                 a.addTransporte(LocalDeTransporte(dist, tipo, horarios));
                 break;
@@ -441,6 +441,7 @@ void CompanhiaAerea::loadLocaisTransporte() {
     f.close();
 }
 
+/*
 void CompanhiaAerea::loadVoos() {
 //-----Ler Passageiros:
     vector <Passageiro> p;
@@ -533,4 +534,4 @@ void CompanhiaAerea::loadVoos() {
         num --;
     }
     f.close();
-}
+}*/
