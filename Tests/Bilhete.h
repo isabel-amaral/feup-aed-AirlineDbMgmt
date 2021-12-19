@@ -47,7 +47,7 @@ public:
      *
      * @return voo para o qual o bilhete foi adquirido.
      */
-    Voo getVoo() const;
+    Voo getVoo();
     /**
      *
      * @return true se o passageiro tem direito a levar bagagem de mão, caso contrário false.
@@ -80,9 +80,9 @@ public:
      * @param b é o objeto a ser comparado com esta instância.
      * @return true se esta instância é menor @param b caso contrário false.
      */
-    bool operator< (const Bilhete& b) const;
+    bool operator< (Bilhete& b);
     //TODO: DOCUMENTACAO
-    friend ostream &operator<<(ostream &os, const Bilhete &b);
+    friend ostream &operator<<(ostream &os, Bilhete &b);
 };
 
 #endif //_BILHETE_H

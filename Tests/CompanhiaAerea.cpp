@@ -148,7 +148,6 @@ void CompanhiaAerea::realizarCheckIn(unsigned bId) const {
         else
             bilhete.getPasssageiro().incrementarMulta(excessoPeso.multaTaxaBagagemDeMao(*it));
     }
-    //TODO: apagar const de getVoo
     bilhete.getVoo().realizarCheckIn(bilhete.getPasssageiro());
 }
 

@@ -31,7 +31,7 @@ Passageiro Bilhete::getPasssageiro() const {
     return passageiro;
 }
 
-Voo Bilhete::getVoo() const {
+Voo Bilhete::getVoo() {
     return this->voo;
 }
 
@@ -55,7 +55,7 @@ void Bilhete::setBagagem(const list<Bagagem*>& b) {
     this->bagagem = b;
 }
 
-bool Bilhete::operator< (const Bilhete& b) const {
+bool Bilhete::operator< (Bilhete& b) {
     if (this->passageiro.getNome() < b.passageiro.getNome())
         return true;
     if (this->passageiro.getNome() == b.passageiro.getNome()) {
@@ -67,7 +67,7 @@ bool Bilhete::operator< (const Bilhete& b) const {
     return false;
 }
 
-ostream &operator<<(ostream &os, const Bilhete &b) {
+ostream &operator<<(ostream &os, Bilhete &b) {
     os<< b.getVoo();
     if (b.temBagagemDeMao())
         cout << b.getPasssageiro().getNome() << " tem direito a levar bagagem de mão" << endl;
