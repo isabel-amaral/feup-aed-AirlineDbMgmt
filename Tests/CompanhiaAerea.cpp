@@ -377,7 +377,40 @@ void CompanhiaAerea::loadServicos() {
 }
 
 void CompanhiaAerea::loadBilhetes() {
+//-----Ler Passageiros:
+    vector <Passageiro> p;
+    ifstream f;
+    int num;
+    string nomePassageiro;
+    int idPassageiro;
+    int idadePassageiro;
+    bool menorNaoAcompanhado;
 
+    f.open("passageiros.txt");
+    if (!f.is_open())
+        cout << "Ficheiro nao existe." << endl;
+
+    f >> num;
+    f.ignore(LONG_MAX, '\n');
+
+    while(!f.eof() && num>0) {
+        getline(f, nomePassageiro);
+
+        f >> idPassageiro;
+        f.ignore(LONG_MAX, '\n');
+        f >> idadePassageiro;
+        f.ignore(LONG_MAX, '\n');
+        f >> menorNaoAcompanhado;
+        f.ignore(LONG_MAX, '\n');
+        f.ignore(LONG_MAX, '\n');           // Ignorar separador "***"
+        p.push_back(Passageiro(nomePassageiro, idPassageiro, idadePassageiro, menorNaoAcompanhado));
+        num --;
+    }
+    f.close();
+
+//-----Ler Passageiros:
+    unsigned idBilhete, numVoo;
+    bool bagagemMao;
 
 
 };
