@@ -1,7 +1,8 @@
 10
+***
 11121
-Aeroporto Francisco Sa Carneiro
-Aeroporto Joao Paulo II
+Aeroporto Francisco Sá Carneiro
+Aeroporto João Paulo II
 30 01 2022
 12.55
 14.20
@@ -9,10 +10,11 @@ Aeroporto Joao Paulo II
 300
 2
 2 18
+A310-CS-TT
 ***
 11122
-Aeroporto Francisco Sa Carneiro
-Aeroporto Joao Paulo II
+Aeroporto Francisco Sá Carneiro
+Aeroporto João Paulo II
 30 01 2022
 20.55
 22.20
@@ -20,10 +22,11 @@ Aeroporto Joao Paulo II
 300
 4
 3 4 7 8
+A310-CS-TT
 ***
 11124
-Aeoroporto Joao Paulo II
-Aeroporto Francisco Sa Carneiro
+Aeroporto João Paulo II
+Aeroporto Francisco Sá Carneiro
 25 04 2022
 8.30
 11.55
@@ -31,20 +34,22 @@ Aeroporto Francisco Sa Carneiro
 300
 5
 3 6 10 14 15
+A310-CS-TT
 ***
 11127
 Aeroporto Humberto Delgado
-Aeroporto Joao Paulo II
+Aeroporto João Paulo II
 16 02 2022
 16.25
 18.50
 2.25
 350
 6
-5 6 8 12 16 17 
+5 6 8 12 16 17
+A320-CS-TT
 ***
 11130
-Aeroporto Joao Paulo II
+Aeroporto João Paulo II
 Aeroporto Humberto Delgado
 17 02 2022
 16.25
@@ -53,9 +58,10 @@ Aeroporto Humberto Delgado
 350
 2
 10 15
+A320-CS-TT
 ***
 11131
-Aeroporto Joao Paulo II
+Aeroporto João Paulo II
 Aeroporto Humberto Delgado
 17 02 2022
 18.25
@@ -64,6 +70,7 @@ Aeroporto Humberto Delgado
 350
 4
 5 9 11 12
+A320-CS-TT
 ***
 11133
 Aeroporto Humberto Delgado
@@ -74,7 +81,8 @@ Aeroporto Internacional de Maputo Mavalane
 10.00
 400
 4
-9 13 19 20 
+9 13 19 20
+A380-CS-TE
 ***
 11135
 Aeroporto Internacional de Maputo Mavalane
@@ -86,6 +94,7 @@ Aeroporto Humberto Delgado
 400
 2
 9 14
+A380-CS-TE
 ***
 11136
 Aeroporto Humberto Delgado
@@ -97,6 +106,7 @@ Aeroporto Internacional John F. Kennedy
 200
 3
 1 9 16
+A330-CS-TO
 ***
 11138
 Aeroporto Internacional John F. Kennedy
@@ -108,4 +118,4 @@ Aeroporto Humberto Delgado
 175
 2
 1 10
-***
+A330-CS-TO

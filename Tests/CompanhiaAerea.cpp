@@ -319,7 +319,6 @@ void CompanhiaAerea::loadAvioes() {
         capacidade = stoi(text);
         this->addAviao(Aviao(matricula, tipo, capacidade));
         num--;
-
     }
     f.close();
 }
@@ -338,6 +337,7 @@ void CompanhiaAerea::loadServicos() {
     f >> num;
     f.ignore(LONG_MAX, '\n');
     while (!f.eof() && num > 0) {
+        f.ignore(LONG_MAX, '\n');
         getline(f, matricula);
         getline(f, text);
         if (text == "0")
@@ -362,8 +362,6 @@ void CompanhiaAerea::loadServicos() {
                 break;
             }
         }
-
-        f.ignore(LONG_MAX, '\n');
         num--;
     }
     f.close();
@@ -386,7 +384,6 @@ void CompanhiaAerea::loadAeroportos(){
         getline(f, cidade);
         this->addAeroporto(Aeroporto(nome, cidade));
         num--;
-        f.ignore(LONG_MAX, '\n');
     }
     f.close();
 }
@@ -406,6 +403,7 @@ void CompanhiaAerea::loadLocaisTransporte() {
         cout << "Ficheiro nao existe." << endl;
 
     f >> num;
+    f.ignore(LONG_MAX, '\n');
     f.ignore(LONG_MAX, '\n');
     while (!f.eof() && num > 0) {
         f >> dist;
@@ -450,8 +448,7 @@ void CompanhiaAerea::loadLocaisTransporte() {
 
 void CompanhiaAerea::loadVoosAndBilhetes() {
 //--------Ler Passageiros------------
-
-    vector <Passageiro> p;
+    vector<Passageiro> p;
     ifstream f;
     string text;
     int num;
@@ -466,24 +463,20 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
 
     f >> num;
     f.ignore(LONG_MAX, '\n');
-
     while(!f.eof() && num>0) {
         getline(f, nomePassageiro);
-
         getline (f, text);
         idPassageiro= stoi(text);
-
         getline (f, text);
         idadePassageiro=stoi(text);
-
         getline (f, text);
         menorNaoAcompanhado = (text == "true");
 
         Passageiro p1 (nomePassageiro, idPassageiro, idadePassageiro, menorNaoAcompanhado);
         p.push_back(p1);
 
-        f.ignore(LONG_MAX, '\n');        // Ignorar separador "*"
-        num --;
+        f.ignore(LONG_MAX, '\n');
+        num--;
     }
     f.close();
 
@@ -492,12 +485,9 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
     int dia, mes, ano;
     unsigned indexOrigem, indexDestino;
     float hPartida, hChegada, duracao;
-
     string origem, destino, matricula;
 
-
     auto i = avioes.begin();
-
 
     f.open("voos.txt");
     if (!f.is_open())
@@ -505,50 +495,43 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
 
     f >> num;
     f.ignore(LONG_MAX, '\n');
-
     while(!f.eof() && num>0) {
+        f.ignore(LONG_MAX, '\n');
         getline (f, text);
-        idVoo = stoi (text);
-
+        idVoo = stoi(text);
         getline (f, origem);
         getline (f, destino);
-
         getline (f, text);
         istringstream data(text);
         data >> dia >> mes >> ano;
-
         getline(f, text);
         hPartida = stof(text);
         getline(f, text);
-        hChegada = stof (text);
-
+        hChegada = stof(text);
         getline(f, text);
-        duracao = stof (text);
-
+        duracao = stof(text);
         getline(f, text);
-        lotacao = stoi (text);
-
+        lotacao = stoi(text);
         getline(f, text);
-        reservas = stoi (text);
-
+        reservas = stoi(text);
         indexDestino = this->binarySearchAeroporto(origem);
         indexOrigem = this->binarySearchAeroporto(destino);
-
-        Voo v (idVoo, aeroportos.at(indexOrigem), aeroportos.at(indexDestino), Data (dia,mes,ano), hPartida, hChegada, duracao, lotacao, reservas);
+        Voo v(idVoo, aeroportos.at(indexOrigem), aeroportos.at(indexDestino), Data (dia,mes,ano), hPartida, hChegada, duracao, lotacao, reservas);
 
         getline(f, text);
         istringstream passageiros(text);
-
         while(passageiros >> idPassageiro)
             v.addPassageiro(p.at(idPassageiro-1));
 
-        getline (f, matricula);
-
-        if (i->getMatricula() != matricula) i++;
-
-        i->addVoo(v);
-        f.ignore(LONG_MAX, '\n');   // ignorar o separador "*"
-        num --;
+        getline(f, matricula);
+        for (auto it = avioes.begin(); it != avioes.end(); it++) {
+            if (it->getMatricula() == matricula) {
+                it->addVoo(v);
+                break;
+            }
+        }
+        this->addVoo(v);
+        num--;
     }
     f.close();
 
@@ -562,17 +545,14 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
 
     f >> num;
     f.ignore(LONG_MAX, '\n');
-
     while(!f.eof() && num>0) {
+        f.ignore(LONG_MAX, '\n');
         getline (f, text);
         idBilhete = stoi(text);
-
         getline (f, text);
         idPassageiro = stoi(text);
-
         getline (f, text);
         idVoo = stoi(text);
-
         getline (f, text);
         bagagemMao = (text == "true");
 
@@ -583,9 +563,9 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
                 break;
             }
         }
-        f.ignore(LONG_MAX, '\n');   // ignorar o separador "*"
         num--;
     }
+    f.close();
 }
 
 void CompanhiaAerea::loadBagagens() {
@@ -603,25 +583,22 @@ void CompanhiaAerea::loadBagagens() {
 
     f >> num;
     f.ignore(LONG_MAX, '\n');
-
     while(!f.eof() && num>0) {
         getline(f, text);
         peso = stoi(text);
-
         getline(f, text);
         bagagemMao = stoi(text);
-
         getline(f, text);
         idBilhete = stoi(text);
 
-        num--;
-
-        Bagagem *b = new Bagagem(peso, bagagemMao);
+        Bagagem* b = new Bagagem(peso, bagagemMao);
         bagagens.push_back(b);
+        num--;
     }
 
-    for(Bilhete bilh: bilhetesVendidos) {
-        if(bilh.getIdBilhete() == idBilhete)
-            bilh.setBagagem(bagagens);
+    for(Bilhete bilhete: bilhetesVendidos) {
+        if(bilhete.getIdBilhete() == idBilhete)
+            bilhete.setBagagem(bagagens);
     }
+    f.close();
 }
