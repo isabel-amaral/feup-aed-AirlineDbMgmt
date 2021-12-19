@@ -124,15 +124,13 @@ bool CompanhiaAerea::adquirirConjuntoBilhetes(list<Passageiro> &p, Voo &v, bool 
     return true;
 }
 
-bool CompanhiaAerea::cancelarViagem(const Passageiro &p, Voo &v) {
-    Bilhete b = getBilhetePassageiroVoo(p.getId(), v.getNumeroVoo());
-    if (b.getIdBilhete() == 0)
-        return false;
-    if (find(v.getPassageirosCheckedIn().begin(), v.getPassageirosCheckedIn().end(), p) == v.getPassageirosCheckedIn().end())
+bool CompanhiaAerea::cancelarViagem(unsigned bId) {
+    Bilhete b = getBilheteID(bId);
+    if (find(b.getVoo().getPassageirosCheckedIn().begin(), b.getVoo().getPassageirosCheckedIn().end(), b.getPasssageiro()) == b.getVoo().getPassageirosCheckedIn().end())
         return false;
     vector<Bilhete>::iterator it = find(bilhetesVendidos.begin(), bilhetesVendidos.end(), b);
     bilhetesVendidos.erase(it);
-    v.removerPassageiro(p);
+    b.getVoo().removerPassageiro(b.getPasssageiro());
     return true;
 }
 
@@ -253,8 +251,6 @@ void CompanhiaAerea::showVoosDatas(const Data &d1, const Data &d2) const {
     }
 }
 
-
-
 void CompanhiaAerea::addAviao(const Aviao &aviao) {
     avioes.push_back(aviao);
 }
@@ -293,11 +289,9 @@ void CompanhiaAerea::loadData() {
     this->loadAeroportos();
     this->loadServicos();
     this->loadVoos();
-
 }
 
 void CompanhiaAerea::loadAeroportos(){
-
     ifstream f;
     int num;
     string nome;
@@ -315,7 +309,7 @@ void CompanhiaAerea::loadAeroportos(){
         this->addAeroporto(Aeroporto(nome, cidade));
 
         f.ignore(LONG_MAX, '\n');
-        num --;
+        num--;
     }
     f.close();
 }
@@ -363,13 +357,13 @@ void CompanhiaAerea::loadServicos() {
 
     f >> num;
     f.ignore(LONG_MAX, '\n');
-    while (!f.eof() && num>0){
-
+    while (!f.eof() && num>0) {
         getline(f, matricula);
-
         getline(f, aux);
-        if (aux == "1") tipo = Limpeza;
-        else tipo = Manutencao;
+        if (aux == "1")
+            tipo = Limpeza;
+        else
+            tipo = Manutencao;
 
         f >> dia >> mes >> ano;
         f.ignore (LONG_MAX, '\n');
@@ -381,14 +375,13 @@ void CompanhiaAerea::loadServicos() {
         getline(f, nomeFunc);
         Funcionario f1(idFunc, nomeFunc);
 
-        if (i->getMatricula() != matricula) i++;
+        if (i->getMatricula() != matricula)
+            i++;
 
         i->addServicoPorRealizar( Servico(tipo, Data (dia, mes, ano), f1));
-
         num--;
     }
     f.close();
-
 }
 
 void CompanhiaAerea::loadVoos() {
@@ -408,25 +401,20 @@ void CompanhiaAerea::loadVoos() {
     f >> num;
     f.ignore(LONG_MAX, '\n');
 
-    while(!f.eof() && num>0){
+    while(!f.eof() && num>0) {
         getline(f, nomePassageiro);
 
         f >> idPassageiro;
         f.ignore(LONG_MAX, '\n');
-
         f >> idadePassageiro;
         f.ignore(LONG_MAX, '\n');
-
         f >> menorNaoAcompanhado;
         f.ignore(LONG_MAX, '\n');
-
         f.ignore(LONG_MAX, '\n');           // Ignorar separador "***"
         p.push_back(Passageiro(nomePassageiro, idPassageiro, idadePassageiro, menorNaoAcompanhado));
-
         num --;
     }
     f.close();
-
 
 //------Ler Voos----
     int idVoo, lotacao, reservas;
@@ -438,29 +426,14 @@ void CompanhiaAerea::loadVoos() {
     f.open("voos.txt");
     if (!f.is_open())
         cout << "Ficheiro nao existe." << endl;
-
     f >> num;
     f.ignore(LONG_MAX, '\n');
 
-    while(!f.eof() && num>0){
+    while(!f.eof() && num>0) {
         f >> idVoo;
         f.ignore(LONG_MAX, '\n');
         //TODO
-
-
-
         num --;
     }
-
     f.close();
 }
-
-
-
-
-
-
-
-
-
-
