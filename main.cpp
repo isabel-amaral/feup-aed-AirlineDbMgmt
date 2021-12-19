@@ -10,11 +10,7 @@ int runTests(int argc, char* argv[]) {
     return RUN_ALL_TESTS();
 }
 
-
-
 int main(){
-    menu m1=menu();
-
+    menu m = menu();
     return 0;
-
 }
