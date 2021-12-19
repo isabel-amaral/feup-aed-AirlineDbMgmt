@@ -425,7 +425,6 @@ void CompanhiaAerea::loadLocaisTransporte() {
             }
             Horario h(dia, horario);
             horarios.push_back(h);
-            horarios.clear();
 
             f >> auxDia;
         }
@@ -436,6 +435,7 @@ void CompanhiaAerea::loadLocaisTransporte() {
                 break;
             }
         }
+        horarios.clear();
         num--;
     }
     f.close();
