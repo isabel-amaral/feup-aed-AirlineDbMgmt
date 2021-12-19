@@ -161,8 +161,7 @@ Private Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:ae74d18b268d07fc90485213394591456"><td class="memItemLeft" align="right" valign="top"><a id="ae74d18b268d07fc90485213394591456" name="ae74d18b268d07fc90485213394591456"></a>
-ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (ostream &amp;os, const <a class="el" href="class_voo.html">Voo</a> &amp;v)</td></tr>
+<tr class="memitem:ae74d18b268d07fc90485213394591456"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voo.html#ae74d18b268d07fc90485213394591456">operator&lt;&lt;</a> (ostream &amp;os, const <a class="el" href="class_voo.html">Voo</a> &amp;v)</td></tr>
 <tr class="separator:ae74d18b268d07fc90485213394591456"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -183,7 +182,7 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
 </div><div class="memdoc">
 <p >Se os lugares vagos são suficientes para o número de passageiros que pretende viajar, os bilhetes destes são adicicionados ao vector de passageiros do voo. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td>contém os bilhetes dos passageiros que pretendem viajar em conjunto. </td></tr>
+    <tr><td class="paramname">b</td><td>contém os bilhetes dos passageiros que pretendem viajar em conjunto. </td></tr>
   </table>
   </dd>
 </dl>
@@ -208,7 +207,7 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
 </div><div class="memdoc">
 <p >Adiciona o bilhete de um novo passageiro ao vetor passageiros se o voo não se encontra lotado. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p</td><td>é o bilhete do novo passageiro que pretende viajar. </td></tr>
+    <tr><td class="paramname">b</td><td>é o bilhete do novo passageiro que pretende viajar. </td></tr>
   </table>
   </dd>
 </dl>
@@ -453,13 +452,7 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true se esta instância é menor que</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">v</td><td>e em caso contrário false. </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se esta instância é menor que v e em caso contrário false. </dd></dl>
 
 </div>
 </div>
@@ -648,7 +641,7 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
 </div><div class="memdoc">
 <p >Altera a lotação do <a class="el" href="class_voo.html">Voo</a>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lotacao</td><td>é a nova lotação. </td></tr>
+    <tr><td class="paramname">lot</td><td>é a nova lotação. </td></tr>
   </table>
   </dd>
 </dl>
@@ -766,6 +759,51 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="ae74d18b268d07fc90485213394591456" name="ae74d18b268d07fc90485213394591456"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae74d18b268d07fc90485213394591456">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ostream &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_voo.html">Voo</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Este operador envia para uma outputstream toda a informação sobre um voo que deverá ser mostrada ao utilizador. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>outputstream que conterá informação sobre o voo </td></tr>
+    <tr><td class="paramname">v</td><td>voo sobre o qual se pretende obter informação </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>outputstream com a informação sobre o voo </dd></dl>
 
 </div>
 </div>

@@ -22,6 +22,9 @@ private:
      * Data escrita no formato DD-MM-AAAA (dia-mes-ano)
      */
     string data;
+    /**
+     * Constroi o valor da string data com base nos valores dos restantes atributos
+     */
     void getStringRepresentation();
 public:
     Data();
@@ -67,16 +70,20 @@ public:
      * Em caso de empate, é tanto menor quanto menor é o seu mês.
      * Em caso de empate, é tanto menor quanto menor é o seu dia.
      * @param d é a data a ser comparada com está instância.
-     * @return true se esta instância é menor que @param d caso contrário false.
+     * @return true se esta instância é menor que d caso contrário false.
      */
     bool operator< (const Data &d) const;
     /**
      * Duas datas são iguais se todos os seus atributos são iguais.
      * @param d é a data a ser comparada com esta instância.
-     * @return true se esta instância é igual à @param d caso contrário false.
+     * @return true se esta instância é igual a d caso contrário false.
      */
     bool operator == (const Data& d) const;
-    //TODO: DOCUMENTACAO
+    /**
+     * Uma data será menor ou igual a outra se cumprir um dos requisitos
+     * @param d é a data a ser comparada com esta instância.
+     * @return true se esta instância é menor ou igual a d caso contrário false.
+     */
     bool operator <= (const Data& d) const;
 };
 

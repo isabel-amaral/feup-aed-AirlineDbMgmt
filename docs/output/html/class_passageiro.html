@@ -89,8 +89,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8091629b128d86874bced05ac24402a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28a12bfe8271129e0e3c2be59fe46410"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_passageiro.html#a28a12bfe8271129e0e3c2be59fe46410">incrementarMulta</a> (float multa)</td></tr>
 <tr class="separator:a28a12bfe8271129e0e3c2be59fe46410"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad83eae9bafdfc4679868ccb5a9498d8"><td class="memItemLeft" align="right" valign="top"><a id="aad83eae9bafdfc4679868ccb5a9498d8" name="aad83eae9bafdfc4679868ccb5a9498d8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_passageiro.html">Passageiro</a> &amp;p) const</td></tr>
+<tr class="memitem:aad83eae9bafdfc4679868ccb5a9498d8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_passageiro.html#aad83eae9bafdfc4679868ccb5a9498d8">operator==</a> (const <a class="el" href="class_passageiro.html">Passageiro</a> &amp;p) const</td></tr>
 <tr class="separator:aad83eae9bafdfc4679868ccb5a9498d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -108,8 +107,7 @@ Private Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:ab98be400cf857c9e2942ca11ef7aa7f2"><td class="memItemLeft" align="right" valign="top"><a id="ab98be400cf857c9e2942ca11ef7aa7f2" name="ab98be400cf857c9e2942ca11ef7aa7f2"></a>
-ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (ostream &amp;os, const <a class="el" href="class_passageiro.html">Passageiro</a> &amp;p)</td></tr>
+<tr class="memitem:ab98be400cf857c9e2942ca11ef7aa7f2"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_passageiro.html#ab98be400cf857c9e2942ca11ef7aa7f2">operator&lt;&lt;</a> (ostream &amp;os, const <a class="el" href="class_passageiro.html">Passageiro</a> &amp;p)</td></tr>
 <tr class="separator:ab98be400cf857c9e2942ca11ef7aa7f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -224,6 +222,76 @@ ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true se o passageiro for menor de idade e estiver a vaigem sem um adulto responsável, falso caso contrário. </dd></dl>
+
+</div>
+</div>
+<a id="aad83eae9bafdfc4679868ccb5a9498d8" name="aad83eae9bafdfc4679868ccb5a9498d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad83eae9bafdfc4679868ccb5a9498d8">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Passageiro::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_passageiro.html">Passageiro</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Dois passageiros são iguais se os seus ids são iguais </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>é o passageiro a ser comparado com esta instância </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se esta instância é igual a p caso contrário false. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="ab98be400cf857c9e2942ca11ef7aa7f2" name="ab98be400cf857c9e2942ca11ef7aa7f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab98be400cf857c9e2942ca11ef7aa7f2">&#9670;&nbsp;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ostream &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_passageiro.html">Passageiro</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Este operador envia para uma outputstream toda a informação sobre um passageiro que deverá ser mostrada ao utilizador. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>outputstream que conterá informação sobre o passageiro </td></tr>
+    <tr><td class="paramname">p</td><td>passageiro do qual se pretende obter informação </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>outputstream com a informação sobre o passageiro </dd></dl>
 
 </div>
 </div>

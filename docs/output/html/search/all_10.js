@@ -4,7 +4,7 @@ var searchData=
   ['taxabagagemdemao_1',['taxaBagagemDeMao',['../class_excesso_peso.html#a0a4d7774d4c2167bd98be5d29ee9bf17',1,'ExcessoPeso']]],
   ['taxapesoextra_2',['taxaPesoExtra',['../class_excesso_peso.html#a11c058e9107bb1309c9cf377916331f8',1,'ExcessoPeso']]],
   ['tembagagemdemao_3',['temBagagemDeMao',['../class_bilhete.html#a1c4eb6ca9373d5f2875daecb7b877a0c',1,'Bilhete']]],
-  ['tipo_4',['tipo',['../class_local_de_transporte.html#a365767fca15cca8b95c23a96db4ed98d',1,'LocalDeTransporte']]],
+  ['tipo_4',['tipo',['../class_aviao.html#a49175e701ce2f96d72be30e392646652',1,'Aviao::tipo()'],['../class_local_de_transporte.html#a365767fca15cca8b95c23a96db4ed98d',1,'LocalDeTransporte::tipo()']]],
   ['tiposervico_5',['tipoServico',['../class_servico.html#a671025f235be1c4a7e3477fe739d7864',1,'Servico']]],
   ['transportador_6',['transportador',['../class_voo.html#a717936fa87f44d14182ccc1fdf808c4d',1,'Voo']]],
   ['transportadordebagagem_7',['TransportadorDeBagagem',['../class_transportador_de_bagagem.html',1,'']]],

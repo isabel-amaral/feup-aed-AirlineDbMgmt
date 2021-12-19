@@ -78,7 +78,7 @@ public:
      * Procura um determinado aeroporto no vector aeroportos usando pesquisa binária.
      * @param aeroporto é o elemento a ser pesquisado.
      * @return a posição do aeroporto vo vector caso ele exista. Casp contrário retorna
-     * o índice do maior elemento menor que @param aeroporto ou o menor elemento maior que @param aeroporto
+     * o índice do maior elemento menor que aeroporto ou o menor elemento maior que aeroporto
      */
     unsigned binarySearchAeroporto (const Aeroporto &aeroporto);
     /**
@@ -90,7 +90,7 @@ public:
     /**
      *
      * @param pId é o id de um determinado passageiro
-     * @return vector com todos os bilhetes adquiridos pelo passageiro (@param p) num vetor.
+     * @return vector com todos os bilhetes adquiridos pelo passageiro p num vetor.
      * Caso este passageiro não tenha adquirido nenhum bilhete, será retornado um vetor vazio.
      */
     vector<Bilhete> getBilhetesFromPassageiro(unsigned pId) const;

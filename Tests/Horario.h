@@ -37,7 +37,7 @@ public:
     void addHora(const float& hora);
     /**
      * Modifica/define o dia da semana.
-     * @param dia é o dia que será atribuido ao objeto.
+     * @param d é o dia que será atribuido ao objeto.
      */
     void setDia(const DiaDaSemana& d);
     /**
@@ -53,7 +53,7 @@ public:
      *
      * @param hora é o elemento a ser pesquisado no vetor horas usando pesquisa binária.
      * @return posição da hora no vetor caso esta seja encontrada. Caso contrário .retorna
-     * o índice do maior elemento menor que @param hora ou o menor elemento maior que @param hora
+     * o índice do maior elemento menor que hora ou o menor elemento maior que hora
      */
     unsigned BinarySearchHora(const float& hora) const;
     /**

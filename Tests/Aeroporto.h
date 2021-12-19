@@ -120,7 +120,7 @@ public:
     /**
      * Um aeroporto é tanto menor quanto menor é o seu nome.
      * @param a1 é o aeroporto a ser comparado com esta instância.
-     * @return true se @param a1 é maior que esta instância.
+     * @return true se a1 é maior que esta instância.
      */
     bool operator <(const Aeroporto& a1) const;
 };

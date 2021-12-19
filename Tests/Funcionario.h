@@ -30,12 +30,12 @@ public:
     string getNomeFuncionario() const;
     /**
      * Altera o número de identificação do funcionário.
-     * @param idFuncionario é o novo id.
+     * @param id é o novo id.
      */
     void setIdFuncionario(unsigned id);
     /**
      * Modifica o nome do funcionário.
-     * @param nomeFuncionario é o novo nome do funcionário.
+     * @param nome é o novo nome do funcionário.
      */
     void setNomeFuncionario(const string &nome);
 };

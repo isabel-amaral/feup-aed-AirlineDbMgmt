@@ -13,8 +13,9 @@ Aviao::Aviao() {
     }
 }
 
-Aviao::Aviao(const string& m, unsigned c, const list<Voo>& planVoo, const queue<Servico>& servRealizar) {
+Aviao::Aviao(const string& m, const string& t, unsigned c, const list<Voo>& planVoo, const queue<Servico>& servRealizar) {
     this->matricula = m;
+    this->tipo = t;
     this->capacidade = c;
     this->planoDeVoo = planVoo;
     this->servicosPorRealizar = servRealizar;

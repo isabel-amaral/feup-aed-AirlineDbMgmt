@@ -160,7 +160,7 @@ public:
     void setDuracao(float d);
     /**
      * Altera a lotação do Voo.
-     * @param lotacao é a nova lotação.
+     * @param lot é a nova lotação.
      */
     void setLotacao(unsigned int lot);
     /**
@@ -177,15 +177,15 @@ public:
     void setTransportador(unsigned c, unsigned n, unsigned m);
     /**
      * Adiciona o bilhete de um novo passageiro ao vetor passageiros se o voo não se encontra lotado.
-     * @param p é o bilhete do novo passageiro que pretende viajar.
+     * @param b é o bilhete do novo passageiro que pretende viajar.
      * @return true se passageiro poderá viajar, caso contrário false.
      */
     bool addPassageiro(const Passageiro& b);
     /**
      * Se os lugares vagos são suficientes para o número de passageiros que pretende viajar,
      * os bilhetes destes são adicicionados ao vector de passageiros do voo.
-     * @param p contém os bilhetes dos passageiros que pretendem viajar em conjunto.
-     * @return  true se o grupo de passageiros poderá viajar, caso contrário false.
+     * @param b contém os bilhetes dos passageiros que pretendem viajar em conjunto.
+     * @return true se o grupo de passageiros poderá viajar, caso contrário false.
      */
     bool addConjuntoPassageiros(const list<Passageiro>& b);
     /**
@@ -204,10 +204,15 @@ public:
     * de empate, compara-se a hora de partida de cada um: o que partir mais cedo, será considerado menor. Caso contrário,
     * será menor aquele que tiver vier primeiro em ordem alfabética.
     * @param v é o objeto a ser comparado com esta instância
-    * @return true se esta instância é menor que @param v e em caso contrário false.
+    * @return true se esta instância é menor que v e em caso contrário false.
     */
     bool operator < (const Voo& v) const;
-    //TODO: DOCUMENTACAO
+    /**
+     * Este operador envia para uma outputstream toda a informação sobre um voo que deverá ser mostrada ao utilizador.
+     * @param os outputstream que conterá informação sobre o voo
+     * @param v voo sobre o qual se pretende obter informação
+     * @return outputstream com a informação sobre o voo
+     */
     friend ostream& operator<< (ostream& os, const Voo& v);
 };
 

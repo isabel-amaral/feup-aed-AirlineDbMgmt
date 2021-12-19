@@ -11,6 +11,10 @@ private:
      * Número de identificação do bilhete.
      */
     unsigned idBilhete;
+    /**
+     * Atributo que é incrementada de cada vez que um novo bilhete é adicionado à companhia aérea.
+     * Representa o número de bilhetes comprados até ao momento.
+     */
     static unsigned idCount;
     /**
      * Passageiro a quem pertence o bilhete.
@@ -37,6 +41,10 @@ public:
      * @return Número de identificação do bilhete.
      */
     unsigned getIdBilhete() const;
+    /**
+     * Retorna o número de bilhetes comprados até ao momento.
+     * @return ID do último bilhete adicionado
+     */
     static unsigned getIdCount();
     /**
      *
@@ -78,10 +86,21 @@ public:
      * Em caso de empate é tanto menor quanto menor é a data de partida do voo a que se refere.
      * Em caso de empate é tanto menor quanto menor é a hora de partida do repetivo voo.
      * @param b é o objeto a ser comparado com esta instância.
-     * @return true se esta instância é menor @param b caso contrário false.
+     * @return true se esta instância é menor que b, caso contrário false.
      */
     bool operator< (Bilhete& b);
+    /**
+     * Dois bilhetes são iguais se tiverem o mesmo ID
+     * @param b é o objeto a ser comparado com esta instância
+     * @return true se esta instância é igual a b, caso contràrio false
+     */
     bool operator== (const Bilhete& b) const;
+    /**
+     * Este operador envia para uma outputstream toda a informação sobre um bilhete que deverá ser mostrada ao utilizador.
+     * @param os outputstream que conterá informação sobre o bilhete
+     * @param b bilhete do qual se pretende obter informação
+     * @return outputstream com a informação sobre o bilhete
+     */
     friend ostream &operator<<(ostream &os, Bilhete &b);
 };
 

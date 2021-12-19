@@ -16,8 +16,9 @@ private:
      * Matrícula do avião.
      */
     string matricula;
-
-    //TODO: DOC
+    /**
+     * Tipo do avião
+     */
     string tipo;
     /**
      * Capacidade do avião.
@@ -38,14 +39,16 @@ private:
 
 public:
     Aviao();
-    Aviao(const string& m, unsigned c, const list<Voo>& planVoo = list<Voo>(), const queue<Servico>& servRealizar = queue<Servico>());
+    Aviao(const string& m, const string& t, unsigned c, const list<Voo>& planVoo = list<Voo>(), const queue<Servico>& servRealizar = queue<Servico>());
     /**
      *
      * @return matricula do avião.
      */
     string getMatricula() const;
-
-    //TODO: DOC
+    /**
+     *
+     * @return Tipo do avião
+     */
     string getTipo() const;
     /**
      *

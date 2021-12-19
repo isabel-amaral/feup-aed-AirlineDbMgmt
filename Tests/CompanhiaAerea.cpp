@@ -133,6 +133,7 @@ bool CompanhiaAerea::cancelarViagem(const Passageiro &p, Voo &v) {
     vector<Bilhete>::iterator it = find(bilhetesVendidos.begin(), bilhetesVendidos.end(), b);
     bilhetesVendidos.erase(it);
     v.removerPassageiro(p);
+    return true;
 }
 
 void CompanhiaAerea::realizarCheckIn(unsigned bId) const {

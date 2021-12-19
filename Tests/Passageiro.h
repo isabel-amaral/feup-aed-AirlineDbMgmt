@@ -63,8 +63,18 @@ public:
      * @param multa preço a pagar pela nova infração cometida
      */
     void incrementarMulta(float multa);
+    /**
+     * Dois passageiros são iguais se os seus ids são iguais
+     * @param p é o passageiro a ser comparado com esta instância
+     * @return true se esta instância é igual a p caso contrário false.
+     */
     bool operator== (const Passageiro& p) const;
-    //TODO: DOCUMENTACAO
+    /**
+     * Este operador envia para uma outputstream toda a informação sobre um passageiro que deverá ser mostrada ao utilizador.
+     * @param os outputstream que conterá informação sobre o passageiro
+     * @param p passageiro do qual se pretende obter informação
+     * @return outputstream com a informação sobre o passageiro
+     */
     friend ostream& operator<< (ostream& os, const Passageiro& p);
 };
 

@@ -86,7 +86,7 @@ public:
     bool operator< (const LocalDeTransporte& local) const;
     /**
      * Este operador envia para uma outputstream toda a informação sobre um local de transporte que deverá ser mostrada ao utilizador.
-     * @param os outputstream que conterá ionformação sobre o local
+     * @param os outputstream que conterá informação sobre o local
      * @param local local de transporte do qual se pretende obter informação
      * @return outputstream com a informação sobre o local de transporte
      */
