@@ -219,10 +219,9 @@ public:
     void loadData();
     void loadAvioes();
     void loadAeroportos();
-    void loadServicos();
-    void loadBilhetes();
-    void loadVoos();
+    void loadVoosAndBilhetes();
     void loadLocaisTransporte();
+    void loadServicos();
 };
 
 #endif //_COMPANHIAAEREA_H

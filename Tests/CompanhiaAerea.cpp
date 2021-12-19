@@ -294,7 +294,7 @@ void CompanhiaAerea::loadData() {
     this->loadServicos();
     this->loadAeroportos();
     this->loadLocaisTransporte();
-    this->loadVoos();
+    this->loadVoosAndBilhetes();
 }
 
 void CompanhiaAerea::loadAvioes() {
@@ -357,10 +357,6 @@ void CompanhiaAerea::loadServicos() {
         num--;
     }
     f.close();
-}
-
-void CompanhiaAerea::loadBilhetes() {
-
 }
 
 void CompanhiaAerea::loadAeroportos(){
@@ -445,7 +441,7 @@ void CompanhiaAerea::loadLocaisTransporte() {
     f.close();
 }
 
-void CompanhiaAerea::loadVoos() {
+void CompanhiaAerea::loadVoosAndBilhetes() {
 //-----Ler Passageiros:
     vector <Passageiro> p;
     ifstream f;
@@ -533,8 +529,42 @@ void CompanhiaAerea::loadVoos() {
         if (i->getMatricula() != matricula) i++;
 
         i->addVoo(v);
-        f.ignore(LONG_MAX, '\n');   // inorar o separador "*"
+        f.ignore(LONG_MAX, '\n');   // ignorar o separador "*"
         num --;
     }
     f.close();
+
+//------Ler Bilhetes----
+    unsigned idBilhete;
+    bool bagagemMao;
+
+    f.open("bilhetes.txt");
+    if (!f.is_open())
+        cout << "Ficheiro nao existe." << endl;
+
+    f >> num;
+    f.ignore(LONG_MAX, '\n');
+
+    while(!f.eof() && num>0) {
+        f >> idBilhete;
+        f.ignore(LONG_MAX, '\n');
+
+        f >> idVoo;
+        f.ignore(LONG_MAX, '\n');
+
+        f >> idPassageiro;
+        f.ignore(LONG_MAX, '\n');
+
+        f >> bagagemMao;
+        f.ignore(LONG_MAX, '\n');
+
+        f.ignore(LONG_MAX, '\n');   // ignorar o separador "*"
+
+        Voo voo;
+        for(Voo v: voos) if(v.getNumeroVoo() == idVoo) voo = v;
+        Bilhete b(idBilhete, p.at(idPassageiro - 1 ), voo, bagagemMao);
+        bilhetesVendidos.push_back(b);
+
+        num--;
+    }
 }
