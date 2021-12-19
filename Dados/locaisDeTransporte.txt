@@ -3,7 +3,7 @@
 1
 157
 Autocarro
-Aeroporto Francisco Sá Carneiro
+Aeroporto Francisco Sa Carneiro
 DiasUteis 08.00 08.30 09.00 09.30 10.00 10.30 11.00 12.00 13.00 14.00 15.30 15.40 15.50 17.00 19.00 20.00 22.00
 Sabados 09.05 09.47 10.10 10.5 11.04 11.20 11.5 12.08 12.36 12.59 13.19 13.57 14.16
 Domingos 08.00 12.00 16.00 20.00
@@ -11,20 +11,20 @@ Domingos 08.00 12.00 16.00 20.00
 2
 135
 Autocarro
-Aeroporto Francisco Sá Carneiro
+Aeroporto Francisco Sa Carneiro
 Sabados 14.59 15.23 16.01 16.30 17.05 18.13 19.03 19.41 20.03 20.21 21.0 21.29 22.04 23.02 23.33
 Domingos 10.00 12.00 14.00 16.00 18.00 20.00 22.00
 
 3
 60
 Metro
-Aeroporto Francisco Sá Carneiro
+Aeroporto Francisco Sa Carneiro
 DiasUteis 00.30 01.30 02.30 03.30 04.30 05.30 06.30 07.30 08.30 09.30 10.30 11.30 12.30 13.30 14.30 15.30 16.30 17.30 18.30 19.30 20.03 21.30 22.30 23.30
 
 4
 70
 Metro
-Aeroporto Francisco Sá Carneiro
+Aeroporto Francisco Sa Carneiro
 DiasUteis 00.00 01.00 02.30 03.40 04.55 05.20 06.50 07.28 08.23 09.12 10.20 11.03 12.08 13.16 14.18 15.27 16.37 17.19 18.18
 Sabados 00.30 01.30 02.30 .30 08.30 09.30 10.30 11.30 12.30  16.30 17.30 18.30 19.30 20.03 21.30 22.30 23.30 
 
@@ -56,14 +56,14 @@ Domingos 00.10 01.20 02.30 03.40 04.50 06.00 07.10 08.20 09.30 10.40 11.50 13.00
 9
 300
 Autocarro
-Aeroporto João Paulo II
+Aeroporto Joao Paulo II
 Sabados 9.01 10.05 11.03 12.07 13.10 14.15 15.0 16.03 17.10 18.09 19.01 20.02 21.15
 Domingos 09.00 17.40 19.00 23.12
 
 10
 260
 Comboio
-Aeroporto João Paulo II
+Aeroporto Joao Paulo II
 DiasUteis 00.30 01.30 02.30 03.30 04.30 05.30 06.30 07.30 08.30 09.30 10.30 11.30 12.30 13.30 14.30 15.30 16.30 17.30 18.30 19.30 20.30 21.30 22.30 23.30
 Sabados 04.20 05.30 07.45 09.25 11.40 17.24 19.56 22.0
 Domingos 10.35 15.45 17.48 19.45 20.46 23.28
@@ -71,7 +71,7 @@ Domingos 10.35 15.45 17.48 19.45 20.46 23.28
 11
 250
 Comboio
-Aeroporto João Paulo II
+Aeroporto Joao Paulo II
 DiasUteis 0.3 2.3 4.3 6.3 8.3 10.3 12.3 14.3 16.3 18.3 20.3 22.3
 Sabados 08.00 09.30 10.46 11.46 12.49 13.19 14.59 17.00 19.00
 Domingos 14.23 18.00 20.00 23.45

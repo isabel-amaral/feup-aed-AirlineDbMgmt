@@ -4,12 +4,12 @@ Emelie Pinhal
 12
 true
 ***
-Joana Falcão
+Joana Falcao
 2
 19
 false
 ***
-Cândida Chaves
+Candida Chaves
 3
 25
 false
@@ -24,7 +24,7 @@ Sofia Santos
 20
 false
 ***
-Rosário Silva
+Rosario Silva
 6
 36
 false
@@ -34,22 +34,22 @@ Ana Macedo
 15
 false
 ***
-Andreia Mourão
+Andreia Mourao
 8
 17
 true
 ***
-Hilário Afonso
+Hilario Afonso
 9
 56
 false
 ***
-Angélica Malafaia
+Angelica Malafaia
 10
 46
 false
 ***
-Cátia Fernandes
+Catia Fernandes
 11
 34
 false
@@ -69,12 +69,12 @@ Sara Dorneles
 15
 false
 ***
-Dário Mourinho
+Dario Mourinho
 15
 28
 false
 ***
-Leonor Gonçalves
+Leonor Goncalves
 16
 48
 false
@@ -84,7 +84,7 @@ Eduardo Maeireles
 49
 false
 ***
-Tomás Simões
+Tomas Simoes
 18
 70
 false

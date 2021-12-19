@@ -1,6 +1,6 @@
 10
 11121
-Aeroporto Francisco Sá Carneiro
+Aeroporto Francisco Sa Carneiro
 Aeroporto João Paulo II
 30 01 2022
 12.55
@@ -11,8 +11,8 @@ Aeroporto João Paulo II
 2 18
 ***
 11122
-Aeroporto Francisco Sá Carneiro
-Aeroporto João Paulo II
+Aeroporto Francisco Sa Carneiro
+Aeroporto Joao Paulo II
 30 01 2022
 20.55
 22.20
@@ -22,8 +22,8 @@ Aeroporto João Paulo II
 3 4 7 8
 ***
 11124
-Aeoroporto João Paulo II
-Aeroporto Francisco Sá Carneiro
+Aeoroporto Joao Paulo II
+Aeroporto Francisco Sa Carneiro
 25 04 2022
 8.30
 11.55
@@ -34,7 +34,7 @@ Aeroporto Francisco Sá Carneiro
 ***
 11127
 Aeroporto Humberto Delgado
-Aeroporto João Paulo II
+Aeroporto Joao Paulo II
 16 02 2022
 16.25
 18.50
@@ -44,7 +44,7 @@ Aeroporto João Paulo II
 5 6 8 12 16 17 
 ***
 11130
-Aeroporto João Paulo II
+Aeroporto Joao Paulo II
 Aeroporto Humberto Delgado
 17 02 2022
 16.25
@@ -55,7 +55,7 @@ Aeroporto Humberto Delgado
 10 15
 ***
 11131
-Aeroporto João Paulo II
+Aeroporto Joao Paulo II
 Aeroporto Humberto Delgado
 17 02 2022
 18.25
