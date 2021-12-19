@@ -42,6 +42,39 @@ void CompanhiaAerea::addVoo(const Voo &v) {
     sort(voos.begin(), voos.end());
 }
 
+void CompanhiaAerea::addAviao(const Aviao &aviao) {
+    avioes.push_back(aviao);
+}
+
+unsigned CompanhiaAerea::binarySearchAeroporto(const Aeroporto &aeroporto) {
+    unsigned left = 0;
+    unsigned right = aeroportos.size() - 1;
+    unsigned middle;
+
+    while (left <= right) {
+        middle = (left + right) / 2;
+        if (aeroportos.at(middle) < aeroporto)
+            left = middle + 1;
+        else if (aeroporto < aeroportos.at(middle))
+            right = middle - 1;
+        else
+            return middle;
+    }
+    return middle;
+}
+
+void CompanhiaAerea::addAeroporto(const Aeroporto &aeroporto) {
+    if (aeroportos.empty())
+        aeroportos.push_back(aeroporto);
+    unsigned index = binarySearchAeroporto(aeroporto);
+    if (aeroportos.at(index).getNome() == aeroporto.getNome())
+        return;
+    else if (aeroportos.at(index) < aeroporto)
+        aeroportos.insert (aeroportos.begin() + index + 1, aeroporto);
+    else
+        aeroportos.insert(aeroportos.begin() + index, aeroporto);
+}
+
 Bilhete CompanhiaAerea::getBilheteID(unsigned int bId) const {
     for (Bilhete b: bilhetesVendidos)
         if (b.getIdBilhete() == bId)
@@ -70,6 +103,7 @@ void CompanhiaAerea::showBilhetesFromPassageiro(unsigned pId) const {
     for (Bilhete b: bilhetes) {
         cout << b << endl;
     }
+    cout << endl;
 }
 
 vector<Passageiro> CompanhiaAerea::getPassageirosFromVoo(unsigned numVoo) const {
@@ -90,6 +124,7 @@ void CompanhiaAerea::showPassageirosFromVoo(unsigned numVoo) const {
     for (const auto& passageiro: passageiros){
         cout << passageiro << endl;
     }
+    cout << endl;
 }
 
 Bilhete CompanhiaAerea::getBilhetePassageiroVoo(unsigned pId, unsigned numVoo) const {
@@ -194,6 +229,7 @@ void CompanhiaAerea::showVoos() const {
     for (const auto& voo : voos){
         cout << voo;
     }
+    cout << endl;
 }
 
 void CompanhiaAerea::showVoosPartida(const string &cidadePartida, const Data &d1) const {
@@ -208,6 +244,7 @@ void CompanhiaAerea::showVoosPartida(const string &cidadePartida, const Data &d1
     for (const auto& voo : voosPartida){
         cout << voo;
     }
+    cout << endl;
 }
 
 void CompanhiaAerea::showVoosChegada(const string &cidadeChegada, const Data &d1) const {
@@ -223,6 +260,7 @@ void CompanhiaAerea::showVoosChegada(const string &cidadeChegada, const Data &d1
     for (const auto& voo : voosChegada){
         cout << voo;
     }
+    cout << endl;
 }
 
 void CompanhiaAerea::showVoosCidades(const string &cidadePartida, const string &cidadeChegada, const Data &d1, const Data &d2) const {
@@ -232,10 +270,10 @@ void CompanhiaAerea::showVoosCidades(const string &cidadePartida, const string &
         cout<< "Nao ha voo com partida em " << cidadePartida << " e chegada a " << cidadeChegada << " no periodo indicado." << endl;
         return;
     }
-
     for (const auto& voo : voosCidade){
         cout << voo;
     }
+    cout << endl;
 }
 
 void CompanhiaAerea::showVoosDatas(const Data &d1, const Data &d2) const {
@@ -245,43 +283,10 @@ void CompanhiaAerea::showVoosDatas(const Data &d1, const Data &d2) const {
         cout << "Nao ha voo disponivel para o periodo indicado." <<endl;
         return;
     }
-
     for (const auto& voo: voosDatas){
         cout<<voo;
     }
-}
-
-void CompanhiaAerea::addAviao(const Aviao &aviao) {
-    avioes.push_back(aviao);
-}
-
-void CompanhiaAerea::addAeroporto(const Aeroporto &aeroporto) {
-    if (aeroportos.empty())
-        aeroportos.push_back(aeroporto);
-    unsigned index= binarySearchAeroporto(aeroporto);
-    if (aeroportos.at(index).getNome() == aeroporto.getNome())
-        return;
-    else if (aeroportos.at(index) < aeroporto)
-        aeroportos.insert (aeroportos.begin() + index + 1, aeroporto);
-    else
-        aeroportos.insert(aeroportos.begin() + index, aeroporto);
-}
-
-unsigned CompanhiaAerea::binarySearchAeroporto(const Aeroporto &aeroporto) {
-    unsigned left = 0;
-    unsigned right = aeroportos.size() - 1;
-    unsigned middle;
-
-    while (left <= right) {
-        middle = (left + right) / 2;
-        if (aeroportos.at(middle) < aeroporto)
-            left = middle + 1;
-        else if (aeroporto < aeroportos.at(middle))
-            right = middle - 1;
-        else
-            return middle;
-    }
-    return middle;
+    cout << endl;
 }
 
 void CompanhiaAerea::loadData() {

@@ -156,14 +156,14 @@ public:
      * @param d1 é a data
      * @return voos que vão aterrar numa determinada cidade numa determinada data
      */
-    vector<Voo> getVoosChegada (const string& cidadeChegada, const Data& d1=Data()) const;
+    vector<Voo> getVoosChegada(const string& cidadeChegada, const Data& d1=Data()) const;
     /**
      *
      * @param cidadePartida é a cidade de origem
      * @param d1 é a data
      * @return voos que vão partir de uma determinada cidade numa determinada data
      */
-    vector <Voo> getVoosPartida (const string& cidadePartida, const Data& d1=Data()) const;
+    vector <Voo> getVoosPartida(const string& cidadePartida, const Data& d1=Data()) const;
     /**
      *
      * @param cidadePartida é a cidade de origem
@@ -172,7 +172,7 @@ public:
      * @param d2 é uma data
      * @return voos que vão ser realizados de uma determinada cidade para outra entre duas determinadas datas
      */
-    vector <Voo> getVoosCidades (const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
+    vector <Voo> getVoosCidades(const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
     /**
      *
      * @param d1 é uma data
@@ -189,7 +189,7 @@ public:
      * @param cidadePartida é a cidade de origem
      * @param d1 é a data
      */
-    void showVoosPartida (const string& cidadePartida, const Data& d1=Data()) const;
+    void showVoosPartida(const string& cidadePartida, const Data& d1=Data()) const;
     /**
      * Mostra os voos que vão aterrar numa determinada cidade numa determinada data
      * @param cidadeChegada é a cidade de destino
