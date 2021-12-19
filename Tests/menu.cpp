@@ -132,6 +132,7 @@ void menu::menu4() {
     for (const auto& a: companhia.getAeroportos()){
         cout << n + 1 << "- ";
         cout << a.getNome() << "  " << endl;
+        n++;
     }
     cout << "Escolha uma das opcoes relativas ao nome do aeroporto (0 para voltar a pagina anterior):";
 
