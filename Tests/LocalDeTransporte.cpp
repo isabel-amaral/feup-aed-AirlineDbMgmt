@@ -5,15 +5,10 @@ LocalDeTransporte::LocalDeTransporte() {
     this->distancia=0.0;
 }
 
-LocalDeTransporte::LocalDeTransporte(unsigned id, float d, tipoTransporte t, const list<Horario> &h) {
-    this->idLocal = id;
+LocalDeTransporte::LocalDeTransporte(float d, tipoTransporte t, const list<Horario> &h) {
     this->distancia = d;
     this->tipo = t;
     this->horarios = h;
-}
-
-unsigned LocalDeTransporte::getIdLocal() const {
-    return idLocal;
 }
 
 float LocalDeTransporte::getDistancia() const {
@@ -35,11 +30,6 @@ unsigned LocalDeTransporte::getDisponibilidade() const {
     }
     return count;
 }
-
-void LocalDeTransporte::setIdLocal(unsigned int id) {
-    this->idLocal = id;
-}
-
 
 void LocalDeTransporte::setDistancia(float d) {
     this->distancia = d;
