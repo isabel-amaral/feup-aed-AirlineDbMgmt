@@ -140,13 +140,11 @@ public:
     bool adquirirConjuntoBilhetes(list<Passageiro>& p, Voo& v, bool bagagem);
     /**
      * Cancela a compra feita por um determinado passsageiro de um bilhete para um determinado voo.
-     * Esta operação não é possível se o passageiro nunca tiver comprado nenhum bilhete para o voo em questão
-     * ou se o check-in para o voo em questão já tiver sido realizado.
-     * @param p é o passageiro que pretende cancelar viagem
-     * @param v é o voo da viagem em questão
+     * Esta operação não é possível se o check-in para o voo em questão já tiver sido realizado.
+     * @param bId é o id do bilhete para o qual se pretende cancelar a viagem
      * @return true se o cancelamento for possível, false caso contrário
      */
-    bool cancelarViagem(const Passageiro& p, Voo& v);
+    bool cancelarViagem(unsigned bId);
     /**
      * Realiza o check-in de um determinado passageiro com bilhete referente a um certo voo
      * @param bId é o id do bilhete do passageiro para o voo para o qual pretende realizar check-in

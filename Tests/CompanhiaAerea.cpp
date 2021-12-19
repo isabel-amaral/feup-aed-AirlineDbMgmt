@@ -124,15 +124,13 @@ bool CompanhiaAerea::adquirirConjuntoBilhetes(list<Passageiro> &p, Voo &v, bool 
     return true;
 }
 
-bool CompanhiaAerea::cancelarViagem(const Passageiro &p, Voo &v) {
-    Bilhete b = getBilhetePassageiroVoo(p.getId(), v.getNumeroVoo());
-    if (b.getIdBilhete() == 0)
-        return false;
-    if (find(v.getPassageirosCheckedIn().begin(), v.getPassageirosCheckedIn().end(), p) == v.getPassageirosCheckedIn().end())
+bool CompanhiaAerea::cancelarViagem(unsigned bId) {
+    Bilhete b = getBilheteID(bId);
+    if (find(b.getVoo().getPassageirosCheckedIn().begin(), b.getVoo().getPassageirosCheckedIn().end(), b.getPasssageiro()) == b.getVoo().getPassageirosCheckedIn().end())
         return false;
     vector<Bilhete>::iterator it = find(bilhetesVendidos.begin(), bilhetesVendidos.end(), b);
     bilhetesVendidos.erase(it);
-    v.removerPassageiro(p);
+    b.getVoo().removerPassageiro(b.getPasssageiro());
     return true;
 }
 
