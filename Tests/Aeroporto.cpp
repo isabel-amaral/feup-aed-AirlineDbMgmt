@@ -101,16 +101,22 @@ LocalDeTransporte Aeroporto::getAutocarroProximo() const{
 }
 
 void Aeroporto::showTransportes(int ordenacao) const {
-    BSTItrIn <LocalDeTransporte> it(transportes);
-
-    if (it.isAtEnd()) {   // A BST está vazia
+    BSTItrIn <LocalDeTransporte> it (transportes);
+    vector <LocalDeTransporte> locais;
+    if (it.isAtEnd()){   //A BST está vazia
         cout << "Não existe informação sobre os meios de transportes disponíveis nesta cidade" << endl;
         return;
     }
-    while(!it.isAtEnd()){ // A BST tem pelo menos um elemento
-        cout << it.retrieve() << endl;
+    while(!it.isAtEnd()){
+        if (ordenacao != 1)
+            locais.push_back(it.retrieve());
+        else
+            cout << it.retrieve() << endl;
         it.advance();
     }
+
+    if (ordenacao != 1)
+        ordenarLocais(locais, ordenacao);
 }
 
 void Aeroporto::showMetros(int ordenacao) const {
@@ -143,16 +149,14 @@ void Aeroporto::showComboios(int ordenacao) const {
 
 void Aeroporto::showAutocaros(int ordenacao) const {
     vector<LocalDeTransporte> autocarros = getMetros();
-
-    if (autocarros.empty()){
+    if (autocarros.empty()) {
         cout << "Esta cidade não possui autocarros." << endl;
         return;
     }
-
-    if ( ordenacao != 1)
+    if (ordenacao != 1)
         ordenarLocais(autocarros, ordenacao);
 
-    for (const auto& autocarro : autocarros)
+    for (const auto& autocarro: autocarros)
         cout << autocarro << endl;
 }
 
@@ -188,7 +192,7 @@ void Aeroporto::showAutocarroProximo() const{
     cout << getAutocarroProximo() << endl;
 }
 
-bool Aeroporto::operator<(const Aeroporto &a1) const {
+bool Aeroporto::operator< (const Aeroporto &a1) const {
     return this->nome < a1.nome;
 }
 
@@ -210,20 +214,10 @@ bool criterioComparacao3(const LocalDeTransporte &l1, const LocalDeTransporte &l
         return l1.getDisponibilidade() < l2.getDisponibilidade();
 }
 
-void ordenarLocais (vector <LocalDeTransporte>& locais, int ordenacao)
+void ordenarLocais(vector <LocalDeTransporte>& locais, int ordenacao)
 {
-    if ( ordenacao == 2)
+    if (ordenacao == 2)
         sort ( locais.begin(), locais.end(), criterioComparacao2);
     else
         sort (locais.begin(), locais.end(), criterioComparacao3);
 }
-/*
-void Aeroporto::setNome(const string &n) {
-    this->nome = nome;
-}
-
-void Aeroporto::setCidade(const string &c) {
-    this->cidade = c;
-}
- */
-
