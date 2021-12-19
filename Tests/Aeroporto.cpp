@@ -101,15 +101,15 @@ LocalDeTransporte Aeroporto::getAutocarroProximo() const{
 }
 
 void Aeroporto::showTransportes(int ordenacao) const {
-    BSTItrIn <LocalDeTransporte> it (transportes);
+    BSTItrIn <LocalDeTransporte> it(transportes);
 
-    if (it.isAtEnd()){   // A BST está vazia
+    if (it.isAtEnd()) {   // A BST está vazia
         cout << "Não existe informação sobre os meios de transportes disponíveis nesta cidade" << endl;
         return;
     }
-
     while(!it.isAtEnd()){ // A BST tem pelo menos um elemento
         cout << it.retrieve() << endl;
+        it.advance();
     }
 }
 
