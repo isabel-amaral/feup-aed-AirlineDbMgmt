@@ -253,16 +253,7 @@ void CompanhiaAerea::showVoosDatas(const Data &d1, const Data &d2) const {
     }
 }
 
-void CompanhiaAerea::loadData(string ficheiroAvioes, string ficheiroVoos, string ficheiroBilhetes) {
-    ifstream f;
-    int numAvioes;
-    queue<Servico> servicos;
 
-    f.open("avioes.txt");
-    if (!f.is_open())
-        cout << "Ficheiro nao exite." << endl;
-    f >> numAvioes;
-}
 
 void CompanhiaAerea::addAviao(const Aviao &aviao) {
     avioes.push_back(aviao);
@@ -297,7 +288,172 @@ unsigned CompanhiaAerea::binarySearchAeroporto(const Aeroporto &aeroporto) {
     return middle;
 }
 
+void CompanhiaAerea::loadData() {
+    this->loadAvioes();
+    this->loadAeroportos();
+    this->loadServicos();
+    this->loadVoos();
 
+}
+
+void CompanhiaAerea::loadAeroportos(){
+
+    ifstream f;
+    int num;
+    string nome;
+    string cidade;
+
+    f.open("aeroportos.txt");
+    if (!f.is_open())
+        cout << "Ficheiro nao existe." << endl;
+
+    f >> num;
+    f.ignore(LONG_MAX, '\n');
+    while (!f.eof() && num>0){
+        getline(f, nome);
+        getline(f, cidade);
+        this->addAeroporto(Aeroporto(nome, cidade));
+
+        f.ignore(LONG_MAX, '\n');
+        num --;
+    }
+    f.close();
+}
+
+void CompanhiaAerea::loadAvioes() {
+    int num;
+    ifstream f;
+    string matricula;
+    string tipo;
+    int capacidade;
+    string aux;
+
+    f.open("avioes.txt");
+    if (!f.is_open())
+        cout << "Ficheiro nao existe." << endl;
+
+    f >> num;
+    f.ignore(LONG_MAX, '\n');
+    while (!f.eof() && num>0){
+        getline(f, matricula);
+        getline(f, tipo);
+        f >> capacidade;
+        f.ignore(LONG_MAX, '\n');
+
+        this->addAviao(Aviao(matricula, tipo, capacidade));
+        num--;
+    }
+    f.close();
+}
+
+void CompanhiaAerea::loadServicos() {
+    int num;
+    ifstream f;
+    string matricula;
+    TipoServico tipo;
+    string aux;
+    int dia, mes, ano;
+    int idFunc;
+    string nomeFunc;
+    auto i = avioes.begin();
+
+    f.open("servicos.txt");
+    if (!f.is_open())
+        cout << "Ficheiro nao existe." << endl;
+
+    f >> num;
+    f.ignore(LONG_MAX, '\n');
+    while (!f.eof() && num>0){
+
+        getline(f, matricula);
+
+        getline(f, aux);
+        if (aux == "1") tipo = Limpeza;
+        else tipo = Manutencao;
+
+        f >> dia >> mes >> ano;
+        f.ignore (LONG_MAX, '\n');
+        Data d1 (dia, mes, ano);
+
+        f >> idFunc;
+        f.ignore (LONG_MAX, '\n');
+
+        getline(f, nomeFunc);
+        Funcionario f1(idFunc, nomeFunc);
+
+        if (i->getMatricula() != matricula) i++;
+
+        i->addServicoPorRealizar( Servico(tipo, Data (dia, mes, ano), f1));
+
+        num--;
+    }
+    f.close();
+
+}
+
+void CompanhiaAerea::loadVoos() {
+//-----Ler Passageiros:
+    vector <Passageiro> p;
+    ifstream f;
+    int num;
+    string nomePassageiro;
+    int idPassageiro;
+    int idadePassageiro;
+    bool menorNaoAcompanhado;
+
+    f.open("passageiros.txt");
+    if (!f.is_open())
+        cout << "Ficheiro nao existe." << endl;
+
+    f >> num;
+    f.ignore(LONG_MAX, '\n');
+
+    while(!f.eof() && num>0){
+        getline(f, nomePassageiro);
+
+        f >> idPassageiro;
+        f.ignore(LONG_MAX, '\n');
+
+        f >> idadePassageiro;
+        f.ignore(LONG_MAX, '\n');
+
+        f >> menorNaoAcompanhado;
+        f.ignore(LONG_MAX, '\n');
+
+        f.ignore(LONG_MAX, '\n');           // Ignorar separador "***"
+        p.push_back(Passageiro(nomePassageiro, idPassageiro, idadePassageiro, menorNaoAcompanhado));
+
+        num --;
+    }
+    f.close();
+
+
+//------Ler Voos----
+    int idVoo, lotacao, reservas;
+    string origem, destino;
+    int dia, mes, ano;
+    float hPartida, hChegada, duracao;
+    int idP;
+
+    f.open("voos.txt");
+    if (!f.is_open())
+        cout << "Ficheiro nao existe." << endl;
+
+    f >> num;
+    f.ignore(LONG_MAX, '\n');
+
+    while(!f.eof() && num>0){
+        f >> idVoo;
+        f.ignore(LONG_MAX, '\n');
+        //TODO
+
+
+
+        num --;
+    }
+
+    f.close();
+}
 
 
 

@@ -1,15 +1,16 @@
 5
 Aeroporto Francisco Sá Carneiro
 Porto
-
+***
 Aeroporto Humberto Delgado
 Lisboa
-
+***
 Aeroporto João Paulo II
 S. Miguel
-
+***
 Aeroporto Internacional de Maputo Mavalane
 Maputo
-
+***
 Aeroporto Internacional John F. Kennedy
 Nova Iorque
+***

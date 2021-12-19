@@ -218,7 +218,11 @@ public:
      * @param ficheiroVoos é o nome de um ficheiro com os voos
      * @param ficheiroBilhetes é o nome de um ficheiro com os bilhetes
      */
-    void loadData(string ficheiroAvioes, string ficheiroVoos, string ficheiroBilhetes);
+    void loadData();
+    void loadAvioes();
+    void loadAeroportos();
+    void loadServicos();
+    void loadVoos();
 };
 
 #endif //_COMPANHIAAEREA_H
