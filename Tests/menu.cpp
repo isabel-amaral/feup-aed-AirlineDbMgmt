@@ -2,31 +2,25 @@
 
 void menu::readOption(const int &minOption, const int &maxOption) {
     bool validOption;
-    do
-    {
+    do {
         cin >> option;
-        if (cin.fail())
-        {
-            if (cin.eof())
-            {
+        if (cin.fail()) {
+            if (cin.eof()) {
                 cout << "Volte Sempre" << endl;
                 exit (1);
             }
-            else
-            {
+            else {
                 validOption = false;
                 cout << "OPCAO INVALIDA! TENTE NOVAMENTE" << endl;
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
         }
-        else if ( (minOption <= option &&  option <= maxOption) || option == 0 )
-        {
+        else if ((minOption <= option &&  option <= maxOption) || option == 0) {
             validOption = true;
             cin.ignore(1000, '\n');
         }
-        else  // O utilizador introduziu um inteiro invalido
-        {
+        else {  // O utilizador introduziu um inteiro invalido
             validOption = false;
             cout << "OPCAO INVALIDA! TENTE NOVAMENTE. " << endl;
             cin.clear();
@@ -36,7 +30,6 @@ void menu::readOption(const int &minOption, const int &maxOption) {
 }
 
 menu::menu() {
-
     //companhia.loadData("avioes.txt", "voos.txt", "bilhetes.txt"); //TODO: IMPLEMENTAR COMPANHIA.LOADFILE()
     lastMenu.push(0);   // '0' representa o menu inicial/principal
 
@@ -51,19 +44,18 @@ menu::menu() {
     cout << "Escolha uma opcao: ";
     readOption( 0, 5);
 
-    if (option){
+    if (option) {
         lastMenu.push(0);
         processOption();
     }
-    else
-    {
+    else {
         cout << "Volte Sempre.";
         exit (1);
     }
 }
 
 void menu::processOption() {
-    switch (option){
+    switch (option) {
         case 0: menu(); break;
         case 1: menu1(); break;
         case 2: menu2(); break;
@@ -95,13 +87,11 @@ void menu::menu1() {
     cout << "10. Visualizar voos realizados em determinadas datas" << endl;
     cout << "0. Voltar a pagina anterior" << endl;
     cout << endl;
-    cout << "ESCOLHA UMA OPCAO : " << endl;
+    cout << "ESCOLHA UMA OPCAO: " << endl;
     readOption(6,10);
 
     if (option)
-    {
         lastMenu.push(1);
-    }
     else{
         option = lastMenu.top();
         lastMenu.pop();
@@ -113,11 +103,11 @@ void menu::menu2() {
     unsigned numeroBilhete;
     cout << "Introduza o numero do seu bilhete de viagem:  (Clique 0 para voltar a pagina anterior)" << endl;
     cin >> numeroBilhete;
-    if (numeroBilhete != 0){
-        //companhia.realizarCheckIn(numeroBilhete);     // TODO: MUDAR CHECK-IN BILHETE PARA ESTE FORMATO
+    if (numeroBilhete != 0) {
+        companhia.realizarCheckIn(numeroBilhete);
         cout << "Check-in feito com Sucesso!" << endl;
     }
-    else{
+    else {
         option = lastMenu.top();
         lastMenu.pop();
     }
@@ -126,29 +116,26 @@ void menu::menu2() {
 
 void menu::menu3() {
     unsigned idPassageiro;
-
-    cout << "Insira o seu numero de identificacao: " ;
+    cout << "Insira o seu numero de identificacao: ";
     cin >> idPassageiro;
 
-   // if (idPassageiro != 0)
-   //companhia.showBilhetesFromPassageiro(idPassageiro); // TODO: Mudar showBilhetesFromPassageiro para este formato
-
-
+   if (idPassageiro != 0)
+       companhia.showBilhetesFromPassageiro(idPassageiro);
 }
 
 void menu::menu4() {
-    int n=0;
+    int n = 0;
     int opOrdenacao;
     Aeroporto a1;
     for (const auto& a: companhia.getAeroportos()){
-        cout << n+1 << "- ";
+        cout << n + 1 << "- ";
         cout << a.getNome() << "  " << endl;
     }
     cout << "Escolha uma das opcoes relativas ao nome do aeroporto: (0 para voltar a pagina anterior) " << endl;
 
     readOption(1, n);
-    if (option == 0){
-        option=lastMenu.top();
+    if (option == 0) {
+        option = lastMenu.top();
         lastMenu.pop();
         processOption();
     }
@@ -166,13 +153,13 @@ void menu::menu4() {
     cout << "/n Escolha uma opcao: ";
     readOption(11, 18);
 
-    if (option == 0){
+    if (option == 0) {
         option = lastMenu.top();
         lastMenu.pop();
         processOption();
     }
 
-    if (option >= 11 && option <= 14){
+    if (option >= 11 && option <= 14) {
         cout << "/n Escolha em que ordem deseja que os dados sejam apresentados: " << endl;
         cout << "1. Distancia Ascendente - Disponibilidade Ascendente - Tipo " << endl;
         cout << "2. Disponibilidade Ascendente - Distancia Ascendente - Tipo" << endl;
@@ -181,14 +168,30 @@ void menu::menu4() {
     }
 
     switch (option){
-        case 11: a1.showTransportes(opOrdenacao);      break;
-        case 12: a1.showMetros(opOrdenacao);           break;
-        case 13: a1.showComboios(opOrdenacao);         break;
-        case 14: a1.showAutocaros(opOrdenacao);        break;
-        case 15: a1.showLocalTransporteProximo();      break;
-        case 16: a1.showMetroProximo();                break;
-        case 17: a1.showComboioProximo();              break;
-        case 18: a1.showAutocarroProximo();            break;
+        case 11:
+            a1.showTransportes(opOrdenacao);
+            break;
+        case 12:
+            a1.showMetros(opOrdenacao);
+            break;
+        case 13:
+            a1.showComboios(opOrdenacao);
+            break;
+        case 14:
+            a1.showAutocaros(opOrdenacao);
+            break;
+        case 15:
+            a1.showLocalTransporteProximo();
+            break;
+        case 16:
+            a1.showMetroProximo();
+            break;
+        case 17:
+            a1.showComboioProximo();
+            break;
+        case 18:
+            a1.showAutocarroProximo();
+            break;
     }
 
     option = lastMenu.top();
@@ -208,20 +211,17 @@ void menu::menu5() {
     cout << "/n Escolha uma opcao: ";
     readOption(19, 25);
 
-    if (option){
+    if (option)
         lastMenu.push(5);
-    }
-    else{
+    else {
         option=lastMenu.top();
         lastMenu.pop();
     }
     processOption();
-
 }
 
 void menu::menu6() {
     companhia.showVoos();
-
     option = lastMenu.top();
     lastMenu.pop();
     processOption();
@@ -230,12 +230,11 @@ void menu::menu6() {
 void menu::menu7() {
     string cidade;
     unsigned dia, mes, ano;
-    bool inserirData;
 
     cout << "Insira a cidade de partida: ";
     getline(cin, cidade);
     cout << "Insira o dia, o mes e o ano separados por espaco: " << endl;
-    cout << "Nota: Pode colocar '0 0 0' caso nao queira indicar uma data em especifico " << endl;
+    cout << "Pode colocar '0 0 0' caso nao queira indicar uma data em especifico " << endl;
     cin >> dia >> mes >> ano;
     Data d1 (dia, mes, ano);
 
@@ -318,7 +317,6 @@ void menu::menu19() {
     unsigned n;
     float hp, hc, d;
     unsigned l, dia, mes, ano;
-
     string nome, cidade;
 
     cout << "Numero do voo: " << endl;
@@ -407,7 +405,7 @@ void menu::menu22() {
     vector<Aeroporto> a = companhia.getAeroportos();
     sort(a.begin(), a.end());
 
-    for(const Aeroporto& ap: a) {
+    for (const Aeroporto& ap: a) {
         cout << ap.getNome() << endl;
         cout << ap.getCidade() << endl;
     }
