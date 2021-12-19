@@ -356,7 +356,7 @@ void CompanhiaAerea::loadServicos() {
         getline(f, nomeFunc);
         Funcionario f1(idFunc, nomeFunc);
 
-        for (auto a: avioes) {
+        for (Aviao& a: avioes) {
             if (a.getMatricula() == matricula) {
                 a.addServicoPorRealizar(Servico(tipo, d1, f1));
                 break;
@@ -464,6 +464,7 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
     f >> num;
     f.ignore(LONG_MAX, '\n');
     while(!f.eof() && num>0) {
+        f.ignore(LONG_MAX, '\n');
         getline(f, nomePassageiro);
         getline (f, text);
         idPassageiro= stoi(text);
@@ -475,7 +476,6 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
         Passageiro p1 (nomePassageiro, idPassageiro, idadePassageiro, menorNaoAcompanhado);
         p.push_back(p1);
 
-        f.ignore(LONG_MAX, '\n');
         num--;
     }
     f.close();
@@ -584,10 +584,11 @@ void CompanhiaAerea::loadBagagens() {
     f >> num;
     f.ignore(LONG_MAX, '\n');
     while(!f.eof() && num>0) {
+        f.ignore(LONG_MAX, '\n');
         getline(f, text);
-        peso = stoi(text);
+        peso = stof(text);
         getline(f, text);
-        bagagemMao = stoi(text);
+        bagagemMao = (text == "true");
         getline(f, text);
         idBilhete = stoi(text);
 
@@ -596,7 +597,7 @@ void CompanhiaAerea::loadBagagens() {
         num--;
     }
 
-    for(Bilhete bilhete: bilhetesVendidos) {
+    for(Bilhete& bilhete: bilhetesVendidos) {
         if(bilhete.getIdBilhete() == idBilhete)
             bilhete.setBagagem(bagagens);
     }
