@@ -294,6 +294,7 @@ void CompanhiaAerea::loadData() {
     this->loadAeroportos();
     this->loadServicos();
     //this->loadVoos();
+    this->loadLocaisTransporte();
 }
 
 void CompanhiaAerea::loadAvioes() {
@@ -367,14 +368,74 @@ void CompanhiaAerea::loadServicos() {
         getline(f, nomeFunc);
         Funcionario f1(idFunc, nomeFunc);
 
-        Aviao av;
         for (Aviao a: avioes) {
             if (a.getMatricula() == matricula) {
-                av = a;
+                a.addServicoPorRealizar(Servico(tipo, d1, f1));
                 break;
             }
         }
-        av.addServicoPorRealizar( Servico(tipo, d1, f1));
+        num--;
+    }
+    f.close();
+}
+
+void CompanhiaAerea::loadLocaisTransporte() {
+    ifstream f;
+    unsigned num, numHoras;
+    float dist, hora;
+    string nome, auxTransporte, auxDia;
+    tipoTransporte tipo;
+    DiaDaSemana dia;
+    vector<float> horario;
+    list<Horario> horarios;
+
+    f.open("locaisDeTransporte.txt");
+    if (!f.is_open())
+        cout << "Ficheiro nao existe." << endl;
+
+    f >> num;
+    f.ignore(LONG_MAX, '\n');
+    while (!f.eof() && num > 0) {
+        f >> dist;
+        f >> auxTransporte;
+        if (auxTransporte == "0")
+            tipo = Metro;
+        else if (auxTransporte == "1")
+            tipo = Comboio;
+        else
+            tipo = Autocarro;
+
+        f.ignore(LONG_MAX, '\n');
+        getline(f, nome);
+
+        f >> auxDia;
+        while (auxDia != "***" && !f.eof()) {
+            if (auxDia == "0")
+                dia = DiasUteis;
+            else if (auxDia == "1")
+                dia = Sabados;
+            else
+                dia = DomingosFeriados;
+
+            f >> numHoras;
+            horario.clear();
+            for (int i = 0; i < numHoras; i++) {
+                f >> hora;
+                horario.push_back(hora);
+            }
+            Horario h(dia, horario);
+            horarios.push_back(h);
+            horarios.clear();
+
+            f >> auxDia;
+        }
+        
+        for (Aeroporto a: aeroportos) {
+            if (a.getNome() == nome) {
+                a.addTransporte(LocalDeTransporte(dist, tipo, horarios));
+                break;
+            }
+        }
         num--;
     }
     f.close();

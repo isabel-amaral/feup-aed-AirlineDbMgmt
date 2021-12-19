@@ -221,6 +221,7 @@ public:
     void loadAeroportos();
     void loadServicos();
     void loadVoos();
+    void loadLocaisTransporte();
 };
 
 #endif //_COMPANHIAAEREA_H
