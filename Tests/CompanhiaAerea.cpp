@@ -42,6 +42,39 @@ void CompanhiaAerea::addVoo(const Voo &v) {
     sort(voos.begin(), voos.end());
 }
 
+void CompanhiaAerea::addAviao(const Aviao &aviao) {
+    avioes.push_back(aviao);
+}
+
+unsigned CompanhiaAerea::binarySearchAeroporto(const Aeroporto &aeroporto) {
+    unsigned left = 0;
+    unsigned right = aeroportos.size() - 1;
+    unsigned middle;
+
+    while (left <= right) {
+        middle = (left + right) / 2;
+        if (aeroportos.at(middle) < aeroporto)
+            left = middle + 1;
+        else if (aeroporto < aeroportos.at(middle))
+            right = middle - 1;
+        else
+            return middle;
+    }
+    return middle;
+}
+
+void CompanhiaAerea::addAeroporto(const Aeroporto &aeroporto) {
+    if (aeroportos.empty())
+        aeroportos.push_back(aeroporto);
+    unsigned index = binarySearchAeroporto(aeroporto);
+    if (aeroportos.at(index).getNome() == aeroporto.getNome())
+        return;
+    else if (aeroportos.at(index) < aeroporto)
+        aeroportos.insert (aeroportos.begin() + index + 1, aeroporto);
+    else
+        aeroportos.insert(aeroportos.begin() + index, aeroporto);
+}
+
 Bilhete CompanhiaAerea::getBilheteID(unsigned int bId) const {
     for (Bilhete b: bilhetesVendidos)
         if (b.getIdBilhete() == bId)
@@ -70,6 +103,7 @@ void CompanhiaAerea::showBilhetesFromPassageiro(unsigned pId) const {
     for (Bilhete b: bilhetes) {
         cout << b << endl;
     }
+    cout << endl;
 }
 
 vector<Passageiro> CompanhiaAerea::getPassageirosFromVoo(unsigned numVoo) const {
@@ -90,6 +124,7 @@ void CompanhiaAerea::showPassageirosFromVoo(unsigned numVoo) const {
     for (const auto& passageiro: passageiros){
         cout << passageiro << endl;
     }
+    cout << endl;
 }
 
 Bilhete CompanhiaAerea::getBilhetePassageiroVoo(unsigned pId, unsigned numVoo) const {
@@ -194,6 +229,7 @@ void CompanhiaAerea::showVoos() const {
     for (const auto& voo : voos){
         cout << voo;
     }
+    cout << endl;
 }
 
 void CompanhiaAerea::showVoosPartida(const string &cidadePartida, const Data &d1) const {
@@ -208,6 +244,7 @@ void CompanhiaAerea::showVoosPartida(const string &cidadePartida, const Data &d1
     for (const auto& voo : voosPartida){
         cout << voo;
     }
+    cout << endl;
 }
 
 void CompanhiaAerea::showVoosChegada(const string &cidadeChegada, const Data &d1) const {
@@ -223,6 +260,7 @@ void CompanhiaAerea::showVoosChegada(const string &cidadeChegada, const Data &d1
     for (const auto& voo : voosChegada){
         cout << voo;
     }
+    cout << endl;
 }
 
 void CompanhiaAerea::showVoosCidades(const string &cidadePartida, const string &cidadeChegada, const Data &d1, const Data &d2) const {
@@ -232,10 +270,10 @@ void CompanhiaAerea::showVoosCidades(const string &cidadePartida, const string &
         cout<< "Nao ha voo com partida em " << cidadePartida << " e chegada a " << cidadeChegada << " no periodo indicado." << endl;
         return;
     }
-
     for (const auto& voo : voosCidade){
         cout << voo;
     }
+    cout << endl;
 }
 
 void CompanhiaAerea::showVoosDatas(const Data &d1, const Data &d2) const {
@@ -245,51 +283,18 @@ void CompanhiaAerea::showVoosDatas(const Data &d1, const Data &d2) const {
         cout << "Nao ha voo disponivel para o periodo indicado." <<endl;
         return;
     }
-
     for (const auto& voo: voosDatas){
         cout<<voo;
     }
-}
-
-void CompanhiaAerea::addAviao(const Aviao &aviao) {
-    avioes.push_back(aviao);
-}
-
-void CompanhiaAerea::addAeroporto(const Aeroporto &aeroporto) {
-    if (aeroportos.empty())
-        aeroportos.push_back(aeroporto);
-    unsigned index= binarySearchAeroporto(aeroporto);
-    if (aeroportos.at(index).getNome() == aeroporto.getNome())
-        return;
-    else if (aeroportos.at(index) < aeroporto)
-        aeroportos.insert (aeroportos.begin() + index + 1, aeroporto);
-    else
-        aeroportos.insert(aeroportos.begin() + index, aeroporto);
-}
-
-unsigned CompanhiaAerea::binarySearchAeroporto(const Aeroporto &aeroporto) {
-    unsigned left = 0;
-    unsigned right = aeroportos.size() - 1;
-    unsigned middle;
-
-    while (left <= right) {
-        middle = (left + right) / 2;
-        if (aeroportos.at(middle) < aeroporto)
-            left = middle + 1;
-        else if (aeroporto < aeroportos.at(middle))
-            right = middle - 1;
-        else
-            return middle;
-    }
-    return middle;
+    cout << endl;
 }
 
 void CompanhiaAerea::loadData() {
     this->loadAvioes();
-    this->loadAeroportos();
     this->loadServicos();
-    this->loadBilhetes();
-    //this->loadVoos();
+    this->loadAeroportos();
+    this->loadLocaisTransporte();
+    this->loadVoos();
 }
 
 void CompanhiaAerea::loadAvioes() {
@@ -310,26 +315,6 @@ void CompanhiaAerea::loadAvioes() {
         f >> capacidade;
 
         this->addAviao(Aviao(matricula, tipo, capacidade));
-        num--;
-    }
-    f.close();
-}
-
-void CompanhiaAerea::loadAeroportos(){
-    ifstream f;
-    int num;
-    string nome, cidade;
-
-    f.open("aeroportos.txt");
-    if (!f.is_open())
-        cout << "Ficheiro nao existe." << endl;
-
-    f >> num;
-    while (!f.eof() && num > 0) {
-        f.ignore(LONG_MAX, '\n');
-        getline(f, nome);
-        getline(f, cidade);
-        this->addAeroporto(Aeroporto(nome, cidade));
         num--;
     }
     f.close();
@@ -363,59 +348,104 @@ void CompanhiaAerea::loadServicos() {
         getline(f, nomeFunc);
         Funcionario f1(idFunc, nomeFunc);
 
-        Aviao av;
         for (Aviao a: avioes) {
             if (a.getMatricula() == matricula) {
-                av = a;
+                a.addServicoPorRealizar(Servico(tipo, d1, f1));
                 break;
             }
         }
-        av.addServicoPorRealizar( Servico(tipo, d1, f1));
         num--;
     }
     f.close();
 }
 
 void CompanhiaAerea::loadBilhetes() {
-//-----Ler Passageiros:
-    vector <Passageiro> p;
+
+}
+
+void CompanhiaAerea::loadAeroportos(){
     ifstream f;
     int num;
-    string nomePassageiro;
-    int idPassageiro;
-    int idadePassageiro;
-    bool menorNaoAcompanhado;
+    string nome, cidade;
 
-    f.open("passageiros.txt");
+    f.open("aeroportos.txt");
     if (!f.is_open())
         cout << "Ficheiro nao existe." << endl;
 
     f >> num;
-    f.ignore(LONG_MAX, '\n');
-
-    while(!f.eof() && num>0) {
-        getline(f, nomePassageiro);
-
-        f >> idPassageiro;
+    while (!f.eof() && num > 0) {
         f.ignore(LONG_MAX, '\n');
-        f >> idadePassageiro;
-        f.ignore(LONG_MAX, '\n');
-        f >> menorNaoAcompanhado;
-        f.ignore(LONG_MAX, '\n');
-        f.ignore(LONG_MAX, '\n');           // Ignorar separador "***"
-        p.push_back(Passageiro(nomePassageiro, idPassageiro, idadePassageiro, menorNaoAcompanhado));
-        num --;
+        getline(f, nome);
+        getline(f, cidade);
+        this->addAeroporto(Aeroporto(nome, cidade));
+        num--;
     }
     f.close();
+}
 
-//-----Ler Passageiros:
-    unsigned idBilhete, numVoo;
-    bool bagagemMao;
+void CompanhiaAerea::loadLocaisTransporte() {
+    ifstream f;
+    unsigned num, numHoras;
+    float dist, hora;
+    string nome, auxTransporte, auxDia;
+    tipoTransporte tipo;
+    DiaDaSemana dia;
+    vector<float> horario;
+    list<Horario> horarios;
 
+    f.open("locaisDeTransporte.txt");
+    if (!f.is_open())
+        cout << "Ficheiro nao existe." << endl;
 
-};
+    f >> num;
+    f.ignore(LONG_MAX, '\n');
+    while (!f.eof() && num > 0) {
+        f >> dist;
+        f >> auxTransporte;
+        if (auxTransporte == "0")
+            tipo = Metro;
+        else if (auxTransporte == "1")
+            tipo = Comboio;
+        else
+            tipo = Autocarro;
 
-/*void CompanhiaAerea::loadVoos() {
+        f.ignore(LONG_MAX, '\n');
+        getline(f, nome);
+
+        f >> auxDia;
+        while (auxDia != "***" && !f.eof()) {
+            if (auxDia == "0")
+                dia = DiasUteis;
+            else if (auxDia == "1")
+                dia = Sabados;
+            else
+                dia = DomingosFeriados;
+
+            f >> numHoras;
+            horario.clear();
+            for (int i = 0; i < numHoras; i++) {
+                f >> hora;
+                horario.push_back(hora);
+            }
+            Horario h(dia, horario);
+            horarios.push_back(h);
+            horarios.clear();
+
+            f >> auxDia;
+        }
+
+        for (Aeroporto a: aeroportos) {
+            if (a.getNome() == nome) {
+                a.addTransporte(LocalDeTransporte(dist, tipo, horarios));
+                break;
+            }
+        }
+        num--;
+    }
+    f.close();
+}
+
+void CompanhiaAerea::loadVoos() {
 //-----Ler Passageiros:
     vector <Passageiro> p;
     ifstream f;
@@ -441,7 +471,7 @@ void CompanhiaAerea::loadBilhetes() {
         f.ignore(LONG_MAX, '\n');
         f >> menorNaoAcompanhado;
         f.ignore(LONG_MAX, '\n');
-        f.ignore(LONG_MAX, '\n');           // Ignorar separador "***"
+        f.ignore(LONG_MAX, '\n');           // Ignorar separador "*"
         p.push_back(Passageiro(nomePassageiro, idPassageiro, idadePassageiro, menorNaoAcompanhado));
         num --;
     }
@@ -452,19 +482,59 @@ void CompanhiaAerea::loadBilhetes() {
     string origem, destino;
     int dia, mes, ano;
     float hPartida, hChegada, duracao;
-    int idP;
+    string matricula;
+    unsigned indexOrigem, indexDestino;
+    auto i = avioes.begin();
+
 
     f.open("voos.txt");
     if (!f.is_open())
         cout << "Ficheiro nao existe." << endl;
+
     f >> num;
     f.ignore(LONG_MAX, '\n');
 
     while(!f.eof() && num>0) {
         f >> idVoo;
         f.ignore(LONG_MAX, '\n');
-        //TODO
+
+        getline (f, origem);
+        getline (f, destino);
+
+        f >> dia >> mes >> ano;
+        f.ignore(LONG_MAX, '\n');
+
+        f >> hPartida;
+        f.ignore(LONG_MAX, '\n');
+
+        f >> hChegada;
+        f.ignore(LONG_MAX, '\n');
+
+        f >> duracao;
+        f.ignore(LONG_MAX, '\n');
+
+        f >> lotacao;
+        f.ignore(LONG_MAX, '\n');
+
+        f >> reservas;
+        f.ignore(LONG_MAX, '\n');
+
+        indexDestino = this->binarySearchAeroporto(Aeroporto(origem,""));
+        indexOrigem = this->binarySearchAeroporto(Aeroporto(destino, ""));
+
+        Voo v (idVoo, aeroportos.at(indexOrigem), aeroportos.at(indexDestino), Data (dia,mes,ano), hPartida, hChegada, duracao, lotacao, reservas);
+
+        while (f >> idPassageiro)
+            v.addPassageiro(p.at(idPassageiro-1));
+        f.ignore(LONG_MAX, '\n');
+
+        getline (f, matricula);
+
+        if (i->getMatricula() != matricula) i++;
+
+        i->addVoo(v);
+        f.ignore(LONG_MAX, '\n');   // inorar o separador "*"
         num --;
     }
     f.close();
-}*/
+}

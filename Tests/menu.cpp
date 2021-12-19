@@ -77,6 +77,7 @@ void menu::processOption() {
     }
 }
 
+//Pesquisar Voos
 void menu::menu1() {
     cout << "6. Imprimir todos os voos" << endl;
     cout << "7. Visualizar voos com partida numa determinada cidade" << endl;
@@ -97,6 +98,7 @@ void menu::menu1() {
     processOption();
 }
 
+//Realizar Check-in
 void menu::menu2() {
     //TODO: se o id do bilhete não existir
     unsigned numeroBilhete;
@@ -113,6 +115,7 @@ void menu::menu2() {
     processOption();
 }
 
+//As minhas Reservas
 void menu::menu3() {
     unsigned idPassageiro;
     cout << "Insira o seu numero de identificacao:";
@@ -129,6 +132,7 @@ void menu::menu4() {
     for (const auto& a: companhia.getAeroportos()){
         cout << n + 1 << "- ";
         cout << a.getNome() << "  " << endl;
+        n++;
     }
     cout << "Escolha uma das opcoes relativas ao nome do aeroporto (0 para voltar a pagina anterior):";
 
