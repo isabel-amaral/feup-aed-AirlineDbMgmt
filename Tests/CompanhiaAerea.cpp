@@ -425,16 +425,13 @@ void CompanhiaAerea::loadLocaisTransporte() {
             }
             Horario h(dia, horario);
             horarios.push_back(h);
-
             f >> auxDia;
         }
 
-        for (Aeroporto& a: aeroportos) {
-            if (a.getNome() == nome) {
-                a.addTransporte(LocalDeTransporte(dist, tipo, horarios));
-                break;
-            }
-        }
+        Aeroporto a(nome, "");
+        unsigned index = binarySearchAeroporto(a);
+        aeroportos[index].addTransporte(LocalDeTransporte(dist, tipo, horarios));
+        
         horarios.clear();
         num--;
     }
