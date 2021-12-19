@@ -11,6 +11,6 @@ int runTests(int argc, char* argv[]) {
 }
 
 int main(){
-    menu m = menu();
+    Menu m = Menu();
     return 0;
 }

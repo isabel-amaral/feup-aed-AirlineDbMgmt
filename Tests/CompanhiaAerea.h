@@ -73,14 +73,14 @@ public:
      * Adiciona um novo aeroporto ao vector se este ainda não existir no mesmo.
      * @param aeroporto é o aeroporto a ser acrescentado
      */
-    void addAeroporto (const Aeroporto &aeroporto);
+    void addAeroporto (const Aeroporto& aeroporto);
     /**
      * Procura um determinado aeroporto no vector aeroportos usando pesquisa binária.
-     * @param aeroporto é o elemento a ser pesquisado.
+     * @param nome é o nome do aeroporto a ser pesquisado.
      * @return a posição do aeroporto vo vector caso ele exista. Casp contrário retorna
      * o índice do maior elemento menor que aeroporto ou o menor elemento maior que aeroporto
      */
-    unsigned binarySearchAeroporto (const Aeroporto &aeroporto);
+    unsigned binarySearchAeroporto(const string& nome);
     /**
      *
      * @param bId é o id do bilhete

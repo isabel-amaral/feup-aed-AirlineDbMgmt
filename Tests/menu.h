@@ -1,17 +1,18 @@
-#ifndef AIRLINEDATABASEMANAGEMENT_MENU_H
-#define AIRLINEDATABASEMANAGEMENT_MENU_H
+#ifndef _MENU_H
+#define _MENU_H
+
 #include <iostream>
 #include "CompanhiaAerea.h"
 using namespace std;
 
-class menu {
+class Menu {
 private:
     CompanhiaAerea companhia;
-    stack <int> lastMenu;
+    stack<int> lastMenu;
     int option;
 public:
-    void readOption( const int &minOption, const int &maxOption);
-    menu();
+    Menu();
+    void readOption(const unsigned& minOption, const unsigned& maxOption);
     void processOption();
     void menu1();
     void menu2();
@@ -32,6 +33,4 @@ public:
     void menu25();
 };
 
-
-
-#endif //AIRLINEDATABASEMANAGEMENT_MENU_H
+#endif //_MENU_H

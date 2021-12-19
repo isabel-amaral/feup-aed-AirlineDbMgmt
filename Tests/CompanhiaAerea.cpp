@@ -46,16 +46,16 @@ void CompanhiaAerea::addAviao(const Aviao &aviao) {
     avioes.push_back(aviao);
 }
 
-unsigned CompanhiaAerea::binarySearchAeroporto(const Aeroporto &aeroporto) {
+unsigned CompanhiaAerea::binarySearchAeroporto(const string& nome ) {
     unsigned left = 0;
     unsigned right = aeroportos.size() - 1;
     unsigned middle;
 
     while (left <= right) {
         middle = (left + right) / 2;
-        if (aeroportos.at(middle) < aeroporto)
+        if (aeroportos.at(middle).getNome() < nome)
             left = middle + 1;
-        else if (aeroporto < aeroportos.at(middle))
+        else if (nome < aeroportos.at(middle).getNome())
             right = middle - 1;
         else
             return middle;
@@ -63,10 +63,10 @@ unsigned CompanhiaAerea::binarySearchAeroporto(const Aeroporto &aeroporto) {
     return middle;
 }
 
-void CompanhiaAerea::addAeroporto(const Aeroporto &aeroporto) {
+void CompanhiaAerea::addAeroporto(const Aeroporto& aeroporto) {
     if (aeroportos.empty())
         aeroportos.push_back(aeroporto);
-    unsigned index = binarySearchAeroporto(aeroporto);
+    unsigned index = binarySearchAeroporto(aeroporto.getNome());
     if (aeroportos.at(index).getNome() == aeroporto.getNome())
         return;
     else if (aeroportos.at(index) < aeroporto)
@@ -428,10 +428,8 @@ void CompanhiaAerea::loadLocaisTransporte() {
             f >> auxDia;
         }
 
-        Aeroporto a(nome, "");
-        unsigned index = binarySearchAeroporto(a);
+        unsigned index = binarySearchAeroporto(nome);
         aeroportos[index].addTransporte(LocalDeTransporte(dist, tipo, horarios));
-        
         horarios.clear();
         num--;
     }
