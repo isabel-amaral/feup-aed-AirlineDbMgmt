@@ -1,3 +1,4 @@
+/*
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include "Aeroporto.h"
@@ -437,4 +438,4 @@ TEST(test_17, test_realizarCheckIn) {
 
     v.realizarCheckIn(p);
     EXPECT_EQ(1, v.getPassageirosCheckedIn().size());
-}
+}*/

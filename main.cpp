@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 #include <iostream>
-
+#include "Tests/menu.h"
 using namespace std;
 
 int runTests(int argc, char* argv[]) {
@@ -13,7 +13,7 @@ int runTests(int argc, char* argv[]) {
 
 
 int main(){
-
+    menu m1=menu();
 
     return 0;
 

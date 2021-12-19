@@ -67,14 +67,14 @@ void CompanhiaAerea::showBilhetesFromPassageiro(unsigned pId) const {
         cout << "Este passageiro ainda não adquiriu nenhum bilhete." <<endl;
         return;
     }
-    for (const Bilhete& b: bilhetes) {
+    for (Bilhete b: bilhetes) {
         cout << b << endl;
     }
 }
 
 vector<Passageiro> CompanhiaAerea::getPassageirosFromVoo(unsigned numVoo) const {
     vector<Passageiro> passageiros;
-    for (const Bilhete& b: bilhetesVendidos) {
+    for (Bilhete b: bilhetesVendidos) {
         if (b.getVoo().getNumeroVoo() == numVoo)
             passageiros.push_back(b.getPasssageiro());
     }
@@ -189,7 +189,7 @@ vector<Voo> CompanhiaAerea::getVoosDatas(const Data& d1, const Data& d2) const {
 
 void CompanhiaAerea::showVoos() const {
     if (voos.empty()){
-        cout << "Não há voos disponíveis." << endl;
+        cout << "Nao ha voos disponiveis." << endl;
         return;
     }
     for (const auto& voo : voos){
@@ -201,7 +201,7 @@ void CompanhiaAerea::showVoosPartida(const string &cidadePartida, const Data &d1
     vector <Voo> voosPartida= getVoosPartida(cidadePartida,d1);
 
     if (voosPartida.empty()){
-        cout << "Não existe voo com partida em "<< cidadePartida;
+        cout << "Nao existe voo com partida em "<< cidadePartida;
         if (!(d1 == Data()))
             cout<< " para a data " << d1.getData();
         return;
@@ -214,7 +214,7 @@ void CompanhiaAerea::showVoosPartida(const string &cidadePartida, const Data &d1
 void CompanhiaAerea::showVoosChegada(const string &cidadeChegada, const Data &d1) const {
     vector <Voo> voosChegada= getVoosChegada(cidadeChegada, d1);
 
-    if (voosChegada.empty()){
+    if (voosChegada.empty()) {
         cout << "Não existe voo com chegada a "<< cidadeChegada;
         if (!(d1 == Data()))
             cout << " para a data " << d1.getData() ;
@@ -255,14 +255,12 @@ void CompanhiaAerea::showVoosDatas(const Data &d1, const Data &d2) const {
 void CompanhiaAerea::loadData(string ficheiroAvioes, string ficheiroVoos, string ficheiroBilhetes) {
     ifstream f;
     int numAvioes;
+    queue<Servico> servicos;
 
     f.open("avioes.txt");
-    if (f.is_open())
-        f >> numAvioes;
-
-    while (!f.eof()){
-        Aviao a;
-    }
+    if (!f.is_open())
+        cout << "Ficheiro nao exite." << endl;
+    f >> numAvioes;
 }
 
 void CompanhiaAerea::addAviao(const Aviao &aviao) {

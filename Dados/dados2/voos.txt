@@ -3,7 +3,7 @@
 11121
 Aeroporto Francisco Sá Carneiro
 Aeroporto João Paulo II
-30-01-2022
+30 01 2022
 12.55
 14.20
 2.25
@@ -14,7 +14,7 @@ Aeroporto João Paulo II
 11122
 Aeroporto Francisco Sá Carneiro
 Aeroporto João Paulo II
-30-01-2022
+30 01 2022
 20.55
 22.20
 2.25
@@ -25,7 +25,7 @@ Aeroporto João Paulo II
 11124
 Aeoroporto João Paulo II
 Aeroporto Francisco Sá Carneiro
-25-04-2022
+25 04 2022
 8.30
 11.55
 2.25
@@ -36,7 +36,7 @@ Aeroporto Francisco Sá Carneiro
 11127
 Aeroporto Humberto Delgado
 Aeroporto João Paulo II
-16-02-2022
+16 02 2022
 16.25
 18.50
 2.25
@@ -47,7 +47,7 @@ Aeroporto João Paulo II
 11130
 Aeroporto João Paulo II
 Aeroporto Humberto Delgado
-17-02-2022
+17 02 2022
 16.25
 18.50
 2.25
@@ -58,7 +58,7 @@ Aeroporto Humberto Delgado
 11131
 Aeroporto João Paulo II
 Aeroporto Humberto Delgado
-17-02-2022
+17 02 2022
 18.25
 10.50
 2.25
@@ -80,7 +80,7 @@ Aeroporto Internacional de Maputo Mavalane
 11135
 Aeroporto Internacional de Maputo Mavalane
 Aeroporto Humberto Delgado
-19-03-2022
+19 03 2022
 08.00
 18.00
 10.00
@@ -91,7 +91,7 @@ Aeroporto Humberto Delgado
 11136
 Aeroporto Humberto Delgado
 Aeroporto Internacional John F. Kennedy
-20-06-2023
+20 06 2023
 7.00
 14.55
 7.55
@@ -102,7 +102,7 @@ Aeroporto Internacional John F. Kennedy
 11138
 Aeroporto Internacional John F. Kennedy
 Aeroporto Humberto Delgado
-25-06-2023
+25 06 2023
 14.00
 21.55
 7.55

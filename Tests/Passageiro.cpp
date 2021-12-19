@@ -43,6 +43,10 @@ void Passageiro::incrementarMulta(float multa) {
     multaBagagem += multa;
 }
 
+bool Passageiro::operator==(const Passageiro &p) const {
+    return this->id == p.getId();
+}
+
 ostream &operator << (ostream &os, const Passageiro &p) {
     os << "NOME: " << p.getNome() << endl;
     os << "IDENTIFICAÇÃO: " << p.getId() << endl;

@@ -63,7 +63,7 @@ public:
      * @param multa preço a pagar pela nova infração cometida
      */
     void incrementarMulta(float multa);
-
+    bool operator== (const Passageiro& p) const;
     //TODO: DOCUMENTACAO
     friend ostream& operator<< (ostream& os, const Passageiro& p);
 };

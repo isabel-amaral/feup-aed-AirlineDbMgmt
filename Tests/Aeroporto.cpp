@@ -100,7 +100,7 @@ LocalDeTransporte Aeroporto::getAutocarroProximo() const{
     return LocalDeTransporte();
 }
 
-void Aeroporto::showTransportes() const {
+void Aeroporto::showTransportes(int ordenacao) const {
     BSTItrIn <LocalDeTransporte> it (transportes);
 
     if (it.isAtEnd()){   // A BST está vazia
@@ -113,17 +113,20 @@ void Aeroporto::showTransportes() const {
     }
 }
 
-void Aeroporto::showMetros() const {
+void Aeroporto::showMetros(int ordenacao) const {
     vector <LocalDeTransporte> metros = getMetros();
 
     if (metros.empty()){
         cout << "Esta cidade não possui metros." << endl;
     }
+    if ( ordenacao != 1)
+        ordenarLocais(metros, ordenacao);
+
     for (const auto& metro : metros)
         cout << metro << endl;
 }
 
-void Aeroporto::showComboios() const {
+void Aeroporto::showComboios(int ordenacao) const {
     vector<LocalDeTransporte> comboios = getMetros();
 
     if (comboios.empty()){
@@ -131,17 +134,23 @@ void Aeroporto::showComboios() const {
         return;
     }
 
+    if ( ordenacao != 1)
+        ordenarLocais(comboios, ordenacao);
+
     for (const auto& comboio : comboios)
         cout << comboio << endl;
 }
 
-void Aeroporto::showAutocaros() const {
+void Aeroporto::showAutocaros(int ordenacao) const {
     vector<LocalDeTransporte> autocarros = getMetros();
 
     if (autocarros.empty()){
         cout << "Esta cidade não possui autocarros." << endl;
         return;
     }
+
+    if ( ordenacao != 1)
+        ordenarLocais(autocarros, ordenacao);
 
     for (const auto& autocarro : autocarros)
         cout << autocarro << endl;
@@ -181,6 +190,32 @@ void Aeroporto::showAutocarroProximo() const{
 
 bool Aeroporto::operator<(const Aeroporto &a1) const {
     return this->nome < a1.nome;
+}
+
+bool criterioComparacao2(const LocalDeTransporte &l1, const LocalDeTransporte &l2) {
+    if (l1.getDisponibilidade() != l2.getDisponibilidade())
+        return l1.getDisponibilidade() < l2.getDisponibilidade();
+    else if (l1.getDistancia() != l2.getDistancia())
+        return l1.getDistancia() < l2.getDistancia();
+    else
+        return l1.getTipo() < l2.getTipo();
+}
+
+bool criterioComparacao3(const LocalDeTransporte &l1, const LocalDeTransporte &l2) {
+    if (l1.getTipo() != l2.getTipo())
+        return l1.getTipo() < l2.getTipo();
+    else if (l1.getDistancia() != l2.getDistancia())
+        return l1.getDistancia() < l2.getDistancia();
+    else
+        return l1.getDisponibilidade() < l2.getDisponibilidade();
+}
+
+void ordenarLocais (vector <LocalDeTransporte>& locais, int ordenacao)
+{
+    if ( ordenacao == 2)
+        sort ( locais.begin(), locais.end(), criterioComparacao2);
+    else
+        sort (locais.begin(), locais.end(), criterioComparacao3);
 }
 /*
 void Aeroporto::setNome(const string &n) {

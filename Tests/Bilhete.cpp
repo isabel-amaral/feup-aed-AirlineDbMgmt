@@ -19,7 +19,7 @@ Bilhete::Bilhete(unsigned id, const Passageiro& p, const Voo& v, bool b, const l
     idCount++;
 }
 
-unsigned Bilhete::getIdBilhete() {
+unsigned Bilhete::getIdBilhete() const {
     return idBilhete;
 }
 
@@ -65,6 +65,10 @@ bool Bilhete::operator< (Bilhete& b) {
             return this->getVoo().getHoraPartida() < b.getVoo().getHoraPartida();
     }
     return false;
+}
+
+bool Bilhete::operator==(const Bilhete &b) const {
+    return this->idBilhete == b.getIdBilhete();
 }
 
 ostream &operator<<(ostream &os, Bilhete &b) {

@@ -36,7 +36,7 @@ public:
      *
      * @return Número de identificação do bilhete.
      */
-    unsigned getIdBilhete();
+    unsigned getIdBilhete() const;
     static unsigned getIdCount();
     /**
      *
@@ -81,7 +81,7 @@ public:
      * @return true se esta instância é menor @param b caso contrário false.
      */
     bool operator< (Bilhete& b);
-    //TODO: DOCUMENTACAO
+    bool operator== (const Bilhete& b) const;
     friend ostream &operator<<(ostream &os, Bilhete &b);
 };
 
