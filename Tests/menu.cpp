@@ -150,7 +150,7 @@ void menu::menu4() {
     cout << "17. Visualizar dados do local de transporte de Comboio mais proximo" << endl;
     cout << "18. Visualizar dados do local de transporte de Autocarro mais proximo" << endl;
     cout << "0. Voltar a pagina anterior." << endl;
-    cout << "/n Escolha uma opcao: ";
+    cout << "\n Escolha uma opcao: ";
     readOption(11, 18);
 
     if (option == 0) {
@@ -160,7 +160,7 @@ void menu::menu4() {
     }
 
     if (option >= 11 && option <= 14) {
-        cout << "/n Escolha em que ordem deseja que os dados sejam apresentados: " << endl;
+        cout << "\n Escolha em que ordem deseja que os dados sejam apresentados: " << endl;
         cout << "1. Distancia Ascendente - Disponibilidade Ascendente - Tipo " << endl;
         cout << "2. Disponibilidade Ascendente - Distancia Ascendente - Tipo" << endl;
         cout << "3. Tipo - Distancia Ascendente - Disponibilidade Ascendente " << endl;
@@ -208,7 +208,7 @@ void menu::menu5() {
     cout << "24. Visualizar os passageiros de um voo." << endl;
     cout << "25. Visualizar numero de passageiros que fizeram check-in num voo." << endl;
     cout << "0. Voltar a pagina anterior." << endl;
-    cout << "/n Escolha uma opcao: ";
+    cout << "\n Escolha uma opcao: ";
     readOption(19, 25);
 
     if (option)
