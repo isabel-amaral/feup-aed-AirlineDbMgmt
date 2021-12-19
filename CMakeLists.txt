@@ -7,8 +7,6 @@ add_subdirectory(lib/googletest-master)
 include_directories(lib/googletest-master/googletest/include)
 include_directories(lib/googletest-master/googlemock/include)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Dados")
-
 add_executable(AirlineDatabaseManagement main.cpp Tests/tests.cpp Tests/Aviao.h Tests/Aviao.cpp Tests/Voo.h Tests/Voo.cpp
         Tests/Servico.h Tests/Servico.cpp Tests/Passageiro.h Tests/Passageiro.cpp Tests/Bilhete.h Tests/Bilhete.cpp
         Tests/Aeroporto.h Tests/Aeroporto.cpp Tests/Funcionario.cpp Tests/Funcionario.h Tests/Bagagem.cpp Tests/Bagagem.h

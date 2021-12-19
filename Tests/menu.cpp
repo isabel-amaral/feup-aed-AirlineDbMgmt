@@ -149,7 +149,7 @@ void menu::menu4() {
     cout << "17. Visualizar dados do local de transporte de Comboio mais proximo" << endl;
     cout << "18. Visualizar dados do local de transporte de Autocarro mais proximo" << endl;
     cout << "0. Voltar a pagina anterior." << endl;
-    cout << endl << "Escolha uma opcao:";
+    cout << "\n Escolha uma opcao: ";
     readOption(11, 18);
 
     if (option == 0) {
@@ -264,14 +264,12 @@ void menu::menu9() {
 
     cout << "Origem: ";
     getline(cin,origem);
-
     cout << "Destino: ";
     getline (cin, destino);
 
     cout << "Data de ida: ";
     cin >> dPartida >> mPartida >> aPartida ;
     Data partida(dPartida, mPartida, aPartida);
-
     cout <<  "Data de regresso: ";
     cin >> dRegresso >> mRegresso >> aRegresso;
     Data regresso (dRegresso, mRegresso, aRegresso);
@@ -288,14 +286,12 @@ void menu::menu10() {
 
     cout << "Origem: ";
     getline(cin,origem);
-
     cout << "Destino: ";
     getline (cin, destino);
 
     cout << "Data de ida: ";
     cin >> d1 >> m1 >> a1 ;
     Data data1(d1, m1, a1);
-
     cout << "Data de regresso: ";
     cin >> d2 >> m2 >> a2;
     Data data2(d2, m2, a2);
@@ -453,7 +449,3 @@ void menu::menu25() {
     lastMenu.pop();
     processOption();
 }
-
-
-
-
