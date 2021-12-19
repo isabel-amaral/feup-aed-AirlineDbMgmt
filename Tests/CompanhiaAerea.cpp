@@ -443,7 +443,7 @@ void CompanhiaAerea::loadLocaisTransporte() {
 
 void CompanhiaAerea::loadVoos() {
 //-----Ler Passageiros:
-    vector<Passageiro> p;
+    vector <Passageiro> p;
     ifstream f;
     int num;
     string nomePassageiro;
@@ -458,7 +458,7 @@ void CompanhiaAerea::loadVoos() {
     f >> num;
     f.ignore(LONG_MAX, '\n');
 
-    while (!f.eof() && num > 0) {
+    while(!f.eof() && num>0) {
         getline(f, nomePassageiro);
 
         f >> idPassageiro;
@@ -469,7 +469,7 @@ void CompanhiaAerea::loadVoos() {
         f.ignore(LONG_MAX, '\n');
         f.ignore(LONG_MAX, '\n');           // Ignorar separador "*"
         p.push_back(Passageiro(nomePassageiro, idPassageiro, idadePassageiro, menorNaoAcompanhado));
-        num--;
+        num --;
     }
     f.close();
 
@@ -490,12 +490,12 @@ void CompanhiaAerea::loadVoos() {
     f >> num;
     f.ignore(LONG_MAX, '\n');
 
-    while (!f.eof() && num > 0) {
+    while(!f.eof() && num>0) {
         f >> idVoo;
         f.ignore(LONG_MAX, '\n');
 
-        getline(f, origem);
-        getline(f, destino);
+        getline (f, origem);
+        getline (f, destino);
 
         f >> dia >> mes >> ano;
         f.ignore(LONG_MAX, '\n');
@@ -515,23 +515,22 @@ void CompanhiaAerea::loadVoos() {
         f >> reservas;
         f.ignore(LONG_MAX, '\n');
 
-        indexDestino = this->binarySearchAeroporto(Aeroporto(origem, ""));
+        indexDestino = this->binarySearchAeroporto(Aeroporto(origem,""));
         indexOrigem = this->binarySearchAeroporto(Aeroporto(destino, ""));
 
-        Voo v(idVoo, aeroportos.at(indexOrigem), aeroportos.at(indexDestino), Data(dia, mes, ano), hPartida, hChegada,
-              duracao, lotacao, reservas);
+        Voo v (idVoo, aeroportos.at(indexOrigem), aeroportos.at(indexDestino), Data (dia,mes,ano), hPartida, hChegada, duracao, lotacao, reservas);
 
         while (f >> idPassageiro)
-            v.addPassageiro(p.at(idPassageiro - 1));
+            v.addPassageiro(p.at(idPassageiro-1));
         f.ignore(LONG_MAX, '\n');
 
-        getline(f, matricula);
+        getline (f, matricula);
 
         if (i->getMatricula() != matricula) i++;
 
         i->addVoo(v);
         f.ignore(LONG_MAX, '\n');   // inorar o separador "*"
-        num--;
+        num --;
     }
     f.close();
 }
