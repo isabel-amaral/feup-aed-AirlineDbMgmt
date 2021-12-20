@@ -191,13 +191,13 @@ bool CompanhiaAerea::realizarCheckIn(unsigned bId) const {
 
 vector<Voo> CompanhiaAerea::getVoosChegada(const string& cidadeChegada, const Data& d) const {
     vector<Voo> result;
-    for (const auto& v: voos)
+    for (auto& v: voos)
         if (v.getDestino().getCidade() == cidadeChegada && (d == Data() || d == v.getDataPartida()))
             result.push_back(v);
     return result;
 }
 
-vector<Voo> CompanhiaAerea::getVoosPartida(const string& cidadePartida, const Data& d) const {
+vector<Voo> CompanhiaAerea::getVoosPartida(const string& cidadePartida, const Data& d) const{
     vector <Voo> result;
     for (const auto& v: voos)
         if (v.getOrigem().getCidade() == cidadePartida && (d == Data() || v.getDataPartida() == d))

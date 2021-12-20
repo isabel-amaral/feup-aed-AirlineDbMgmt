@@ -72,13 +72,14 @@ bool Bilhete::operator== (const Bilhete& b) const {
 }
 
 ostream &operator<< (ostream& os, Bilhete& b) {
+
+    os << "NUMERO DE BILHETE: " << b.getIdBilhete() << endl;
     os << b.getVoo();
 
     if (b.temBagagemDeMao())
         cout << b.getPasssageiro().getNome() << " tem direito a levar bagagem de mao" << endl;
     else
         cout << b.getPasssageiro().getNome() << " nao tem direito a levar bagagem de mao" << endl;
-    cout << endl;
     //TODO: retirar?
     if (!b.getBagagem().empty())
         cout << "Pode levar " << b.getBagagem().size() << " mala(s) no total." << endl;

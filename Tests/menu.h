@@ -31,6 +31,7 @@ public:
     void menu23();
     void menu24();
     void menu25();
+    void menuCompra(vector <Voo> & v);
 };
 
 #endif //_MENU_H

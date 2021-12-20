@@ -112,8 +112,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a52ea1d3faa9b969c0766d34c7e839791"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7a1d1f11e3a3ec3c16eeec7488edf13"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#ab7a1d1f11e3a3ec3c16eeec7488edf13">cancelarViagem</a> (unsigned bId)</td></tr>
 <tr class="separator:ab7a1d1f11e3a3ec3c16eeec7488edf13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50734c8791f843e339271edd236be390"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a50734c8791f843e339271edd236be390">realizarCheckIn</a> (unsigned bId) const</td></tr>
-<tr class="separator:a50734c8791f843e339271edd236be390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c01b7f641a157b3559c799aea2293a1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a9c01b7f641a157b3559c799aea2293a1">realizarCheckIn</a> (unsigned bId) const</td></tr>
+<tr class="separator:a9c01b7f641a157b3559c799aea2293a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd3ac29d55d2453df6139f253cbce582"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_voo.html">Voo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#abd3ac29d55d2453df6139f253cbce582">getVoosChegada</a> (const string &amp;cidadeChegada, const <a class="el" href="class_data.html">Data</a> &amp;d1=<a class="el" href="class_data.html">Data</a>()) const</td></tr>
 <tr class="separator:abd3ac29d55d2453df6139f253cbce582"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2017c8c85ca4f6a7a98664abbd78de14"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_voo.html">Voo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a2017c8c85ca4f6a7a98664abbd78de14">getVoosPartida</a> (const string &amp;cidadePartida, const <a class="el" href="class_data.html">Data</a> &amp;d1=<a class="el" href="class_data.html">Data</a>()) const</td></tr>
@@ -741,14 +741,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a50734c8791f843e339271edd236be390" name="a50734c8791f843e339271edd236be390"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50734c8791f843e339271edd236be390">&#9670;&nbsp;</a></span>realizarCheckIn()</h2>
+<a id="a9c01b7f641a157b3559c799aea2293a1" name="a9c01b7f641a157b3559c799aea2293a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c01b7f641a157b3559c799aea2293a1">&#9670;&nbsp;</a></span>realizarCheckIn()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CompanhiaAerea::realizarCheckIn </td>
+          <td class="memname">bool CompanhiaAerea::realizarCheckIn </td>
           <td>(</td>
           <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>bId</em></td><td>)</td>
@@ -756,12 +756,13 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Realiza o check-in de um determinado passageiro com bilhete referente a um certo voo </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Realiza o check-in de um determinado passageiro com bilhete referente a um certo voo. Apenas é possível realizar o check-in se o bilhete para o voo em questão existir (alguma vez tiver sido comprado). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bId</td><td>é o id do bilhete do passageiro para o voo para o qual pretende realizar check-in </td></tr>
+    <tr><td class="paramname">bId</td><td>bId é o id do bilhete do passageiro para o voo para o qual pretende realizar check-in </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>true se for possível realizar o check-in, falso coso contrário </dd></dl>
 
 </div>
 </div>
@@ -1126,8 +1127,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/<a class="el" href="_companhia_aerea_8h_source.html">CompanhiaAerea.h</a></li>
-<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/CompanhiaAerea.cpp</li>
+<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/1 Semestre/AED/AirlineDatabaseManagement/Tests/<a class="el" href="_companhia_aerea_8h_source.html">CompanhiaAerea.h</a></li>
+<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/1 Semestre/AED/AirlineDatabaseManagement/Tests/CompanhiaAerea.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

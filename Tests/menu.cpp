@@ -1,6 +1,7 @@
 #include "menu.h"
 
 Menu::Menu() {
+    option = 0;
     companhia.loadData();
     lastMenu.push(0);   //'0' representa o menu inicial/principal
 
@@ -10,7 +11,7 @@ Menu::Menu() {
     cout << "4. Transportes: Locais e Horarios" << endl;
     cout << "5. Companhia: Pesquisa e Listagens" << endl;
     cout << "0. Sair." << endl;
-    cout << "\nESCOLHA UMA OPCAO: ";
+    cout << "\nESCOLHA UMA OPCAO:";
     readOption(0, 5);
 
     if (option) {
@@ -43,7 +44,7 @@ void Menu::readOption(const unsigned& minOption, const unsigned& maxOption) {
             validOption = true;
             cin.ignore(1000, '\n');
         }
-        else {  //O utilizador introduziu um inteiro invalido
+        else {  // O utilizador introduziu um inteiro invalido
             validOption = false;
             cout << "OPCAO INVALIDA! TENTE NOVAMENTE. " << endl;
             cin.clear();
@@ -83,7 +84,7 @@ void Menu::menu1() {
     cout << "9. Visualizar voos entre duas cidades selecionadas" << endl;
     cout << "10. Visualizar voos realizados em determinadas datas" << endl;
     cout << "0. Voltar a pagina anterior" << endl;
-    cout << "\nESCOLHA UMA OPCAO: ";
+    cout << "\nESCOLHA UMA OPCAO:";
     readOption(6,10);
 
     if (option)
@@ -110,17 +111,38 @@ void Menu::menu2() {
         option = lastMenu.top();
         lastMenu.pop();
     }
+    option = lastMenu.top();
+    lastMenu.pop();
     processOption();
 }
 
 //As minhas Reservas
 void Menu::menu3() {
-    unsigned idPassageiro;
+    unsigned idPassageiro, numBilhete;
     cout << "\nInsira o seu numero de identificacao:";
     cin >> idPassageiro;
 
-   if (idPassageiro != 0)
-       companhia.showBilhetesFromPassageiro(idPassageiro);
+    if (idPassageiro != 0){
+        companhia.showBilhetesFromPassageiro(idPassageiro);
+
+        cout << "1. Cancelar uma viagem" << endl;
+        cout << "0. voltar" << endl;
+        readOption(0, 1);
+        if (option){
+            cout << "Insira o numero do bilhete: ";
+            cin >> numBilhete;
+            if (companhia.cancelarViagem(numBilhete))
+                cout << "Viagem cancelada" << endl;
+            else
+                cout << "Nao foi possivel cancelar a viagem" << endl;
+
+        }
+    }
+
+
+    option = lastMenu.top();
+    lastMenu.pop();
+    processOption();
 }
 
 //Transportes: Locais e Horarios
@@ -208,7 +230,20 @@ void Menu::menu5() {
 
 //Imprimir todos os voos
 void Menu::menu6() {
-    companhia.showVoos();
+    int n=0;
+    vector <Voo> v;
+    for (const auto& voo : companhia.getVoos()){
+        cout << n+1 << ". " << endl;
+        cout << endl;
+        cout << voo << endl;
+        n++;
+    }
+    v = companhia.getVoos();
+    if (!companhia.getVoos().empty())
+        menuCompra(v );
+    else
+        cout <<"SEM VOOS DISPONIVEIS" << endl;
+
     option = lastMenu.top();
     lastMenu.pop();
     processOption();
@@ -216,51 +251,18 @@ void Menu::menu6() {
 
 //Visualizar voos com partida numa determinada cidade
 void Menu::menu7() {
-    string cidade;
     string resposta;
-    unsigned dia, mes, ano;
+    unsigned dia, mes, ano, n=0;
+    vector <Voo> v;
 
+    for (const auto& a: companhia.getAeroportos()){
+        cout << n+1 << "- " << a.getCidade() << endl;
+        n++;
+    }
+
+    readOption(1,companhia.getAeroportos().size());
     cout << "\nInsira a cidade de partida: ";
-    getline(cin, cidade);
 
-    cout << "\nPossui uma data em especifico? [Escolha 'S'-Sim ou 'N'- Nao ou 0-Voltar]" << endl;
-    do {
-        getline (cin, resposta);
-        if (resposta != "S" && resposta != "N" && resposta != "0"){
-            cout << "ESCOLHA INVALIDA! TENTE NOVAMENTE." <<endl;
-        }
-    } while (resposta != "S" && resposta != "N" && resposta != "0") ;
-
-    if (resposta == "0") {
-        option = lastMenu.top();
-        lastMenu.pop();
-        processOption();
-    }
-    if (resposta == "N")
-        companhia.showVoosPartida(cidade);
-    else if (resposta == "S") {
-        cout << "\nESCOLHA O DIA, O MES E O ANO" << endl;
-        cout << "Dia: ";
-        cin >> dia;
-        cout << "Mes: ";
-        cin >> mes;
-        cout << "Ano: ";
-        cin >> ano;
-        Data d1(dia, mes, ano);
-        companhia.showVoosPartida(cidade, d1);
-    }
-    option = lastMenu.top();
-    lastMenu.pop();
-    processOption();
-}
-
-//Visualizar voos com chegada numa determinada cidade
-void Menu::menu8() {
-    string cidade, resposta;
-    unsigned dia, mes, ano;
-
-    cout << "\nInsira o destino:";
-    getline(cin, cidade);
     cout << "\nPossui uma data em especifico? [Escolha 'S'-Sim ou 'N'- Nao ou 0-Voltar]" << endl;
     do{
         getline (cin, resposta);
@@ -276,56 +278,145 @@ void Menu::menu8() {
     }
 
     if (resposta == "N"){
-        companhia.showVoosChegada(cidade);
+        //companhia.showVoosPartida(cidade);
+        v = companhia.getVoosPartida(companhia.getAeroportos().at( option -1).getCidade());
+    }
+    else if (resposta == "S"){
+        cout << "\nESCOLHA O DIA, O MES E O ANO" << endl;
+        cout << "Dia: ";    cin >> dia;
+        cout << "\nMes: ";  cin >> mes;
+        cout << "\nAno: ";  cin >> ano;
+        Data d1 (dia, mes, ano);
+
+        v = companhia.getVoosPartida(companhia.getAeroportos().at( option -1).getCidade(), d1);
+        //companhia.showVoosPartida(cidade, d1);
+    }
+
+    n=0;
+    for (const auto& voo : v){
+        cout << n+1 << ". " << endl;
+        cout << voo << endl;
+        cout << "------------" <<endl;
+        n++;
+    }
+
+    if (!v.empty())
+        menuCompra(v);
+    else
+        cout <<"SEM VOOS DISPONIVEIS" << endl;
+    option = lastMenu.top();
+    lastMenu.pop();
+    processOption();
+}
+
+//Visualizar voos com chegada numa determinada cidade
+void Menu::menu8() {
+    string resposta;
+    unsigned dia, mes, ano, n = 0;
+    vector <Voo> v;
+
+    for (const auto& a: companhia.getAeroportos()){
+        cout << n+1 << "- " << a.getCidade() << endl;
+        n++;
+    }
+
+    readOption(1,companhia.getAeroportos().size());
+    cout << "\nInsira o destino:";
+
+    cout << "\nPossui uma data em especifico? [Escolha 'S'-Sim ou 'N'- Nao ou 0-Voltar]" << endl;
+    do{
+        getline (cin, resposta);
+        if (resposta != "S" && resposta != "N" && resposta != "0"){
+            cout << "ESCOLHA INVALIDA! TENTE NOVAMENTE." <<endl;
+        }
+    } while (resposta != "S" && resposta != "N" && resposta != "0") ;
+
+    if (resposta == "0"){
+        option = lastMenu.top();
+        lastMenu.pop();
+        processOption();
+    }
+
+    if (resposta == "N"){
+        v = companhia.getVoosChegada(companhia.getAeroportos().at( option -1).getCidade());
+        //companhia.showVoosChegada(cidade);
     }
     else if (resposta == "S"){
         cout << "\nESCOLHA O DIA, O MES E O ANO: " << endl;
-        cout << "Dia: ";
-        cin >> dia;
-        cout << "\nMes: ";
-        cin >> mes;
-        cout << "\nAno: ";
-        cin >> ano;
+        cout << "Dia: ";    cin >> dia;
+        cout << "\nMes: ";  cin >> mes;
+        cout << "\nAno: ";  cin >> ano;
         Data d1 (dia, mes, ano);
-
-        companhia.showVoosChegada(cidade, d1);
+        v = companhia.getVoosChegada(companhia.getAeroportos().at( option -1).getCidade(), d1);
+        //companhia.showVoosChegada(cidade, d1);
     }
+
+    n=0;
+    for (const auto& voo : v){
+        cout << n+1 << ". " << endl;
+        cout << voo << endl;
+        cout << "------------" <<endl;
+        n++;
+    }
+
+    if (!v.empty())
+        menuCompra(v);
+    else
+        cout <<"SEM VOOS DISPONIVEIS" << endl;
+
     option = lastMenu.top();
     lastMenu.pop();
     processOption();
 }
 
 //Visualizar voos entre duas cidades selecionadas
-//TODO: testar
 void Menu::menu9() {
+    unsigned dia, mes, ano, n=0;
     string origem, destino;
-    unsigned dia, mes, ano;
+    vector<Voo> v;
 
-    cout << "\nOrigem: ";
-    getline(cin,origem);
-    cout << "\nDestino: ";
-    getline (cin, destino);
+    for (const auto& a: companhia.getAeroportos()){
+        cout << n+1 << "- " << a.getCidade() << endl;
+        n++;
+    }
 
-    cout << "\nData de partida: ";
-    cout << "Dia: ";
-    cin >> dia;
-    cout << "\nMes: ";
-    cin >> mes;
-    cout << "\nAno: ";
-    cin >> ano;
+    cout << "\nSELECIONE A ORIGEM: ";
+    readOption(1,companhia.getAeroportos().size());
+    origem =companhia.getAeroportos().at( option -1).getCidade();
+
+    cout << "\nSELECIONE O DESTINO: ";
+    readOption(1,companhia.getAeroportos().size());
+    destino = companhia.getAeroportos().at( option -1).getCidade();
+
+    cout << "\nData Inicial: ";
+    cout << "\nDia: ";      cin >> dia;
+    cout << "\nMes: ";      cin >> mes;
+    cout << "\nAno: ";      cin >> ano;
     Data partida (dia, mes, ano);
-
     cout << endl;
-    cout <<  "\nData de regresso: ";
-    cout << "Dia: ";
-    cin >> dia;
-    cout << "\nMes: ";
-    cin >> mes;
-    cout << "\nAno: ";
-    cin >> ano;
+
+    cout <<  "\nData Final: ";
+    cout << "Dia: ";    cin >> dia;
+    cout << "\nMes: ";  cin >> mes;
+    cout << "\nAno: ";  cin >> ano;
     Data regresso (dia, mes, ano);
 
-    companhia.showVoosCidades(origem, destino, partida, regresso);
+
+    v = companhia.getVoosCidades(origem, destino, partida, regresso);
+    //companhia.showVoosCidades(origem, destino, partida, regresso);
+
+    n = 0;
+    for (const auto& voo : v){
+        cout << n+1 << ". " << endl;
+        cout << endl;
+        cout << voo << endl;
+        n++;
+    }
+
+    if (!v.empty())
+        menuCompra(v);
+    else
+        cout <<"SEM VOOS DISPONIVEIS" << endl;
     option = lastMenu.top();
     lastMenu.pop();
     processOption();
@@ -333,29 +424,38 @@ void Menu::menu9() {
 
 //Visualizar voos realizados em determinadas datas
 void Menu::menu10() {
+    vector <Voo> v;
     string origem, destino;
-    unsigned dia, mes, ano;
+    unsigned dia, mes, ano, n = 0;
 
     cout << "\nData de partida: ";
-    cout << "Dia: ";
-    cin >> dia;
-    cout << "\nMes: ";
-    cin >> mes;
-    cout << "\nAno: ";
-    cin >> ano;
+    cout << "Dia: ";    cin >> dia;
+    cout << "\nMes: ";  cin >> mes;
+    cout << "\nAno: ";  cin >> ano;
     Data partida (dia, mes, ano);
 
     cout << endl;
     cout <<  "\nData de regresso: ";
-    cout << "Dia: ";
-    cin >> dia;
-    cout << "\nMes: ";
-    cin >> mes;
-    cout << "\nAno: ";
-    cin >> ano;
+    cout << "Dia: ";    cin >> dia;
+    cout << "\nMes: ";  cin >> mes;
+    cout << "\nAno: ";  cin >> ano;
     Data regresso (dia, mes, ano);
 
-    companhia.showVoosDatas(partida, regresso);
+    v = companhia.getVoosDatas(partida, regresso);
+    //companhia.showVoosDatas(partida, regresso);
+
+    for (const auto& voo : v){
+        cout << n+1 << ". " << endl;
+        cout << endl;
+        cout << voo << endl;
+        n++;
+    }
+
+    if (!v.empty())
+        menuCompra(v);
+    else
+        cout <<"SEM VOOS DISPONIVEIS" << endl;
+
     option = lastMenu.top();
     lastMenu.pop();
     processOption();
@@ -368,29 +468,22 @@ void Menu::menu19() {
     unsigned l, dia, mes, ano;
     string nome, cidade;
 
-    cout << "\nNumero do voo: ";
-    cin >> n;
-    cout << "\nAeroporto de origem: ";
-    getline(cin, nome);
-    cout << "\nCidade: ";
-    getline(cin, cidade);
+    cout << "\nNumero do voo: ";            cin >> n;
+    cout << "\nAeroporto de origem: ";      getline(cin, nome);
+    cout << "\nCidade: ";                   getline(cin, cidade);
     Aeroporto ao(nome, cidade);
-    cout << "\nAeroporto de destino: ";
-    getline(cin, nome);
-    cout << "\nCidade: ";
-    getline(cin, cidade);
+
+    cout << "\nAeroporto de destino: ";     getline(cin, nome);
+    cout << "\nCidade: ";                   getline(cin, cidade);
     Aeroporto ad(nome, cidade);
-    cout << "\nData de ida: ";
-    cin >> dia >> mes >> ano ;
+
+    cout << "\nData de ida: ";      cin >> dia >> mes >> ano ;
     Data partida(dia, mes, ano);
-    cout << "\nHora de partida: ";
-    cin >> hp;
-    cout << "\nHora de chegada: ";
-    cin >> hc;
-    cout << "\nDuracao prevista: ";
-    cin >> d;
-    cout << "\nLotacao do aviao: ";
-    cin >> l;
+
+    cout << "\nHora de partida: ";  cin >> hp;
+    cout << "\nHora de chegada: ";  cin >> hc;
+    cout << "\nDuracao prevista: "; cin >> d;
+    cout << "\nLotacao do aviao: "; cin >> l;
 
     Voo v(n, ao, ad, partida, hp, hc, d, l, 0);
     companhia.addVoo(v);
@@ -405,12 +498,9 @@ void Menu::menu20() {
     string m, t;
     unsigned c;
 
-    cout << "\nMatrícula do aviao: ";
-    cin >> m;
-    cout << "\nTipo do avião: ";
-    cin >> t;
-    cout << "\nCapacidade do aviao: ";
-    cin >> c;
+    cout << "\nMatrícula do aviao: ";   cin >> m;
+    cout << "\nTipo do avião: ";        cin >> t;
+    cout << "\nCapacidade do aviao: ";  cin >> c;
 
     Aviao a(m, t, c);
     companhia.addAviao(a);
@@ -510,4 +600,68 @@ void Menu::menu25() {
     option = lastMenu.top();
     lastMenu.pop();
     processOption();
+}
+
+void Menu::menuCompra(vector<Voo> &voos) {
+    int numPessoas, id, idade, temp;
+    string nome;
+    bool menorNaoAcompanhado =false, bagagem, compraRealizada;
+    list <Passageiro> passageiros;
+
+    cout << "\n1. Comprar um bilhete " ;
+    cout << "\n0. Voltar"<< endl;
+    cout << "\nESCOLHA UMA OPCAO" <<endl;
+    readOption(0 ,1);
+
+    if ( option == 0){
+        return;
+    }
+
+    cout << "\nINSIRA UMA DAS OPCOES REFERENTES AOS VOOS ACIMA APRESENTADOS: " << "(1 -" << voos.size() << ") :" ;
+    readOption(1,voos.size());
+    temp = option;
+
+    cout << "\nINSIRA O NUMERO DE PESSOAS: (0 para voltar)" ;
+    cin >> numPessoas;
+
+    if (numPessoas == 0) return;
+
+    else {
+        while (numPessoas > 0){
+            cin.ignore(10000, '\n');
+            cout << "\nNome: " ;
+            getline (cin, nome);
+            cout << "No. de identificacao: " ;
+            cin >> id;
+            cout << "Idade: "
+            ;
+            cin >> idade;
+            if (idade < 18){
+                cout << "Menor acompanhado por um adulto: " << endl ;
+                cout << "1. Sim" << endl;
+                cout << "2. Nao" << endl;
+                readOption(1,2);
+                menorNaoAcompanhado = (option == 2);
+            }
+            Passageiro p (nome, id, idade,menorNaoAcompanhado);
+            passageiros.push_back(p);
+
+            menorNaoAcompanhado = false;
+            numPessoas--;
+        }
+    }
+
+    if (passageiros.size() > 1) {
+        compraRealizada = companhia.adquirirConjuntoBilhetes(passageiros, voos.at(temp - 1), bagagem);
+    }
+    else{
+        //TODO: A BAGAGEM DEVE SER LIDA?
+        compraRealizada = companhia.adquirirBilhete(*(passageiros.begin()), voos.at(temp - 1), bagagem);
+    }
+
+    if (compraRealizada)
+        cout << "COMPRA REALIZADA COM SUCESSO!" << endl;
+    else
+        cout << "NAO FOI POSSIVEL REALIZAR A COMPRA" << endl;
+
 }
