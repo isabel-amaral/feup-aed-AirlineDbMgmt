@@ -14,6 +14,7 @@ public:
     Menu();
     void readOption(const unsigned& minOption, const unsigned& maxOption);
     void processOption();
+    void menu0();
     void menu1();
     void menu2();
     void menu3();

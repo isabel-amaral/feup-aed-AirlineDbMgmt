@@ -4,24 +4,7 @@ Menu::Menu() {
     option = 0;
     companhia.loadData();
     lastMenu.push(0);   //'0' representa o menu inicial/principal
-
-    cout << "1. Pesquisar Voos" << endl;
-    cout << "2. Realizar Check-in" << endl;
-    cout << "3. As minhas Reservas" << endl;
-    cout << "4. Transportes: Locais e Horarios" << endl;
-    cout << "5. Companhia: Pesquisa e Listagens" << endl;
-    cout << "0. Sair." << endl;
-    cout << "\nESCOLHA UMA OPCAO:";
-    readOption(0, 5);
-
-    if (option) {
-        lastMenu.push(0);
-        processOption();
-    }
-    else {
-        cout << "VOLTE SEMPRE.";
-        exit (0);
-    }
+    menu0();
 }
 
 void Menu::readOption(const unsigned& minOption, const unsigned& maxOption) {
@@ -55,7 +38,7 @@ void Menu::readOption(const unsigned& minOption, const unsigned& maxOption) {
 
 void Menu::processOption() {
     switch (option) {
-        case 0: Menu(); break;
+        case 0: menu0(); break;
         case 1: menu1(); break;
         case 2: menu2(); break;
         case 3: menu3(); break;
@@ -73,6 +56,26 @@ void Menu::processOption() {
         case 23: menu23(); break;
         case 24: menu24(); break;
         case 25: menu25(); break;
+    }
+}
+
+void Menu::menu0() {
+    cout << "1. Pesquisar Voos" << endl;
+    cout << "2. Realizar Check-in" << endl;
+    cout << "3. As minhas Reservas" << endl;
+    cout << "4. Transportes: Locais e Horarios" << endl;
+    cout << "5. Companhia: Pesquisa e Listagens" << endl;
+    cout << "0. Sair." << endl;
+    cout << "\nESCOLHA UMA OPCAO:";
+    readOption(0, 5);
+
+    if (option) {
+        lastMenu.push(0);
+        processOption();
+    }
+    else {
+        cout << "VOLTE SEMPRE.";
+        exit (0);
     }
 }
 
@@ -138,7 +141,6 @@ void Menu::menu3() {
 
         }
     }
-
 
     option = lastMenu.top();
     lastMenu.pop();
