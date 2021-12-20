@@ -11,6 +11,7 @@ int runTests(int argc, char* argv[]) {
 }
 
 int main(){
+    cout << "BEM-VINDO A NOSSA COMPANHIA AEREA" << endl;
     Menu m = Menu();
     return 0;
 }
