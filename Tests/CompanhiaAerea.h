@@ -226,6 +226,8 @@ public:
     void loadLocaisTransporte();
     void loadServicos();
     void loadBagagens();
+    void loadTransportadorBagagem();
+    void loadExcessoPeso();
 };
 
 #endif //_COMPANHIAAEREA_H

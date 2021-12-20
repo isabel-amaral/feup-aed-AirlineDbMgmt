@@ -312,6 +312,8 @@ void CompanhiaAerea::loadData() {
     this->loadLocaisTransporte();
     this->loadVoosAndBilhetes();
     this->loadBagagens();
+    this->loadTransportadorBagagem();
+    this->loadExcessoPeso();
 }
 
 void CompanhiaAerea::loadAvioes() {
@@ -619,4 +621,34 @@ void CompanhiaAerea::loadBagagens() {
         num--;
     }
     f.close();
+}
+
+//Todos os voos da companhia aérea, independentemente dos aeroportos onde são realizados, usam o mesmo tipo de transportadores
+void CompanhiaAerea::loadTransportadorBagagem() {
+    ifstream f;
+    unsigned c, n, m;
+
+    f.open("transportadorDeBagagem.txt");
+    if (!f.is_open())
+        cout << "Ficheiro nao existe." << endl;
+
+    f >> c;
+    f >> n;
+    f >> m;
+    for (Voo& v: voos)
+        v.setTransportador(c, n, m);
+}
+
+void CompanhiaAerea::loadExcessoPeso() {
+    ifstream f;
+    float p, tp, tb;
+
+    f.open("excessoPeso.txt");
+    if (!f.is_open())
+        cout << "Ficheiro nao existe." << endl;
+
+    f >> p;
+    f >> tp;
+    f >> tb;
+    excessoPeso = ExcessoPeso(p, tp, tb);
 }
