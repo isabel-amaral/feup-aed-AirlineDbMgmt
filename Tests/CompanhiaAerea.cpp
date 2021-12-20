@@ -176,9 +176,10 @@ bool CompanhiaAerea::cancelarViagem(unsigned bId) {
     vector<Bilhete>::iterator it = find(bilhetesVendidos.begin(), bilhetesVendidos.end(), b);
     bilhetesVendidos.erase(it);
     for (Voo& voo: voos)
-        if (voo.getNumeroVoo() == b.getVoo().getNumeroVoo())
+        if (voo.getNumeroVoo() == b.getVoo().getNumeroVoo()) {
             voo.removerPassageiro(b.getPasssageiro());
-    return true;
+            return true;
+        }
 }
 
 bool CompanhiaAerea::realizarCheckIn(unsigned bId) {
@@ -199,9 +200,10 @@ bool CompanhiaAerea::realizarCheckIn(unsigned bId) {
     }
 
     for (Voo& voo: voos)
-        if (voo.getNumeroVoo() == bilhete.getVoo().getNumeroVoo())
+        if (voo.getNumeroVoo() == bilhete.getVoo().getNumeroVoo()) {
             voo.realizarCheckIn(bilhete.getPasssageiro());
-    return true;
+            return true;
+        }
 }
 
 vector<Voo> CompanhiaAerea::getVoosChegada(const string& cidadeChegada, const Data& d) const {
