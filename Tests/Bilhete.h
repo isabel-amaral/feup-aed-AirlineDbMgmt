@@ -55,7 +55,7 @@ public:
      *
      * @return voo para o qual o bilhete foi adquirido.
      */
-    Voo getVoo();
+    Voo& getVoo();
     /**
      *
      * @return true se o passageiro tem direito a levar bagagem de mão, caso contrário false.

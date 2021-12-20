@@ -66,11 +66,11 @@ unsigned Voo::getNumLugaresReservados() const {
     return numLugaresReservados;
 }
 
-list<Passageiro> Voo::getPassageiros() const {
+list<Passageiro>& Voo::getPassageiros() {
     return passageiros;
 }
 
-list<Passageiro> Voo::getPassageirosCheckedIn() const {
+list<Passageiro>& Voo::getPassageirosCheckedIn() {
     return passageirosCheckedIn;
 }
 

@@ -587,9 +587,9 @@ void Menu::menu25() {
     cout << "\nNumero de voo: " << endl;
     cin >> n;
 
-    for (const Voo& v: companhia.getVoos()) {
+    for (Voo& v: companhia.getVoos()) {
         if (v.getNumeroVoo() == n) {
-            for (const Passageiro& p: v.getPassageirosCheckedIn()) {
+            for (Passageiro& p: v.getPassageirosCheckedIn()) {
                 cout << p << endl;
                 cout << endl;
             }

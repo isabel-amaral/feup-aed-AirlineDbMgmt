@@ -111,12 +111,12 @@ public:
      *
      * @return numero dos lugares correspondentes aos bilhetes comprados
      */
-    list<Passageiro> getPassageiros() const;
+    list<Passageiro>& getPassageiros();
     /**
      *
      * @return passageiros que já fizeram o check in
      */
-    list<Passageiro> getPassageirosCheckedIn() const;
+    list<Passageiro>& getPassageirosCheckedIn();
     /**
      *
      * @return transportador com as bagagens correspondentes aos passageiros do voo
