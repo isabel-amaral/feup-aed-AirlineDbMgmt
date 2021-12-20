@@ -137,26 +137,35 @@ Bilhete CompanhiaAerea::getBilhetePassageiroVoo(unsigned pId, unsigned numVoo) c
 }
 
 bool CompanhiaAerea::adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem) {
-    if (!v.addPassageiro(p))
-        return false;
-    Bilhete b(Bilhete::getIdCount()+1, p, v, bagagem);
-    bilhetesVendidos.push_back(b);
-    sort(bilhetesVendidos.begin(), bilhetesVendidos.end());
-    return true;
+    for (Voo& voo: voos) {
+        if (voo.getNumeroVoo() == v.getNumeroVoo()) {
+            if (!voo.addPassageiro(p))
+                return false;
+            Bilhete b(Bilhete::getIdCount()+1, p, v, bagagem);
+            bilhetesVendidos.push_back(b);
+            sort(bilhetesVendidos.begin(), bilhetesVendidos.end());
+            return true;
+        }
+    }
+    return false;
 }
 
 //todos os passageiros do grupo têm a mesma opção relativa a bagagem de mão
 bool CompanhiaAerea::adquirirConjuntoBilhetes(list<Passageiro> &p, Voo &v, bool bagagem) {
-    if (!v.addConjuntoPassageiros(p))
-        return false;
-
-    list<Passageiro>::const_iterator it;
-    for (it = p.begin(); it != p.end(); it++) {
-        Bilhete b(Bilhete::getIdCount()+1, *it, v, bagagem);
-        bilhetesVendidos.push_back(b);
+    for (Voo& voo: voos) {
+        if (voo.getNumeroVoo() == v.getNumeroVoo()) {
+            if (!voo.addConjuntoPassageiros(p))
+                return false;
+            list<Passageiro>::iterator it;
+            for (it = p.begin(); it != p.end(); it++) {
+                Bilhete b(Bilhete::getIdCount()+1, *it, v, bagagem);
+                bilhetesVendidos.push_back(b);
+            }
+            sort(bilhetesVendidos.begin(), bilhetesVendidos.end());
+            return true;
+        }
     }
-    sort(bilhetesVendidos.begin(), bilhetesVendidos.end());
-    return true;
+    return false;
 }
 
 bool CompanhiaAerea::cancelarViagem(unsigned bId) {
