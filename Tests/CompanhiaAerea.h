@@ -152,7 +152,7 @@ public:
      * @param bId bId é o id do bilhete do passageiro para o voo para o qual pretende realizar check-in
      * @return true se for possível realizar o check-in, falso coso contrário
      */
-    bool realizarCheckIn(unsigned bId) const;
+    bool realizarCheckIn(unsigned bId);
     /**
      *
      * @param cidadeChegada é a cidade de destino

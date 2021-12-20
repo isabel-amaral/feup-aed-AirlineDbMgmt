@@ -65,7 +65,7 @@ public:
      *
      * @return lista com os volumes de bagagem do passageiro para o voo em questão.
      */
-    list<Bagagem*> getBagagem() const;
+    list<Bagagem*>& getBagagem();
     /**
      * Indica o passageiro que comprou o bilhete.
      * @param p é o passageiro a quem pertence o bilhete.
