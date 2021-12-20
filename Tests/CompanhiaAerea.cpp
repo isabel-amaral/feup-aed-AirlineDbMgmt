@@ -210,7 +210,7 @@ vector<Voo> CompanhiaAerea::getVoosChegada(const string& cidadeChegada, const Da
 }
 
 vector<Voo> CompanhiaAerea::getVoosPartida(const string& cidadePartida, const Data& d) const{
-    vector <Voo> result;
+    vector<Voo> result;
     for (const auto& v: voos)
         if (v.getOrigem().getCidade() == cidadePartida && (d == Data() || v.getDataPartida() == d))
             result.push_back(v);
@@ -231,7 +231,7 @@ vector<Voo> CompanhiaAerea::getVoosCidades(const string& cidadePartida, const st
 vector<Voo> CompanhiaAerea::getVoosDatas(const Data& d1, const Data& d2) const {
     vector<Voo> result;
     for (const auto& v : voos){
-        if (d1 <= v.getDataPartida() || v.getDataPartida()<=d2)
+        if (d1 <= v.getDataPartida() || v.getDataPartida() <= d2)
             result.push_back(v);
     }
     return result;
@@ -242,19 +242,19 @@ bool CompanhiaAerea::showVoos() const {
         cout << "Nao ha voos disponiveis." << endl;
         return false;
     }
-    for (const auto& voo : voos)
+    for (const auto& voo: voos)
         cout << "---------------" << voo;
     cout << endl;
     return true;
 }
 
-bool CompanhiaAerea::showVoosPartida(const string &cidadePartida, const Data &d1) const {
-    vector <Voo> voosPartida = getVoosPartida(cidadePartida,d1);
+bool CompanhiaAerea::showVoosPartida(const string& cidadePartida, const Data& d1) const {
+    vector<Voo> voosPartida = getVoosPartida(cidadePartida, d1);
 
     if (voosPartida.empty()){
         cout << "Nao existe voo com partida em "<< cidadePartida;
         if (!(d1 == Data()))
-            cout<< " para a data " << d1.getData();
+            cout << " para a data " << d1.getData();
         return true;
     }
     for (const auto& voo: voosPartida)
@@ -263,8 +263,8 @@ bool CompanhiaAerea::showVoosPartida(const string &cidadePartida, const Data &d1
     return false;
 }
 
-bool CompanhiaAerea::showVoosChegada(const string &cidadeChegada, const Data &d1) const {
-    vector <Voo> voosChegada= getVoosChegada(cidadeChegada, d1);
+bool CompanhiaAerea::showVoosChegada(const string& cidadeChegada, const Data& d1) const {
+    vector<Voo> voosChegada = getVoosChegada(cidadeChegada, d1);
 
     if (voosChegada.empty()) {
         cout << "Nao existe voo com chegada a "<< cidadeChegada;
@@ -279,11 +279,11 @@ bool CompanhiaAerea::showVoosChegada(const string &cidadeChegada, const Data &d1
     return true;
 }
 
-bool CompanhiaAerea::showVoosCidades(const string &cidadePartida, const string &cidadeChegada, const Data &d1, const Data &d2) const {
-    vector <Voo> voosCidade = getVoosCidades(cidadePartida, cidadeChegada, d1, d2);
+bool CompanhiaAerea::showVoosCidades(const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const {
+    vector<Voo> voosCidade = getVoosCidades(cidadePartida, cidadeChegada, d1, d2);
 
     if (voosCidade.empty()){
-        cout<< "Nao ha voo com partida em " << cidadePartida << " e chegada a " << cidadeChegada << " no periodo indicado." << endl;
+        cout << "Nao ha voo com partida em " << cidadePartida << " e chegada a " << cidadeChegada << " no periodo indicado." << endl;
         return false;
     }
     for (const auto& voo: voosCidade)
@@ -300,7 +300,7 @@ bool CompanhiaAerea::showVoosDatas(const Data& d1, const Data& d2) const {
         return false;
     }
     for (const auto& voo: voosDatas)
-        cout<<voo;
+        cout << voo;
     cout << "---------------" << endl;
     return true;
 }
@@ -482,13 +482,13 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
 
     f >> num;
     f.ignore(LONG_MAX, '\n');
-    while(!f.eof() && num>0) {
+    while(!f.eof() && num > 0) {
         f.ignore(LONG_MAX, '\n');
         getline(f, nomePassageiro);
         getline (f, text);
-        idPassageiro= stoi(text);
+        idPassageiro = stoi(text);
         getline (f, text);
-        idadePassageiro=stoi(text);
+        idadePassageiro = stoi(text);
         getline (f, text);
         menorNaoAcompanhado = (text == "true");
 
@@ -512,7 +512,7 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
 
     f >> num;
     f.ignore(LONG_MAX, '\n');
-    while(!f.eof() && num>0) {
+    while(!f.eof() && num > 0) {
         f.ignore(LONG_MAX, '\n');
         getline (f, text);
         idVoo = stoi(text);
@@ -562,7 +562,7 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
 
     f >> num;
     f.ignore(LONG_MAX, '\n');
-    while (!f.eof() && num>0) {
+    while (!f.eof() && num > 0) {
         f.ignore(LONG_MAX, '\n');
         getline(f, text);
         idBilhete = stoi(text);
@@ -573,7 +573,7 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
         getline(f, text);
         bagagemMao = (text == "true");
 
-        for (const Voo& v: voos){
+        for (const Voo& v: voos) {
             if (v.getNumeroVoo() == idVoo){
                 Bilhete b(idBilhete, p.at( idPassageiro -1), v, bagagemMao);
                 bilhetesVendidos.push_back(b);
@@ -600,7 +600,7 @@ void CompanhiaAerea::loadBagagens() {
 
     f >> num;
     f.ignore(LONG_MAX, '\n');
-    while(!f.eof() && num>0) {
+    while(!f.eof() && num > 0) {
         f.ignore(LONG_MAX, '\n');
         getline(f, text);
         peso = stof(text);
@@ -612,7 +612,7 @@ void CompanhiaAerea::loadBagagens() {
         Bagagem* b = new Bagagem(peso, bagagemMao);
         //bagagens.push_back(b);
         for (Bilhete& bilhete: bilhetesVendidos) {
-            if (bilhete.getIdBilhete() ==idBilhete) {
+            if (bilhete.getIdBilhete() == idBilhete) {
                 list<Bagagem*> aux = bilhete.getBagagem();
                 aux.push_back(b);
                 bilhete.setBagagem(aux);
@@ -639,6 +639,7 @@ void CompanhiaAerea::loadTransportadorBagagem() {
         v.setTransportador(c, n, m);
 }
 
+//O valor maximo de cada volume de bagagem e as taxas a pagar por incumprimento das regras são os mesmos para todos os voos da companhia
 void CompanhiaAerea::loadExcessoPeso() {
     ifstream f;
     float p, tp, tb;
