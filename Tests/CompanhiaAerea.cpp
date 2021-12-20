@@ -542,20 +542,20 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
 
     f >> num;
     f.ignore(LONG_MAX, '\n');
-    while(!f.eof() && num>0) {
+    while (!f.eof() && num>0) {
         f.ignore(LONG_MAX, '\n');
-        getline (f, text);
+        getline(f, text);
         idBilhete = stoi(text);
-        getline (f, text);
+        getline(f, text);
         idPassageiro = stoi(text);
-        getline (f, text);
+        getline(f, text);
         idVoo = stoi(text);
-        getline (f, text);
+        getline(f, text);
         bagagemMao = (text == "true");
 
-        for(const Voo& v: voos){
-            if(v.getNumeroVoo() == idVoo){
-                Bilhete b (idPassageiro, p.at( idPassageiro -1), v, bagagemMao);
+        for (const Voo& v: voos){
+            if (v.getNumeroVoo() == idVoo){
+                Bilhete b(idBilhete, p.at( idPassageiro -1), v, bagagemMao);
                 bilhetesVendidos.push_back(b);
                 break;
             }
@@ -590,13 +590,15 @@ void CompanhiaAerea::loadBagagens() {
         idBilhete = stoi(text);
 
         Bagagem* b = new Bagagem(peso, bagagemMao);
-        bagagens.push_back(b);
+        //bagagens.push_back(b);
+        for (Bilhete& bilhete: bilhetesVendidos) {
+            if (bilhete.getIdBilhete() ==idBilhete) {
+                list<Bagagem*> aux = bilhete.getBagagem();
+                aux.push_back(b);
+                bilhete.setBagagem(aux);
+            }
+        }
         num--;
-    }
-
-    for(Bilhete& bilhete: bilhetesVendidos) {
-        if(bilhete.getIdBilhete() == idBilhete)
-            bilhete.setBagagem(bagagens);
     }
     f.close();
 }

@@ -10,7 +10,7 @@ Menu::Menu() {
     cout << "4. Transportes: Locais e Horarios" << endl;
     cout << "5. Companhia: Pesquisa e Listagens" << endl;
     cout << "0. Sair." << endl;
-    cout << "\nESCOLHA UMA OPCAO:";
+    cout << "\nESCOLHA UMA OPCAO: ";
     readOption(0, 5);
 
     if (option) {
@@ -83,7 +83,7 @@ void Menu::menu1() {
     cout << "9. Visualizar voos entre duas cidades selecionadas" << endl;
     cout << "10. Visualizar voos realizados em determinadas datas" << endl;
     cout << "0. Voltar a pagina anterior" << endl;
-    cout << "\nESCOLHA UMA OPCAO:";
+    cout << "\nESCOLHA UMA OPCAO: ";
     readOption(6,10);
 
     if (option)
@@ -98,7 +98,7 @@ void Menu::menu1() {
 //Realizar Check-in
 void Menu::menu2() {
     unsigned numeroBilhete;
-    cout << "\nIntroduza o numero do seu bilhete de viagem (Clique 0 para voltar a pagina anterior):";
+    cout << "\nIntroduza o numero do seu bilhete de viagem (Clique 0 para voltar a pagina anterior): ";
     cin >> numeroBilhete;
     if (numeroBilhete != 0) {
         if (companhia.realizarCheckIn(numeroBilhete))
@@ -296,6 +296,7 @@ void Menu::menu8() {
 }
 
 //Visualizar voos entre duas cidades selecionadas
+//TODO: testar
 void Menu::menu9() {
     string origem, destino;
     unsigned dia, mes, ano;
