@@ -136,12 +136,12 @@ Bilhete CompanhiaAerea::getBilhetePassageiroVoo(unsigned pId, unsigned numVoo) c
     return Bilhete();
 }
 
-bool CompanhiaAerea::adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem) {
+bool CompanhiaAerea::adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem, const list<Bagagem *>& bagagens) {
     for (Voo& voo: voos) {
         if (voo.getNumeroVoo() == v.getNumeroVoo()) {
             if (!voo.addPassageiro(p))
                 return false;
-            Bilhete b(Bilhete::getIdCount()+1, p, v, bagagem);
+            Bilhete b(Bilhete::getIdCount()+1, p, v, bagagem, bagagens);
             bilhetesVendidos.push_back(b);
             sort(bilhetesVendidos.begin(), bilhetesVendidos.end());
             return true;

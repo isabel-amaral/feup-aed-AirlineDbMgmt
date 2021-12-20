@@ -1,5 +1,7 @@
 #include "Voo.h"
 #include <algorithm>
+#include <iomanip>
+
 using namespace std;
 
 Voo::Voo() {
@@ -162,14 +164,21 @@ bool Voo::operator< (const Voo& v) const {
 }
 
 ostream &operator<< (ostream& os, const Voo& v) {
-    os << "\nVoo numero " << v.getNumeroVoo() << endl;
-    os << "Partida prevista do " << v.getOrigem().getNome() << " em " << v.getOrigem().getCidade();
+    os << "\nVoo Numero: " << v.getNumeroVoo() << endl;
+    os << "Origem: " << v.getOrigem().getNome() << "- " << v.getOrigem().getCidade() << endl;
+    os << "Destino: " << v.getDestino().getNome() << "- " << v.getDestino().getCidade() << endl;
+    os << "Data: " << v.getDataPartida().getData();
+    os << "\tPartida: " << fixed << setprecision(2) << v.getHoraPartida() << "h";
+    os << "\tChegada: " << v.getHoraChegada() << "h";
+    os << "\tDuracao: " << v.getDuracao() << " horas" << endl;
+    return os;
+/*
     cout << " as " << v.getHoraPartida();
     cout << " e com chegada prevista ao " << v.getDestino().getNome() << " em " << v.getDestino().getCidade();
     cout << " as " << v.getHoraChegada();
     os << " no dia " << v.getDataPartida().getData() << endl;
-    os << "A duracao do voo sera aproximadamente " << v.getDuracao() << "horas" << endl;
-    return os;
+    os << "A duracao do voo sera aproximadamente " << v.getDuracao() << "horas" << endl;*/
+
 }
 
 

@@ -540,10 +540,12 @@ void Menu::menu25() {
 }
 
 void Menu::menuCompra() {
-    int numPessoas, id, idade, nrVoo;
+    int numPessoas, id, idade, nrVoo, numBagagens;
     string nome;
     bool menorNaoAcompanhado =false, bagagemMao, compraRealizada;
+    float peso;
     list <Passageiro> passageiros;
+    list <Bagagem*> b;
 
     cout << "\n1. Comprar um bilhete " ;
     cout << "\n0. Voltar"<< endl;
@@ -567,11 +569,11 @@ void Menu::menuCompra() {
             else {
                 while (numPessoas > 0){
                     cin.ignore(10000, '\n');
-                    cout << "\nNome: " ;
+                    cout << "\nNome:" ;
                     getline (cin, nome);
-                    cout << "No. de identificacao: " ;
+                    cout << "No. de identificacao:" ;
                     cin >> id;
-                    cout << "Idade: "
+                    cout << "Idade:"
                             ;
                     cin >> idade;
                     if (idade < 18){
@@ -595,10 +597,29 @@ void Menu::menuCompra() {
             readOption(1,2);
             bagagemMao = (option == 1);
 
+            cout << "Quantas bagagens de porao deseja levar?" << endl;
+            cin >> numBagagens;
+
+            if (bagagemMao){
+                cout << "Peso da bagagem de mao: ";
+                cin >> peso;
+                Bagagem* bMao = new Bagagem (peso, bagagemMao);
+                b.push_back(bMao);
+            }
+
+            while (numBagagens > 0){
+                cout << "Peso da bagagem de porao: ";
+                cin >> peso;
+                Bagagem* bPorao = new Bagagem (peso, false);
+                b.push_back(bPorao);
+                numBagagens--;
+            }
+
             if (passageiros.size() > 1 )
                 compraRealizada = companhia.adquirirConjuntoBilhetes(passageiros, v, bagagemMao);
-            else
-                compraRealizada = companhia.adquirirBilhete(*(passageiros.begin()), v, bagagemMao);
+            else{
+                compraRealizada = companhia.adquirirBilhete(*(passageiros.begin()), v, bagagemMao, b);
+            }
 
             if (compraRealizada)
                 cout << "COMPRA REALIZADA COM SUCESSO!" << endl;

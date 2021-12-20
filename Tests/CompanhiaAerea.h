@@ -124,10 +124,11 @@ public:
      * @param p é o passageiro que pretende comprar o bilhete.
      * @param v é voo que o passageiro pretende adquirir o bilhete.
      * @param bagagem é a bagagem do passageiro.
+     * @param bagagens é a lista com os volumes de bagagem do passageiro para o voo em questão.
      * @return true se a compra do bilheite foi realizada com sucesso.
      * Caso contrário retorna false (o voo está lotado).
      */
-    bool adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem);
+    bool adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem, const list <Bagagem *>& bagagens);
     /**
      * Acrescenta bilhetes no vetor de bilhetes vendidos caso seja possivel
      * (os bilhetes disponíveis são suficientes para o todos membros do grupo).
