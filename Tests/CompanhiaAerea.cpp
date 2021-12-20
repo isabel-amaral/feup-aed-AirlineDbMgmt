@@ -175,7 +175,9 @@ bool CompanhiaAerea::cancelarViagem(unsigned bId) {
             return false;
     vector<Bilhete>::iterator it = find(bilhetesVendidos.begin(), bilhetesVendidos.end(), b);
     bilhetesVendidos.erase(it);
-    b.getVoo().removerPassageiro(b.getPasssageiro());
+    for (Voo& voo: voos)
+        if (voo.getNumeroVoo() == b.getVoo().getNumeroVoo())
+            voo.removerPassageiro(b.getPasssageiro());
     return true;
 }
 
