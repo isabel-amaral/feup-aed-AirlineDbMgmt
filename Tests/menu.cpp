@@ -97,13 +97,14 @@ void Menu::menu1() {
 
 //Realizar Check-in
 void Menu::menu2() {
-    //TODO: se o id do bilhete não existir
     unsigned numeroBilhete;
     cout << "\nIntroduza o numero do seu bilhete de viagem (Clique 0 para voltar a pagina anterior):";
     cin >> numeroBilhete;
     if (numeroBilhete != 0) {
-        companhia.realizarCheckIn(numeroBilhete);
-        cout << "\nCHECK-IN FEITO COM SUCESSO!" << endl;
+        if (companhia.realizarCheckIn(numeroBilhete))
+            cout << "\nCHECK-IN FEITO COM SUCESSO!" << endl;
+        else
+            cout << "\nNAO FOI POSSIVEL REALIZAR O CHECK-IN!" << endl;
     }
     else {
         option = lastMenu.top();

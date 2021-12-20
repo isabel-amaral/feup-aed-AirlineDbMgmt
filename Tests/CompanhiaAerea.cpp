@@ -169,8 +169,11 @@ bool CompanhiaAerea::cancelarViagem(unsigned bId) {
     return true;
 }
 
-void CompanhiaAerea::realizarCheckIn(unsigned bId) const {
+bool CompanhiaAerea::realizarCheckIn(unsigned bId) const {
     Bilhete bilhete = getBilheteID(bId);
+    if (bilhete.getIdBilhete() == 0) //Bilhete não existe
+        return false;
+
     list<Bagagem*>::iterator it;
     for (it = bilhete.getBagagem().begin(); it != bilhete.getBagagem().end(); it++) {
         if (!(*it)->isBagagemDeMao()) {
@@ -183,6 +186,7 @@ void CompanhiaAerea::realizarCheckIn(unsigned bId) const {
             bilhete.getPasssageiro().incrementarMulta(excessoPeso.multaTaxaBagagemDeMao(*it));
     }
     bilhete.getVoo().realizarCheckIn(bilhete.getPasssageiro());
+    return true;
 }
 
 vector<Voo> CompanhiaAerea::getVoosChegada(const string& cidadeChegada, const Data& d) const {
@@ -249,7 +253,7 @@ void CompanhiaAerea::showVoosChegada(const string &cidadeChegada, const Data &d1
     vector <Voo> voosChegada= getVoosChegada(cidadeChegada, d1);
 
     if (voosChegada.empty()) {
-        cout << "Não existe voo com chegada a "<< cidadeChegada;
+        cout << "Nao existe voo com chegada a "<< cidadeChegada;
         if (!(d1 == Data()))
             cout << " para a data " << d1.getData() ;
         cout << endl;

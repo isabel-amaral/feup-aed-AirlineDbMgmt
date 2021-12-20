@@ -146,10 +146,12 @@ public:
      */
     bool cancelarViagem(unsigned bId);
     /**
-     * Realiza o check-in de um determinado passageiro com bilhete referente a um certo voo
-     * @param bId é o id do bilhete do passageiro para o voo para o qual pretende realizar check-in
+     * Realiza o check-in de um determinado passageiro com bilhete referente a um certo voo.
+     * Apenas é possível realizar o check-in se o bilhete para o voo em questão existir (alguma vez tiver sido comprado).
+     * @param bId bId é o id do bilhete do passageiro para o voo para o qual pretende realizar check-in
+     * @return true se for possível realizar o check-in, falso coso contrário
      */
-    void realizarCheckIn(unsigned bId) const;
+    bool realizarCheckIn(unsigned bId) const;
     /**
      *
      * @param cidadeChegada é a cidade de destino
