@@ -486,8 +486,6 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
     float hPartida, hChegada, duracao;
     string origem, destino, matricula;
 
-    auto i = avioes.begin();
-
     f.open("voos.txt");
     if (!f.is_open())
         cout << "Ficheiro nao existe." << endl;
@@ -513,8 +511,8 @@ void CompanhiaAerea::loadVoosAndBilhetes() {
         lotacao = stoi(text);
         getline(f, text);
         reservas = stoi(text);
-        indexDestino = this->binarySearchAeroporto(origem);
-        indexOrigem = this->binarySearchAeroporto(destino);
+        indexOrigem = this->binarySearchAeroporto(origem);
+        indexDestino = this->binarySearchAeroporto(destino);
         Voo v(idVoo, aeroportos.at(indexOrigem), aeroportos.at(indexDestino), Data (dia,mes,ano), hPartida, hChegada, duracao, lotacao, reservas);
 
         getline(f, text);

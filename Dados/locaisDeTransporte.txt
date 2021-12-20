@@ -198,7 +198,7 @@ Aeroporto Internacional John F. Kennedy
 ***
 150
 2
-Aeroporto Francisco Sá Carneiro
+Aeroporto Francisco Sa Carneiro
 1
 12
 12.46 13.47 14.13 14.56 15.00 17.49 19.47 20.48 21.30 22.00 23.14 23.55

@@ -224,32 +224,29 @@ void Menu::menu7() {
     getline(cin, cidade);
 
     cout << "\nPossui uma data em especifico? [Escolha 'S'-Sim ou 'N'- Nao ou 0-Voltar]" << endl;
-    do{
+    do {
         getline (cin, resposta);
         if (resposta != "S" && resposta != "N" && resposta != "0"){
             cout << "ESCOLHA INVALIDA! TENTE NOVAMENTE." <<endl;
         }
     } while (resposta != "S" && resposta != "N" && resposta != "0") ;
 
-    if (resposta == "0"){
+    if (resposta == "0") {
         option = lastMenu.top();
         lastMenu.pop();
         processOption();
     }
-
-    if (resposta == "N"){
+    if (resposta == "N")
         companhia.showVoosPartida(cidade);
-    }
-    else if (resposta == "S"){
+    else if (resposta == "S") {
         cout << "\nESCOLHA O DIA, O MES E O ANO" << endl;
         cout << "Dia: ";
         cin >> dia;
-        cout << "\nMes: ";
+        cout << "Mes: ";
         cin >> mes;
-        cout << "\nAno: ";
+        cout << "Ano: ";
         cin >> ano;
-        Data d1 (dia, mes, ano);
-
+        Data d1(dia, mes, ano);
         companhia.showVoosPartida(cidade, d1);
     }
     option = lastMenu.top();
