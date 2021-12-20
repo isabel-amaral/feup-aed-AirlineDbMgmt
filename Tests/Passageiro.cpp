@@ -43,16 +43,15 @@ void Passageiro::incrementarMulta(float multa) {
     multaBagagem += multa;
 }
 
-bool Passageiro::operator==(const Passageiro &p) const {
+bool Passageiro::operator== (const Passageiro& p) const {
     return this->id == p.getId();
 }
 
-ostream &operator << (ostream &os, const Passageiro &p) {
-    os << "NOME: " << p.getNome() << endl;
-    os << "IDENTIFICAÇÃO: " << p.getId() << endl;
-    os << "IDADE: " << p.getIdade() << endl;
-    if (p.menorNaoAcompanhado){
-        os << "OBS.: Menor de idade e não acompanhado." << endl;
-    }
+ostream& operator<< (ostream& os, const Passageiro& p) {
+    os << "Nome: " << p.getNome() << endl;
+    os << "Identificacao: " << p.getId() << endl;
+    os << "Idade: " << p.getIdade() << endl;
+    if (p.menorNaoAcompanhado)
+        os << "OBS.: Menor de idade e nao acompanhado." << endl;
     return os;
 }

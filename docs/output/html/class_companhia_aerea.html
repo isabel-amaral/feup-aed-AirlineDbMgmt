@@ -92,8 +92,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1bd463b236aee4a2b0026206a48ab7bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa2071a8ebdda2feb34a52b009af7917"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#aaa2071a8ebdda2feb34a52b009af7917">addAeroporto</a> (const <a class="el" href="class_aeroporto.html">Aeroporto</a> &amp;aeroporto)</td></tr>
 <tr class="separator:aaa2071a8ebdda2feb34a52b009af7917"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9bdf32634ce481e6345ac92da5f9b4a"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#ac9bdf32634ce481e6345ac92da5f9b4a">binarySearchAeroporto</a> (const <a class="el" href="class_aeroporto.html">Aeroporto</a> &amp;aeroporto)</td></tr>
-<tr class="separator:ac9bdf32634ce481e6345ac92da5f9b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a643ac435311a648ce5525277856f8c5c"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a643ac435311a648ce5525277856f8c5c">binarySearchAeroporto</a> (const string &amp;nome)</td></tr>
+<tr class="separator:a643ac435311a648ce5525277856f8c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fd01a39129ef18765aa71c19c1c0ce7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bilhete.html">Bilhete</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a7fd01a39129ef18765aa71c19c1c0ce7">getBilheteID</a> (unsigned bId) const</td></tr>
 <tr class="separator:a7fd01a39129ef18765aa71c19c1c0ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af857907efa70ca594f07715ed5f32e1c"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_bilhete.html">Bilhete</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#af857907efa70ca594f07715ed5f32e1c">getBilhetesFromPassageiro</a> (unsigned pId) const</td></tr>
@@ -149,6 +149,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>loadLocaisTransporte<
 <tr class="memitem:a4101cb7f72469b133cbb3510adfed6cd"><td class="memItemLeft" align="right" valign="top"><a id="a4101cb7f72469b133cbb3510adfed6cd" name="a4101cb7f72469b133cbb3510adfed6cd"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>loadServicos</b> ()</td></tr>
 <tr class="separator:a4101cb7f72469b133cbb3510adfed6cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a380fa85e6e7b2bc91a6e54e0448ebf73"><td class="memItemLeft" align="right" valign="top"><a id="a380fa85e6e7b2bc91a6e54e0448ebf73" name="a380fa85e6e7b2bc91a6e54e0448ebf73"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>loadBagagens</b> ()</td></tr>
+<tr class="separator:a380fa85e6e7b2bc91a6e54e0448ebf73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -322,8 +325,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ac9bdf32634ce481e6345ac92da5f9b4a" name="ac9bdf32634ce481e6345ac92da5f9b4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9bdf32634ce481e6345ac92da5f9b4a">&#9670;&nbsp;</a></span>binarySearchAeroporto()</h2>
+<a id="a643ac435311a648ce5525277856f8c5c" name="a643ac435311a648ce5525277856f8c5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a643ac435311a648ce5525277856f8c5c">&#9670;&nbsp;</a></span>binarySearchAeroporto()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -331,15 +334,15 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">unsigned CompanhiaAerea::binarySearchAeroporto </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_aeroporto.html">Aeroporto</a> &amp;&#160;</td>
-          <td class="paramname"><em>aeroporto</em></td><td>)</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>nome</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p >Procura um determinado aeroporto no vector aeroportos usando pesquisa binária. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">aeroporto</td><td>é o elemento a ser pesquisado. </td></tr>
+    <tr><td class="paramname">nome</td><td>é o nome do aeroporto a ser pesquisado. </td></tr>
   </table>
   </dd>
 </dl>

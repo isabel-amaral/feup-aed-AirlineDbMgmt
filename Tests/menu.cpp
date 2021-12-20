@@ -163,10 +163,10 @@ void Menu::menu4() {
         processOption();
     }
     if (option >= 11 && option <= 14) {
-        cout << "1. Distancia Ascendente - Disponibilidade Ascendente - Tipo " << endl;
+        cout << "1. Distancia Ascendente - Disponibilidade Ascendente - Tipo" << endl;
         cout << "2. Disponibilidade Ascendente - Distancia Ascendente - Tipo" << endl;
-        cout << "3. Tipo - Distancia Ascendente - Disponibilidade Ascendente " << endl;
-        cout << endl << "Escolha em que ordem deseja que os dados sejam apresentados:";
+        cout << "3. Tipo - Distancia Ascendente - Disponibilidade Ascendente" << endl;
+        cout << "Escolha em que ordem deseja que os dados sejam apresentados: ";
         cin >> opOrdenacao;
     }
 
@@ -257,14 +257,14 @@ void Menu::menu9() {
     cout << "Origem: ";
     getline(cin,origem);
     cout << "Destino: ";
-    getline (cin, destino);
+    getline(cin, destino);
 
     cout << "Data de ida: ";
     cin >> dPartida >> mPartida >> aPartida ;
     Data partida(dPartida, mPartida, aPartida);
-    cout <<  "Data de regresso: ";
+    cout << "Data de regresso: ";
     cin >> dRegresso >> mRegresso >> aRegresso;
-    Data regresso (dRegresso, mRegresso, aRegresso);
+    Data regresso(dRegresso, mRegresso, aRegresso);
 
     companhia.showVoosCidades(origem, destino, partida, regresso);
     option = lastMenu.top();
@@ -338,7 +338,7 @@ void Menu::menu20() {
     string m, t;
     unsigned c;
 
-    cout << "Matrícula do aviao: ";
+    cout << "Matricula do aviao: ";
     cin >> m;
     cout << "Tipo do avião: ";
     cin >> t;

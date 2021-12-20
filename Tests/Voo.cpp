@@ -148,7 +148,7 @@ void Voo::removerPassageiro(const Passageiro &p) {
     passageiros.erase(it);
 }
 
-bool Voo::operator<(const Voo &v) const {
+bool Voo::operator< (const Voo& v) const {
     if (this->dataPartida < v.dataPartida)
         return true;
     else if (this->dataPartida == v.dataPartida){
@@ -158,14 +158,16 @@ bool Voo::operator<(const Voo &v) const {
             return this->horaPartida < v.horaPartida;
     }
     return false;
-
 }
 
-ostream &operator<<(ostream &os, const Voo &v) {
-    os << "Voo número " << v.getNumeroVoo() << endl;
-    os << "Partida prevista às " << v.getHoraPartida() << " com chegada prevista às " << v.getHoraChegada() << endl;
+ostream &operator<< (ostream& os, const Voo& v) {
+    os << "Voo numero " << v.getNumeroVoo() << endl;
+    os << "Partida prevista do aeroporto de " << v.getOrigem().getNome() << " em " << v.getOrigem().getCidade();
+    cout << " as " << v.getHoraPartida();
+    cout << " e com chegada prevista ao aeroporto de " << v.getDestino().getNome() << " em " << v.getDestino().getCidade();
+    cout << " as " << v.getHoraChegada();
     os << " no dia " << v.getDataPartida().getData() << endl;
-    os << "A duração do voo será aproximadamente " << v.getDuracao() << endl;
+    os << "A duração do voo sera aproximadamente " << v.getDuracao() << "horas" << endl;
     return os;
 }
 

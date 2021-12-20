@@ -66,7 +66,7 @@ bool LocalDeTransporte::operator< (const LocalDeTransporte& local) const {
 }
 
 ostream& operator<< (ostream &os, const LocalDeTransporte &local) {
-    os << "TIPO: ";
+    os << "Tipo de transporte: ";
     if (local.getTipo() == Metro)
         os << "Metro" << endl;
     else if (local.getTipo() == Comboio)
@@ -74,28 +74,19 @@ ostream& operator<< (ostream &os, const LocalDeTransporte &local) {
     else
         os << "Autocarro" << endl;
 
-    os << "DISTÂNCIA AO AEROPORTO: " << local.getDistancia() << " metros" << endl;
-    os << "HORÁRIOS: " << endl;
+    os << "Distancia ao aeroporto: " << local.getDistancia() << " metros" << endl;
+    os << "Horarios: " << endl;
 
-    for (const auto& h: local.getHorarios()){
-        if(h.getDia()==DiasUteis)
+    for (const auto& h: local.getHorarios()) {
+        if (h.getDia() == DiasUteis)
             os << "Dias Uteis: ";
         else if (h.getDia() == DomingosFeriados)
             os << "Domingos e Feriados: ";
         else
-            os << "Sábados: " ;
-
-        for (auto hora: h.getHoras()){
+            os << "Sabados: " ;
+        for (auto hora: h.getHoras())
             os << fixed << setprecision(2) << hora << "  ";
-        }
         os << endl;
     }
     return os;
 }
-
-
-
-
-
-
-

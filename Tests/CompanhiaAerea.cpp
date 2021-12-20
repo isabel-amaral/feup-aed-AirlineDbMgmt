@@ -97,7 +97,7 @@ vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(unsigned pId) const {
 void CompanhiaAerea::showBilhetesFromPassageiro(unsigned pId) const {
     vector<Bilhete> bilhetes = getBilhetesFromPassageiro(pId);
     if (bilhetes.empty()){
-        cout << "Este passageiro ainda não adquiriu nenhum bilhete." <<endl;
+        cout << "Este passageiro ainda nao adquiriu nenhum bilhete." <<endl;
         return;
     }
     for (Bilhete b: bilhetes) {
@@ -117,11 +117,11 @@ vector<Passageiro> CompanhiaAerea::getPassageirosFromVoo(unsigned numVoo) const 
 
 void CompanhiaAerea::showPassageirosFromVoo(unsigned numVoo) const {
     vector<Passageiro> passageiros = getPassageirosFromVoo(numVoo);
-    if (passageiros.empty()){
+    if (passageiros.empty()) {
         cout << "Voo sem passageiros." << endl;
         return;
     }
-    for (const auto& passageiro: passageiros){
+    for (const auto& passageiro: passageiros) {
         cout << passageiro << endl;
     }
     cout << endl;
@@ -222,18 +222,17 @@ vector<Voo> CompanhiaAerea::getVoosDatas(const Data& d1, const Data& d2) const {
 }
 
 void CompanhiaAerea::showVoos() const {
-    if (voos.empty()){
+    if (voos.empty()) {
         cout << "Nao ha voos disponiveis." << endl;
         return;
     }
-    for (const auto& voo : voos){
+    for (const auto& voo : voos)
         cout << voo;
-    }
     cout << endl;
 }
 
 void CompanhiaAerea::showVoosPartida(const string &cidadePartida, const Data &d1) const {
-    vector <Voo> voosPartida= getVoosPartida(cidadePartida,d1);
+    vector <Voo> voosPartida = getVoosPartida(cidadePartida,d1);
 
     if (voosPartida.empty()){
         cout << "Nao existe voo com partida em "<< cidadePartida;
@@ -241,9 +240,8 @@ void CompanhiaAerea::showVoosPartida(const string &cidadePartida, const Data &d1
             cout<< " para a data " << d1.getData();
         return;
     }
-    for (const auto& voo : voosPartida){
+    for (const auto& voo: voosPartida)
         cout << voo;
-    }
     cout << endl;
 }
 
@@ -257,9 +255,8 @@ void CompanhiaAerea::showVoosChegada(const string &cidadeChegada, const Data &d1
         cout << endl;
         return;
     }
-    for (const auto& voo : voosChegada){
+    for (const auto& voo: voosChegada)
         cout << voo;
-    }
     cout << endl;
 }
 
@@ -270,22 +267,20 @@ void CompanhiaAerea::showVoosCidades(const string &cidadePartida, const string &
         cout<< "Nao ha voo com partida em " << cidadePartida << " e chegada a " << cidadeChegada << " no periodo indicado." << endl;
         return;
     }
-    for (const auto& voo : voosCidade){
+    for (const auto& voo: voosCidade)
         cout << voo;
-    }
     cout << endl;
 }
 
-void CompanhiaAerea::showVoosDatas(const Data &d1, const Data &d2) const {
-    vector <Voo> voosDatas = getVoosDatas(d1, d2);
+void CompanhiaAerea::showVoosDatas(const Data& d1, const Data& d2) const {
+    vector<Voo> voosDatas = getVoosDatas(d1, d2);
 
     if (voosDatas.empty()){
         cout << "Nao ha voo disponivel para o periodo indicado." <<endl;
         return;
     }
-    for (const auto& voo: voosDatas){
+    for (const auto& voo: voosDatas)
         cout<<voo;
-    }
     cout << endl;
 }
 
