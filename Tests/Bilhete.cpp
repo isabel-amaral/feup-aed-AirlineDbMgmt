@@ -39,7 +39,7 @@ bool Bilhete::temBagagemDeMao() const {
     return this->bagagemDeMao;
 }
 
-list<Bagagem*> Bilhete::getBagagem() const {
+list<Bagagem*>& Bilhete::getBagagem() {
     return bagagem;
 }
 
