@@ -66,11 +66,11 @@ unsigned Voo::getNumLugaresReservados() const {
     return numLugaresReservados;
 }
 
-list<Passageiro> Voo::getPassageiros() const {
+list<Passageiro>& Voo::getPassageiros()  {
     return passageiros;
 }
 
-list<Passageiro> Voo::getPassageirosCheckedIn() const {
+list<Passageiro>& Voo::getPassageirosCheckedIn()  {
     return passageirosCheckedIn;
 }
 
@@ -161,7 +161,7 @@ bool Voo::operator< (const Voo& v) const {
 }
 
 ostream &operator<< (ostream& os, const Voo& v) {
-    os << "Voo numero " << v.getNumeroVoo() << endl;
+    os << "\nVoo numero " << v.getNumeroVoo() << endl;
     os << "Partida prevista do " << v.getOrigem().getNome() << " em " << v.getOrigem().getCidade();
     cout << " as " << v.getHoraPartida();
     cout << " e com chegada prevista ao " << v.getDestino().getNome() << " em " << v.getDestino().getCidade();

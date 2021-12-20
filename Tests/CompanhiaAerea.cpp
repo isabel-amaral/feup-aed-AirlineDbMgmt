@@ -162,7 +162,8 @@ bool CompanhiaAerea::adquirirConjuntoBilhetes(list<Passageiro> &p, Voo &v, bool 
 bool CompanhiaAerea::cancelarViagem(unsigned bId) {
     Bilhete b = getBilheteID(bId);
     if (find(b.getVoo().getPassageirosCheckedIn().begin(), b.getVoo().getPassageirosCheckedIn().end(), b.getPasssageiro()) == b.getVoo().getPassageirosCheckedIn().end())
-        return false;
+        if (find(b.getVoo().getPassageirosCheckedIn().begin(), b.getVoo().getPassageirosCheckedIn().end(), b.getPasssageiro()) != b.getVoo().getPassageirosCheckedIn().end())
+            return false;
     vector<Bilhete>::iterator it = find(bilhetesVendidos.begin(), bilhetesVendidos.end(), b);
     bilhetesVendidos.erase(it);
     b.getVoo().removerPassageiro(b.getPasssageiro());
@@ -225,31 +226,33 @@ vector<Voo> CompanhiaAerea::getVoosDatas(const Data& d1, const Data& d2) const {
     return result;
 }
 
-void CompanhiaAerea::showVoos() const {
+bool CompanhiaAerea::showVoos() const {
     if (voos.empty()) {
         cout << "Nao ha voos disponiveis." << endl;
-        return;
+        return false;
     }
     for (const auto& voo : voos)
-        cout << voo;
+        cout << "---------------" << voo;
     cout << endl;
+    return true;
 }
 
-void CompanhiaAerea::showVoosPartida(const string &cidadePartida, const Data &d1) const {
+bool CompanhiaAerea::showVoosPartida(const string &cidadePartida, const Data &d1) const {
     vector <Voo> voosPartida = getVoosPartida(cidadePartida,d1);
 
     if (voosPartida.empty()){
         cout << "Nao existe voo com partida em "<< cidadePartida;
         if (!(d1 == Data()))
             cout<< " para a data " << d1.getData();
-        return;
+        return true;
     }
     for (const auto& voo: voosPartida)
-        cout << voo;
+        cout <<  "---------------" << voo;
     cout << endl;
+    return false;
 }
 
-void CompanhiaAerea::showVoosChegada(const string &cidadeChegada, const Data &d1) const {
+bool CompanhiaAerea::showVoosChegada(const string &cidadeChegada, const Data &d1) const {
     vector <Voo> voosChegada= getVoosChegada(cidadeChegada, d1);
 
     if (voosChegada.empty()) {
@@ -257,35 +260,38 @@ void CompanhiaAerea::showVoosChegada(const string &cidadeChegada, const Data &d1
         if (!(d1 == Data()))
             cout << " para a data " << d1.getData() ;
         cout << endl;
-        return;
+        return false;
     }
     for (const auto& voo: voosChegada)
         cout << voo;
-    cout << endl;
+    cout << "---------------" << endl;
+    return true;
 }
 
-void CompanhiaAerea::showVoosCidades(const string &cidadePartida, const string &cidadeChegada, const Data &d1, const Data &d2) const {
+bool CompanhiaAerea::showVoosCidades(const string &cidadePartida, const string &cidadeChegada, const Data &d1, const Data &d2) const {
     vector <Voo> voosCidade = getVoosCidades(cidadePartida, cidadeChegada, d1, d2);
 
     if (voosCidade.empty()){
         cout<< "Nao ha voo com partida em " << cidadePartida << " e chegada a " << cidadeChegada << " no periodo indicado." << endl;
-        return;
+        return false;
     }
     for (const auto& voo: voosCidade)
         cout << voo;
-    cout << endl;
+    cout << "---------------" << endl;
+    return true;
 }
 
-void CompanhiaAerea::showVoosDatas(const Data& d1, const Data& d2) const {
+bool CompanhiaAerea::showVoosDatas(const Data& d1, const Data& d2) const {
     vector<Voo> voosDatas = getVoosDatas(d1, d2);
 
     if (voosDatas.empty()){
         cout << "Nao ha voo disponivel para o periodo indicado." <<endl;
-        return;
+        return false;
     }
     for (const auto& voo: voosDatas)
         cout<<voo;
-    cout << endl;
+    cout << "---------------" << endl;
+    return true;
 }
 
 void CompanhiaAerea::loadData() {

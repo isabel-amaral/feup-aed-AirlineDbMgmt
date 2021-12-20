@@ -31,7 +31,7 @@ Passageiro Bilhete::getPasssageiro() const {
     return passageiro;
 }
 
-Voo Bilhete::getVoo() {
+Voo& Bilhete::getVoo() {
     return this->voo;
 }
 

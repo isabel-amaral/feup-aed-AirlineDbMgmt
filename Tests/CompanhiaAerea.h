@@ -185,19 +185,19 @@ public:
     /**
      * Mostra todos os voos que vão aterrar numa determinada cidade numa determinada data
      */
-    void showVoos() const;
+    bool showVoos() const;  // TODO: documentacao do @return destes metodos
     /**
      * Mostra os voos que vão partir de uma determinada cidade numa determinada data
      * @param cidadePartida é a cidade de origem
      * @param d1 é a data
      */
-    void showVoosPartida(const string& cidadePartida, const Data& d1=Data()) const;
+    bool showVoosPartida(const string& cidadePartida, const Data& d1=Data()) const;
     /**
      * Mostra os voos que vão aterrar numa determinada cidade numa determinada data
      * @param cidadeChegada é a cidade de destino
      * @param d1  é a data
      */
-    void showVoosChegada(const string& cidadeChegada, const Data& d1=Data()) const;
+    bool showVoosChegada(const string& cidadeChegada, const Data& d1=Data()) const;
     /**
      * Mostra os voos que vão ser realizados entre duas determinadas datas
      * @param cidadePartida é a cidade de origem
@@ -205,13 +205,13 @@ public:
      * @param d1 é uma data
      * @param d2 é uma data
      */
-    void showVoosCidades(const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
+    bool showVoosCidades(const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
     /**
      * Mostra todos os voos que vão ser realizados entre duas determinadas datas
      * @param d1 é uma data
      * @param d2 é uma data
      */
-    void showVoosDatas(const Data& d1, const Data& d2=Data()) const;
+    bool showVoosDatas(const Data& d1, const Data& d2=Data()) const;
     /**
      *
      * @param ficheiroAvioes é o nome de um ficheiro com os aviões
