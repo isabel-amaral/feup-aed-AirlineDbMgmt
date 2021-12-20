@@ -339,7 +339,7 @@ void CompanhiaAerea::loadServicos() {
         f.ignore(LONG_MAX, '\n');
         getline(f, matricula);
         getline(f, text);
-        if (text == "0")
+        if (text == "0\t")
             tipo = Manutencao;
         else
             tipo = Limpeza;
@@ -357,7 +357,8 @@ void CompanhiaAerea::loadServicos() {
 
         for (Aviao& a: avioes) {
             if (a.getMatricula() == matricula) {
-                a.addServicoPorRealizar(Servico(tipo, d1, f1));
+                Servico s(tipo, d1, f1);
+                a.addServicoPorRealizar(s);
                 break;
             }
         }
