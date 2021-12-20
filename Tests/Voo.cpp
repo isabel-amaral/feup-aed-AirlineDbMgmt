@@ -162,12 +162,12 @@ bool Voo::operator< (const Voo& v) const {
 
 ostream &operator<< (ostream& os, const Voo& v) {
     os << "Voo numero " << v.getNumeroVoo() << endl;
-    os << "Partida prevista do aeroporto de " << v.getOrigem().getNome() << " em " << v.getOrigem().getCidade();
+    os << "Partida prevista do " << v.getOrigem().getNome() << " em " << v.getOrigem().getCidade();
     cout << " as " << v.getHoraPartida();
-    cout << " e com chegada prevista ao aeroporto de " << v.getDestino().getNome() << " em " << v.getDestino().getCidade();
+    cout << " e com chegada prevista ao " << v.getDestino().getNome() << " em " << v.getDestino().getCidade();
     cout << " as " << v.getHoraChegada();
     os << " no dia " << v.getDataPartida().getData() << endl;
-    os << "A duração do voo sera aproximadamente " << v.getDuracao() << "horas" << endl;
+    os << "A duracao do voo sera aproximadamente " << v.getDuracao() << "horas" << endl;
     return os;
 }
 
