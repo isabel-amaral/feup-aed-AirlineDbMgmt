@@ -151,14 +151,15 @@ bool CompanhiaAerea::adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem, 
 }
 
 //todos os passageiros do grupo têm a mesma opção relativa a bagagem de mão
-bool CompanhiaAerea::adquirirConjuntoBilhetes(list<Passageiro> &p, Voo &v, bool bagagem) {
+bool CompanhiaAerea::adquirirConjuntoBilhetes(list<Passageiro> &p, Voo &v, bool bagagem, list <list<Bagagem*> > bagagens) {
     for (Voo& voo: voos) {
         if (voo.getNumeroVoo() == v.getNumeroVoo()) {
             if (!voo.addConjuntoPassageiros(p))
                 return false;
             list<Passageiro>::iterator it;
-            for (it = p.begin(); it != p.end(); it++) {
-                Bilhete b(Bilhete::getIdCount()+1, *it, v, bagagem);
+            list<list<Bagagem *> >:: iterator j;
+            for (it = p.begin(), j =bagagens.begin() ; it != p.end() && j != bagagens.end(); it++, j++) {
+                Bilhete b(Bilhete::getIdCount()+1, *it, v, bagagem, *j);
                 bilhetesVendidos.push_back(b);
             }
             sort(bilhetesVendidos.begin(), bilhetesVendidos.end());
@@ -176,12 +177,14 @@ bool CompanhiaAerea::cancelarViagem(unsigned bId) {
     vector<Bilhete>::iterator it = find(bilhetesVendidos.begin(), bilhetesVendidos.end(), b);
     bilhetesVendidos.erase(it);
     for (Voo& voo: voos)
-        if (voo.getNumeroVoo() == b.getVoo().getNumeroVoo())
+        if (voo.getNumeroVoo() == b.getVoo().getNumeroVoo()){
             voo.removerPassageiro(b.getPasssageiro());
-    return true;
+            return true;
+        }
+
 }
 
-bool CompanhiaAerea::realizarCheckIn(unsigned bId) const {
+bool CompanhiaAerea::realizarCheckIn(unsigned bId) {
     Bilhete bilhete = getBilheteID(bId);
     if (bilhete.getIdBilhete() == 0) //Bilhete não existe
         return false;
@@ -194,11 +197,15 @@ bool CompanhiaAerea::realizarCheckIn(unsigned bId) const {
             if (excessoPeso.excedePeso(*it))
                 bilhete.getPasssageiro().incrementarMulta(excessoPeso.multaExcessoPeso(*it));
         }
-        else
+        else if (!bilhete.temBagagemDeMao())
             bilhete.getPasssageiro().incrementarMulta(excessoPeso.multaTaxaBagagemDeMao(*it));
     }
-    bilhete.getVoo().realizarCheckIn(bilhete.getPasssageiro());
-    return true;
+
+    for (Voo& voo: voos)
+        if (voo.getNumeroVoo() == bilhete.getVoo().getNumeroVoo()) {
+            voo.realizarCheckIn(bilhete.getPasssageiro());
+            return true;
+        }
 }
 
 vector<Voo> CompanhiaAerea::getVoosChegada(const string& cidadeChegada, const Data& d) const {

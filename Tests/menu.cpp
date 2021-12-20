@@ -547,7 +547,8 @@ void Menu::menuCompra() {
     bool menorNaoAcompanhado =false, bagagemMao, compraRealizada;
     float peso;
     list <Passageiro> passageiros;
-    list <Bagagem*> b;
+    list <list <Bagagem*> > malas;
+    list <Bagagem *> b;
 
     cout << "\n1. Comprar um bilhete " ;
     cout << "\n0. Voltar"<< endl;
@@ -568,59 +569,61 @@ void Menu::menuCompra() {
 
             if (numPessoas == 0) return;
 
-            else {
-                while (numPessoas > 0){
-                    cin.ignore(10000, '\n');
-                    cout << "\nNome:" ;
-                    getline (cin, nome);
-                    cout << "No. de identificacao:" ;
-                    cin >> id;
-                    cout << "Idade:"
-                            ;
-                    cin >> idade;
-                    if (idade < 18){
-                        cout << "Menor acompanhado por um adulto: " << endl ;
-                        cout << "1. Sim" << endl;
-                        cout << "2. Nao" << endl;
-                        readOption(1,2);
-                        menorNaoAcompanhado = (option == 2);
-                    }
-                    Passageiro p (nome, id, idade,menorNaoAcompanhado);
-                    passageiros.push_back(p);
-
-                    menorNaoAcompanhado = false;
-                    numPessoas--;
-                }
-            }
-
             cout << "Deseja levar bagagem de mao? "<< endl;
             cout << "1. Sim" << endl;
             cout << "2. Nao" << endl;
             readOption(1,2);
             bagagemMao = (option == 1);
 
-            cout << "Quantas bagagens de porao deseja levar?" << endl;
-            cin >> numBagagens;
+            while (numPessoas > 0){
+                b.clear();
+                cin.ignore(10000, '\n');
 
-            if (bagagemMao){
-                cout << "Peso da bagagem de mao: ";
-                cin >> peso;
-                Bagagem* bMao = new Bagagem (peso, bagagemMao);
-                b.push_back(bMao);
-            }
+                cout << "\nNome:" ;
+                getline (cin, nome);
+                cout << "No. de identificacao:" ;
+                cin >> id;
+                cout << "Idade:";
+                cin >> idade;
 
-            while (numBagagens > 0){
-                cout << "Peso da bagagem de porao: ";
-                cin >> peso;
-                Bagagem* bPorao = new Bagagem (peso, false);
-                b.push_back(bPorao);
-                numBagagens--;
+                if (idade < 18) {
+                    cout << "Menor acompanhado por um adulto: " << endl;
+                    cout << "1. Sim" << endl;
+                    cout << "2. Nao" << endl;
+                    readOption(1, 2);
+                    menorNaoAcompanhado = (option == 2);
+                }
+                cout << "Quantas bagagens de porao deseja levar?" << endl;
+                cin >> numBagagens;
+
+                if (bagagemMao){
+                    cout << "Peso da bagagem de mao: ";
+                    cin >> peso;
+                    Bagagem* bMao = new Bagagem (peso, bagagemMao);
+                    b.push_back(bMao);
+                }
+
+                while (numBagagens > 0){
+                    cout << "Peso da bagagem de porao: ";
+                    cin >> peso;
+
+                    Bagagem* bPorao = new Bagagem (peso, false);
+                    b.push_back(bPorao);
+                    numBagagens--;
+                }
+
+                Passageiro p (nome, id, idade,menorNaoAcompanhado);
+                passageiros.push_back(p);
+                malas.push_back(b);
+
+                menorNaoAcompanhado = false;
+                numPessoas--;
             }
 
             if (passageiros.size() > 1 )
-                compraRealizada = companhia.adquirirConjuntoBilhetes(passageiros, v, bagagemMao);
+                compraRealizada = companhia.adquirirConjuntoBilhetes(passageiros, v, bagagemMao, malas);
             else{
-                compraRealizada = companhia.adquirirBilhete(*(passageiros.begin()), v, bagagemMao, b);
+                compraRealizada = companhia.adquirirBilhete(*(passageiros.begin()), v, bagagemMao, malas.front());
             }
 
             if (compraRealizada)

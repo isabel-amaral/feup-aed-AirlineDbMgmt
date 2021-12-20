@@ -135,10 +135,11 @@ public:
      * @param p lista de passageiros que pretendem comprar bilhetes.
      * @param v é voo para o qual os passageiros pretendem adquirir bilhetes.
      * @param bagagem indica se os passageiros têm ou não direito a levar bagagem de mão.
+     * @param bagagens contém detalhes sobre as malas de cada um dos passageiros.
      * @return true se a compra dos bilheite foi realizada com sucesso.
      * Caso contrário retorna false (o voo está lotado/ não possui bilhetes suficientes para todos).
      */
-    bool adquirirConjuntoBilhetes(list<Passageiro>& p, Voo& v, bool bagagem);
+    bool adquirirConjuntoBilhetes(list<Passageiro>& p, Voo& v, bool bagagem, list <list <Bagagem*> > bagagens);
     /**
      * Cancela a compra feita por um determinado passsageiro de um bilhete para um determinado voo.
      * Esta operação não é possível se o check-in para o voo em questão já tiver sido realizado.
@@ -152,7 +153,7 @@ public:
      * @param bId bId é o id do bilhete do passageiro para o voo para o qual pretende realizar check-in
      * @return true se for possível realizar o check-in, falso coso contrário
      */
-    bool realizarCheckIn(unsigned bId) const;
+    bool realizarCheckIn(unsigned bId);
     /**
      *
      * @param cidadeChegada é a cidade de destino
