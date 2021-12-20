@@ -174,7 +174,7 @@ bool CompanhiaAerea::realizarCheckIn(unsigned bId) const {
     if (bilhete.getIdBilhete() == 0) //Bilhete não existe
         return false;
 
-    list<Bagagem*>::iterator it;
+    list<Bagagem*>::const_iterator it;
     for (it = bilhete.getBagagem().begin(); it != bilhete.getBagagem().end(); it++) {
         if (!(*it)->isBagagemDeMao()) {
             if ((*it)->isCheckInAutomatico())
