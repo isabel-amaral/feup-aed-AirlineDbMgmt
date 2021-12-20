@@ -664,4 +664,7 @@ void Menu::menuCompra(vector<Voo> &voos) {
     else
         cout << "NAO FOI POSSIVEL REALIZAR A COMPRA" << endl;
 
+    //TODO: Como ler os objetos da classe bagagem?
+    //TODO: como inicializar a multa?
+    //TODO: Comprar bilhete imprime na tela "Compra realizada com sucesso" mas nao acrescenta o passageiro a lista do voo
 }
