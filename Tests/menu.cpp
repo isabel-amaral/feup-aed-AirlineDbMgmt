@@ -128,7 +128,9 @@ void Menu::menu3() {
     if (idPassageiro != 0){
         companhia.showBilhetesFromPassageiro(idPassageiro);
 
-        cout << "1. Cancelar uma viagem" << endl;
+        cout << "1. Ver Bagagem" << endl;
+        cout << "2. Ver multa" << endl;
+        cout << "3. Cancelar uma viagem" << endl;
         cout << "0. voltar" << endl;
         readOption(0, 1);
         if (option){
