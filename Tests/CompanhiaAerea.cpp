@@ -156,7 +156,7 @@ bool CompanhiaAerea::adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem, 
 }
 
 //todos os passageiros do grupo têm a mesma opção relativa a bagagem de mão
-bool CompanhiaAerea::adquirirConjuntoBilhetes(list<Passageiro> &p, Voo &v, bool bagagem, list <list<Bagagem*> > bagagens) {
+bool CompanhiaAerea::adquirirConjuntoBilhetes(list<Passageiro>& p, Voo& v, bool bagagem, list<list<Bagagem*>> bagagens) {
     for (Voo& voo: voos) {
         if (voo.getNumeroVoo() == v.getNumeroVoo()) {
             if (!voo.addConjuntoPassageiros(p))
@@ -270,12 +270,12 @@ bool CompanhiaAerea::showVoosPartida(const string& cidadePartida, const Data& d1
         cout << "Nao existe voo com partida em "<< cidadePartida;
         if (!(d1 == Data()))
             cout << " para a data " << d1.getData();
-        return true;
+        return false;
     }
     for (const auto& voo: voosPartida)
         cout <<  "---------------" << voo;
     cout << endl;
-    return false;
+    return true;
 }
 
 bool CompanhiaAerea::showVoosChegada(const string& cidadeChegada, const Data& d1) const {

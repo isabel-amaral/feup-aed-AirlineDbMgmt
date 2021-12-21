@@ -244,7 +244,7 @@ void Menu::menu6() {
 //Visualizar voos com partida numa determinada cidade
 void Menu::menu7() {
     string resposta, cidade;
-    unsigned dia, mes, ano, n=0;
+    unsigned dia, mes, ano, n = 0;
 
     for (const auto& a: companhia.getAeroportos()){
         cout << n+1 << "- " << a.getCidade() << endl;
