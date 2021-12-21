@@ -121,7 +121,7 @@ public:
      *
      * @return transportador com as bagagens correspondentes aos passageiros do voo
      */
-    TransportadorDeBagagem getTransportador() const;
+    TransportadorDeBagagem& getTransportador();
     /**
     * atribui um número ao voo.
     * @param n é o número do voo.

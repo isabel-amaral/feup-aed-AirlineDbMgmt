@@ -77,7 +77,7 @@ list<Passageiro>& Voo::getPassageirosCheckedIn()  {
 }
 
 
-TransportadorDeBagagem Voo::getTransportador() const {
+TransportadorDeBagagem& Voo::getTransportador() {
     return transportador;
 }
 

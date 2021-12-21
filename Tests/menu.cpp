@@ -76,7 +76,7 @@ void Menu::menu0() {
     }
     else {
         cout << "VOLTE SEMPRE.";
-        exit (0);
+        exit(0);
     }
 }
 

@@ -1,7 +1,6 @@
 #include "CompanhiaAerea.h"
 #include <iostream>
 #include <algorithm>
-#include <fstream>
 
 CompanhiaAerea::CompanhiaAerea() {
     bilhetesVendidos = vector<Bilhete>();
@@ -89,6 +88,14 @@ Passageiro CompanhiaAerea::getPassageiroID(unsigned int pID) {
             return b.getPasssageiro();
     Passageiro passageiro;
     return passageiro;
+}
+
+Voo &CompanhiaAerea::getVooNumero(unsigned int numVoo) {
+    for (Voo& v: voos)
+        if (v.getNumeroVoo() == numVoo)
+            return v;
+    Voo* voo = new Voo();
+    return *voo;
 }
 
 vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(unsigned pId) {
@@ -204,7 +211,6 @@ void CompanhiaAerea::showBagagem(Bilhete b) {
             cout << "Bagagem de porao de peso " << bg->getPeso() << endl;
         i++;
     }
-
 }
 
 bool CompanhiaAerea::realizarCheckIn(unsigned bId) {
@@ -218,7 +224,8 @@ bool CompanhiaAerea::realizarCheckIn(unsigned bId) {
     for (it = bilhete.getBagagem().begin(); it != bilhete.getBagagem().end(); it++) {
         if (!(*it)->isBagagemDeMao()) {
             if ((*it)->isCheckInAutomatico())
-                bilhete.getVoo().getTransportador().adicionarAoTapete(*it);
+                getVooNumero(bilhete.getVoo().getNumeroVoo()).getTransportador().adicionarAoTapete(*it);
+                //bilhete.getVoo().getTransportador().adicionarAoTapete(*it);
             if (excessoPeso.excedePeso(*it))
                 incrementarMultaPassageiro(bilhete.getPasssageiro().getId(), excessoPeso.multaExcessoPeso(*it));
         }
