@@ -54,11 +54,6 @@ public:
      * @return todos os aeroportos onde os aviões da companhia operam
      */
     vector<Aeroporto>& getAeroportos();
-/*  *//**
-     * Define os voos da companhia aérea.
-     * @param voos são os novos voos da companhia.
-     *//*
-    void setVoos(const vector<Voo>& voos);*/
     /**
      * Atualiza as informações sobre as restriçoes de peso e multas a aplicar desta companhia
      * @param excessoPeso é o objeto que contém as informações sobre as restriçoes de peso e multas a aplicar desta companhia
