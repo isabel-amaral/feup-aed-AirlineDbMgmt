@@ -140,7 +140,9 @@ void Menu::menu3() {
             cin >> numBilhete;
             Bilhete b = companhia.getBilheteID(numBilhete);
 
-            if (find(b.getVoo().getPassageiros().begin(), b.getVoo().getPassageiros().end(), b.getPasssageiro()) != b.getVoo().getPassageiros().end())
+            if (b.getPasssageiro().getId() != idPassageiro)
+                cout << "Nao foi possivel encontrar registo do seu bilhete" << endl;
+            else if (find(b.getVoo().getPassageiros().begin(), b.getVoo().getPassageiros().end(), b.getPasssageiro()) != b.getVoo().getPassageiros().end())
                 companhia.showBagagem(b);
             else
                 cout << "Nao foi possivel encontrar registo da sua bagagem" << endl;
