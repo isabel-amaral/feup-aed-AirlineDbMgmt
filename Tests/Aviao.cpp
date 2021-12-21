@@ -5,12 +5,10 @@ Aviao::Aviao() {
     matricula = "";
     capacidade = 0;
     planoDeVoo.clear();
-    while(!servicosPorRealizar.empty()) {
+    while(!servicosPorRealizar.empty())
         servicosPorRealizar.pop();
-    }
-    while (!servicosRealizados.empty()) {
+    while (!servicosRealizados.empty())
         servicosRealizados.pop();
-    }
 }
 
 Aviao::Aviao(const string& m, const string& t, unsigned c, const list<Voo>& planVoo, const queue<Servico>& servRealizar) {
@@ -47,7 +45,7 @@ queue<Servico> Aviao::getServicosRealizados() const{
 }
 
 void Aviao::setMatricula(const string& m) {
-    this->matricula=m;
+    this->matricula = m;
 }
 
 void Aviao::setTipo(const string &t) {
@@ -55,7 +53,7 @@ void Aviao::setTipo(const string &t) {
 }
 
 void Aviao::setCapacidade(const unsigned& c) {
-    this->capacidade=c;
+    this->capacidade = c;
 }
 
 void Aviao::setPlanoDeVoo(const list<Voo>& planVoo) {
@@ -81,7 +79,7 @@ bool Aviao::addServicoPorRealizar(const Servico& servico) {
     return true;
 }
 
-bool Aviao::realizarServico (){
+bool Aviao::realizarServico(){
     if (servicosPorRealizar.empty())
         return false;
     this->servicosRealizados.push(servicosPorRealizar.front());

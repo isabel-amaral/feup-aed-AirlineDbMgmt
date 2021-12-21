@@ -25,7 +25,7 @@ private:
     /**
      * Todos os avioes da companhia area.
      */
-    list<Aviao> avioes;
+    vector<Aviao> avioes;
     /**
      * Todos os aeroportos onde os aviões da companhia operam.
      */
@@ -48,7 +48,7 @@ public:
      *
      * @return todos os avioes da companhia area.
      */
-    list<Aviao>& getAvioes();
+    vector<Aviao>& getAvioes();
     /**
      *
      * @return todos os aeroportos onde os aviões da companhia operam

@@ -172,12 +172,6 @@ ostream &operator<< (ostream& os, const Voo& v) {
     os << "\tChegada: " << v.getHoraChegada() << "h";
     os << "\tDuracao: " << v.getDuracao() << " horas" << endl;
     return os;
-/*
-    cout << " as " << v.getHoraPartida();
-    cout << " e com chegada prevista ao " << v.getDestino().getNome() << " em " << v.getDestino().getCidade();
-    cout << " as " << v.getHoraChegada();
-    os << " no dia " << v.getDataPartida().getData() << endl;
-    os << "A duracao do voo sera aproximadamente " << v.getDuracao() << "horas" << endl;*/
 
 }
 

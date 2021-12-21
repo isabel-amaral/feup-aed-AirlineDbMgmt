@@ -8,6 +8,7 @@ CompanhiaAerea::CompanhiaAerea() {
     voos = vector<Voo>();
     excessoPeso = ExcessoPeso();
     aeroportos = vector<Aeroporto>();
+    avioes= vector <Aviao>();
 }
 
 CompanhiaAerea::CompanhiaAerea(float pesoMaximo, float taxaPesoExtra, float taxaBagagemDeMao) {
@@ -24,7 +25,7 @@ vector<Voo>& CompanhiaAerea::getVoos() {
     return voos;
 }
 
-list<Aviao>& CompanhiaAerea::getAvioes() {
+vector<Aviao>& CompanhiaAerea::getAvioes() {
     return avioes;
 }
 

@@ -72,10 +72,10 @@ void LoadData::loadServicos(CompanhiaAerea& ca) {
         getline(f, nomeFunc);
         Funcionario f1(idFunc, nomeFunc);
 
-        for (Aviao& a: ca.getAvioes()) {
-            if (a.getMatricula() == matricula) {
+        for (Aviao& aviao : ca.getAvioes()) {
+            if (aviao.getMatricula() == matricula) {
                 Servico s(tipo, d1, f1);
-                a.addServicoPorRealizar(s);
+                aviao.addServicoPorRealizar(s);
                 break;
             }
         }

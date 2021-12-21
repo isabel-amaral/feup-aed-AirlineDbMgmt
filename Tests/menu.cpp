@@ -56,6 +56,7 @@ void Menu::processOption() {
         case 23: menu23(); break;
         case 24: menu24(); break;
         case 25: menu25(); break;
+        case 26: menu26(); break;
     }
 }
 
@@ -128,9 +129,7 @@ void Menu::menu3() {
     if (idPassageiro != 0){
         companhia.showBilhetesFromPassageiro(idPassageiro);
 
-        cout << "1. Ver Bagagem" << endl;
-        cout << "2. Ver multa" << endl;
-        cout << "3. Cancelar uma viagem" << endl;
+        cout << "1. Cancelar uma viagem" << endl;
         cout << "0. voltar" << endl;
         cout << "\nESCOLHA UMA OPCAO: ";
         readOption(0, 3);
@@ -242,6 +241,7 @@ void Menu::menu5() {
     cout << "23. Procurar aeroporto." << endl;
     cout << "24. Visualizar os passageiros de um voo." << endl;
     cout << "25. Visualizar numero de passageiros que fizeram check-in num voo." << endl;
+    cout << "26. Gestao dos avioes." << endl;
     cout << "0. Voltar a pagina anterior." << endl;
     cout <<  "\nESCOLHA UMA OPCAO: ";
     readOption(19, 25);
@@ -565,6 +565,113 @@ void Menu::menu25() {
     processOption();
 }
 
+void Menu::menu26() {
+    unsigned n=0, copyOption;
+    cout << "1. Agendar servico" << endl;
+    cout << "2. Realizar servico" << endl;
+    cout << "3. Visualizar os servicos que um aviao necessita" << endl;
+    cout << "4. Visualizar os servicos ja realizados num aviao" << endl;
+    cout << "5. Visualizar plano de voo" << endl;
+    cout << "0. Voltar"<< endl;
+    cout << "ESCOLHA UMA OPCAO: " ;
+    readOption(0, 5);
+    copyOption = option;
+
+    for (const auto& aviao: companhia.getAvioes()){
+        cout << n+1 << "- " << aviao.getMatricula() << endl;
+        n++;
+    }
+
+    cout << "\nSELECIONE A MATRICULA DO AVIAO: " << "(" << 1 << "-" << companhia.getAvioes().size() << ")";
+    readOption(1,companhia.getAvioes().size());
+
+    //Agendar servico
+    if (copyOption == 1) {
+        TipoServico tipo;
+        string nomeFunc;
+        unsigned idFunc, dia, mes, ano;
+        cout << "1. Limpeza." << endl;
+        cout << "2. Manutencao." << endl;
+        cout << "\nESCOLHA O TIPO DE SERVICO: (0 para voltar a pagina anterior.)" << endl;
+        readOption(0,2);
+        tipo = (option == 1) ? Limpeza : Manutencao;
+
+        cout << "Indique a data:" << endl;
+        cout << "Dia: " ;
+        cin >> dia;
+        cout << "Mes: " ;
+        cin >> mes;
+        cout << "Ano: " ;
+        cin >> ano;
+        Data d(dia, mes, ano);
+
+        cout << "Id:" << endl;
+        cin >> idFunc;
+        cout << "Nome do funcionario: " ;
+        cin.ignore (1000, '\n');
+        getline (cin, nomeFunc);
+        Funcionario f(idFunc, nomeFunc);
+
+        if (companhia.getAvioes().at(option -1).addServicoPorRealizar(Servico (tipo, d, f)))
+            cout << "SERVICO AGENDADO COM SUCESSO." << endl;
+        else
+            cout << "NAO FOI POSSIVEL AGENDAR O SERVICO." << endl;
+    }
+
+    //Realizar servico
+    else if (copyOption == 2) {
+        if (companhia.getAvioes().at(option - 1).realizarServico())
+            cout << "\nSERVICO REALIZADO COM SUCESSO!" << endl;
+        else
+            cout << "ESTE AVIAO NAO TEM NENHUM SERVICO AGENDADO!" << endl;
+    }
+
+    //Visualizar os servicos que um aviao necessita
+    else if (copyOption == 3) {
+        if (!companhia.getAvioes().at (option - 1).getServicosPorRealizar().empty()){
+            queue<Servico> copyServicosPorRealizar = companhia.getAvioes().at(option - 1).getServicosPorRealizar();
+            while (!copyServicosPorRealizar.empty()) {
+                cout << copyServicosPorRealizar.front() << endl;
+                cout << "---------------" << endl;
+                copyServicosPorRealizar.pop();
+            }
+        }
+        else
+            cout << "ESTE AVIAO NAO TEM NENHUM SERVICO AGENDADO!" << endl;
+    }
+
+    //Visualizar os servicos já realizados num aviao
+    else if (copyOption == 4){
+        if (! companhia.getAvioes().at (option -1 ).getServicosRealizados().empty()) {
+            queue <Servico> copyServicosRealizados =  companhia.getAvioes().at(option - 1).getServicosRealizados();
+            while (!copyServicosRealizados.empty()) {
+                cout << copyServicosRealizados.front() << endl;
+                cout << "---------------" << endl;
+                copyServicosRealizados.pop();
+            }
+        }
+
+        else
+            cout << "NENHUM SERVICO FOI REALIZADO !" << endl;
+    }
+
+    //Visualizar plano de voo
+    else if (copyOption == 5) {
+        if (!companhia.getAvioes().at (option -1 ).getPlanoDeVoo().empty()){
+            for (auto & i : companhia.getAvioes().at (option -1 ).getPlanoDeVoo()){
+                cout << i ;
+                cout << "---------------" << endl;
+            }
+        }
+
+        else
+            cout << "ESTE AVIAO NAO POSSUI NENHUM VOO AGENDADO" << endl;
+    }
+    option = lastMenu.top();
+    lastMenu.pop();
+    processOption();
+}
+
 void Menu::menuCompra() {
     int numPessoas, id, idade, nrVoo, numBagagens;
     string nome;
@@ -659,3 +766,6 @@ void Menu::menuCompra() {
     }
     cout << "NUMERO DE VOO INVALIDO!" << endl;
 }
+
+
+
