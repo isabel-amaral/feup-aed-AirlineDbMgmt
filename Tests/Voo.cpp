@@ -118,8 +118,8 @@ void Voo::setNumLugaresReservados(unsigned lr) {
 }
 
 //transportador apenas será requisitado no dia do voo
-void Voo::setTransportador(unsigned int c, unsigned int n, unsigned int m) {
-    this->transportador = TransportadorDeBagagem(c, n, m);
+void Voo::setTransportador(unsigned int c, unsigned int n, unsigned int m, unsigned capacidade) {
+    this->transportador = TransportadorDeBagagem(c, n, m, capacidade);
 }
 
 bool Voo::addPassageiro(const Passageiro& b) {

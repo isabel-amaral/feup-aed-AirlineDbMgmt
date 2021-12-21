@@ -637,7 +637,7 @@ void CompanhiaAerea::loadBagagens() {
 //Todos os voos da companhia aérea, independentemente dos aeroportos onde são realizados, usam o mesmo tipo de transportadores
 void CompanhiaAerea::loadTransportadorBagagem() {
     ifstream f;
-    unsigned c, n, m;
+    unsigned c, n, m, capacidade;
 
     f.open("transportadorDeBagagem.txt");
     if (!f.is_open())
@@ -646,8 +646,9 @@ void CompanhiaAerea::loadTransportadorBagagem() {
     f >> c;
     f >> n;
     f >> m;
+    f >> capacidade;
     for (Voo& v: voos)
-        v.setTransportador(c, n, m);
+        v.setTransportador(c, n, m, capacidade);
 }
 
 //O valor maximo de cada volume de bagagem e as taxas a pagar por incumprimento das regras são os mesmos para todos os voos da companhia

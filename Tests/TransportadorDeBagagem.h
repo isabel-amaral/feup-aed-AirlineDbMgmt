@@ -22,6 +22,10 @@ private:
      */
     unsigned numMalas;
     /**
+     * Número máximo de malas que o tapete pode conter de cada vez.
+     */
+    unsigned capacidadeTapete;
+    /**
      * Tapete rolante no qual as malas são depositadas para a posterior colocação no carrinho.
      */
     queue<Bagagem*> tapeteRolante;
@@ -32,17 +36,17 @@ private:
 
 public:
     TransportadorDeBagagem();
-    TransportadorDeBagagem(unsigned c, unsigned n, unsigned m);
+    TransportadorDeBagagem(unsigned c, unsigned n, unsigned m, unsigned capacidade);
     /**
      *
      * @return bagagens que estão no tapete rolante
      */
-    queue<Bagagem *> getTapeteRolante() const;
+    queue<Bagagem*> getTapeteRolante() const;
     /**
      *
      * @return bagagens que estão no carrinho
      */
-    list<list<stack<Bagagem *>>> getCarrinho() const;
+    list<list<stack<Bagagem*>>> getCarrinho() const;
     /**
      * Acrescenta uma nova bagagem ao tapete rolante
      * @param bagagem é a nova bagagem

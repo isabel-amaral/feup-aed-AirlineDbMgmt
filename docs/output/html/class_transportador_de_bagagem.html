@@ -73,9 +73,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2a233f8da2dd46b9e8064d2dfae9344f"><td class="memItemLeft" align="right" valign="top"><a id="a2a233f8da2dd46b9e8064d2dfae9344f" name="a2a233f8da2dd46b9e8064d2dfae9344f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TransportadorDeBagagem</b> (unsigned c, unsigned n, unsigned m)</td></tr>
-<tr class="separator:a2a233f8da2dd46b9e8064d2dfae9344f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35fb4d86e54fc47fb8cdbe22550affa7"><td class="memItemLeft" align="right" valign="top"><a id="a35fb4d86e54fc47fb8cdbe22550affa7" name="a35fb4d86e54fc47fb8cdbe22550affa7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TransportadorDeBagagem</b> (unsigned c, unsigned n, unsigned m, unsigned capacidade)</td></tr>
+<tr class="separator:a35fb4d86e54fc47fb8cdbe22550affa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5eade3a6d9b32cbb3a2e8016845b566e"><td class="memItemLeft" align="right" valign="top">queue&lt; <a class="el" href="class_bagagem.html">Bagagem</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transportador_de_bagagem.html#a5eade3a6d9b32cbb3a2e8016845b566e">getTapeteRolante</a> () const</td></tr>
 <tr class="separator:a5eade3a6d9b32cbb3a2e8016845b566e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5afb29f74b198da3407f6efbdd75f247"><td class="memItemLeft" align="right" valign="top">list&lt; list&lt; stack&lt; <a class="el" href="class_bagagem.html">Bagagem</a> * &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transportador_de_bagagem.html#a5afb29f74b198da3407f6efbdd75f247">getCarrinho</a> () const</td></tr>
@@ -99,6 +99,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a8f4c04183905fcf579259c673f52abe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a381fb6e759d2d5abaffdc9522e3d1973"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transportador_de_bagagem.html#a381fb6e759d2d5abaffdc9522e3d1973">numMalas</a></td></tr>
 <tr class="separator:a381fb6e759d2d5abaffdc9522e3d1973"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99f27d5f126ccf65d109f3da11eca821"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transportador_de_bagagem.html#a99f27d5f126ccf65d109f3da11eca821">capacidadeTapete</a></td></tr>
+<tr class="separator:a99f27d5f126ccf65d109f3da11eca821"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a472edf70be23fb03ae636a4501bd33ff"><td class="memItemLeft" align="right" valign="top">queue&lt; <a class="el" href="class_bagagem.html">Bagagem</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transportador_de_bagagem.html#a472edf70be23fb03ae636a4501bd33ff">tapeteRolante</a></td></tr>
 <tr class="separator:a472edf70be23fb03ae636a4501bd33ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d0f4effe667115b2729c1c06e3b5dd7"><td class="memItemLeft" align="right" valign="top">list&lt; list&lt; stack&lt; <a class="el" href="class_bagagem.html">Bagagem</a> * &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transportador_de_bagagem.html#a1d0f4effe667115b2729c1c06e3b5dd7">carrinho</a></td></tr>
@@ -250,6 +252,29 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a99f27d5f126ccf65d109f3da11eca821" name="a99f27d5f126ccf65d109f3da11eca821"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99f27d5f126ccf65d109f3da11eca821">&#9670;&nbsp;</a></span>capacidadeTapete</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned TransportadorDeBagagem::capacidadeTapete</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Número máximo de malas que o tapete pode conter de cada vez. </p>
+
+</div>
+</div>
 <a id="a1d0f4effe667115b2729c1c06e3b5dd7" name="a1d0f4effe667115b2729c1c06e3b5dd7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1d0f4effe667115b2729c1c06e3b5dd7">&#9670;&nbsp;</a></span>carrinho</h2>
 
@@ -366,8 +391,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/1 Semestre/AED/AirlineDatabaseManagement/Tests/<a class="el" href="_transportador_de_bagagem_8h_source.html">TransportadorDeBagagem.h</a></li>
-<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/1 Semestre/AED/AirlineDatabaseManagement/Tests/TransportadorDeBagagem.cpp</li>
+<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/<a class="el" href="_transportador_de_bagagem_8h_source.html">TransportadorDeBagagem.h</a></li>
+<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/TransportadorDeBagagem.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

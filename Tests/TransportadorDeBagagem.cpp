@@ -4,14 +4,16 @@ TransportadorDeBagagem::TransportadorDeBagagem() {
     this->numCarruagens = 0;
     this->numPilhas = 0;
     this->numMalas = 0;
+    this->capacidadeTapete = 0;
     this->tapeteRolante = queue<Bagagem*>();
     this->carrinho = list<list<stack<Bagagem*>>>();
 }
 
-TransportadorDeBagagem::TransportadorDeBagagem(unsigned c, unsigned n, unsigned m) {
+TransportadorDeBagagem::TransportadorDeBagagem(unsigned c, unsigned n, unsigned m, unsigned capacidade) {
     this->numCarruagens = c;
     this->numPilhas = n;
     this->numMalas = m;
+    this->capacidadeTapete = capacidade;
     this->tapeteRolante = queue<Bagagem*>();
 
     for (int i = 0; i < c; i++) {
@@ -33,6 +35,10 @@ list<list<stack<Bagagem *>>> TransportadorDeBagagem::getCarrinho() const {
 }
 
 void TransportadorDeBagagem::adicionarAoTapete(Bagagem* bagagem) {
+    if (tapeteRolante.size() == capacidadeTapete) {
+        adicionarAoCarrinho(tapeteRolante.front());
+        tapeteRolante.pop();
+    }
     tapeteRolante.push(bagagem);
 }
 

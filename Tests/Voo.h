@@ -174,7 +174,7 @@ public:
      * @param n é o número de pilhas que cada carruagem tem.
      * @param m é o número máximo de malas que cada pilha pode conte.
      */
-    void setTransportador(unsigned c, unsigned n, unsigned m);
+    void setTransportador(unsigned c, unsigned n, unsigned m, unsigned capacidade);
     /**
      * Adiciona o bilhete de um novo passageiro ao vetor passageiros se o voo não se encontra lotado.
      * @param b é o bilhete do novo passageiro que pretende viajar.

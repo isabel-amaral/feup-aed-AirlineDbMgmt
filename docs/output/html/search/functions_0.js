@@ -10,6 +10,6 @@ var searchData=
   ['addvoo_7',['addVoo',['../class_aviao.html#aa642ae9b1f61decdedbcd312623a5e4f',1,'Aviao::addVoo()'],['../class_companhia_aerea.html#a2f4481ed2a57f2746e44705d26535cc9',1,'CompanhiaAerea::addVoo()']]],
   ['adicionaraocarrinho_8',['adicionarAoCarrinho',['../class_transportador_de_bagagem.html#a947a5a8874a03126e7e7daacb9563a10',1,'TransportadorDeBagagem']]],
   ['adicionaraotapete_9',['adicionarAoTapete',['../class_transportador_de_bagagem.html#a3e3daccc3735da11127c8fd012df8c99',1,'TransportadorDeBagagem']]],
-  ['adquirirbilhete_10',['adquirirBilhete',['../class_companhia_aerea.html#a83f914ca35b83592a2b913e4c93add6d',1,'CompanhiaAerea']]],
-  ['adquirirconjuntobilhetes_11',['adquirirConjuntoBilhetes',['../class_companhia_aerea.html#a52ea1d3faa9b969c0766d34c7e839791',1,'CompanhiaAerea']]]
+  ['adquirirbilhete_10',['adquirirBilhete',['../class_companhia_aerea.html#a8bc6e9435e28d3f399bca00d7db7368c',1,'CompanhiaAerea']]],
+  ['adquirirconjuntobilhetes_11',['adquirirConjuntoBilhetes',['../class_companhia_aerea.html#a154562de7462f7c395bca2e227a41017',1,'CompanhiaAerea']]]
 ];

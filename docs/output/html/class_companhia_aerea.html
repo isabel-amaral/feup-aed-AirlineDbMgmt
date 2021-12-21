@@ -94,8 +94,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aaa2071a8ebdda2feb34a52b009af7917"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a643ac435311a648ce5525277856f8c5c"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a643ac435311a648ce5525277856f8c5c">binarySearchAeroporto</a> (const string &amp;nome)</td></tr>
 <tr class="separator:a643ac435311a648ce5525277856f8c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fd01a39129ef18765aa71c19c1c0ce7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bilhete.html">Bilhete</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a7fd01a39129ef18765aa71c19c1c0ce7">getBilheteID</a> (unsigned bId) const</td></tr>
-<tr class="separator:a7fd01a39129ef18765aa71c19c1c0ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f47bee069377b3b59e02df35a109912"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bilhete.html">Bilhete</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a6f47bee069377b3b59e02df35a109912">getBilheteID</a> (unsigned bId)</td></tr>
+<tr class="separator:a6f47bee069377b3b59e02df35a109912"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af857907efa70ca594f07715ed5f32e1c"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_bilhete.html">Bilhete</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#af857907efa70ca594f07715ed5f32e1c">getBilhetesFromPassageiro</a> (unsigned pId) const</td></tr>
 <tr class="separator:af857907efa70ca594f07715ed5f32e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4390b1c0ae49cb60d4ed536cec0083a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#ae4390b1c0ae49cb60d4ed536cec0083a">showBilhetesFromPassageiro</a> (unsigned pId) const</td></tr>
@@ -106,14 +106,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3e054d55805dc6668b39600d30c1108d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57f0ebd1785a604c4541abaedadb9fef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bilhete.html">Bilhete</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a57f0ebd1785a604c4541abaedadb9fef">getBilhetePassageiroVoo</a> (unsigned pId, unsigned numVoo) const</td></tr>
 <tr class="separator:a57f0ebd1785a604c4541abaedadb9fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83f914ca35b83592a2b913e4c93add6d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a83f914ca35b83592a2b913e4c93add6d">adquirirBilhete</a> (const <a class="el" href="class_passageiro.html">Passageiro</a> &amp;p, <a class="el" href="class_voo.html">Voo</a> &amp;v, bool bagagem)</td></tr>
-<tr class="separator:a83f914ca35b83592a2b913e4c93add6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52ea1d3faa9b969c0766d34c7e839791"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a52ea1d3faa9b969c0766d34c7e839791">adquirirConjuntoBilhetes</a> (list&lt; <a class="el" href="class_passageiro.html">Passageiro</a> &gt; &amp;p, <a class="el" href="class_voo.html">Voo</a> &amp;v, bool bagagem)</td></tr>
-<tr class="separator:a52ea1d3faa9b969c0766d34c7e839791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bc6e9435e28d3f399bca00d7db7368c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a8bc6e9435e28d3f399bca00d7db7368c">adquirirBilhete</a> (const <a class="el" href="class_passageiro.html">Passageiro</a> &amp;p, <a class="el" href="class_voo.html">Voo</a> &amp;v, bool bagagem, const list&lt; <a class="el" href="class_bagagem.html">Bagagem</a> * &gt; &amp;bagagens)</td></tr>
+<tr class="separator:a8bc6e9435e28d3f399bca00d7db7368c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a154562de7462f7c395bca2e227a41017"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a154562de7462f7c395bca2e227a41017">adquirirConjuntoBilhetes</a> (list&lt; <a class="el" href="class_passageiro.html">Passageiro</a> &gt; &amp;p, <a class="el" href="class_voo.html">Voo</a> &amp;v, bool bagagem, list&lt; list&lt; <a class="el" href="class_bagagem.html">Bagagem</a> * &gt; &gt; bagagens)</td></tr>
+<tr class="separator:a154562de7462f7c395bca2e227a41017"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7a1d1f11e3a3ec3c16eeec7488edf13"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#ab7a1d1f11e3a3ec3c16eeec7488edf13">cancelarViagem</a> (unsigned bId)</td></tr>
 <tr class="separator:ab7a1d1f11e3a3ec3c16eeec7488edf13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c01b7f641a157b3559c799aea2293a1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a9c01b7f641a157b3559c799aea2293a1">realizarCheckIn</a> (unsigned bId) const</td></tr>
-<tr class="separator:a9c01b7f641a157b3559c799aea2293a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78e85514aad79234f1cf21db637ceeb2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a78e85514aad79234f1cf21db637ceeb2">realizarCheckIn</a> (unsigned bId)</td></tr>
+<tr class="separator:a78e85514aad79234f1cf21db637ceeb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd3ac29d55d2453df6139f253cbce582"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_voo.html">Voo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#abd3ac29d55d2453df6139f253cbce582">getVoosChegada</a> (const string &amp;cidadeChegada, const <a class="el" href="class_data.html">Data</a> &amp;d1=<a class="el" href="class_data.html">Data</a>()) const</td></tr>
 <tr class="separator:abd3ac29d55d2453df6139f253cbce582"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2017c8c85ca4f6a7a98664abbd78de14"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_voo.html">Voo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a2017c8c85ca4f6a7a98664abbd78de14">getVoosPartida</a> (const string &amp;cidadePartida, const <a class="el" href="class_data.html">Data</a> &amp;d1=<a class="el" href="class_data.html">Data</a>()) const</td></tr>
@@ -152,6 +152,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>loadServicos</b> ()</
 <tr class="memitem:a380fa85e6e7b2bc91a6e54e0448ebf73"><td class="memItemLeft" align="right" valign="top"><a id="a380fa85e6e7b2bc91a6e54e0448ebf73" name="a380fa85e6e7b2bc91a6e54e0448ebf73"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>loadBagagens</b> ()</td></tr>
 <tr class="separator:a380fa85e6e7b2bc91a6e54e0448ebf73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1084bfccdfae8660286a39cc07c792cd"><td class="memItemLeft" align="right" valign="top"><a id="a1084bfccdfae8660286a39cc07c792cd" name="a1084bfccdfae8660286a39cc07c792cd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>loadTransportadorBagagem</b> ()</td></tr>
+<tr class="separator:a1084bfccdfae8660286a39cc07c792cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7c976d67dfc0c1c5d3980a709148313"><td class="memItemLeft" align="right" valign="top"><a id="ab7c976d67dfc0c1c5d3980a709148313" name="ab7c976d67dfc0c1c5d3980a709148313"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>loadExcessoPeso</b> ()</td></tr>
+<tr class="separator:ab7c976d67dfc0c1c5d3980a709148313"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -239,8 +245,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a83f914ca35b83592a2b913e4c93add6d" name="a83f914ca35b83592a2b913e4c93add6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83f914ca35b83592a2b913e4c93add6d">&#9670;&nbsp;</a></span>adquirirBilhete()</h2>
+<a id="a8bc6e9435e28d3f399bca00d7db7368c" name="a8bc6e9435e28d3f399bca00d7db7368c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bc6e9435e28d3f399bca00d7db7368c">&#9670;&nbsp;</a></span>adquirirBilhete()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -261,7 +267,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>bagagem</em>&#160;</td>
+          <td class="paramname"><em>bagagem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const list&lt; <a class="el" href="class_bagagem.html">Bagagem</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>bagagens</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -275,6 +287,7 @@ Private Attributes</h2></td></tr>
     <tr><td class="paramname">p</td><td>é o passageiro que pretende comprar o bilhete. </td></tr>
     <tr><td class="paramname">v</td><td>é voo que o passageiro pretende adquirir o bilhete. </td></tr>
     <tr><td class="paramname">bagagem</td><td>é a bagagem do passageiro. </td></tr>
+    <tr><td class="paramname">bagagens</td><td>é a lista com os volumes de bagagem do passageiro para o voo em questão. </td></tr>
   </table>
   </dd>
 </dl>
@@ -282,8 +295,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a52ea1d3faa9b969c0766d34c7e839791" name="a52ea1d3faa9b969c0766d34c7e839791"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52ea1d3faa9b969c0766d34c7e839791">&#9670;&nbsp;</a></span>adquirirConjuntoBilhetes()</h2>
+<a id="a154562de7462f7c395bca2e227a41017" name="a154562de7462f7c395bca2e227a41017"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a154562de7462f7c395bca2e227a41017">&#9670;&nbsp;</a></span>adquirirConjuntoBilhetes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -304,7 +317,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>bagagem</em>&#160;</td>
+          <td class="paramname"><em>bagagem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">list&lt; list&lt; <a class="el" href="class_bagagem.html">Bagagem</a> * &gt; &gt;&#160;</td>
+          <td class="paramname"><em>bagagens</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -318,6 +337,7 @@ Private Attributes</h2></td></tr>
     <tr><td class="paramname">p</td><td>lista de passageiros que pretendem comprar bilhetes. </td></tr>
     <tr><td class="paramname">v</td><td>é voo para o qual os passageiros pretendem adquirir bilhetes. </td></tr>
     <tr><td class="paramname">bagagem</td><td>indica se os passageiros têm ou não direito a levar bagagem de mão. </td></tr>
+    <tr><td class="paramname">bagagens</td><td>contém detalhes sobre as malas de cada um dos passageiros. </td></tr>
   </table>
   </dd>
 </dl>
@@ -411,18 +431,18 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a7fd01a39129ef18765aa71c19c1c0ce7" name="a7fd01a39129ef18765aa71c19c1c0ce7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fd01a39129ef18765aa71c19c1c0ce7">&#9670;&nbsp;</a></span>getBilheteID()</h2>
+<a id="a6f47bee069377b3b59e02df35a109912" name="a6f47bee069377b3b59e02df35a109912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f47bee069377b3b59e02df35a109912">&#9670;&nbsp;</a></span>getBilheteID()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_bilhete.html">Bilhete</a> CompanhiaAerea::getBilheteID </td>
+          <td class="memname"><a class="el" href="class_bilhete.html">Bilhete</a> &amp; CompanhiaAerea::getBilheteID </td>
           <td>(</td>
           <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>bId</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -741,8 +761,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9c01b7f641a157b3559c799aea2293a1" name="a9c01b7f641a157b3559c799aea2293a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c01b7f641a157b3559c799aea2293a1">&#9670;&nbsp;</a></span>realizarCheckIn()</h2>
+<a id="a78e85514aad79234f1cf21db637ceeb2" name="a78e85514aad79234f1cf21db637ceeb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78e85514aad79234f1cf21db637ceeb2">&#9670;&nbsp;</a></span>realizarCheckIn()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -752,7 +772,7 @@ Private Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>bId</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1127,8 +1147,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/1 Semestre/AED/AirlineDatabaseManagement/Tests/<a class="el" href="_companhia_aerea_8h_source.html">CompanhiaAerea.h</a></li>
-<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/1 Semestre/AED/AirlineDatabaseManagement/Tests/CompanhiaAerea.cpp</li>
+<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/<a class="el" href="_companhia_aerea_8h_source.html">CompanhiaAerea.h</a></li>
+<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/CompanhiaAerea.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
