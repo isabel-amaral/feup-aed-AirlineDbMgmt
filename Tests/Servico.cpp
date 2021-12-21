@@ -34,3 +34,19 @@ void Servico::setData(const Data& d) {
 void Servico::setFuncionarioResponsavel(const Funcionario& f) {
     this->funcionarioResponsavel = f;
 }
+
+
+ostream &operator<<(ostream &os, const Servico &s) {
+    os << "Tipo: ";
+    if (s.getTipoServico() == Limpeza)
+        os << "Limpeza" << endl;
+    else
+        os << "Manutencao" << endl;
+    os << "Data de realizacao: " ;
+    os << s.getData().getData() << endl;
+    os << "Funcionario Responsavel: " << s.getFuncionarioResponsavel().getNomeFuncionario();
+    os << " (Id- " << s.getFuncionarioResponsavel().getIdFuncionario() << ")"  << endl;
+    return os;
+}
+
+

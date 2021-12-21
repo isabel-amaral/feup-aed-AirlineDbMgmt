@@ -33,6 +33,7 @@ public:
     void menu23();
     void menu24();
     void menu25();
+    void menu26();
     void menuCompra();
 };
 

@@ -4,6 +4,8 @@
 #include "Data.h"
 #include "Funcionario.h"
 #include <string>
+#include <iostream>
+using namespace std;
 using namespace std;
 
 enum TipoServico {Manutencao, Limpeza};
@@ -57,6 +59,14 @@ public:
      * @param f é o nome do funcionário responsável pelo serviço.
      */
     void setFuncionarioResponsavel(const Funcionario& f);
+
+    /**
+     * Este operador envia para uma outputstream toda a informação sobre um serviço que deverá ser mostrada ao utilizador.
+     * @param os outputstream que conterá informação sobre o serviço.
+     * @param s serviço sobre o qual se pretende obter informação.
+     * @return outputstream com a informação sobre o serviço.
+     */
+    friend ostream& operator<< (ostream& os, const Servico& s);
 };
 
 #endif //_SERVICO_H
