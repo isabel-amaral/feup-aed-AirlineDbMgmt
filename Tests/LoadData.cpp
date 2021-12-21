@@ -288,7 +288,7 @@ void LoadData::loadBagagens(CompanhiaAerea& ca) {
     unsigned num;
     string text;
     float peso;
-    bool bagagemMao;
+    bool bagagemMao, checkInAutomatico;
     unsigned idBilhete;
     list<Bagagem*> bagagens;
 
@@ -305,9 +305,11 @@ void LoadData::loadBagagens(CompanhiaAerea& ca) {
         getline(f, text);
         bagagemMao = (text == "true");
         getline(f, text);
+        checkInAutomatico = (text == "true");
+        getline(f, text);
         idBilhete = stoi(text);
 
-        Bagagem* b = new Bagagem(peso, bagagemMao);
+        Bagagem* b = new Bagagem(peso, bagagemMao, checkInAutomatico);
         for (Bilhete& bilhete: ca.getBilhetesVendidos()) {
             if (bilhete.getIdBilhete() == idBilhete) {
                 list<Bagagem*> aux = bilhete.getBagagem();
@@ -335,6 +337,7 @@ void LoadData::loadTransportadorBagagem(CompanhiaAerea& ca) {
     f >> capacidade;
     for (Voo& v: ca.getVoos())
         v.setTransportador(c, n, m, capacidade);
+    f.close();
 }
 
 //O valor maximo de cada volume de bagagem e as taxas a pagar por incumprimento das regras são os mesmos para todos os voos da companhia
@@ -350,4 +353,5 @@ void LoadData::loadExcessoPeso(CompanhiaAerea& ca) {
     f >> tp;
     f >> tb;
     ca.setExcessoPeso(ExcessoPeso(p, tp, tb));
+    f.close();
 }

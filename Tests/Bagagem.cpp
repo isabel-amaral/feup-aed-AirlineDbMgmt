@@ -6,10 +6,10 @@ Bagagem::Bagagem() {
     this->checkInAutomatico = false;
 }
 
-Bagagem::Bagagem(float p, bool bagagem) {
+Bagagem::Bagagem(float p, bool bagagemMao, bool checkIn) {
     this->peso = p;
-    this->bagagemDeMao = bagagem;
-    this->checkInAutomatico = false;  //no seu estado inicial a bagagem nunca tem o check-in feito
+    this->bagagemDeMao = bagagemMao;
+    this->checkInAutomatico = checkIn;
 }
 
 float Bagagem::getPeso() const {

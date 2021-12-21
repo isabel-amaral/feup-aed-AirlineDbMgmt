@@ -18,7 +18,7 @@ private:
 
 public:
     Bagagem();
-    Bagagem(float p, bool bagagem);
+    Bagagem(float p, bool bagagemMao, bool checkIn);
     /**
      * @return peso da mala.
      */

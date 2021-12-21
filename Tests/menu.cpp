@@ -674,7 +674,7 @@ void Menu::menu26() {
 
 void Menu::menuCompra() {
     int numPessoas, id, idade, nrVoo, numBagagens;
-    string nome;
+    string nome, resposta;
     bool menorNaoAcompanhado =false, bagagemMao, compraRealizada;
     float peso;
     list <Passageiro> passageiros;
@@ -728,18 +728,39 @@ void Menu::menuCompra() {
                 cout << "Quantas bagagens de porao deseja levar? " << endl;
                 cin >> numBagagens;
 
-                if (bagagemMao){
+                if (bagagemMao) {
                     cout << "Peso da bagagem de mao: ";
                     cin >> peso;
-                    Bagagem* bMao = new Bagagem (peso, bagagemMao);
+                    cout << "Pretende usar o nosso serviço de check-in automático de bagagem? [Escolha 'S'-Sim ou 'N'- Nao]" << endl;
+                    do {
+                        getline (cin, resposta);
+                        if (resposta != "S" && resposta != "N")
+                            cout << "ESCOLHA INVALIDA! TENTE NOVAMENTE." <<endl;
+                    } while (resposta != "S" && resposta != "N");
+
+                    Bagagem* bMao;
+                    if (resposta == "S")
+                        bMao = new Bagagem(peso, bagagemMao, true);
+                    else
+                        bMao = new Bagagem(peso, bagagemMao, false);
                     b.push_back(bMao);
                 }
 
                 while (numBagagens > 0){
                     cout << "Peso da bagagem de porao: ";
                     cin >> peso;
+                    cout << "Pretende usar o nosso serviço de check-in automático de bagagem? [Escolha 'S'-Sim ou 'N'- Nao]" << endl;
+                    do {
+                        getline (cin, resposta);
+                        if (resposta != "S" && resposta != "N")
+                            cout << "ESCOLHA INVALIDA! TENTE NOVAMENTE." <<endl;
+                    } while (resposta != "S" && resposta != "N");
 
-                    Bagagem* bPorao = new Bagagem (peso, false);
+                    Bagagem* bPorao;
+                    if (resposta == "S")
+                        bPorao = new Bagagem(peso, bagagemMao, true);
+                    else
+                        bPorao = new Bagagem(peso, bagagemMao, false);
                     b.push_back(bPorao);
                     numBagagens--;
                 }
