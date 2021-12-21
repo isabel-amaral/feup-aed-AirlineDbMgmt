@@ -23,7 +23,7 @@ private:
      */
     Data data;
     /**
-     * nome do funcionário responsável pelo serviço
+     * funcionário responsável pelo serviço
      */
     Funcionario funcionarioResponsavel;
 public:
@@ -56,7 +56,7 @@ public:
     void setData(const Data& d);
     /**
      * Altera o funcionário responsável pelo serviço.
-     * @param f é o nome do funcionário responsável pelo serviço.
+     * @param f é o funcionário responsável pelo serviço.
      */
     void setFuncionarioResponsavel(const Funcionario& f);
 

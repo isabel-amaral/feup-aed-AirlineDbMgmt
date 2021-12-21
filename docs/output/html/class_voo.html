@@ -99,8 +99,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a89b4cfc960566862e343caee6aa0e5f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac30e6cfcb48b18f235acbce7cfcece00"><td class="memItemLeft" align="right" valign="top">list&lt; <a class="el" href="class_passageiro.html">Passageiro</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voo.html#ac30e6cfcb48b18f235acbce7cfcece00">getPassageirosCheckedIn</a> ()</td></tr>
 <tr class="separator:ac30e6cfcb48b18f235acbce7cfcece00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe1108682f515f39841894d8c091c401"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_transportador_de_bagagem.html">TransportadorDeBagagem</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voo.html#abe1108682f515f39841894d8c091c401">getTransportador</a> () const</td></tr>
-<tr class="separator:abe1108682f515f39841894d8c091c401"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ee730514340d101f8e5a7772b4ac36a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_transportador_de_bagagem.html">TransportadorDeBagagem</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voo.html#a9ee730514340d101f8e5a7772b4ac36a">getTransportador</a> ()</td></tr>
+<tr class="separator:a9ee730514340d101f8e5a7772b4ac36a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46f9837abfc26e3282ccc6fd9f1c3089"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voo.html#a46f9837abfc26e3282ccc6fd9f1c3089">setNumeroVoo</a> (unsigned n)</td></tr>
 <tr class="separator:a46f9837abfc26e3282ccc6fd9f1c3089"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4af0b6a29759b55101455a832df614fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_voo.html#a4af0b6a29759b55101455a832df614fa">setOrigem</a> (const <a class="el" href="class_aeroporto.html">Aeroporto</a> &amp;ao)</td></tr>
@@ -180,9 +180,9 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Se os lugares vagos são suficientes para o número de passageiros que pretende viajar, os bilhetes destes são adicicionados ao vector de passageiros do voo. </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Se os lugares vagos são suficientes para o número de passageiros que pretende viajar, estes são todos adicicionados ao vector de passageiros do voo. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">b</td><td>contém os bilhetes dos passageiros que pretendem viajar em conjunto. </td></tr>
+    <tr><td class="paramname">b</td><td>contém os passageiros que pretendem viajar em conjunto. </td></tr>
   </table>
   </dd>
 </dl>
@@ -205,9 +205,9 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Adiciona o bilhete de um novo passageiro ao vetor passageiros se o voo não se encontra lotado. </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Adiciona um novo passageiro ao vetor passageiros do voo se este não se encontra lotado. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">b</td><td>é o bilhete do novo passageiro que pretende viajar. </td></tr>
+    <tr><td class="paramname">b</td><td>é o novo passageiro que pretende viajar. </td></tr>
   </table>
   </dd>
 </dl>
@@ -413,17 +413,17 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="abe1108682f515f39841894d8c091c401" name="abe1108682f515f39841894d8c091c401"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe1108682f515f39841894d8c091c401">&#9670;&nbsp;</a></span>getTransportador()</h2>
+<a id="a9ee730514340d101f8e5a7772b4ac36a" name="a9ee730514340d101f8e5a7772b4ac36a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ee730514340d101f8e5a7772b4ac36a">&#9670;&nbsp;</a></span>getTransportador()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_transportador_de_bagagem.html">TransportadorDeBagagem</a> Voo::getTransportador </td>
+          <td class="memname"><a class="el" href="class_transportador_de_bagagem.html">TransportadorDeBagagem</a> &amp; Voo::getTransportador </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1091,8 +1091,8 @@ Friends</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/1 Semestre/AED/AirlineDatabaseManagement/Tests/<a class="el" href="_voo_8h_source.html">Voo.h</a></li>
-<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/1 Semestre/AED/AirlineDatabaseManagement/Tests/Voo.cpp</li>
+<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/<a class="el" href="_voo_8h_source.html">Voo.h</a></li>
+<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/Voo.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

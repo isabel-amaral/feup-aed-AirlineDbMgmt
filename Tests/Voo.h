@@ -176,15 +176,15 @@ public:
      */
     void setTransportador(unsigned c, unsigned n, unsigned m, unsigned capacidade);
     /**
-     * Adiciona o bilhete de um novo passageiro ao vetor passageiros se o voo não se encontra lotado.
-     * @param b é o bilhete do novo passageiro que pretende viajar.
+     * Adiciona um novo passageiro ao vetor passageiros do voo se este não se encontra lotado.
+     * @param b é o novo passageiro que pretende viajar.
      * @return true se passageiro poderá viajar, caso contrário false.
      */
     bool addPassageiro(const Passageiro& b);
     /**
      * Se os lugares vagos são suficientes para o número de passageiros que pretende viajar,
-     * os bilhetes destes são adicicionados ao vector de passageiros do voo.
-     * @param b contém os bilhetes dos passageiros que pretendem viajar em conjunto.
+     * estes são todos adicicionados ao vector de passageiros do voo.
+     * @param b contém os passageiros que pretendem viajar em conjunto.
      * @return true se o grupo de passageiros poderá viajar, caso contrário false.
      */
     bool addConjuntoPassageiros(const list<Passageiro>& b);

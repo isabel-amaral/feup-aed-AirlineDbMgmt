@@ -65,6 +65,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_aeroporto-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Aeroporto Class Reference</div></div>
@@ -116,6 +117,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8c2dc649c2bb414adc78e535e3f61f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec355745a02666efa305290d8edb9693"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aeroporto.html#aec355745a02666efa305290d8edb9693">operator&lt;</a> (const <a class="el" href="class_aeroporto.html">Aeroporto</a> &amp;a1) const</td></tr>
 <tr class="separator:aec355745a02666efa305290d8edb9693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8748fb6c6df3126b8240868dd0e74d3c"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aeroporto.html#a8748fb6c6df3126b8240868dd0e74d3c">ordenarLocais</a> (const vector&lt; <a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> &gt; &amp;locais, const int ordenacao) const</td></tr>
+<tr class="separator:a8748fb6c6df3126b8240868dd0e74d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ae6e305a7876b8d697616ab8eb78b487b"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aeroporto.html#ae6e305a7876b8d697616ab8eb78b487b">criterioComparacao2</a> (const <a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> &amp;l1, const <a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> &amp;l2)</td></tr>
+<tr class="separator:ae6e305a7876b8d697616ab8eb78b487b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b36d7fb2a9d7e5c9b287b315fc3a8f1"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aeroporto.html#a9b36d7fb2a9d7e5c9b287b315fc3a8f1">criterioComparacao3</a> (const <a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> &amp;l1, const <a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> &amp;l2)</td></tr>
+<tr class="separator:a9b36d7fb2a9d7e5c9b287b315fc3a8f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -148,6 +158,94 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ae6e305a7876b8d697616ab8eb78b487b" name="ae6e305a7876b8d697616ab8eb78b487b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6e305a7876b8d697616ab8eb78b487b">&#9670;&nbsp;</a></span>criterioComparacao2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Aeroporto::criterioComparacao2 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> &amp;&#160;</td>
+          <td class="paramname"><em>l1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> &amp;&#160;</td>
+          <td class="paramname"><em>l2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Critério de ordenação de transportes terrestres por ordem decrescente de diponibilidade, em caso de empate, os locais são ordenados por distância (ordem crescente), caso haja empate, são ordenados pelo tipo seguindo o critério Metro &lt; Comboio &lt; Autocarro. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">l1</td><td>é um local de transporte </td></tr>
+    <tr><td class="paramname">l2</td><td>é outro local de transporte </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se l1 &lt; l2 de acordo com o critério, caso contrário false. </dd></dl>
+
+</div>
+</div>
+<a id="a9b36d7fb2a9d7e5c9b287b315fc3a8f1" name="a9b36d7fb2a9d7e5c9b287b315fc3a8f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b36d7fb2a9d7e5c9b287b315fc3a8f1">&#9670;&nbsp;</a></span>criterioComparacao3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Aeroporto::criterioComparacao3 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> &amp;&#160;</td>
+          <td class="paramname"><em>l1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> &amp;&#160;</td>
+          <td class="paramname"><em>l2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Critério de ordenação de transportes terrestres por tipo seguindo o critério Metro &lt; Comboio &lt; Autocarro, em caso de empate, os locais são ordenados por distância (distância), caso haja empate, são ordenados por ordem decrescente de disponibilidade. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">l1</td><td>é um local de transporte </td></tr>
+    <tr><td class="paramname">l2</td><td>é outro local de transporte </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se l1 &lt; l2 de acordo com o critério, caso contrário false. </dd></dl>
 
 </div>
 </div>
@@ -353,6 +451,41 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true se a1 é maior que esta instância. </dd></dl>
+
+</div>
+</div>
+<a id="a8748fb6c6df3126b8240868dd0e74d3c" name="a8748fb6c6df3126b8240868dd0e74d3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8748fb6c6df3126b8240868dd0e74d3c">&#9670;&nbsp;</a></span>ordenarLocais()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; <a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> &gt; Aeroporto::ordenarLocais </td>
+          <td>(</td>
+          <td class="paramtype">const vector&lt; <a class="el" href="class_local_de_transporte.html">LocalDeTransporte</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>locais</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>ordenacao</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Ordena um conjunto de locais de transporte segundo um critério específico </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">locais</td><td>conjunto de locais a ordenar </td></tr>
+    <tr><td class="paramname">ordenacao</td><td>critério a ser utilizado na ordenação </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -595,8 +728,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/1 Semestre/AED/AirlineDatabaseManagement/Tests/<a class="el" href="_aeroporto_8h_source.html">Aeroporto.h</a></li>
-<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/1 Semestre/AED/AirlineDatabaseManagement/Tests/Aeroporto.cpp</li>
+<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/<a class="el" href="_aeroporto_8h_source.html">Aeroporto.h</a></li>
+<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/Aeroporto.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

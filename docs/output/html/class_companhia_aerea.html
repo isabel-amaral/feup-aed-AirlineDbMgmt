@@ -98,6 +98,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6f47bee069377b3b59e02df35a109912"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07ab6936dbaad656832cc89df96092f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_passageiro.html">Passageiro</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a07ab6936dbaad656832cc89df96092f8">getPassageiroID</a> (unsigned pID)</td></tr>
 <tr class="separator:a07ab6936dbaad656832cc89df96092f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ac9e0e677c3de268475a385ca6aff8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_voo.html">Voo</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a6ac9e0e677c3de268475a385ca6aff8f">getVooNumero</a> (unsigned numVoo)</td></tr>
+<tr class="separator:a6ac9e0e677c3de268475a385ca6aff8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0712c85e79662e5be06fdf6496cae81e"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_bilhete.html">Bilhete</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a0712c85e79662e5be06fdf6496cae81e">getBilhetesFromPassageiro</a> (unsigned pId)</td></tr>
 <tr class="separator:a0712c85e79662e5be06fdf6496cae81e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c23c3c00133d41826922cee9ed1ddb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a6c23c3c00133d41826922cee9ed1ddb4">showBilhetesFromPassageiro</a> (unsigned pId)</td></tr>
@@ -114,8 +116,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a154562de7462f7c395bca2e227a41017"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7a1d1f11e3a3ec3c16eeec7488edf13"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#ab7a1d1f11e3a3ec3c16eeec7488edf13">cancelarViagem</a> (unsigned bId)</td></tr>
 <tr class="separator:ab7a1d1f11e3a3ec3c16eeec7488edf13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12bd351707f3908449986d223311c698"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a12bd351707f3908449986d223311c698">showBagagem</a> (<a class="el" href="class_bilhete.html">Bilhete</a> b)</td></tr>
-<tr class="separator:a12bd351707f3908449986d223311c698"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78e85514aad79234f1cf21db637ceeb2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a78e85514aad79234f1cf21db637ceeb2">realizarCheckIn</a> (unsigned bId)</td></tr>
 <tr class="separator:a78e85514aad79234f1cf21db637ceeb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52616c3b2962664030b34a99693d4d25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a52616c3b2962664030b34a99693d4d25">incrementarMultaPassageiro</a> (unsigned pId, float multa)</td></tr>
@@ -138,6 +138,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a861b0f771090c8b988838bcb9d181d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6917352797a23deb4ba2c95fe691c2a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a6917352797a23deb4ba2c95fe691c2a6">showVoosDatas</a> (const <a class="el" href="class_data.html">Data</a> &amp;d1, const <a class="el" href="class_data.html">Data</a> &amp;d2=<a class="el" href="class_data.html">Data</a>()) const</td></tr>
 <tr class="separator:a6917352797a23deb4ba2c95fe691c2a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12bd351707f3908449986d223311c698"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_companhia_aerea.html#a12bd351707f3908449986d223311c698">showBagagem</a> (<a class="el" href="class_bilhete.html">Bilhete</a> b)</td></tr>
+<tr class="separator:a12bd351707f3908449986d223311c698"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -216,7 +218,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Acrescenta um voo ao demais voos que a companhia tem por realizar. </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Acrescenta um voo aos demais voos que a companhia tem por realizar. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v</td><td>novo voo a acrescentar. </td></tr>
   </table>
@@ -346,7 +348,7 @@ Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a posição do aeroporto vo vector caso ele exista. Casp contrário retorna o índice do maior elemento menor que aeroporto ou o menor elemento maior que aeroporto </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>a posição do aeroporto vo vector caso ele exista. Caso contrário retorna o índice do maior elemento menor que aeroporto ou o menor elemento maior que aeroporto </dd></dl>
 
 </div>
 </div>
@@ -511,7 +513,7 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>uma copia dos bilhetes que a companhia vendeu. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>o conjunto dos bilhetes que a companhia vendeu. </dd></dl>
 
 </div>
 </div>
@@ -562,6 +564,31 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>todos os passageiros do voo indicado </dd></dl>
+
+</div>
+</div>
+<a id="a6ac9e0e677c3de268475a385ca6aff8f" name="a6ac9e0e677c3de268475a385ca6aff8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ac9e0e677c3de268475a385ca6aff8f">&#9670;&nbsp;</a></span>getVooNumero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_voo.html">Voo</a> &amp; CompanhiaAerea::getVooNumero </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>numVoo</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numVoo</td><td>é o número do voo </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>voo com número numVoo </dd></dl>
 
 </div>
 </div>
@@ -741,8 +768,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<<<<<<< HEAD
-=======
 <a id="a52616c3b2962664030b34a99693d4d25" name="a52616c3b2962664030b34a99693d4d25"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a52616c3b2962664030b34a99693d4d25">&#9670;&nbsp;</a></span>incrementarMultaPassageiro()</h2>
 
@@ -778,7 +803,6 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
->>>>>>> 1ea799ae39a2314b192d7147a3d247e64d7665e7
 <a id="a78e85514aad79234f1cf21db637ceeb2" name="a78e85514aad79234f1cf21db637ceeb2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a78e85514aad79234f1cf21db637ceeb2">&#9670;&nbsp;</a></span>realizarCheckIn()</h2>
 
@@ -819,12 +843,6 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<<<<<<< HEAD
-<p >Define os voos da companhia aérea. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">voos</td><td>são os novos voos da companhia. Atualiza as informações sobre as restriçoes de peso e multas a aplicar desta companhia </td></tr>
-    <tr><td class="paramname">excessoPeso</td><td>é o objeto que contém as informações sobre as restriçoes de peso e multas a aplicar desta companhia </td></tr>
-=======
 <p >Atualiza as informações sobre as restriçoes de peso e multas a aplicar desta companhia </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">excessoPeso</td><td>é o objeto que contém as informações sobre as restriçoes de peso e multas a aplicar desta companhia </td></tr>
@@ -849,10 +867,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+<p >Mostra toda a informação sobre as várias bagagens associadas a um determinado bilhete de um passageiro </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bId</td><td></td></tr>
->>>>>>> 1ea799ae39a2314b192d7147a3d247e64d7665e7
+    <tr><td class="paramname">b</td><td>é o bilhete do passageiro do qual se pretende saber informação sobre a bagagem </td></tr>
   </table>
   </dd>
 </dl>
@@ -1126,7 +1143,7 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Todos os avioes da companhia area. </p>
+<p >Todos os avioes da companhia aérea. </p>
 
 </div>
 </div>
@@ -1200,8 +1217,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/1 Semestre/AED/AirlineDatabaseManagement/Tests/<a class="el" href="_companhia_aerea_8h_source.html">CompanhiaAerea.h</a></li>
-<li>C:/Users/ASUS/OneDrive/Documentos/FEUP/2 ano/1 Semestre/AED/AirlineDatabaseManagement/Tests/CompanhiaAerea.cpp</li>
+<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/<a class="el" href="_companhia_aerea_8h_source.html">CompanhiaAerea.h</a></li>
+<li>C:/Users/isabe/OneDrive/Ambiente de Trabalho/FEUP/2_Ano/1_Semestre/AED/Projeto1/AirlineDatabaseManagement/Tests/CompanhiaAerea.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

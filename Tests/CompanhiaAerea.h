@@ -23,7 +23,7 @@ private:
      */
     ExcessoPeso excessoPeso;
     /**
-     * Todos os avioes da companhia area.
+     * Todos os avioes da companhia aérea.
      */
     vector<Aviao> avioes;
     /**
@@ -36,7 +36,7 @@ public:
     CompanhiaAerea(float pesoMaximo, float taxaPesoExtra, float taxaBagagemDeMao);
     /**
      *
-     * @return uma copia dos bilhetes que a companhia vendeu.
+     * @return o conjunto dos bilhetes que a companhia vendeu.
      */
     vector<Bilhete>& getBilhetesVendidos();
     /**
@@ -60,7 +60,7 @@ public:
      */
     void setExcessoPeso(const ExcessoPeso &excessoPeso);
     /**
-     * Acrescenta um voo ao demais voos que a companhia tem por realizar.
+     * Acrescenta um voo aos demais voos que a companhia tem por realizar.
      * @param v novo voo a acrescentar.
      */
     void addVoo(const Voo &v);
@@ -77,7 +77,7 @@ public:
     /**
      * Procura um determinado aeroporto no vector aeroportos usando pesquisa binária.
      * @param nome é o nome do aeroporto a ser pesquisado.
-     * @return a posição do aeroporto vo vector caso ele exista. Casp contrário retorna
+     * @return a posição do aeroporto vo vector caso ele exista. Caso contrário retorna
      * o índice do maior elemento menor que aeroporto ou o menor elemento maior que aeroporto
      */
     unsigned binarySearchAeroporto(const string& nome);
@@ -160,11 +160,6 @@ public:
      */
     bool cancelarViagem(unsigned bId);
     /**
-     *
-     * @param bId
-     */
-    void showBagagem(Bilhete b);
-    /**
      * Realiza o check-in de um determinado passageiro com bilhete referente a um certo voo.
      * Apenas é possível realizar o check-in se o bilhete para o voo em questão existir (alguma vez tiver sido comprado).
      * @param bId é o id do bilhete do passageiro para o voo para o qual pretende realizar check-in
@@ -243,6 +238,11 @@ public:
      * @return true se houver pelo menos um voo disponível que verifique as condições, false caso contrário
      */
     bool showVoosDatas(const Data& d1, const Data& d2=Data()) const;
+    /**
+     * Mostra toda a informação sobre as várias bagagens associadas a um determinado bilhete de um passageiro
+     * @param b é o bilhete do passageiro do qual se pretende saber informação sobre a bagagem
+     */
+    void showBagagem(Bilhete b);
 };
 
 #endif //_COMPANHIAAEREA_H

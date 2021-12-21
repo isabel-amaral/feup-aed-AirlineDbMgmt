@@ -113,7 +113,7 @@ void Aeroporto::showTransportes(int ordenacao) const {
             locais.push_back(it.retrieve());
             it.advance();
         }
-        ordenarLocais(locais, ordenacao);
+        vector<LocalDeTransporte> lt = ordenarLocais(locais, ordenacao);
         for (LocalDeTransporte l: locais)
             cout << l << endl;
         return;
@@ -200,27 +200,29 @@ bool Aeroporto::operator< (const Aeroporto &a1) const {
     return this->nome < a1.nome;
 }
 
-bool criterioComparacao2(const LocalDeTransporte& l1, const LocalDeTransporte& l2) {
+bool Aeroporto::criterioComparacao2(const LocalDeTransporte& l1, const LocalDeTransporte& l2) {
     if (l1.getDisponibilidade() != l2.getDisponibilidade())
-        return l1.getDisponibilidade() < l2.getDisponibilidade();
+        return l1.getDisponibilidade() > l2.getDisponibilidade();
     else if (l1.getDistancia() != l2.getDistancia())
         return l1.getDistancia() < l2.getDistancia();
     else
         return l1.getTipo() < l2.getTipo();
 }
 
-bool criterioComparacao3(const LocalDeTransporte& l1, const LocalDeTransporte& l2) {
+bool Aeroporto::criterioComparacao3(const LocalDeTransporte& l1, const LocalDeTransporte& l2) {
     if (l1.getTipo() != l2.getTipo())
         return l1.getTipo() < l2.getTipo();
     else if (l1.getDistancia() != l2.getDistancia())
         return l1.getDistancia() < l2.getDistancia();
     else
-        return l1.getDisponibilidade() < l2.getDisponibilidade();
+        return l1.getDisponibilidade() > l2.getDisponibilidade();
 }
 
-void ordenarLocais(vector<LocalDeTransporte>& locais, int ordenacao) {
+vector<LocalDeTransporte> Aeroporto::ordenarLocais(const vector<LocalDeTransporte>& locais, const int ordenacao) const {
+    vector<LocalDeTransporte> lt = locais;
     if (ordenacao == 2)
-        sort(locais.begin(), locais.end(), criterioComparacao2);
+        sort(lt.begin(), lt.end(), criterioComparacao2);
     else
-        sort(locais.begin(), locais.end(), criterioComparacao3);
+        sort(lt.begin(), lt.end(), criterioComparacao3);
+    return lt;
 }

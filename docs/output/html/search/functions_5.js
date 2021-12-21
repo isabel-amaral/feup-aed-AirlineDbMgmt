@@ -60,12 +60,13 @@ var searchData=
   ['gettaxapesoextra_57',['getTaxaPesoExtra',['../class_excesso_peso.html#a9319e90378a07add6cc628e7a57b251b',1,'ExcessoPeso']]],
   ['gettipo_58',['getTipo',['../class_aviao.html#adc26508e0362e09256ad59c5685cf8cb',1,'Aviao::getTipo()'],['../class_local_de_transporte.html#ab75c6b65bf1ed9ec99ba8e00721d6e0a',1,'LocalDeTransporte::getTipo()']]],
   ['gettiposervico_59',['getTipoServico',['../class_servico.html#a65cc79849178f241983e75b438042b7b',1,'Servico']]],
-  ['gettransportador_60',['getTransportador',['../class_voo.html#abe1108682f515f39841894d8c091c401',1,'Voo']]],
+  ['gettransportador_60',['getTransportador',['../class_voo.html#a9ee730514340d101f8e5a7772b4ac36a',1,'Voo']]],
   ['gettransportes_61',['getTransportes',['../class_aeroporto.html#a0489561666fbbf2d1074f1e003831624',1,'Aeroporto']]],
   ['getvoo_62',['getVoo',['../class_bilhete.html#a44b204b545d7e6615c103534b3f189a5',1,'Bilhete']]],
-  ['getvoos_63',['getVoos',['../class_companhia_aerea.html#af67e3865ab7b2cbe34ea1e7cd7780609',1,'CompanhiaAerea']]],
-  ['getvooschegada_64',['getVoosChegada',['../class_companhia_aerea.html#abd3ac29d55d2453df6139f253cbce582',1,'CompanhiaAerea']]],
-  ['getvooscidades_65',['getVoosCidades',['../class_companhia_aerea.html#a153ecc567b8b6b725435eec163c5ae8e',1,'CompanhiaAerea']]],
-  ['getvoosdatas_66',['getVoosDatas',['../class_companhia_aerea.html#a1c543f9f65c0146b06f9227020bc7356',1,'CompanhiaAerea']]],
-  ['getvoospartida_67',['getVoosPartida',['../class_companhia_aerea.html#a2017c8c85ca4f6a7a98664abbd78de14',1,'CompanhiaAerea']]]
+  ['getvoonumero_63',['getVooNumero',['../class_companhia_aerea.html#a6ac9e0e677c3de268475a385ca6aff8f',1,'CompanhiaAerea']]],
+  ['getvoos_64',['getVoos',['../class_companhia_aerea.html#af67e3865ab7b2cbe34ea1e7cd7780609',1,'CompanhiaAerea']]],
+  ['getvooschegada_65',['getVoosChegada',['../class_companhia_aerea.html#abd3ac29d55d2453df6139f253cbce582',1,'CompanhiaAerea']]],
+  ['getvooscidades_66',['getVoosCidades',['../class_companhia_aerea.html#a153ecc567b8b6b725435eec163c5ae8e',1,'CompanhiaAerea']]],
+  ['getvoosdatas_67',['getVoosDatas',['../class_companhia_aerea.html#a1c543f9f65c0146b06f9227020bc7356',1,'CompanhiaAerea']]],
+  ['getvoospartida_68',['getVoosPartida',['../class_companhia_aerea.html#a2017c8c85ca4f6a7a98664abbd78de14',1,'CompanhiaAerea']]]
 ];

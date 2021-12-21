@@ -123,17 +123,30 @@ public:
      * @return true se a1 é maior que esta instância.
      */
     bool operator <(const Aeroporto& a1) const;
+    /**
+    * Critério de ordenação de transportes terrestres por ordem decrescente de diponibilidade,
+    * em caso de empate, os locais são ordenados por distância (ordem crescente), caso haja empate,
+    * são ordenados pelo tipo seguindo o critério Metro < Comboio < Autocarro.
+    * @param l1 é um local de transporte
+    * @param l2 é outro local de transporte
+    * @return true se l1 < l2 de acordo com o critério, caso contrário false.
+    */
+    static bool criterioComparacao2 (const LocalDeTransporte& l1, const LocalDeTransporte& l2 );
+    /**
+     * Critério de ordenação de transportes terrestres por tipo seguindo o critério Metro < Comboio < Autocarro,
+     * em caso de empate, os locais são ordenados por distância (distância), caso haja empate,
+     * são ordenados por ordem decrescente de disponibilidade.
+     * @param l1 é um local de transporte
+     * @param l2 é outro local de transporte
+     * @return true se l1 < l2 de acordo com o critério, caso contrário false.
+     */
+    static bool criterioComparacao3 (const LocalDeTransporte& l1, const LocalDeTransporte& l2);
+    /**
+     * Ordena um conjunto de locais de transporte segundo um critério específico
+     * @param locais conjunto de locais a ordenar
+     * @param ordenacao critério a ser utilizado na ordenação
+     */
+    vector<LocalDeTransporte> ordenarLocais(const vector<LocalDeTransporte>& locais, const int ordenacao) const;
 };
-/**
-* Critério de ordenação de transportes terrestres por ordem crescente de diponibilidade,
-* em caso de empate, os locais são ordenados por distÂncia (ordem crescente), caso haja empate,
-* são ordenados pelo tipo seguindo o critério Metro< Comboio < Autocarro.
-* @param l1 é um local de transporte
-* @param l2 é outro local de transporte
-* @return true se l1 < l2, caso contrário false.
-*/
-bool criterioComparacao2 ( const LocalDeTransporte& l1, const LocalDeTransporte& l2 );
-bool criterioComparacao3 (const LocalDeTransporte& l1, const LocalDeTransporte& l2) ;
-void ordenarLocais (vector <LocalDeTransporte>& locais, int ordenacao);
 
 #endif //_AEROPORTO_H

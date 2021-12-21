@@ -7,12 +7,13 @@
 #include <algorithm>
 using namespace std;
 
-enum DiaDaSemana { DiasUteis, Sabados, DomingosFeriados};
+enum DiaDaSemana { DiasUteis, Sabados, DomingosFeriados };
 
 class Horario {
 private:
     /**
-     * Dia da semana.
+     * Um dia pode ser um dia útil, um sábado ou um domingo/feriado, em cada caso
+     * será representado por um enum cujo valor será DiasUteis, Sabados ou DomingosFeriados
      */
     DiaDaSemana dia;
     /**

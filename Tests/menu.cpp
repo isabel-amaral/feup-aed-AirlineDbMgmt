@@ -7,7 +7,7 @@ Menu::Menu() {
     menu0();
 }
 
-void Menu::readOption(const unsigned& minOption, const unsigned& maxOption) {
+void Menu::readOption(const unsigned minOption, const unsigned maxOption) {
     bool validOption;
     do {
         cin >> option;
@@ -129,7 +129,9 @@ void Menu::menu3() {
     if (idPassageiro != 0){
         companhia.showBilhetesFromPassageiro(idPassageiro);
 
-        cout << "1. Cancelar uma viagem" << endl;
+        cout << "1. Ver bagagem" << endl;
+        cout << "2. Ver multa" << endl;
+        cout << "3. Cancelar uma viagem" << endl;
         cout << "0. voltar" << endl;
         cout << "\nESCOLHA UMA OPCAO: ";
         readOption(0, 3);
@@ -244,7 +246,7 @@ void Menu::menu5() {
     cout << "26. Gestao dos avioes." << endl;
     cout << "0. Voltar a pagina anterior." << endl;
     cout <<  "\nESCOLHA UMA OPCAO: ";
-    readOption(19, 25);
+    readOption(19, 26);
 
     if (option)
         lastMenu.push(5);
@@ -675,33 +677,32 @@ void Menu::menu26() {
 void Menu::menuCompra() {
     int numPessoas, id, idade, nrVoo, numBagagens;
     string nome, resposta;
-    bool menorNaoAcompanhado =false, bagagemMao, compraRealizada;
+    bool menorNaoAcompanhado = false, bagagemMao, compraRealizada;
     float peso;
-    list <Passageiro> passageiros;
-    list <list<Bagagem*>> malas;
-    list <Bagagem*> b;
+    list<Passageiro> passageiros;
+    list<list<Bagagem*>> malas;
+    list<Bagagem*> b;
 
     cout << "\n1. Comprar um bilhete" << endl ;
     cout << "0. Voltar"<< endl;
     cout << "ESCOLHA UMA OPCAO: ";
     readOption(0 ,1);
 
-    if ( option == 0){
+    if (option == 0)
         return;
-    }
 
-    cout << "\nINSIRA O NUMERO DO VOO PARA O QUAL DESEJA COMPRAR BILHETE: " ;
+    cout << "\nINSIRA O NUMERO DO VOO PARA O QUAL DESEJA COMPRAR BILHETE: ";
     cin >> nrVoo;
 
-    for (Voo& v: companhia.getVoos() ){
-        if (v.getNumeroVoo() == nrVoo){
-            cout << "INSIRA O NUMERO DE PESSOAS: (0 para voltar): " ;
+    for (Voo& v: companhia.getVoos()) {
+        if (v.getNumeroVoo() == nrVoo) {
+            cout << "INSIRA O NUMERO DE PESSOAS: (0 para voltar): ";
             cin >> numPessoas;
 
             if (numPessoas == 0)
                 return;
 
-            cout << "Deseja levar bagagem de mao? "<< endl;
+            cout << "Deseja levar bagagem de mao? " << endl;
             cout << "1. Sim" << endl;
             cout << "2. Nao" << endl;
             readOption(1,2);
@@ -709,7 +710,6 @@ void Menu::menuCompra() {
 
             while (numPessoas > 0) {
                 b.clear();
-                cin.ignore(10000, '\n');
 
                 cout << "\nNome: " ;
                 getline (cin, nome);
@@ -725,15 +725,15 @@ void Menu::menuCompra() {
                     readOption(1, 2);
                     menorNaoAcompanhado = (option == 2);
                 }
-                cout << "Quantas bagagens de porao deseja levar? " << endl;
+                cout << "Quantas bagagens de porao deseja levar? ";
                 cin >> numBagagens;
 
                 if (bagagemMao) {
                     cout << "Peso da bagagem de mao: ";
                     cin >> peso;
-                    cout << "Pretende usar o nosso serviço de check-in automático de bagagem? [Escolha 'S'-Sim ou 'N'- Nao]" << endl;
+                    cout << "Pretende usar o nosso servico de check-in automatico de bagagem? [Escolha 'S'-Sim ou 'N'- Nao]" << endl;
                     do {
-                        getline (cin, resposta);
+                        cin >> resposta;
                         if (resposta != "S" && resposta != "N")
                             cout << "ESCOLHA INVALIDA! TENTE NOVAMENTE." <<endl;
                     } while (resposta != "S" && resposta != "N");
@@ -749,9 +749,9 @@ void Menu::menuCompra() {
                 while (numBagagens > 0){
                     cout << "Peso da bagagem de porao: ";
                     cin >> peso;
-                    cout << "Pretende usar o nosso serviço de check-in automático de bagagem? [Escolha 'S'-Sim ou 'N'- Nao]" << endl;
+                    cout << "Pretende usar o nosso servico de check-in automatico de bagagem? [Escolha 'S'-Sim ou 'N'- Nao]" << endl;
                     do {
-                        getline (cin, resposta);
+                        cin >> resposta;
                         if (resposta != "S" && resposta != "N")
                             cout << "ESCOLHA INVALIDA! TENTE NOVAMENTE." <<endl;
                     } while (resposta != "S" && resposta != "N");

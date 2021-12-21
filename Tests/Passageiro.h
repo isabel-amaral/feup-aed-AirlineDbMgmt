@@ -50,7 +50,7 @@ public:
     unsigned getIdade() const;
     /**
      *
-     * @return true se o passageiro for menor de idade e estiver a vaigem sem um adulto responsável, falso caso contrário.
+     * @return true se o passageiro for menor de idade e estiver a realizar a viagem sem um adulto responsável, falso caso contrário.
      */
     bool isMenorNaoAcompanhado() const;
     /**

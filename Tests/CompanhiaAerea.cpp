@@ -160,6 +160,7 @@ bool CompanhiaAerea::adquirirBilhete(const Passageiro& p, Voo& v, bool bagagem, 
             Bilhete b(Bilhete::getIdCount()+1, p, v, bagagem, bagagens);
             bilhetesVendidos.push_back(b);
             sort(bilhetesVendidos.begin(), bilhetesVendidos.end());
+            cout << b << endl;
             return true;
         }
     }
@@ -177,6 +178,7 @@ bool CompanhiaAerea::adquirirConjuntoBilhetes(list<Passageiro>& p, Voo& v, bool 
             for (it = p.begin(), j =bagagens.begin() ; it != p.end() && j != bagagens.end(); it++, j++) {
                 Bilhete b(Bilhete::getIdCount()+1, *it, v, bagagem, *j);
                 bilhetesVendidos.push_back(b);
+                cout << b << endl;
             }
             sort(bilhetesVendidos.begin(), bilhetesVendidos.end());
             return true;
@@ -225,7 +227,6 @@ bool CompanhiaAerea::realizarCheckIn(unsigned bId) {
         if (!(*it)->isBagagemDeMao()) {
             if ((*it)->isCheckInAutomatico())
                 getVooNumero(bilhete.getVoo().getNumeroVoo()).getTransportador().adicionarAoTapete(*it);
-                //bilhete.getVoo().getTransportador().adicionarAoTapete(*it);
             if (excessoPeso.excedePeso(*it))
                 incrementarMultaPassageiro(bilhete.getPasssageiro().getId(), excessoPeso.multaExcessoPeso(*it));
         }

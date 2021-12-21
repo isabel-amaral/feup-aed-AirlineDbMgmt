@@ -32,21 +32,6 @@ var searchData=
   ['settransportador_29',['setTransportador',['../class_voo.html#af7b0e76eb780a13e50b073fd5de482be',1,'Voo']]],
   ['showautocaros_30',['showAutocaros',['../class_aeroporto.html#ae90766e1e8d17992c9a8c7c5d7a65752',1,'Aeroporto']]],
   ['showautocarroproximo_31',['showAutocarroProximo',['../class_aeroporto.html#a8c2dc649c2bb414adc78e535e3f61f4e',1,'Aeroporto']]],
-<<<<<<< HEAD
-  ['showbilhetesfrompassageiro_32',['showBilhetesFromPassageiro',['../class_companhia_aerea.html#ae4390b1c0ae49cb60d4ed536cec0083a',1,'CompanhiaAerea']]],
-  ['showcomboioproximo_33',['showComboioProximo',['../class_aeroporto.html#a3d0ede98ba9af12a276513fe82308675',1,'Aeroporto']]],
-  ['showcomboios_34',['showComboios',['../class_aeroporto.html#accd4c5dfc3b909566acbc3079bfd0dd6',1,'Aeroporto']]],
-  ['showlocaltransporteproximo_35',['showLocalTransporteProximo',['../class_aeroporto.html#aecf803b449768839628fc605cd5bef1c',1,'Aeroporto']]],
-  ['showmetroproximo_36',['showMetroProximo',['../class_aeroporto.html#ab2c2911cb37a6397c08e21663e8a07ac',1,'Aeroporto']]],
-  ['showmetros_37',['showMetros',['../class_aeroporto.html#a8e0f372b5c8fcd5164a274d3e2f41a0f',1,'Aeroporto']]],
-  ['showpassageirosfromvoo_38',['showPassageirosFromVoo',['../class_companhia_aerea.html#a3e054d55805dc6668b39600d30c1108d',1,'CompanhiaAerea']]],
-  ['showtransportes_39',['showTransportes',['../class_aeroporto.html#ae2bbab5f3dee5059fbed63c0b1582181',1,'Aeroporto']]],
-  ['showvoos_40',['showVoos',['../class_companhia_aerea.html#a7d152b933623495330bac02d341bc495',1,'CompanhiaAerea']]],
-  ['showvooschegada_41',['showVoosChegada',['../class_companhia_aerea.html#a6eeca61e5f207ca73e4ca7b233fff89e',1,'CompanhiaAerea']]],
-  ['showvooscidades_42',['showVoosCidades',['../class_companhia_aerea.html#a861b0f771090c8b988838bcb9d181d0b',1,'CompanhiaAerea']]],
-  ['showvoosdatas_43',['showVoosDatas',['../class_companhia_aerea.html#a6917352797a23deb4ba2c95fe691c2a6',1,'CompanhiaAerea']]],
-  ['showvoospartida_44',['showVoosPartida',['../class_companhia_aerea.html#a139a7be98601d8c5a78e13ba67a541fe',1,'CompanhiaAerea']]]
-=======
   ['showbagagem_32',['showBagagem',['../class_companhia_aerea.html#a12bd351707f3908449986d223311c698',1,'CompanhiaAerea']]],
   ['showbilhetesfrompassageiro_33',['showBilhetesFromPassageiro',['../class_companhia_aerea.html#a6c23c3c00133d41826922cee9ed1ddb4',1,'CompanhiaAerea']]],
   ['showcomboioproximo_34',['showComboioProximo',['../class_aeroporto.html#a3d0ede98ba9af12a276513fe82308675',1,'Aeroporto']]],
@@ -61,5 +46,4 @@ var searchData=
   ['showvooscidades_43',['showVoosCidades',['../class_companhia_aerea.html#a861b0f771090c8b988838bcb9d181d0b',1,'CompanhiaAerea']]],
   ['showvoosdatas_44',['showVoosDatas',['../class_companhia_aerea.html#a6917352797a23deb4ba2c95fe691c2a6',1,'CompanhiaAerea']]],
   ['showvoospartida_45',['showVoosPartida',['../class_companhia_aerea.html#a139a7be98601d8c5a78e13ba67a541fe',1,'CompanhiaAerea']]]
->>>>>>> 1ea799ae39a2314b192d7147a3d247e64d7665e7
 ];

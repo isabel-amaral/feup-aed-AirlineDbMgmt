@@ -12,7 +12,7 @@ private:
      */
     bool bagagemDeMao;
     /**
-     * Se o checkIn será feito de forma automática.
+     * true se o passageiro pretender que o check-in da sua bagagem seja feito de forma automática, false caso contrário
      */
     bool checkInAutomatico;
 

@@ -17,7 +17,7 @@ private:
      */
     float distancia;
     /**
-     * Tipo de transporte que cricula pelo local.
+     * Um transporte pode ser metro, comboio ou autocarro, em cada caso será representado por um enum cujo valor será Metro, Comboio ou Autocarro
      */
     tipoTransporte tipo;
     /**
@@ -69,7 +69,14 @@ public:
      * @param local é o objeto a ser comparado com esta instância
      * @return true se esta instância é menor que @param local e em caso contrário false.
      */
-    bool operator< (const LocalDeTransporte& local) const;
+    /**
+     * Considera-se que este local de transporte é menor que outro (local) se a sua distância ao aeroporto for menor que a de local. Em caso
+     * de empate, compara-se as disponibilidades de cada um: o que tiver maior disponibilidade, será considerado menor. Caso contrário,
+     * será menor aquele que tiver o menor tipo. Sendo considerada a seguinte ordem: Metro< Comboio< Autocarro.
+     * @param l é o objeto a ser comparado com esta instância
+     * @return true se esta instância é menor que @param local e em caso contrário false.
+     */
+    bool operator< (const LocalDeTransporte& l) const;
     /**
      * Este operador envia para uma outputstream toda a informação sobre um local de transporte que deverá ser mostrada ao utilizador.
      * @param os outputstream que conterá informação sobre o local
