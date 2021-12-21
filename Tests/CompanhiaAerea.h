@@ -202,33 +202,39 @@ public:
      */
     vector <Voo> getVoosDatas (const Data& d1, const Data& d2=Data()) const;
     /**
-     * Mostra todos os voos que vão aterrar numa determinada cidade numa determinada data
+     * Mostra todos os voos da companhia aérea
+     * @return true se houver pelo menos um voo disponível, false caso contrário
      */
-    bool showVoos() const;  // TODO: documentacao do @return destes metodos
+    bool showVoos() const;
     /**
      * Mostra os voos que vão partir de uma determinada cidade numa determinada data
      * @param cidadePartida é a cidade de origem
-     * @param d1 é a data
+     * @param d1 é a data em questão
+     * @return true se houver pelo menos um voo disponível que verifique as condições, false caso contrário
      */
     bool showVoosPartida(const string& cidadePartida, const Data& d1=Data()) const;
     /**
      * Mostra os voos que vão aterrar numa determinada cidade numa determinada data
      * @param cidadeChegada é a cidade de destino
-     * @param d1  é a data
+     * @param d1 é a data em questão
+     * @return true se houver pelo menos um voo disponível que verifique as condições, false caso contrário
      */
     bool showVoosChegada(const string& cidadeChegada, const Data& d1=Data()) const;
     /**
      * Mostra os voos que vão ser realizados entre duas determinadas datas
+     * com partida numa determinada cidade e chegada noutra determinada cidade
      * @param cidadePartida é a cidade de origem
      * @param cidadeChegada é a cidade de destino
-     * @param d1 é uma data
-     * @param d2 é uma data
+     * @param d1 é a data que marca o início do intervalo de pesquisa
+     * @param d2 é a data que marca o fim do intervalo de pesquisa
+     * @return true se houver pelo menos um voo disponível que verifique as condições, false caso contrário
      */
     bool showVoosCidades(const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
     /**
      * Mostra todos os voos que vão ser realizados entre duas determinadas datas
-     * @param d1 é uma data
-     * @param d2 é uma data
+     * @param d1 é a data que marca o início do intervalo de pesquisa
+     * @param d2 é a data que marca o fim do intervalo de pesquisa
+     * @return true se houver pelo menos um voo disponível que verifique as condições, false caso contrário
      */
     bool showVoosDatas(const Data& d1, const Data& d2=Data()) const;
 };

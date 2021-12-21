@@ -90,7 +90,6 @@ ostream &operator<< (ostream& os, Bilhete& b) {
         cout << b.getPasssageiro().getNome() << " tem direito a levar bagagem de mao" << endl;
     else
         cout << b.getPasssageiro().getNome() << " nao tem direito a levar bagagem de mao" << endl;
-    //TODO: retirar?
     if (!b.getBagagem().empty())
         cout << "Pode levar " << b.getBagagem().size() << " mala(s) no total." << endl;
     return os;

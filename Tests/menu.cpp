@@ -657,9 +657,5 @@ void Menu::menuCompra() {
             return;
         }
     }
-
     cout << "NUMERO DE VOO INVALIDO!" << endl;
-    //TODO: Como ler os objetos da classe bagagem?
-    //TODO: como inicializar a multa?
-    //TODO: Comprar bilhete imprime na tela "Compra realizada com sucesso" mas nao acrescenta o passageiro a lista do voo
 }
