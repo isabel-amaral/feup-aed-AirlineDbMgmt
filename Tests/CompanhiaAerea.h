@@ -94,6 +94,12 @@ public:
     Bilhete& getBilheteID(unsigned bId);
     /**
      *
+     * @param pID é o id do passageiro
+     * @return passageiro com id pId
+     */
+    Passageiro getPassageiroID(unsigned pID);
+    /**
+     *
      * @param pId é o id de um determinado passageiro
      * @return vector com todos os bilhetes adquiridos pelo passageiro p num vetor.
      * Caso este passageiro não tenha adquirido nenhum bilhete, será retornado um vetor vazio.

@@ -133,20 +133,28 @@ void Menu::menu3() {
         cout << "3. Cancelar uma viagem" << endl;
         cout << "0. voltar" << endl;
         readOption(0, 1);
-        if (option){
+
+        if (option == 0) {
+            option = lastMenu.top();
+            lastMenu.pop();
+            processOption();
+        }
+        else if (option == 2) {
+            Passageiro p = companhia.getPassageiroID(idPassageiro);
+            if (p.getMultaBagagem() == 0)
+                cout << "Neste momento nao tem nenhuma multa a pagar";
+            else
+                cout << "Tem " << p.getMultaBagagem() << "euros a pagar";
+        }
+        else if (option == 3) {
             cout << "Insira o numero do bilhete: ";
             cin >> numBilhete;
             if (companhia.cancelarViagem(numBilhete))
                 cout << "Viagem cancelada" << endl;
             else
                 cout << "Nao foi possivel cancelar a viagem" << endl;
-
         }
     }
-
-    option = lastMenu.top();
-    lastMenu.pop();
-    processOption();
 }
 
 //Transportes: Locais e Horarios
