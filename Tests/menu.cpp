@@ -212,8 +212,8 @@ void Menu::menu4() {
     }
     if (option >= 11 && option <= 14) {
         lastMenu.push (4);
-        cout << "\n1. Distancia Ascendente - Disponibilidade Ascendente - Tipo " << endl;
-        cout << "2. Disponibilidade Ascendente - Distancia Ascendente - Tipo" << endl;
+        cout << "\n1. Distancia Ascendente - Disponibilidade Descendente - Tipo " << endl;
+        cout << "2. Disponibilidade Descendente - Distancia Ascendente - Tipo" << endl;
         cout << "3. Tipo - Distancia Ascendente - Disponibilidade Ascendente " << endl;
         cout << endl << "\nESCOLHA EM QUE ORDEM DESEJA QUE OS DADOS SEJAM APRESENTADOS:";
         cin >> opOrdenacao;
@@ -746,7 +746,7 @@ void Menu::menuCompra() {
                     b.push_back(bMao);
                 }
 
-                while (numBagagens > 0){
+                while (numBagagens > 0) {
                     cout << "Peso da bagagem de porao: ";
                     cin >> peso;
                     cout << "Pretende usar o nosso servico de check-in automatico de bagagem? [Escolha 'S'-Sim ou 'N'- Nao]" << endl;

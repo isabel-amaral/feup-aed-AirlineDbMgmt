@@ -146,7 +146,7 @@ public:
      * @param locais conjunto de locais a ordenar
      * @param ordenacao critério a ser utilizado na ordenação
      */
-    vector<LocalDeTransporte> ordenarLocais(const vector<LocalDeTransporte>& locais, const int ordenacao) const;
+    vector<LocalDeTransporte> ordenarLocais(vector<LocalDeTransporte>& locais, const int ordenacao) const;
 };
 
 #endif //_AEROPORTO_H

@@ -114,7 +114,7 @@ void Aeroporto::showTransportes(int ordenacao) const {
             it.advance();
         }
         vector<LocalDeTransporte> lt = ordenarLocais(locais, ordenacao);
-        for (LocalDeTransporte l: locais)
+        for (LocalDeTransporte l: lt)
             cout << l << endl;
         return;
     }
@@ -131,34 +131,34 @@ void Aeroporto::showMetros(int ordenacao) const {
         return;
     }
     if (ordenacao != 1)
-        ordenarLocais(metros, ordenacao);
+        metros = ordenarLocais(metros, ordenacao);
 
     for (const auto& metro: metros)
         cout << metro << endl;
 }
 
 void Aeroporto::showComboios(int ordenacao) const {
-    vector<LocalDeTransporte> comboios = getMetros();
+    vector<LocalDeTransporte> comboios = getComboios();
 
     if (comboios.empty()) {
         cout << "Esta cidade nao possui comboios." << endl;
         return;
     }
     if (ordenacao != 1)
-        ordenarLocais(comboios, ordenacao);
+        comboios = ordenarLocais(comboios, ordenacao);
 
     for (const auto& comboio: comboios)
         cout << comboio << endl;
 }
 
 void Aeroporto::showAutocaros(int ordenacao) const {
-    vector<LocalDeTransporte> autocarros = getMetros();
+    vector<LocalDeTransporte> autocarros = getAutocarros();
     if (autocarros.empty()) {
         cout << "Esta cidade nao possui autocarros." << endl;
         return;
     }
     if (ordenacao != 1)
-        ordenarLocais(autocarros, ordenacao);
+        autocarros = ordenarLocais(autocarros, ordenacao);
 
     for (const auto& autocarro: autocarros)
         cout << autocarro << endl;
@@ -218,7 +218,7 @@ bool Aeroporto::criterioComparacao3(const LocalDeTransporte& l1, const LocalDeTr
         return l1.getDisponibilidade() > l2.getDisponibilidade();
 }
 
-vector<LocalDeTransporte> Aeroporto::ordenarLocais(const vector<LocalDeTransporte>& locais, const int ordenacao) const {
+vector<LocalDeTransporte> Aeroporto::ordenarLocais(vector<LocalDeTransporte>& locais, const int ordenacao) const {
     vector<LocalDeTransporte> lt = locais;
     if (ordenacao == 2)
         sort(lt.begin(), lt.end(), criterioComparacao2);
