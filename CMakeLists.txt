@@ -14,7 +14,7 @@ add_executable(AirlineDatabaseManagement main.cpp Tests/tests.cpp Tests/Aviao.h 
         Tests/Aeroporto.h Tests/Aeroporto.cpp Tests/Funcionario.cpp Tests/Funcionario.h Tests/Bagagem.cpp Tests/Bagagem.h
         Tests/CompanhiaAerea.cpp Tests/CompanhiaAerea.h Tests/TransportadorDeBagagem.cpp Tests/TransportadorDeBagagem.h
         Tests/Data.h Tests/Data.cpp Tests/Horario.cpp Tests/Horario.h Tests/LocalDeTransporte.cpp Tests/LocalDeTransporte.h
-        Tests/bst.h Tests/ExcessoPeso.cpp Tests/ExcessoPeso.h Tests/menu.cpp Tests/menu.h)
+        Tests/bst.h Tests/ExcessoPeso.cpp Tests/ExcessoPeso.h Tests/menu.cpp Tests/menu.h Tests/LoadData.cpp Tests/LoadData.h)
 
 target_link_libraries(AirlineDatabaseManagement gtest gtest_main)
 

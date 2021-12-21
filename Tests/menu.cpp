@@ -2,7 +2,7 @@
 
 Menu::Menu() {
     option = 0;
-    companhia.loadData();
+    LoadData loader(companhia);
     lastMenu.push(0);   //'0' representa o menu inicial/principal
     menu0();
 }

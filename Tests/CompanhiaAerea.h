@@ -38,27 +38,32 @@ public:
      *
      * @return uma copia dos bilhetes que a companhia vendeu.
      */
-    vector<Bilhete> getBilhetesVendidos() const;
+    vector<Bilhete>& getBilhetesVendidos();
     /**
      *
      * @return todos os voos que a companhia tem por realizar.
      */
-    vector<Voo> getVoos() const;
+    vector<Voo>& getVoos();
     /**
      *
      * @return todos os avioes da companhia area.
      */
-    list<Aviao> getAvioes() const;
+    list<Aviao>& getAvioes();
     /**
      *
      * @return todos os aeroportos onde os aviões da companhia operam
      */
-    vector<Aeroporto> getAeroportos() const;
+    vector<Aeroporto>& getAeroportos();
     /**
      * Define os voos da companhia aérea.
      * @param voos são os novos voos da companhia.
      */
     void setVoos(const vector<Voo>& voos);
+    /**
+     * Atualiza as informações sobre as restriçoes de peso e multas a aplicar desta companhia
+     * @param excessoPeso é o objeto que contém as informações sobre as restriçoes de peso e multas a aplicar desta companhia
+     */
+    void setExcessoPeso(const ExcessoPeso &excessoPeso);
     /**
      * Acrescenta um voo ao demais voos que a companhia tem por realizar.
      * @param v novo voo a acrescentar.
@@ -214,21 +219,6 @@ public:
      * @param d2 é uma data
      */
     bool showVoosDatas(const Data& d1, const Data& d2=Data()) const;
-    /**
-     *
-     * @param ficheiroAvioes é o nome de um ficheiro com os aviões
-     * @param ficheiroVoos é o nome de um ficheiro com os voos
-     * @param ficheiroBilhetes é o nome de um ficheiro com os bilhetes
-     */
-    void loadData();
-    void loadAvioes();
-    void loadAeroportos();
-    void loadVoosAndBilhetes();
-    void loadLocaisTransporte();
-    void loadServicos();
-    void loadBagagens();
-    void loadTransportadorBagagem();
-    void loadExcessoPeso();
 };
 
 #endif //_COMPANHIAAEREA_H

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "CompanhiaAerea.h"
+#include "LoadData.h"
 using namespace std;
 
 class Menu {
