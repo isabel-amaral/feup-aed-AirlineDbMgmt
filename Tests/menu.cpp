@@ -88,7 +88,7 @@ void Menu::menu1() {
     cout << "9. Visualizar voos entre duas cidades selecionadas" << endl;
     cout << "10. Visualizar voos realizados em determinadas datas" << endl;
     cout << "0. Voltar a pagina anterior" << endl;
-    cout << "\nESCOLHA UMA OPCAO:";
+    cout << "\nESCOLHA UMA OPCAO: ";
     readOption(6,10);
 
     if (option)
@@ -123,7 +123,7 @@ void Menu::menu2() {
 //As minhas Reservas
 void Menu::menu3() {
     unsigned idPassageiro, numBilhete;
-    cout << "\nInsira o seu numero de identificacao:";
+    cout << "\nInsira o seu numero de identificacao: ";
     cin >> idPassageiro;
 
     if (idPassageiro != 0){
@@ -131,21 +131,44 @@ void Menu::menu3() {
 
         cout << "1. Cancelar uma viagem" << endl;
         cout << "0. voltar" << endl;
-        readOption(0, 1);
-        if (option){
+        cout << "\nESCOLHA UMA OPCAO: ";
+        readOption(0, 3);
+
+        if(option == 1) {
+            cout << "Insira o numero do bilhete: ";
+            cin >> numBilhete;
+            Bilhete b = companhia.getBilheteID(numBilhete);
+
+            if (b.getPasssageiro().getId() != idPassageiro)
+                cout << "Nao foi possivel encontrar registo do seu bilhete" << endl;
+            else if (find(b.getVoo().getPassageiros().begin(), b.getVoo().getPassageiros().end(), b.getPasssageiro()) != b.getVoo().getPassageiros().end())
+                companhia.showBagagem(b);
+            else
+                cout << "Nao foi possivel encontrar registo da sua bagagem" << endl;
+        }
+
+        else if (option == 2) {
+            Passageiro p = companhia.getPassageiroID(idPassageiro);
+            if (p.getMultaBagagem() == 0)
+                cout << "Neste momento nao tem nenhuma multa a pagar" << endl;
+            else
+                cout << "Tem " << p.getMultaBagagem() << " euros a pagar";
+        }
+
+        else if (option == 3) {
             cout << "Insira o numero do bilhete: ";
             cin >> numBilhete;
             if (companhia.cancelarViagem(numBilhete))
                 cout << "Viagem cancelada" << endl;
             else
                 cout << "Nao foi possivel cancelar a viagem" << endl;
-
         }
-    }
 
-    option = lastMenu.top();
-    lastMenu.pop();
-    processOption();
+        cout << endl;
+        option = lastMenu.top();
+        lastMenu.pop();
+        processOption();
+    }
 }
 
 //Transportes: Locais e Horarios
@@ -741,11 +764,8 @@ void Menu::menuCompra() {
             return;
         }
     }
-
     cout << "NUMERO DE VOO INVALIDO!" << endl;
-    //TODO: Como ler os objetos da classe bagagem?
-    //TODO: como inicializar a multa?
-    //TODO: Comprar bilhete imprime na tela "Compra realizada com sucesso" mas nao acrescenta o passageiro a lista do voo
 }
+
 
 

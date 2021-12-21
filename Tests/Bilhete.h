@@ -54,7 +54,7 @@ public:
      *
      * @return passageiro a quem pertence o bilhete.
      */
-    Passageiro getPasssageiro() const;
+    Passageiro& getPasssageiro();
     /**
      *
      * @return voo para o qual o bilhete foi adquirido.

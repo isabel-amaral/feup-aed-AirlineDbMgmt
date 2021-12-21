@@ -29,10 +29,7 @@ bool ExcessoPeso::excedePeso(const Bagagem* b) const {
 }
 
 float ExcessoPeso::multaExcessoPeso(const Bagagem* b) const {
-    float multa = 0;
-    for (float i = pesoMaximo; i <= b->getPeso(); i++)
-        multa += taxaPesoExtra;
-    return multa;
+    return (b->getPeso() - pesoMaximo) * taxaPesoExtra;
 }
 
 float ExcessoPeso::multaTaxaBagagemDeMao(const Bagagem* b) const {

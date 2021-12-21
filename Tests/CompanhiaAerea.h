@@ -54,11 +54,6 @@ public:
      * @return todos os aeroportos onde os aviões da companhia operam
      */
     vector<Aeroporto>& getAeroportos();
-/*  *//**
-     * Define os voos da companhia aérea.
-     * @param voos são os novos voos da companhia.
-     *//*
-    void setVoos(const vector<Voo>& voos);*/
     /**
      * Atualiza as informações sobre as restriçoes de peso e multas a aplicar desta companhia
      * @param excessoPeso é o objeto que contém as informações sobre as restriçoes de peso e multas a aplicar desta companhia
@@ -94,18 +89,24 @@ public:
     Bilhete& getBilheteID(unsigned bId);
     /**
      *
+     * @param pID é o id do passageiro
+     * @return passageiro com id pId
+     */
+    Passageiro getPassageiroID(unsigned pID);
+    /**
+     *
      * @param pId é o id de um determinado passageiro
      * @return vector com todos os bilhetes adquiridos pelo passageiro p num vetor.
      * Caso este passageiro não tenha adquirido nenhum bilhete, será retornado um vetor vazio.
      */
-    vector<Bilhete> getBilhetesFromPassageiro(unsigned pId) const;
+    vector<Bilhete> getBilhetesFromPassageiro(unsigned pId);
     /**
      * Imprime os dados de cada um dos bilhetes de um determinado passageiro.
      * Caso o passageiro não tenha adquirido nenhum bilhete, é apresentada a
      * mensagem "Este passageiro ainda não adquiriu nenhum bilhete".
      * @param pId é o id do passageiro
      */
-    void showBilhetesFromPassageiro(unsigned pId) const;
+    void showBilhetesFromPassageiro(unsigned pId);
     /**
      *
      * @param numVoo é o número do voo
@@ -123,7 +124,7 @@ public:
      * @param numVoo é o número do voo
      * @return bilhete do passageiro para o voo em questão
      */
-    Bilhete getBilhetePassageiroVoo(unsigned pId, unsigned numVoo) const;
+    Bilhete getBilhetePassageiroVoo(unsigned pId, unsigned numVoo);
     /**
      * Acrescenta um bilhete ao conjunto dos demais bilhetes vendidos caso seja possivel efetuar a sua compra (o voo v não está lotado).
      * @param p é o passageiro que pretende comprar o bilhete.
@@ -153,12 +154,23 @@ public:
      */
     bool cancelarViagem(unsigned bId);
     /**
+     *
+     * @param bId
+     */
+    void showBagagem(Bilhete b);
+    /**
      * Realiza o check-in de um determinado passageiro com bilhete referente a um certo voo.
      * Apenas é possível realizar o check-in se o bilhete para o voo em questão existir (alguma vez tiver sido comprado).
-     * @param bId bId é o id do bilhete do passageiro para o voo para o qual pretende realizar check-in
+     * @param bId é o id do bilhete do passageiro para o voo para o qual pretende realizar check-in
      * @return true se for possível realizar o check-in, falso coso contrário
      */
     bool realizarCheckIn(unsigned bId);
+    /**
+     * Atualiza o valor total da multa a pagar por um passageiro por excesso de peso ou por uso indevido de bagagem de mão
+     * @param pId é o id do passageiro para o ual se pretende atribuit uma multa
+     * @param multa é o valor da multa
+     */
+    void incrementarMultaPassageiro(unsigned pId, float multa);
     /**
      *
      * @param cidadeChegada é a cidade de destino
@@ -190,33 +202,39 @@ public:
      */
     vector <Voo> getVoosDatas (const Data& d1, const Data& d2=Data()) const;
     /**
-     * Mostra todos os voos que vão aterrar numa determinada cidade numa determinada data
+     * Mostra todos os voos da companhia aérea
+     * @return true se houver pelo menos um voo disponível, false caso contrário
      */
-    bool showVoos() const;  // TODO: documentacao do @return destes metodos
+    bool showVoos() const;
     /**
      * Mostra os voos que vão partir de uma determinada cidade numa determinada data
      * @param cidadePartida é a cidade de origem
-     * @param d1 é a data
+     * @param d1 é a data em questão
+     * @return true se houver pelo menos um voo disponível que verifique as condições, false caso contrário
      */
     bool showVoosPartida(const string& cidadePartida, const Data& d1=Data()) const;
     /**
      * Mostra os voos que vão aterrar numa determinada cidade numa determinada data
      * @param cidadeChegada é a cidade de destino
-     * @param d1  é a data
+     * @param d1 é a data em questão
+     * @return true se houver pelo menos um voo disponível que verifique as condições, false caso contrário
      */
     bool showVoosChegada(const string& cidadeChegada, const Data& d1=Data()) const;
     /**
      * Mostra os voos que vão ser realizados entre duas determinadas datas
+     * com partida numa determinada cidade e chegada noutra determinada cidade
      * @param cidadePartida é a cidade de origem
      * @param cidadeChegada é a cidade de destino
-     * @param d1 é uma data
-     * @param d2 é uma data
+     * @param d1 é a data que marca o início do intervalo de pesquisa
+     * @param d2 é a data que marca o fim do intervalo de pesquisa
+     * @return true se houver pelo menos um voo disponível que verifique as condições, false caso contrário
      */
     bool showVoosCidades(const string& cidadePartida, const string& cidadeChegada, const Data& d1, const Data& d2) const;
     /**
      * Mostra todos os voos que vão ser realizados entre duas determinadas datas
-     * @param d1 é uma data
-     * @param d2 é uma data
+     * @param d1 é a data que marca o início do intervalo de pesquisa
+     * @param d2 é a data que marca o fim do intervalo de pesquisa
+     * @return true se houver pelo menos um voo disponível que verifique as condições, false caso contrário
      */
     bool showVoosDatas(const Data& d1, const Data& d2=Data()) const;
 };
