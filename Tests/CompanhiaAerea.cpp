@@ -188,6 +188,21 @@ bool CompanhiaAerea::cancelarViagem(unsigned bId) {
     return false;
 }
 
+void CompanhiaAerea::showBagagem(Bilhete b) {
+    int i = 1;
+    vector<Bilhete>::iterator it = find(bilhetesVendidos.begin(), bilhetesVendidos.end(), b);
+    cout << b.getPasssageiro().getNome() << " leva " << it->getBagagem().size() << " mala(s) no total." << endl;
+    for (Bagagem *bg: it->getBagagem()) {
+        cout << i << "." << endl;
+        if (bg->isBagagemDeMao())
+            cout << "Bagagem de mao de peso " << bg->getPeso() << endl;
+        else
+            cout << "Bagagem de porao de peso " << bg->getPeso() << endl;
+        i++;
+    }
+
+}
+
 bool CompanhiaAerea::realizarCheckIn(unsigned bId) {
     Bilhete& bilhete = getBilheteID(bId);
     if (bId == 0) //Bilhete não existe

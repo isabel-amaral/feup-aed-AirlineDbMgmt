@@ -153,6 +153,11 @@ public:
      */
     bool cancelarViagem(unsigned bId);
     /**
+     *
+     * @param bId
+     */
+    void showBagagem(Bilhete b);
+    /**
      * Realiza o check-in de um determinado passageiro com bilhete referente a um certo voo.
      * Apenas é possível realizar o check-in se o bilhete para o voo em questão existir (alguma vez tiver sido comprado).
      * @param bId bId é o id do bilhete do passageiro para o voo para o qual pretende realizar check-in

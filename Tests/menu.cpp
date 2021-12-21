@@ -133,20 +133,37 @@ void Menu::menu3() {
         cout << "3. Cancelar uma viagem" << endl;
         cout << "0. voltar" << endl;
         readOption(0, 1);
-        if (option){
+
+        if (option == 0){
+            option = lastMenu.top();
+            lastMenu.pop();
+            processOption();
+        }
+        else if(option == 1) {
             cout << "Insira o numero do bilhete: ";
             cin >> numBilhete;
+            Bilhete b = companhia.getBilheteID(numBilhete);
+
+            if(b.getPasssageiro().getId() != idPassageiro) {
+                cout << "Nao foi possivel encontrar registo do seu bilhete" << endl;
+            }
+            else if (find(b.getVoo().getPassageiros().begin(), b.getVoo().getPassageiros().end(), b.getPasssageiro()) != b.getVoo().getPassageiros().end()) {
+                companhia.showBagagem(b);
+            }
+            else {
+                cout << "Nao foi possivel encontrar registo da sua bagagem" << endl;
+            }
+        }
+        else if(option == 3) {
             if (companhia.cancelarViagem(numBilhete))
                 cout << "Viagem cancelada" << endl;
             else
                 cout << "Nao foi possivel cancelar a viagem" << endl;
-
         }
+        option = lastMenu.top();
+        lastMenu.pop();
+        processOption();
     }
-
-    option = lastMenu.top();
-    lastMenu.pop();
-    processOption();
 }
 
 //Transportes: Locais e Horarios
