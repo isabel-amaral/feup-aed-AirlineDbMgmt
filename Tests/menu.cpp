@@ -87,7 +87,7 @@ void Menu::menu1() {
     cout << "9. Visualizar voos entre duas cidades selecionadas" << endl;
     cout << "10. Visualizar voos realizados em determinadas datas" << endl;
     cout << "0. Voltar a pagina anterior" << endl;
-    cout << "\nESCOLHA UMA OPCAO:";
+    cout << "\nESCOLHA UMA OPCAO: ";
     readOption(6,10);
 
     if (option)
@@ -122,7 +122,7 @@ void Menu::menu2() {
 //As minhas Reservas
 void Menu::menu3() {
     unsigned idPassageiro, numBilhete;
-    cout << "\nInsira o seu numero de identificacao:";
+    cout << "\nInsira o seu numero de identificacao: ";
     cin >> idPassageiro;
 
     if (idPassageiro != 0){
@@ -132,17 +132,13 @@ void Menu::menu3() {
         cout << "2. Ver multa" << endl;
         cout << "3. Cancelar uma viagem" << endl;
         cout << "0. voltar" << endl;
-        readOption(0, 1);
+        cout << "\nESCOLHA UMA OPCAO: ";
+        readOption(0, 3);
 
-        if (option == 0) {
-            option = lastMenu.top();
-            lastMenu.pop();
-            processOption();
-        }
-        else if (option == 2) {
+        if (option == 2) {
             Passageiro p = companhia.getPassageiroID(idPassageiro);
             if (p.getMultaBagagem() == 0)
-                cout << "Neste momento nao tem nenhuma multa a pagar";
+                cout << "Neste momento nao tem nenhuma multa a pagar" << endl;
             else
                 cout << "Tem " << p.getMultaBagagem() << "euros a pagar";
         }
@@ -154,6 +150,10 @@ void Menu::menu3() {
             else
                 cout << "Nao foi possivel cancelar a viagem" << endl;
         }
+        cout << endl;
+        option = lastMenu.top();
+        lastMenu.pop();
+        processOption();
     }
 }
 
