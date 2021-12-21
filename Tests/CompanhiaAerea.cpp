@@ -32,10 +32,10 @@ vector<Aeroporto>& CompanhiaAerea::getAeroportos() {
     return aeroportos;
 }
 
-void CompanhiaAerea::setVoos(const vector<Voo>& v) {
+/*void CompanhiaAerea::setVoos(const vector<Voo>& v) {
     this->voos = v;
     sort(voos.begin(), voos.end());
-}
+}*/
 
 void CompanhiaAerea::setExcessoPeso(const ExcessoPeso &excessoPeso) {
     this->excessoPeso = excessoPeso;
