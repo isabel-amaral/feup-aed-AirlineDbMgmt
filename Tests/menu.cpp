@@ -275,8 +275,8 @@ void Menu::menu7() {
     else if (resposta == "S"){
         cout << "\nESCOLHA O DIA, O MES E O ANO" << endl;
         cout << "Dia: ";    cin >> dia;
-        cout << "\nMes: ";  cin >> mes;
-        cout << "\nAno: ";  cin >> ano;
+        cout << "Mes: ";  cin >> mes;
+        cout << "Ano: ";  cin >> ano;
         Data d1 (dia, mes, ano);
 
         if (companhia.showVoosPartida(cidade, d1))
@@ -291,7 +291,7 @@ void Menu::menu7() {
 //Visualizar voos com chegada numa determinada cidade
 void Menu::menu8() {
     string resposta, cidade;
-    unsigned dia, mes, ano, n=0;
+    unsigned dia, mes, ano, n = 0;
 
     for (const auto& a: companhia.getAeroportos()){
         cout << n+1 << "- " << a.getCidade() << endl;
@@ -322,8 +322,8 @@ void Menu::menu8() {
     else if (resposta == "S"){
         cout << "\nESCOLHA O DIA, O MES E O ANO" << endl;
         cout << "Dia: ";    cin >> dia;
-        cout << "\nMes: ";  cin >> mes;
-        cout << "\nAno: ";  cin >> ano;
+        cout << "Mes: ";  cin >> mes;
+        cout << "Ano: ";  cin >> ano;
         Data d1 (dia, mes, ano);
 
         if (companhia.showVoosChegada(cidade, d1))
@@ -354,19 +354,19 @@ void Menu::menu9() {
     destino = companhia.getAeroportos().at( option -1).getCidade();
 
     cout << "\nData Inicial: ";
-    cout << "\nDia: ";      cin >> dia;
-    cout << "\nMes: ";      cin >> mes;
-    cout << "\nAno: ";      cin >> ano;
+    cout << "\nDia: "; cin >> dia;
+    cout << "Mes: "; cin >> mes;
+    cout << "Ano: "; cin >> ano;
     Data partida (dia, mes, ano);
     cout << endl;
 
     cout <<  "\nData Final: ";
-    cout << "Dia: ";    cin >> dia;
-    cout << "\nMes: ";  cin >> mes;
-    cout << "\nAno: ";  cin >> ano;
-    Data regresso (dia, mes, ano);
+    cout << "\nDia: "; cin >> dia;
+    cout << "Mes: "; cin >> mes;
+    cout << "Ano: "; cin >> ano;
+    Data regresso(dia, mes, ano);
 
-    if (companhia.showVoosCidades(origem, destino, partida, regresso) )
+    if (companhia.showVoosCidades(origem, destino, partida, regresso))
         menuCompra();
 
     option = lastMenu.top();
@@ -380,16 +380,16 @@ void Menu::menu10() {
     unsigned dia, mes, ano, n = 0;
 
     cout << "\nData de partida: ";
-    cout << "Dia: ";    cin >> dia;
-    cout << "\nMes: ";  cin >> mes;
-    cout << "\nAno: ";  cin >> ano;
+    cout << "\nDia: "; cin >> dia;
+    cout << "Mes: "; cin >> mes;
+    cout << "Ano: "; cin >> ano;
     Data partida (dia, mes, ano);
 
     cout << endl;
     cout <<  "\nData de regresso: ";
-    cout << "Dia: ";    cin >> dia;
-    cout << "\nMes: ";  cin >> mes;
-    cout << "\nAno: ";  cin >> ano;
+    cout << "\nDia: "; cin >> dia;
+    cout << "Mes: "; cin >> mes;
+    cout << "Ano: "; cin >> ano;
     Data regresso (dia, mes, ano);
 
     if (companhia.showVoosDatas(partida, regresso))
@@ -407,22 +407,22 @@ void Menu::menu19() {
     unsigned l, dia, mes, ano;
     string nome, cidade;
 
-    cout << "\nNumero do voo: ";            cin >> n;
-    cout << "\nAeroporto de origem: ";      getline(cin, nome);
-    cout << "\nCidade: ";                   getline(cin, cidade);
+    cout << "\nNumero do voo: "; cin >> n;
+    cout << "Aeroporto de origem: "; getline(cin, nome);
+    cout << "Cidade: "; getline(cin, cidade);
     Aeroporto ao(nome, cidade);
 
-    cout << "\nAeroporto de destino: ";     getline(cin, nome);
-    cout << "\nCidade: ";                   getline(cin, cidade);
+    cout << "\nAeroporto de destino: "; getline(cin, nome);
+    cout << "Cidade: "; getline(cin, cidade);
     Aeroporto ad(nome, cidade);
 
-    cout << "\nData de ida: ";      cin >> dia >> mes >> ano ;
+    cout << "\nData de ida: "; cin >> dia >> mes >> ano ;
     Data partida(dia, mes, ano);
 
-    cout << "\nHora de partida: ";  cin >> hp;
-    cout << "\nHora de chegada: ";  cin >> hc;
-    cout << "\nDuracao prevista: "; cin >> d;
-    cout << "\nLotacao do aviao: "; cin >> l;
+    cout << "Hora de partida: "; cin >> hp;
+    cout << "Hora de chegada: "; cin >> hc;
+    cout << "Duracao prevista: "; cin >> d;
+    cout << "Lotacao do aviao: "; cin >> l;
 
     Voo v(n, ao, ad, partida, hp, hc, d, l, 0);
     companhia.addVoo(v);
@@ -437,9 +437,9 @@ void Menu::menu20() {
     string m, t;
     unsigned c;
 
-    cout << "\nMatrícula do aviao: ";   cin >> m;
-    cout << "\nTipo do avião: ";        cin >> t;
-    cout << "\nCapacidade do aviao: ";  cin >> c;
+    cout << "\nMatrícula do aviao: "; cin >> m;
+    cout << "Tipo do avião: ";        cin >> t;
+    cout << "Capacidade do aviao: ";  cin >> c;
 
     Aviao a(m, t, c);
     companhia.addAviao(a);
@@ -455,7 +455,7 @@ void Menu::menu21() {
 
     cout << "\nNome: ";
     getline(cin, nome);
-    cout << "\nCidade: ";
+    cout << "Cidade: ";
     getline(cin, cidade);
 
     Aeroporto a(nome, cidade);
@@ -488,16 +488,15 @@ void Menu::menu23() {
 
     cout << "\nNome: ";
     getline(cin, nome);
-    cout << "\nCidade: ";
+    cout << "Cidade: ";
     getline(cin, cidade);
 
     Aeroporto a(nome, cidade);
     index = companhia.binarySearchAeroporto(a.getNome());
     if (companhia.getAeroportos()[index].getNome() == nome && companhia.getAeroportos()[index].getCidade() == cidade)
         cout << "\nA nossa companhia possui voos com partida/destino neste aeroporto." << endl;
-    else{
+    else
         cout << "\nA nossa companhia nao realiza voos com partida/destino nest aeoroporto" << endl;
-    }
 
     option = lastMenu.top();
     lastMenu.pop();
@@ -547,27 +546,28 @@ void Menu::menuCompra() {
     bool menorNaoAcompanhado =false, bagagemMao, compraRealizada;
     float peso;
     list <Passageiro> passageiros;
-    list <list <Bagagem*> > malas;
-    list <Bagagem *> b;
+    list <list<Bagagem*>> malas;
+    list <Bagagem*> b;
 
-    cout << "\n1. Comprar um bilhete " ;
-    cout << "\n0. Voltar"<< endl;
-    cout << "\nESCOLHA UMA OPCAO: " <<endl;
+    cout << "\n1. Comprar um bilhete" << endl ;
+    cout << "0. Voltar"<< endl;
+    cout << "ESCOLHA UMA OPCAO: ";
     readOption(0 ,1);
 
     if ( option == 0){
         return;
     }
 
-    cout << "\nINSIRA O NUMERO DO VOO QUE DESEJA COMPRAR UM BILHETE :" ;
+    cout << "\nINSIRA O NUMERO DO VOO PARA O QUAL DESEJA COMPRAR BILHETE: " ;
     cin >> nrVoo;
 
     for (Voo& v: companhia.getVoos() ){
         if (v.getNumeroVoo() == nrVoo){
-            cout << "\nINSIRA O NUMERO DE PESSOAS: (0 para voltar): " ;
+            cout << "INSIRA O NUMERO DE PESSOAS: (0 para voltar): " ;
             cin >> numPessoas;
 
-            if (numPessoas == 0) return;
+            if (numPessoas == 0)
+                return;
 
             cout << "Deseja levar bagagem de mao? "<< endl;
             cout << "1. Sim" << endl;
@@ -575,25 +575,25 @@ void Menu::menuCompra() {
             readOption(1,2);
             bagagemMao = (option == 1);
 
-            while (numPessoas > 0){
+            while (numPessoas > 0) {
                 b.clear();
                 cin.ignore(10000, '\n');
 
-                cout << "\nNome:" ;
+                cout << "\nNome: " ;
                 getline (cin, nome);
-                cout << "No. de identificacao:" ;
+                cout << "No. de identificacao: " ;
                 cin >> id;
-                cout << "Idade:";
+                cout << "Idade: ";
                 cin >> idade;
 
                 if (idade < 18) {
-                    cout << "Menor acompanhado por um adulto: " << endl;
+                    cout << "Menor acompanhado por um adulto:" << endl;
                     cout << "1. Sim" << endl;
                     cout << "2. Nao" << endl;
                     readOption(1, 2);
                     menorNaoAcompanhado = (option == 2);
                 }
-                cout << "Quantas bagagens de porao deseja levar?" << endl;
+                cout << "Quantas bagagens de porao deseja levar? " << endl;
                 cin >> numBagagens;
 
                 if (bagagemMao){
@@ -620,11 +620,10 @@ void Menu::menuCompra() {
                 numPessoas--;
             }
 
-            if (passageiros.size() > 1 )
+            if (passageiros.size() > 1)
                 compraRealizada = companhia.adquirirConjuntoBilhetes(passageiros, v, bagagemMao, malas);
-            else{
+            else
                 compraRealizada = companhia.adquirirBilhete(*(passageiros.begin()), v, bagagemMao, malas.front());
-            }
 
             if (compraRealizada)
                 cout << "COMPRA REALIZADA COM SUCESSO!" << endl;
