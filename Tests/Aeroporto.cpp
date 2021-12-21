@@ -202,7 +202,7 @@ bool Aeroporto::operator< (const Aeroporto &a1) const {
 
 bool criterioComparacao2(const LocalDeTransporte& l1, const LocalDeTransporte& l2) {
     if (l1.getDisponibilidade() != l2.getDisponibilidade())
-        return l1.getDisponibilidade() < l2.getDisponibilidade();
+        return l1.getDisponibilidade() > l2.getDisponibilidade();
     else if (l1.getDistancia() != l2.getDistancia())
         return l1.getDistancia() < l2.getDistancia();
     else
@@ -215,7 +215,7 @@ bool criterioComparacao3(const LocalDeTransporte& l1, const LocalDeTransporte& l
     else if (l1.getDistancia() != l2.getDistancia())
         return l1.getDistancia() < l2.getDistancia();
     else
-        return l1.getDisponibilidade() < l2.getDisponibilidade();
+        return l1.getDisponibilidade() > l2.getDisponibilidade();
 }
 
 void ordenarLocais(vector<LocalDeTransporte>& locais, int ordenacao) {

@@ -210,9 +210,9 @@ void Menu::menu4() {
     }
     if (option >= 11 && option <= 14) {
         lastMenu.push (4);
-        cout << "\n1. Distancia Ascendente - Disponibilidade Ascendente - Tipo " << endl;
-        cout << "2. Disponibilidade Ascendente - Distancia Ascendente - Tipo" << endl;
-        cout << "3. Tipo - Distancia Ascendente - Disponibilidade Ascendente " << endl;
+        cout << "\n1. Distancia Ascendente - Disponibilidade Descendente - Tipo " << endl;
+        cout << "2. Disponibilidade Descendente - Distancia Ascendente - Tipo" << endl;
+        cout << "3. Tipo - Distancia Ascendente - Disponibilidade Descendente " << endl;
         cout << endl << "\nESCOLHA EM QUE ORDEM DESEJA QUE OS DADOS SEJAM APRESENTADOS:";
         cin >> opOrdenacao;
     }

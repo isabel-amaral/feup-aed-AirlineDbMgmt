@@ -125,15 +125,28 @@ public:
     bool operator <(const Aeroporto& a1) const;
 };
 /**
-* Critério de ordenação de transportes terrestres por ordem crescente de diponibilidade,
-* em caso de empate, os locais são ordenados por distÂncia (ordem crescente), caso haja empate,
+* Critério de ordenação de transportes terrestres por ordem decrescente de diponibilidade,
+* em caso de empate, os locais são ordenados por distância (ordem crescente), caso haja empate,
 * são ordenados pelo tipo seguindo o critério Metro< Comboio < Autocarro.
 * @param l1 é um local de transporte
 * @param l2 é outro local de transporte
 * @return true se l1 < l2, caso contrário false.
 */
 bool criterioComparacao2 ( const LocalDeTransporte& l1, const LocalDeTransporte& l2 );
-bool criterioComparacao3 (const LocalDeTransporte& l1, const LocalDeTransporte& l2) ;
+/**
+* Critério de ordenação de transportes terrestres pelo tipo (seguindo o critério Metro< Comboio < Autocarro),
+* em caso de empate, os locais são ordenados por distância (ordem crescente), caso haja empate,
+* serão então ordenados por ordem decrescente da disponibilidade.
+* @param l1 é um local de transporte
+* @param l2 é outro local de transporte
+* @return true se l1 < l2, caso contrário false.
+*/
+bool criterioComparacao3 (const LocalDeTransporte& l1, const LocalDeTransporte& l2);
+/**
+ * Ordena os locais de transporte segundo um determinado critério.
+ * @param locais são os locais a serem ordenados.
+ * @param ordenacao é o critério de ordenação.
+ */
 void ordenarLocais (vector <LocalDeTransporte>& locais, int ordenacao);
 
 #endif //_AEROPORTO_H
