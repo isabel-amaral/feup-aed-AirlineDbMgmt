@@ -83,8 +83,8 @@ Bilhete& CompanhiaAerea::getBilheteID(unsigned int bId) {
     for (Bilhete& b: bilhetesVendidos)
         if (b.getIdBilhete() == bId)
             return b;
-    Bilhete bilhete;
-    return bilhete;
+    Bilhete *bilhete = new Bilhete();
+    return *bilhete;
 }
 
 vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(unsigned pId) const {
