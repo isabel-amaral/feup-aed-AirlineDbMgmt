@@ -75,11 +75,12 @@ void CompanhiaAerea::addAeroporto(const Aeroporto& aeroporto) {
         aeroportos.insert(aeroportos.begin() + index, aeroporto);
 }
 
-Bilhete CompanhiaAerea::getBilheteID(unsigned int bId) const {
-    for (Bilhete b: bilhetesVendidos)
+Bilhete& CompanhiaAerea::getBilheteID(unsigned int bId) {
+    for (Bilhete& b: bilhetesVendidos)
         if (b.getIdBilhete() == bId)
             return b;
-    return Bilhete();
+    Bilhete bilhete;
+    return bilhete;
 }
 
 vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(unsigned pId) const {
@@ -171,22 +172,23 @@ bool CompanhiaAerea::adquirirConjuntoBilhetes(list<Passageiro> &p, Voo &v, bool 
 
 bool CompanhiaAerea::cancelarViagem(unsigned bId) {
     Bilhete b = getBilheteID(bId);
-    if (find(b.getVoo().getPassageirosCheckedIn().begin(), b.getVoo().getPassageirosCheckedIn().end(), b.getPasssageiro()) == b.getVoo().getPassageirosCheckedIn().end())
-        if (find(b.getVoo().getPassageirosCheckedIn().begin(), b.getVoo().getPassageirosCheckedIn().end(), b.getPasssageiro()) != b.getVoo().getPassageirosCheckedIn().end())
-            return false;
+    if (find(b.getVoo().getPassageirosCheckedIn().begin(), b.getVoo().getPassageirosCheckedIn().end(), b.getPasssageiro()) != b.getVoo().getPassageirosCheckedIn().end())
+        return false;
     vector<Bilhete>::iterator it = find(bilhetesVendidos.begin(), bilhetesVendidos.end(), b);
     bilhetesVendidos.erase(it);
     for (Voo& voo: voos)
-
         if (voo.getNumeroVoo() == b.getVoo().getNumeroVoo()) {
             voo.removerPassageiro(b.getPasssageiro());
             return true;
         }
+    return false;
 }
 
 bool CompanhiaAerea::realizarCheckIn(unsigned bId) {
-    Bilhete bilhete = getBilheteID(bId);
-    if (bilhete.getIdBilhete() == 0) //Bilhete não existe
+    Bilhete& bilhete = getBilheteID(bId);
+    if (bId == 0) //Bilhete não existe
+        return false;
+    if (bilhete.isCheckedIn()) //O check-in para este bilhete já foi realizado
         return false;
 
     list<Bagagem*>::const_iterator it;
@@ -204,8 +206,10 @@ bool CompanhiaAerea::realizarCheckIn(unsigned bId) {
     for (Voo& voo: voos)
         if (voo.getNumeroVoo() == bilhete.getVoo().getNumeroVoo()) {
             voo.realizarCheckIn(bilhete.getPasssageiro());
+            bilhete.realizarCheckIn();
             return true;
         }
+    return false;
 }
 
 vector<Voo> CompanhiaAerea::getVoosChegada(const string& cidadeChegada, const Data& d) const {

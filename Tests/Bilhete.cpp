@@ -8,6 +8,7 @@ Bilhete::Bilhete() {
     this->voo = Voo();
     this->bagagemDeMao = false;
     this->bagagem = list<Bagagem*>();
+    this->checkIn = false;
 }
 
 Bilhete::Bilhete(unsigned id, const Passageiro& p, const Voo& v, bool b, const list<Bagagem*>& bagagem) {
@@ -16,6 +17,7 @@ Bilhete::Bilhete(unsigned id, const Passageiro& p, const Voo& v, bool b, const l
     this->voo = v;
     this->bagagemDeMao = b;
     this->bagagem = bagagem;
+    this->checkIn = false;
     idCount++;
 }
 
@@ -43,6 +45,10 @@ list<Bagagem*>& Bilhete::getBagagem() {
     return bagagem;
 }
 
+bool Bilhete::isCheckedIn() const {
+    return checkIn;
+}
+
 void Bilhete::setPassageiro(const Passageiro& p) {
     this->passageiro = p;
 }
@@ -53,6 +59,10 @@ void Bilhete::setBagagemDeMao(bool bagagem) {
 
 void Bilhete::setBagagem(const list<Bagagem*>& b) {
     this->bagagem = b;
+}
+
+void Bilhete::realizarCheckIn() {
+    checkIn = true;
 }
 
 bool Bilhete::operator< (Bilhete& b) {

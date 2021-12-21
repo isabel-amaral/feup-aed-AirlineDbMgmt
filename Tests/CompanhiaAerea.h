@@ -86,7 +86,7 @@ public:
      * @param bId é o id do bilhete
      * @return bilhete com id bId
      */
-    Bilhete getBilheteID(unsigned bId) const;
+    Bilhete& getBilheteID(unsigned bId);
     /**
      *
      * @param pId é o id de um determinado passageiro

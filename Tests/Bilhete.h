@@ -32,6 +32,10 @@ private:
      * lista com os volumes de bagagem do passageiro para o voo em questão.
      */
     list<Bagagem*> bagagem;
+    /**
+     * true se o passageiro que possui o bilhete já tiver feito o check-in para o voo respetivo, false caso contrário
+     */
+    bool checkIn;
 
 public:
     Bilhete();
@@ -67,6 +71,11 @@ public:
      */
     list<Bagagem*>& getBagagem();
     /**
+     *
+     * @return true se o passageiro que possui o bilhete já tiver feito o check-in para o voo respetivo, false caso contrário
+     */
+    bool isCheckedIn() const;
+    /**
      * Indica o passageiro que comprou o bilhete.
      * @param p é o passageiro a quem pertence o bilhete.
      */
@@ -81,6 +90,10 @@ public:
      * @param b é a lista das bagagens.
      */
     void setBagagem(const list<Bagagem*>& b);
+    /**
+     * Atualiza o estado de check-in do bilhte para true (realizado)
+     */
+    void realizarCheckIn();
     /**
      * Um bilhete é tanto menor quanto menor é o nome do passegeiro a quem pertence.
      * Em caso de empate é tanto menor quanto menor é a data de partida do voo a que se refere.
