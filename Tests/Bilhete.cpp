@@ -29,7 +29,7 @@ unsigned Bilhete::getIdCount() {
     return idCount;
 }
 
-Passageiro Bilhete::getPasssageiro() const {
+Passageiro& Bilhete::getPasssageiro() {
     return passageiro;
 }
 

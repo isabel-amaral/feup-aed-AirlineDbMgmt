@@ -140,7 +140,7 @@ void Menu::menu3() {
             if (p.getMultaBagagem() == 0)
                 cout << "Neste momento nao tem nenhuma multa a pagar" << endl;
             else
-                cout << "Tem " << p.getMultaBagagem() << "euros a pagar";
+                cout << "Tem " << p.getMultaBagagem() << " euros a pagar";
         }
         else if (option == 3) {
             cout << "Insira o numero do bilhete: ";

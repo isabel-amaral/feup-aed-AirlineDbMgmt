@@ -104,14 +104,14 @@ public:
      * @return vector com todos os bilhetes adquiridos pelo passageiro p num vetor.
      * Caso este passageiro não tenha adquirido nenhum bilhete, será retornado um vetor vazio.
      */
-    vector<Bilhete> getBilhetesFromPassageiro(unsigned pId) const;
+    vector<Bilhete> getBilhetesFromPassageiro(unsigned pId);
     /**
      * Imprime os dados de cada um dos bilhetes de um determinado passageiro.
      * Caso o passageiro não tenha adquirido nenhum bilhete, é apresentada a
      * mensagem "Este passageiro ainda não adquiriu nenhum bilhete".
      * @param pId é o id do passageiro
      */
-    void showBilhetesFromPassageiro(unsigned pId) const;
+    void showBilhetesFromPassageiro(unsigned pId);
     /**
      *
      * @param numVoo é o número do voo
@@ -129,7 +129,7 @@ public:
      * @param numVoo é o número do voo
      * @return bilhete do passageiro para o voo em questão
      */
-    Bilhete getBilhetePassageiroVoo(unsigned pId, unsigned numVoo) const;
+    Bilhete getBilhetePassageiroVoo(unsigned pId, unsigned numVoo);
     /**
      * Acrescenta um bilhete ao conjunto dos demais bilhetes vendidos caso seja possivel efetuar a sua compra (o voo v não está lotado).
      * @param p é o passageiro que pretende comprar o bilhete.
@@ -161,10 +161,16 @@ public:
     /**
      * Realiza o check-in de um determinado passageiro com bilhete referente a um certo voo.
      * Apenas é possível realizar o check-in se o bilhete para o voo em questão existir (alguma vez tiver sido comprado).
-     * @param bId bId é o id do bilhete do passageiro para o voo para o qual pretende realizar check-in
+     * @param bId é o id do bilhete do passageiro para o voo para o qual pretende realizar check-in
      * @return true se for possível realizar o check-in, falso coso contrário
      */
     bool realizarCheckIn(unsigned bId);
+    /**
+     * Atualiza o valor total da multa a pagar por um passageiro por excesso de peso ou por uso indevido de bagagem de mão
+     * @param pId é o id do passageiro para o ual se pretende atribuit uma multa
+     * @param multa é o valor da multa
+     */
+    void incrementarMultaPassageiro(unsigned pId, float multa);
     /**
      *
      * @param cidadeChegada é a cidade de destino

@@ -95,7 +95,7 @@ Passageiro CompanhiaAerea::getPassageiroID(unsigned int pID) {
     return passageiro;
 }
 
-vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(unsigned pId) const {
+vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(unsigned pId) {
     vector<Bilhete> bilhetes;
     for (int i = 0; i < bilhetesVendidos.size(); i++) {
         if (bilhetesVendidos[i].getPasssageiro().getId() == pId) {
@@ -107,7 +107,7 @@ vector<Bilhete> CompanhiaAerea::getBilhetesFromPassageiro(unsigned pId) const {
     return bilhetes;
 }
 
-void CompanhiaAerea::showBilhetesFromPassageiro(unsigned pId) const {
+void CompanhiaAerea::showBilhetesFromPassageiro(unsigned pId) {
     vector<Bilhete> bilhetes = getBilhetesFromPassageiro(pId);
     if (bilhetes.empty()){
         cout << "Este passageiro ainda nao adquiriu nenhum bilhete." <<endl;
@@ -140,7 +140,7 @@ void CompanhiaAerea::showPassageirosFromVoo(unsigned numVoo) const {
     cout << endl;
 }
 
-Bilhete CompanhiaAerea::getBilhetePassageiroVoo(unsigned pId, unsigned numVoo) const {
+Bilhete CompanhiaAerea::getBilhetePassageiroVoo(unsigned pId, unsigned numVoo) {
     vector<Bilhete> bilhetes = getBilhetesFromPassageiro(pId);
     for (Bilhete b: bilhetes) {
         if (b.getVoo().getNumeroVoo() == numVoo)
@@ -209,10 +209,10 @@ bool CompanhiaAerea::realizarCheckIn(unsigned bId) {
             if ((*it)->isCheckInAutomatico())
                 bilhete.getVoo().getTransportador().adicionarAoTapete(*it);
             if (excessoPeso.excedePeso(*it))
-                bilhete.getPasssageiro().incrementarMulta(excessoPeso.multaExcessoPeso(*it));
+                incrementarMultaPassageiro(bilhete.getPasssageiro().getId(), excessoPeso.multaExcessoPeso(*it));
         }
         else if (!bilhete.temBagagemDeMao())
-            bilhete.getPasssageiro().incrementarMulta(excessoPeso.multaTaxaBagagemDeMao(*it));
+            incrementarMultaPassageiro(bilhete.getPasssageiro().getId(), excessoPeso.multaTaxaBagagemDeMao(*it));
     }
 
     for (Voo& voo: voos)
@@ -222,6 +222,12 @@ bool CompanhiaAerea::realizarCheckIn(unsigned bId) {
             return true;
         }
     return false;
+}
+
+void CompanhiaAerea::incrementarMultaPassageiro(unsigned int pId, float multa) {
+    for (Bilhete& bilhete: bilhetesVendidos)
+        if (bilhete.getPasssageiro().getId() == pId)
+            bilhete.getPasssageiro().incrementarMulta(multa);
 }
 
 vector<Voo> CompanhiaAerea::getVoosChegada(const string& cidadeChegada, const Data& d) const {
