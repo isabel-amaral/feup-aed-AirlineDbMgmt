@@ -3,20 +3,14 @@ project(AirlineDatabaseManagement)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_subdirectory(lib/googletest-master)
-include_directories(lib/googletest-master/googletest/include)
-include_directories(lib/googletest-master/googlemock/include)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/dataset")
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Dados")
-
-add_executable(AirlineDatabaseManagement main.cpp Tests/tests.cpp Tests/Aviao.h Tests/Aviao.cpp Tests/Voo.h Tests/Voo.cpp
-        Tests/Servico.h Tests/Servico.cpp Tests/Passageiro.h Tests/Passageiro.cpp Tests/Bilhete.h Tests/Bilhete.cpp
-        Tests/Aeroporto.h Tests/Aeroporto.cpp Tests/Funcionario.cpp Tests/Funcionario.h Tests/Bagagem.cpp Tests/Bagagem.h
-        Tests/CompanhiaAerea.cpp Tests/CompanhiaAerea.h Tests/TransportadorDeBagagem.cpp Tests/TransportadorDeBagagem.h
-        Tests/Data.h Tests/Data.cpp Tests/Horario.cpp Tests/Horario.h Tests/LocalDeTransporte.cpp Tests/LocalDeTransporte.h
-        Tests/bst.h Tests/ExcessoPeso.cpp Tests/ExcessoPeso.h Tests/menu.cpp Tests/menu.h Tests/LoadData.cpp Tests/LoadData.h)
-
-target_link_libraries(AirlineDatabaseManagement gtest gtest_main)
+add_executable(AirlineDatabaseManagement src/main.cpp src/Aviao.h src/Aviao.cpp src/Voo.h src/Voo.cpp
+        src/Servico.h src/Servico.cpp src/Passageiro.h src/Passageiro.cpp src/Bilhete.h src/Bilhete.cpp
+        src/Aeroporto.h src/Aeroporto.cpp src/Funcionario.cpp src/Funcionario.h src/Bagagem.cpp src/Bagagem.h
+        src/CompanhiaAerea.cpp src/CompanhiaAerea.h src/TransportadorDeBagagem.cpp src/TransportadorDeBagagem.h
+        src/Data.h src/Data.cpp src/Horario.cpp src/Horario.h src/LocalDeTransporte.cpp src/LocalDeTransporte.h
+        src/bst.h src/ExcessoPeso.cpp src/ExcessoPeso.h src/menu.cpp src/menu.h src/LoadData.cpp src/LoadData.h)
 
 # Doxygen Build
 find_package(Doxygen)

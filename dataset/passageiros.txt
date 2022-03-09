@@ -1,0 +1,101 @@
+20
+***
+Emelie Pinhal
+1
+12
+true
+***
+Joana Falcao
+2
+19
+false
+***
+Candida Chaves
+3
+25
+false
+***
+Maira Dourado
+4
+30
+false
+***
+Sofia Santos
+5
+20
+false
+***
+Rosario Silva
+6
+36
+false
+***
+Ana Macedo
+7
+15
+false
+***
+Andreia Mourao
+8
+17
+true
+***
+Hilario Afonso
+9
+56
+false
+***
+Angelica Malafaia
+10
+46
+false
+***
+Catia Fernandes
+11
+34
+false
+***
+Clara Carvalho
+12
+23
+false
+***
+Marisa Reis
+13
+23
+false
+***
+Sara Dorneles
+14
+15
+false
+***
+Dario Mourinho
+15
+28
+false
+***
+Leonor Goncalves
+16
+48
+false
+***
+Eduardo Maeireles
+17
+49
+false
+***
+Tomas Simoes
+18
+70
+false
+***
+Elisa Dias
+19
+5
+true
+***
+Martim Cabral
+20
+6
+false
