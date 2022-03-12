@@ -23,7 +23,7 @@ illustrate the manipulation of every used data structure.
 
 ### Implemented Features
 
-Some of the most basic operations were specifically required in the project's description - [here](). 
+Some of the most basic operations were specifically required in the project's description (pt) - [here](./docs/project-description.pdf). 
 Bellow there's a listing of the features we're most proud of and some extra ones we came up with by ourselves.
 
 - **Code documentation** - All the implemented classes were documented using doxygen. The complete generated documentation
@@ -57,3 +57,5 @@ of having some undetected and that the menu breaks if not used properly. :sweat_
 
 Overall we managed to develop a high number of features, even though the quality of the code isn't the best, and we did good use
 of the selected data structures, which was the main goal of the project.
+
+For a more detailed report (pt) check out ppt presentation [here](./docs/presentation.pdf).
