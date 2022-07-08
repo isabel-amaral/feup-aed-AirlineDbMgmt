@@ -26,14 +26,6 @@ illustrate the manipulation of every used data structure.
 Some of the features were required in the project's description (pt) - [here](./docs/project-description.pdf). 
 Bellow there's a listing of some of the features we thought were worth highlighting.
 
-- **Code documentation** - All the implemented classes were documented using doxygen. The complete generated documentation
-can be checked in the [docs directory](./docs/output/html). Alternatively just open the [index.html](./docs/output/html/index.html)
-in your browser.
-- **Interactive Menu** - In order to test and demonstrate the many features developed, we created a simple menu.
-Due to lack of time, we didn't manage to cover every single possibility of our code's functionalities, e.g. luggage
-transportation, but we still covered a big chunk of it.
-- **Mock data** - For an easier visualization of the developed functionalities through the menu, we created a fake
-dataset for each of our entities using text files - aeroportos.txt, avioes.txt, voos.txt, passageiros.txt, bilhetes.txt etc.
 - **Diversified listings** - The user has the possibility of checking for which flights they have a ticket through their
 passenger id and, for each ticket, what luggage he is allowed to bring.
 - **Diversified listings with filters** - It's possible for the user to check listings of all the flights offered
@@ -46,6 +38,14 @@ one of their flights and another one that allows to cancel one of the tickets fo
 done yet.
 - **Luggage related fines** (extra) - During check-in, if the user wants to add luggage that exceeds the weight defined as the maximum
 weight allowed in their ticket or if they bring hand luggage when it's not allowed by their ticket, a fine is attributed.
+- **Interactive Menu** - In order to test and demonstrate the many features developed, we created a simple menu.
+Due to lack of time, we didn't manage to cover every single possibility of our code's functionalities, e.g. luggage
+transportation, but we still covered a big chunk of it.
+- **Mock data** - For an easier visualization of the developed functionalities through the menu, we created a fake
+dataset for each of our entities using text files - aeroportos.txt, avioes.txt, voos.txt, passageiros.txt, bilhetes.txt etc.
+- **Code documentation** - All the implemented classes were documented using doxygen. The complete generated documentation
+can be checked in the [docs directory](./docs/output/html). Alternatively just open the [index.html](./docs/output/html/index.html)
+in your browser.
 
 ### Program Development State
 
