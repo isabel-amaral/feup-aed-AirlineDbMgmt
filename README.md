@@ -44,7 +44,7 @@ transportation, but we still covered a big chunk of it.
 - **Mock data** - For an easier visualization of the developed functionalities through the menu, we created a fake
 dataset for each of our entities using text files - aeroportos.txt, avioes.txt, voos.txt, passageiros.txt, bilhetes.txt etc.
 - **Code documentation** - All the implemented classes were documented using doxygen. The complete generated documentation
-can be checked in the [docs directory](./docs/output/html). Alternatively just open the [index.html](./docs/output/html/index.html)
+can be checked in the [docs directory](./docs/output/html/). Alternatively just open the [index.html](./docs/output/html/index.html)
 in your browser.
 
 ### Program Development State
